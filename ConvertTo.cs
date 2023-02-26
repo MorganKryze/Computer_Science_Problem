@@ -11,13 +11,12 @@ namespace Computer_Science_Problem
         /// <summary>This method converts a bytes array to a <see cref="uint"/>.</summary>
         /// <param name="array">The bytes array.</param>
         /// <param name="offset">The starting position.</param>
+        /// <returns>An <see cref="uint"/>.</returns>
         public static uint UInt(byte[] array, int offset = 0)
         {
-            uint res = 0;
-            for (int i = 0; i < 4; i++)
-                res += array[offset + i] * (uint)Math.Pow(256, i);
-
-            return res;
+            uint result = 0;
+            for (int i = 0; i < 4; i++) result += array[offset + i] * (uint)Math.Pow(256, i);
+            return result;
         }
         /// <summary> This method converts a bytes array to an <see cref="int"/>.</summary>
         /// <param name="array">The bytes array.</param>
@@ -25,11 +24,9 @@ namespace Computer_Science_Problem
         /// <returns>An <see cref="int"/></returns>
         public static int Int(byte[] array, int offset = 0)
         {
-            int res = 0;
-            for (int i = 0; i < 4; i++)
-                res += array[offset + i] * (int)Math.Pow(256, i);
-
-            return res;
+            int result = 0;
+            for (int i = 0; i < 4; i++) result += array[offset + i] * (int)Math.Pow(256, i);
+            return result;
         }
 
         /// <summary> This method converts a bytes array to an <see cref="ushort"/>.</summary>
@@ -38,11 +35,9 @@ namespace Computer_Science_Problem
         /// <returns>An <see cref="ushort"/>.</returns>
         public static ushort UShort(byte[] array, int offset = 0)
         {
-            ushort res = 0;
-            for (int i = 0; i < 2; i++)
-                res += (ushort)(array[offset + i] * Math.Pow(256, i));
-
-            return res;
+            ushort result = 0;
+            for (int i = 0; i < 2; i++) result += (ushort)(array[offset + i] * Math.Pow(256, i));
+            return result;
         }
         #endregion
 
@@ -58,10 +53,8 @@ namespace Computer_Science_Problem
                 result[i] = (byte)(value % 256);
                 value /= 256;
             }
-
             return result;
         }
-
         /// <summary>This method converts an <see cref="uint"/> to a <see cref="byte"/> array.</summary>
         /// <param name="value">The uint to convert</param>
         /// <returns>A<see cref="byte"/>array.</returns>
@@ -73,10 +66,8 @@ namespace Computer_Science_Problem
                 result[i] = (byte)(value % 256);
                 value >>= 8; // value /= 256;
             }
-
             return result;
         }
-
         /// <summary>This method converts an <see cref="ushort"/> to a <see cref="byte"/> array.</summary>
         /// <param name="value">The ushort to convert</param>
         /// <returns>A<see cref="byte"/>array.</returns>
@@ -88,7 +79,6 @@ namespace Computer_Science_Problem
                 result[i] = (byte)(value % 256);
                 value /= 256;
             }
-
             return result;
         }
         #endregion

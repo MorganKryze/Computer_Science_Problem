@@ -41,13 +41,10 @@ namespace Computer_Science_Problem
         #region Methods
         /// <summary> This method copies the current pixel. </summary>
         /// <returns> A copy of the current pixel. </returns>
-        public Pixel Copy()
-        {
-            return new Pixel(this);
-        }
+        public Pixel Copy() => new Pixel(this);
         /// <summary> This method returns the pixel in greyscale. </summary>
         /// <returns> A pixel in greyscale. </returns>
-        public Pixel Greyscale() => new Pixel((byte)((Red + Green + Blue) / 3)); // m�thode en 1 ligne
+        public Pixel Greyscale() => new Pixel((byte)((Red + Green + Blue) / 3)); 
         /// <summary>This method returns a string representation of the pixel.</summary>
         /// <returns> A string representation of the pixel. </returns>
         public override string ToString() => $"({Red}, {Green}, {Blue})";
