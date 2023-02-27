@@ -111,9 +111,9 @@ namespace Computer_Science_Problem
         {
             Image result = this.Copy();
 
-            for (int x = 0; x < 800; x++)
+            for (int x = 0; x < Width; x++)
             {
-                for (int y = 0; y < 600; y++)
+                for (int y = 0; y < Height; y++)
                 {
                     result[x, y] = this[x, y].Greyscale();
                 }
