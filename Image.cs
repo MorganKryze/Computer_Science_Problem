@@ -39,19 +39,19 @@ namespace Computer_Science_Problem
         /// <summary> Encoding.ASCII.GetString is a method which turn a bytes array into a string </summary>
         public string Type => Encoding.ASCII.GetString(Header.ExtractBytes(2, offType));
         /// <summary> Utils.LittleEndianToUInt is a method which turn the information of the file size contained in a bytes array into an unsigned integer </summary>
-        public uint FileSize => Utils.LittleEndianToUInt(Header, offFileSize);
+        public uint FileSize => ConvertTo.UInt(Header, offFileSize);
         /// <summary> Utils.LittleEndianToUInt is a method which turn the information of the start offset contained in a bytes array into an unsigned integer </summary>
-        public uint StartOffset => Utils.LittleEndianToUInt(Header, offStartOffset);
+        public uint StartOffset => ConvertTo.UInt(Header, offStartOffset);
         /// <summary> Utils.LittleEndianToUInt is a method which turn the information of the info header size contained in a bytes array into an unsigned integer </summary>
-        public uint InfoHeaderSize => Utils.LittleEndianToUInt(Header, offInfoHeadsize);
+        public uint InfoHeaderSize => ConvertTo.UInt(Header, offInfoHeadsize);
         /// <summary> Utils.LittleEndianToInt is a method which turn the information of the width contained in a bytes array into an integer </summary>
-        public int Width => Utils.LittleEndianToInt(Header, offWidth);
+        public int Width => ConvertTo.Int(Header, offWidth);
         /// <summary> Utils.LittleEndianToInt is a method which turn the information of the height contained in a bytes array into an integer </summary>
-        public int Height => Utils.LittleEndianToInt(Header, offHeight);
+        public int Height => ConvertTo.Int(Header, offHeight);
         /// <summary> Utils.LittleEndianToUShort is a method which turn the information of the color planes contained in a bytes array into an unsigned short </summary>
-        public ushort ColorPlanes => Utils.LittleEndianToUShort(Header, offColorplanes);
+        public ushort ColorPlanes => ConvertTo.UShort(Header, offColorplanes);
         /// <summary> Utils.LittleEndianToUShort is a method which turn the information of the color depth contained in a bytes array into an unsigned short </summary>
-        public ushort ColorDepth => Utils.LittleEndianToUShort(Header, offColorDepth);
+        public ushort ColorDepth => ConvertTo.UShort(Header, offColorDepth);
         public int Stride => (Width * ColorDepth / 8 + 3) / 4 * 4; // by dividing then multiplying, we floor to the nearest smallest integer, nombre d'octets pour décrire une ligne de pixels
         #endregion
         
@@ -79,24 +79,24 @@ namespace Computer_Science_Problem
             Header = new byte[54];
 
             Header.InsertBytes(Encoding.ASCII.GetBytes("BM"), offType);      // Encoding.ASCII.GetBytes est une méthode permettant de transformer un string en tableau octets
-            Header.InsertBytes(Utils.UIntToLittleEndian((uint)Header.Length), offStartOffset);
+            Header.InsertBytes(ConvertTo.LittleEndian((uint)Header.Length), offStartOffset);
 
-            Header.InsertBytes(Utils.UShortToLittleEndian(0x28), offInfoHeadsize); // hexadécimal car adresse
-            Header.InsertBytes(Utils.IntToLittleEndian(width), offWidth);
-            Header.InsertBytes(Utils.IntToLittleEndian(height), offHeight);
-            Header.InsertBytes(Utils.UShortToLittleEndian(1), offColorplanes);
-            Header.InsertBytes(Utils.UShortToLittleEndian(24), offColorDepth);
+            Header.InsertBytes(ConvertTo.LittleEndian(0x28), offInfoHeadsize); // hexadécimal car adresse
+            Header.InsertBytes(ConvertTo.LittleEndian(width), offWidth);
+            Header.InsertBytes(ConvertTo.LittleEndian(height), offHeight);
+            Header.InsertBytes(ConvertTo.LittleEndian((ushort)1), offColorplanes);
+            Header.InsertBytes(ConvertTo.LittleEndian((ushort)24), offColorDepth);
 
             Pixels = new byte[height * Stride];
 
-            Header.InsertBytes(Utils.UIntToLittleEndian((uint)(Header.Length + Pixels.Length)), offFileSize);
+            Header.InsertBytes(ConvertTo.LittleEndian((uint)(Header.Length + Pixels.Length)), offFileSize);
         }
         /// <summary> Creates a copy of an <see cref="Image"/> instance . </summary>
         /// <param name="original"><see cref="Image"/>to copy.</param>
         public Image(Image original)
         {
             Header = new byte[original.Header.Length];
-            Array.Copy(original.Header, Header, Header.Length);        // Array.Copy acts as a for loop to copy the array
+            Array.Copy(original.Header, Header, Header.Length);        
 
             Pixels = new byte[original.Pixels.Length];
             Array.Copy(original.Pixels, Pixels, Pixels.Length);
