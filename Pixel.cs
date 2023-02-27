@@ -10,20 +10,20 @@ namespace Computer_Science_Problem
     {
         #region Fields
         /// <summary> This field represents the red value of the pixel. </summary>
-        public byte Red;
+        public byte R;
         /// <summary> This field represents the green value of the pixel. </summary>
-        public byte Green;
+        public byte G;
         /// <summary> This field represents the blue value of the pixel. </summary>
-        public byte Blue;
+        public byte B;
         #endregion
 
         #region Constructors
         /// <summary> This natural constructor creates a pixel with the specified values. </summary>
         public Pixel(byte red, byte green, byte blue)
         {
-            Red = red;
-            Green = green;
-            Blue = blue;
+            R = red;
+            G = green;
+            B = blue;
         }
         /// <summary> This constructor creates a black pixel. </summary>
         public Pixel() : this(0, 0, 0) { }
@@ -32,9 +32,9 @@ namespace Computer_Science_Problem
         /// <summary> This constructor creates a copy of the specified pixel. </summary>
         public Pixel(Pixel original)
         {
-            Red = original.Red;
-            Green = original.Green;
-            Blue = original.Blue;
+            R = original.R;
+            G = original.G;
+            B = original.B;
         }
         #endregion
 
@@ -44,17 +44,17 @@ namespace Computer_Science_Problem
         public Pixel Copy() => new Pixel(this);
         /// <summary> This method returns the pixel in greyscale. </summary>
         /// <returns> A pixel in greyscale. </returns>
-        public Pixel Greyscale() => new Pixel((byte)((Red + Green + Blue) / 3)); 
+        public Pixel Greyscale() => new Pixel((byte)((R + G + B) / 3)); 
         /// <summary>This method returns a string representation of the pixel.</summary>
         /// <returns> A string representation of the pixel. </returns>
-        public override string ToString() => $"({Red}, {Green}, {Blue})";
+        public override string ToString() => $"({R}, {G}, {B})";
         #endregion
 
         #region Operators
         /// <summary>This method defines the equality between two pixels.</summary>
         /// <param name="a">The first pixel.</param>
         /// <param name="b">The second pixel.</param>
-        public static bool operator ==(Pixel a, Pixel b) => a.Red == b.Red && a.Green == b.Green && a.Blue == b.Blue;
+        public static bool operator ==(Pixel a, Pixel b) => a.R == b.R && a.G == b.G && a.B == b.B;
         /// <summary>This method defines the inequality between two pixels.</summary>
         /// <param name="a">The first pixel.</param>
         /// <param name="b">The second pixel.</param>
