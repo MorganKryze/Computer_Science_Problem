@@ -275,7 +275,6 @@ namespace Computer_Science_Problem
         #endregion
     
         #region Methods
-
         public Image Copy()
         {
             return new Image(this);

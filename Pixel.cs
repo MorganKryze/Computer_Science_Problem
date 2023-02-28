@@ -44,7 +44,7 @@ namespace Computer_Science_Problem
         public Pixel Copy() => new Pixel(this);
         /// <summary> This method returns the pixel in greyscale. </summary>
         /// <returns> A pixel in greyscale. </returns>
-        public Pixel Greyscale() => new Pixel((byte)((R + G + B) / 3)); 
+        public Pixel Greyscale() => new Pixel((byte)((R + G + B) / 3));
         /// <summary>This method returns a string representation of the pixel.</summary>
         /// <returns> A string representation of the pixel. </returns>
         public override string ToString() => $"({R}, {G}, {B})";
