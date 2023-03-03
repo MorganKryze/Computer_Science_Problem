@@ -17,12 +17,13 @@ namespace Computer_Science_Problem
         /// <summary>The random variable, usable everywhere.</summary>
         public static Random rnd = new Random();
         public static string imagePath = "Images/lac.bmp";
+        public const string titlePath = "Images/Title/title.txt";
         #endregion
         #region Core methods
         /// <summary>This method is used to display the main menu.</summary>
         public static void MainMenu()
         {
-            switch(ScrollingMenu("Welcome User! Use the arrow keys to move and press [ENTER] to confirm.", new string[]{"Play    ","Options ","Quit    "}, "Title.txt"))
+            switch(ScrollingMenu("Welcome User! Use the arrow keys to move and press [ENTER] to confirm.", new string[]{"Play    ","Options ","Quit    "}, titlePath))
             {
                 case 0 : 
                     MainProgram.jump = MainProgram.Jump.Continue; 
@@ -40,7 +41,7 @@ namespace Computer_Science_Problem
             switch(ScrollingMenu("You may choose a source file.", new string[]{
                 "Default pictures ",
                 "Created pictures ",
-                "Back             "}, "Title.txt"))
+                "Back             "}, titlePath))
             {
                 case 0 : 
                     return "Images";
@@ -60,18 +61,18 @@ namespace Computer_Science_Problem
             {
                 for (int i = 0; i < files.Length; i++)
                 {
-                    filesName[i] = files[i].Substring(7);
+                    filesName[i] = files[i].Substring(6);
                 }
             }
             else if(path is "Images/OUT")
             {
                 for (int i = 0; i < files.Length; i++)
                 {
-                    filesName[i] = files[i].Substring(12);
+                    filesName[i] = files[i].Substring(11);
                 }
             }
             int namePosition;
-            switch(namePosition = ScrollingMenu("Choose a file:", filesName, "Title.txt"))
+            switch(namePosition = ScrollingMenu("Choose a file:", filesName, titlePath))
             {
                 case -1:
                     MainProgram.jump = MainProgram.Jump.Source_Folder;
@@ -90,7 +91,7 @@ namespace Computer_Science_Problem
                 "Black and white ",
                 "Rotate          ",
                 "Resize          ",
-                "Back            "}, "Title.txt"))
+                "Back            "}, titlePath))
             {
                 case 0 : 
                     image = image.Greyscale();
@@ -102,7 +103,7 @@ namespace Computer_Science_Problem
                     int? angle = null;
                     do 
                     {
-                        Title("Type an angle to rotate the picture.", "Title.txt");
+                        Title("Type an angle to rotate the picture.", titlePath);
                         Write("{0,"+((WindowWidth / 2) - ("Type an angle to rotate the picture.".Length / 2)) + "}","");
                         Write("> ");
                         ConsoleConfiguration(false);
@@ -116,7 +117,7 @@ namespace Computer_Science_Problem
                     int? scale = null;
                     do 
                     {
-                        Title("Type an angle to rotate the picture.", "Title.txt");
+                        Title("Type an angle to rotate the picture.", titlePath);
                         Write("{0,"+((WindowWidth / 2) - ("Type an angle to rotate the picture.".Length / 2)) + "}","");
                         Write("> ");
                         ConsoleConfiguration(false);
@@ -132,7 +133,7 @@ namespace Computer_Science_Problem
             string fileName ="";
             do 
             {
-                Title("Type the name of the file.", "Title.txt");
+                Title("Type the name of the file.", titlePath);
                 Write("{0,"+((WindowWidth / 2) - ("Type the name of the file.".Length / 2)) + "}","");
                 Write("> ");
                 ConsoleConfiguration(false);
@@ -196,10 +197,13 @@ namespace Computer_Science_Problem
         /// <param name="choices"> The choices to be displayed.</param>
         /// <param name="specialText"> A special text stored in a file.</param>
         /// <returns> The position of the choice selected.</returns>
-        public static int ScrollingMenu(string question, string[] choices, string specialText = "Title.txt")
+        public static int ScrollingMenu(string question, string[] choices, string specialText = titlePath)
         {
             int position = 0;
             int recurrence = 0;
+            int longestChoice = 0;
+            for (int i = 0; i < choices.Length; i++) if (choices[i].Length > longestChoice) longestChoice = choices[i].Length;
+            for (int i = 0; i < choices.Length; i++) choices[i] = choices[i].PadRight(longestChoice+1);
             while(true)
             {
                 Clear();
@@ -303,7 +307,7 @@ namespace Computer_Science_Problem
             for (int j = 0; j < loadingBar.Length; j++) loadingBar[j] = '█';
             for (int i = 0; i <= text.Length; i++)
             {
-                Title(text, "Title.txt", 1);
+                Title(text, titlePath, 1);
                 if(KeyAvailable)
                 {
                     ConsoleKeyInfo keyPressed = ReadKey(true);
