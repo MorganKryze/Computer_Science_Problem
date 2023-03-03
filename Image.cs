@@ -11,13 +11,13 @@ namespace Computer_Science_Problem
     {
         #region Constants
         /// <summary> Represents the file type (bmp in this case). </summary>
-        public const int offType = 0x00;            
+        public const int type = 0x00;            
         /// <summary> Represents the total file size (in bytes). </summary>
-        public const int offFileSize = 0x02;        
+        public const int fileSize = 0x02;        
         /// <summary> Position of the first pixel in the file (in bytes). </summary>
-        public const int offStartOffset = 0x0a; 
+        public const int startOffset = 0x0a; 
         /// <summary> Represents the size of the second part of the header </summary>    
-        public const int offInfoHeadsize = 0x0e;  
+        public const int infoHeadsize = 0x0e;  
         /// <summary> Represents the image width (in pixels). </summary>
         public const int offWidth = 0x12;           
         /// <summary> Represents the image height (in pixels). </summary>
@@ -37,13 +37,13 @@ namespace Computer_Science_Problem
         
         #region Properties
         /// <summary> Encoding.ASCII.GetString is a method which turn a bytes array into a string </summary>
-        public string Type => Encoding.ASCII.GetString(Header.ExtractBytes(2, offType));
+        public string Type => Encoding.ASCII.GetString(Header.ExtractBytes(2, type));
         /// <summary> Utils.LittleEndianToUInt is a method which turn the information of the file size contained in a bytes array into an unsigned integer </summary>
-        public uint FileSize => ConvertTo.UInt(Header, offFileSize);
+        public uint FileSize => ConvertTo.UInt(Header, fileSize);
         /// <summary> Utils.LittleEndianToUInt is a method which turn the information of the start offset contained in a bytes array into an unsigned integer </summary>
-        public uint StartOffset => ConvertTo.UInt(Header, offStartOffset);
+        public uint StartOffset => ConvertTo.UInt(Header, startOffset);
         /// <summary> Utils.LittleEndianToUInt is a method which turn the information of the info header size contained in a bytes array into an unsigned integer </summary>
-        public uint InfoHeaderSize => ConvertTo.UInt(Header, offInfoHeadsize);
+        public uint InfoHeaderSize => ConvertTo.UInt(Header, infoHeadsize);
         /// <summary> Utils.LittleEndianToInt is a method which turn the information of the width contained in a bytes array into an integer </summary>
         public int Width => ConvertTo.Int(Header, offWidth);
         /// <summary> Utils.LittleEndianToInt is a method which turn the information of the height contained in a bytes array into an integer </summary>
@@ -76,12 +76,15 @@ namespace Computer_Science_Problem
         /// <param name="height">Image height.</param>
         public Image(int width, int height)
         {
+            if (width < 1 || height < 1)
+                throw new ArgumentOutOfRangeException("Width and height must be positive");
+
             Header = new byte[54];
 
-            Header.InsertBytes(Encoding.ASCII.GetBytes("BM"), offType);      // Encoding.ASCII.GetBytes est une méthode permettant de transformer un string en tableau octets
-            Header.InsertBytes(ConvertTo.LittleEndian((uint)Header.Length), offStartOffset);
+            Header.InsertBytes(Encoding.ASCII.GetBytes("BM"), type);      
+            Header.InsertBytes(ConvertTo.LittleEndian((uint)Header.Length), startOffset);
 
-            Header.InsertBytes(ConvertTo.LittleEndian(0x28), offInfoHeadsize); // hexadécimal car adresse
+            Header.InsertBytes(ConvertTo.LittleEndian(0x28), infoHeadsize);
             Header.InsertBytes(ConvertTo.LittleEndian(width), offWidth);
             Header.InsertBytes(ConvertTo.LittleEndian(height), offHeight);
             Header.InsertBytes(ConvertTo.LittleEndian((ushort)1), offColorplanes);
@@ -89,12 +92,17 @@ namespace Computer_Science_Problem
 
             Pixels = new byte[height * Stride];
 
-            Header.InsertBytes(ConvertTo.LittleEndian((uint)(Header.Length + Pixels.Length)), offFileSize);
+            Header.InsertBytes(ConvertTo.LittleEndian((uint)(Header.Length + Pixels.Length)), fileSize);
         }
         /// <summary> Creates a copy of an <see cref="Image"/> instance . </summary>
         /// <param name="original"><see cref="Image"/>to copy.</param>
         public Image(Image original)
         {
+            if (original is null)
+            {
+                throw new ArgumentNullException("original");
+            }
+
             Header = new byte[original.Header.Length];
             Array.Copy(original.Header, Header, Header.Length);        
 
@@ -143,9 +151,9 @@ namespace Computer_Science_Problem
         /// <returns>A copy of this <see cref="Image"/> rotated by <paramref name="angle"/> degrees.</returns>
         public Image Rotate(int angle)
         {
-            double rad = angle * (double)Math.PI / 180;
-            double cos = (double)Math.Cos(rad);
-            double sin = (double)Math.Sin(rad);
+            double radians = angle * (double)Math.PI / 180;
+            double cos = (double)Math.Cos(radians);
+            double sin = (double)Math.Sin(radians);
 
             int newWidth = (int)(Width * Math.Abs(cos) + Height * Math.Abs(sin));
             int newHeight = (int)(Width * Math.Abs(sin) + Height * Math.Abs(cos));

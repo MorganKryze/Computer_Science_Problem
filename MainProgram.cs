@@ -12,27 +12,27 @@ namespace Computer_Science_Problem
     {
         public static Jump jump = Jump.Continue;
         /// <summary>The Main fonction.</summary>
-        public static void Main()
+        public static void Main(string[] args)
         {
-            
-            #region Config
             ConsoleConfiguration();
-            #endregion
-
+            
             Main_Menu :
 
-            #region Lobby
             MainMenu();
             if(jump is not Jump.Continue) goto Select;
-            #endregion
+            goto Actions;
 
-            Choices :
+            Source_Folder :
 
-            #region Choices
-            Choices();
+            string folder = ChooseFolder();
+            if(jump is Jump.Main_Menu) goto Select;
+            ChooseFile(folder);
+            goto Select;
+
+            Actions :
+
+            Actions();
             if(jump is not Jump.Continue) goto Select;
-            #endregion
-            
             goto Main_Menu;
 
             Select :
@@ -44,19 +44,24 @@ namespace Computer_Science_Problem
                 case Jump.Main_Menu: 
                     jump = Jump.Continue;
                     goto Main_Menu;
-                case Jump.Choices:
+                case Jump.Source_Folder:
                     jump = Jump.Continue;
-                    goto Choices;
+                    goto Source_Folder;
+                case Jump.Actions:
+                    jump = Jump.Continue;
+                    goto Actions;
                 case Jump.Exit: 
                     FinalExit(); 
                     break;
             }
+            
         } 
         public enum Jump
         {
             Continue,
             Main_Menu,
-            Choices,
+            Source_Folder,
+            Actions,
             Exit
         }
     }

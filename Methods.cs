@@ -12,6 +12,7 @@ namespace Computer_Science_Problem
     /// <summary>The vocation of the Methods class is to be accessible from anywhere.It contains a random variable, utility and core methods.</summary>
     public static class Methods
     {
+        
         #region Field
         /// <summary>The random variable, usable everywhere.</summary>
         public static Random rnd = new Random();
@@ -27,26 +28,61 @@ namespace Computer_Science_Problem
                     MainProgram.jump = MainProgram.Jump.Continue; 
                     break;
                 case 1 : 
-                    switch(ScrollingMenu("Choisissez un fichier parmi les trois proposés.", new string[]{"coco   ","lac    ","lena   "}, "Title.txt"))
-                    {
-                        case 0 : 
-                            imagePath = "Images/coco.bmp";
-                            break;
-                        case 1 : 
-                            imagePath = "Images/lac.bmp";
-                            break;
-                        case 2 : 
-                            imagePath = "Images/lena.bmp";
-                            break;
-                    }
-                    MainProgram.jump = MainProgram.Jump.Main_Menu;
+                    MainProgram.jump = MainProgram.Jump.Source_Folder;
                     break;
                 case 2 : case -1: 
                     MainProgram.jump = MainProgram.Jump.Exit;
                     break;
             }
         }
-        public static void Choices()
+        public static string ChooseFolder()
+        {
+            switch(ScrollingMenu("You may choose a source file.", new string[]{
+                "Default pictures ",
+                "Created pictures ",
+                "Back             "}, "Title.txt"))
+            {
+                case 0 : 
+                    return "Images";
+                case 1 : 
+                    return "Images/OUT";
+                default :
+                    MainProgram.jump = MainProgram.Jump.Main_Menu;
+                    return "none";
+            }
+        }
+        public static void ChooseFile(string path)
+        {
+            if (path is "none") return;
+            string[] files = Directory.GetFiles(path);
+            string[] filesName = new string[files.Length];
+            if(path is "Images")
+            {
+                for (int i = 0; i < files.Length; i++)
+                {
+                    filesName[i] = files[i].Substring(7);
+                }
+            }
+            else if(path is "Images/OUT")
+            {
+                for (int i = 0; i < files.Length; i++)
+                {
+                    filesName[i] = files[i].Substring(12);
+                }
+            }
+            int namePosition;
+            switch(namePosition = ScrollingMenu("Choose a file:", filesName, "Title.txt"))
+            {
+                case -1:
+                    MainProgram.jump = MainProgram.Jump.Source_Folder;
+                    break;
+                default : 
+                    imagePath = files[namePosition];
+                    MainProgram.jump = MainProgram.Jump.Main_Menu;
+                    break;
+            }
+        }
+        public static void Actions()
         {
             Image image = new Image(imagePath);
             switch(ScrollingMenu("Choose one action to do on your image.", new string[]{
@@ -54,7 +90,7 @@ namespace Computer_Science_Problem
                 "Black and white ",
                 "Rotate          ",
                 "Resize          ",
-                "Exit            "}, "Title.txt"))
+                "Back            "}, "Title.txt"))
             {
                 case 0 : 
                     image = image.Greyscale();
@@ -90,10 +126,9 @@ namespace Computer_Science_Problem
                     if (scale is not null) image = image.Scale((int)scale);
                     break;
                 case 4 : case -1: 
-                    MainProgram.jump = MainProgram.Jump.Exit;
-                    break;
+                    MainProgram.jump = MainProgram.Jump.Main_Menu;
+                    return;
             }
-
             string fileName ="";
             do 
             {
@@ -104,7 +139,7 @@ namespace Computer_Science_Problem
                 fileName = ReadLine() ?? "";
                 ConsoleConfiguration();
             }while(fileName == "");
-            image.Save("Sorties/"+fileName+".bmp");
+            image.Save("Images/OUT/"+fileName+".bmp");
         }
         #endregion
 
@@ -312,5 +347,6 @@ namespace Computer_Science_Problem
             Exit(0);
         } 
         #endregion
+        
     }
 }
