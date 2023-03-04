@@ -64,6 +64,6 @@ namespace Computer_Science_Problem
 
         /// <summary>Textual representation of the value of this complex number.</summary>
         /// <returns> A <see cref="string"/> representaion of the <see cref="Complex"/> number .</returns>
-        public override string ToString() => Re + " + " + Im + "i";
+        public override string ToString() => Re + " + " + "i" + Im;
     }
 }
