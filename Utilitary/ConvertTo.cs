@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Computer_Science_Problem
+namespace Utilitary
 {
     public static class ConvertTo
     {

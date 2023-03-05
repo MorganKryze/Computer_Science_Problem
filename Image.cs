@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
+using Utilitary;
+
 namespace Computer_Science_Problem
 {
     /// <summary> Représente une image de profondeur 24-bits (composantes R, G et B). </summary>

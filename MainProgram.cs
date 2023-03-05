@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 
+using static Visuals.ConsoleVisuals;
+
 using static System.Console;
 using static Computer_Science_Problem.Methods;
 
