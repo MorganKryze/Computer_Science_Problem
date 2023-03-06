@@ -4,3 +4,4 @@ launch.json
 tasks.json
 .DS_Store
 .vs
+.vscode
