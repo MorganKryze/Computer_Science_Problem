@@ -16,7 +16,8 @@ public static class GeneralMethods
     /// <summary>The random variable, usable everywhere.</summary>
     public static Random rnd = new Random();
     #endregion
-    #region Core methods
+    
+    #region Processing methods
     /// <summary>This method is used to display the main menu.</summary>
     public static void MainMenu()
     {
@@ -36,6 +37,7 @@ public static class GeneralMethods
                 break;
         }
     }
+    /// <summary>This method is used to display the Image source folder chooser.</summary>
     public static string ChooseFolder()
     {
         switch (ScrollingMenu("You may choose a source file.", new string[]{
@@ -52,6 +54,7 @@ public static class GeneralMethods
                 return "none";
         }
     }
+    /// <summary> This method is used to display the file chooser. </summary>
     public static void ChooseFile(string path)
     {
         if (path is "none") return;
@@ -83,6 +86,7 @@ public static class GeneralMethods
                 break;
         }
     }
+    /// <summary>This method is used to display the actions menu.</summary>
     public static void Actions()
     {
         Image image = new Image(Image.imagePath);
@@ -144,13 +148,36 @@ public static class GeneralMethods
         image.Save("Images/OUT/" + fileName + ".bmp");
     }
     #endregion
+ 
+    #region Extension to the Stream class
+    /// <summary> This method reads a <see cref="byte"/> array from a <see cref="Stream"/>. </summary>
+    public static byte[] ReadBytes(this Stream stream, int length)
+    {
+        byte[] array = new byte[length];
+        for(int i = 0; i < length; i++) array[i] = (byte)stream.ReadByte();
+        return array;
+    }
+    /// <summary> This method extracts a <see cref="byte"/> array from a <see cref="Stream"/>. </summary>
+    public static byte[] ExtractBytes(this byte[] array, int length, int offset = 0)
+    {
+        byte[] bytes = new byte[length];
+        for(int i = 0; i < length; i++) bytes[i] = array[offset + i];
+        return bytes;
+    }
+    /// <summary> This method inserts a <see cref="byte"/> array into another <see cref="byte"/> array. </summary>
+    public static void InsertBytes(this byte[] array, byte[] data, int offsetTo = 0, int offsetFrom = 0, int length = -1)
+    {
+        if(length < 0) length = data.Length;
+        for(int i = 0; i < length; i++) array[offsetTo + i] = data[offsetFrom + i];
+    }
+    #endregion
 
     #region Utility Methods
     /// <summary>This method is used to pause the program.</summary>
     public static void Pause()
     {
         CenteredWL("Press [ENTER] to continue...");
-        while (ReadKey(true).Key != Enter) Sleep(5);
+        while(ReadKey(true).Key != Enter) Sleep(5);
     }
     /// <summary>This method is used to exit the game.</summary>
     public static void FinalExit()
@@ -161,5 +188,4 @@ public static class GeneralMethods
         Exit(0);
     }
     #endregion
-
 }
