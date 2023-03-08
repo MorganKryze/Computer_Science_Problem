@@ -8,7 +8,7 @@ using Utilitary;
 
 namespace Computer_Science_Problem;
 
-/// <summary> Représente une image de profondeur 24-bits (composantes R, G et B). </summary>
+/// <summary> This class represents an image. </summary>
 public class Image : IEquatable<Image>
 {
     #region Constants
