@@ -28,12 +28,12 @@ class MainProgram
     public static void Main(string[] args)
     {
         ConsoleConfiguration();
-
         
         Main_Menu:
 
         MainMenu();
-        if (jump is not Jump.Continue) goto Select;
+        if (jump is not Jump.Continue) 
+            goto Select;
         goto Source_Folder;
 
         FutureLanguageFeature:
@@ -44,9 +44,11 @@ class MainProgram
         Source_Folder:
 
         string folder = ChooseFolder();
-        if (jump is Jump.Main_Menu) goto Select;
+        if (jump is Jump.Main_Menu) 
+            goto Select;
         ChooseFile(folder);
-        if (jump is not Jump.Continue) goto Select;
+        if (jump is not Jump.Continue) 
+            goto Select;
 
         Actions:
 
