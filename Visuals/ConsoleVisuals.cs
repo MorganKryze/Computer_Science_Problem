@@ -4,7 +4,6 @@ using static System.IO.File;
 using static System.ConsoleColor;
 using static System.ConsoleKey;
 
-using static Computer_Science_Problem.GeneralMethods;
 
 namespace Visuals;
 /// <summary> The class ConsoleVisuals contains all the methods used to display the app on the console. </summary>

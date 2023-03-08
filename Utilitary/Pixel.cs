@@ -1,4 +1,4 @@
-namespace Computer_Science_Problem;
+namespace Utilitary;
 
 /// <summary> This class represents a pixel. </summary>
 public class Pixel : IEquatable<Pixel>

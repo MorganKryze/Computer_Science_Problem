@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 
+using Utilitary;
+
 namespace Computer_Science_Problem;
 
 /// <summary> This class represents a convolution. </summary>
