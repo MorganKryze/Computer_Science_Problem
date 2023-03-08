@@ -18,14 +18,16 @@ public static class ConsoleVisuals
     /// <summary>This method is used to display a title.</summary>
     /// <param name= "text"> The content of the title.</param>
     /// <param name= "pathSpecialText"> A special text stored in a file.</param>
-    /// <param name= "recurrence"> Whether the title has been displayed yet or not.</param>
-    public static void Title(string text = "", string pathSpecialText = "", int recurrence = 0)
+    /// <param name= "occurrence"> Whether the title has been displayed yet or not.</param>
+    public static void Title(string text = "", string pathSpecialText = "", int occurrence = 0)
     {
+        if (occurrence <  0)
+            throw new ArgumentException("The occurrence must be positive or equal to 0.");
         Clear();
         if(pathSpecialText != "") PrintSpecialText(pathSpecialText);
         if(text != "")
         {
-            if(recurrence != 0) CenteredWL(text);
+            if(occurrence != 0) CenteredWL(text);
             else
             {
                 Write("{0," + ((WindowWidth / 2) - (text.Length / 2)) + "}", "");
@@ -113,6 +115,26 @@ public static class ConsoleVisuals
         }
         CenteredWL(String.Format("{0," + message[index].Length + "}", ""), Black, backColor);
         WriteLine();
+    }
+    /// <summary>This method is used to display a prompt and get a string in return.</summary>
+    /// <param name="message"> The message to be displayed. </param>
+    /// <param name="occurrence"> Whether the prompt has been displayed yet or not. </param>
+    /// <param name="specialtext"> A special text stored in a file. </param>
+    /// <returns> The string entered by the user. </returns>
+    public static string Prompt(string message, int occurrence = 0, string specialtext = "")
+    {
+        string prompt = "";
+        do
+        {
+            Title(message, specialtext, occurrence);
+            Write("{0," + ((WindowWidth / 2) - (message.Length / 2)) + "}", "");
+            Write("> ");
+            ConsoleConfiguration(false);
+            prompt = ReadLine() ?? "";
+            ConsoleConfiguration();
+            occurrence++;
+        } while (prompt is "");
+        return prompt;
     }
     #endregion
 

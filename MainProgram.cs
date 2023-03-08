@@ -15,8 +15,11 @@ class MainProgram
     {
         Continue,
         Main_Menu,
+        FutureLanguageFeature,
         Source_Folder,
         Actions,
+        ApplyManipulation,
+        ApplyFilter,
         Exit
     }
     #endregion
@@ -26,34 +29,43 @@ class MainProgram
     {
         ConsoleConfiguration();
 
+        
         Main_Menu:
 
         MainMenu();
         if (jump is not Jump.Continue) goto Select;
-        goto Actions;
+        goto Source_Folder;
+
+        FutureLanguageFeature:
+
+        FutureLanguageFeature();
+        goto Select;
 
         Source_Folder:
 
         string folder = ChooseFolder();
         if (jump is Jump.Main_Menu) goto Select;
         ChooseFile(folder);
-        goto Select;
+        if (jump is not Jump.Continue) goto Select;
 
         Actions:
 
         Actions();
-        if (jump is not Jump.Continue) goto Select;
-        goto Main_Menu;
+        if (jump is Jump.ApplyFilter) 
+            ApplyFilter();
+        else if (jump is Jump.ApplyManipulation)
+            ApplyManipulation();
 
         Select:
 
         switch (jump)
         {
-            case Jump.Continue:
-                break;
             case Jump.Main_Menu:
                 jump = Jump.Continue;
                 goto Main_Menu;
+            case Jump.FutureLanguageFeature:
+                jump = Jump.Continue;
+                goto FutureLanguageFeature;
             case Jump.Source_Folder:
                 jump = Jump.Continue;
                 goto Source_Folder;
@@ -63,6 +75,8 @@ class MainProgram
             case Jump.Exit:
                 FinalExit();
                 break;
+            default:
+                goto Main_Menu;
         }
     }
     #endregion

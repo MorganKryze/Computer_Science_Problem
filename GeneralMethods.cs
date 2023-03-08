@@ -30,7 +30,7 @@ public static class GeneralMethods
                 MainProgram.jump = MainProgram.Jump.Continue;
                 break;
             case 1:
-                MainProgram.jump = MainProgram.Jump.Source_Folder;
+                MainProgram.jump = MainProgram.Jump.FutureLanguageFeature;
                 break;
             case 2: case -1:
                 MainProgram.jump = MainProgram.Jump.Exit;
@@ -57,23 +57,16 @@ public static class GeneralMethods
     /// <summary> This method is used to display the file chooser. </summary>
     public static void ChooseFile(string path)
     {
-        if (path is "none") return;
+        if (path is "none") 
+            return;
         string[] files = Directory.GetFiles(path);
         string[] filesName = new string[files.Length];
         if (path is "Images")
-        {
             for (int i = 0; i < files.Length; i++)
-            {
-                filesName[i] = files[i].Substring(6);
-            }
-        }
+                filesName[i] = files[i].Substring(7);
         else if (path is "Images/OUT")
-        {
             for (int i = 0; i < files.Length; i++)
-            {
                 filesName[i] = files[i].Substring(11);
-            }
-        }
         int namePosition;
         switch (namePosition = ScrollingMenu("Choose a file:", filesName, titlePath))
         {
@@ -82,6 +75,16 @@ public static class GeneralMethods
                 break;
             default:
                 Image.imagePath = files[namePosition];
+                MainProgram.jump = MainProgram.Jump.Continue;
+                break;
+        }
+    }
+    /// <summary> Not implemented yet. </summary>
+    public static void FutureLanguageFeature()
+    {
+        switch(ScrollingMenu("This feature is not implemented yet !", new string[]{"Back"}, titlePath))
+        {
+            default:
                 MainProgram.jump = MainProgram.Jump.Main_Menu;
                 break;
         }
@@ -89,12 +92,29 @@ public static class GeneralMethods
     /// <summary>This method is used to display the actions menu.</summary>
     public static void Actions()
     {
-        Image image = new Image(Image.imagePath);
-        switch (ScrollingMenu("Choose one action to do on your image.", new string[]{
+        switch (ScrollingMenu("You may choose an action to do on your picture.", new string[]{
+                "Apply a filter ",
+                "Apply a manipulation ",
+                "Back"}, titlePath))
+        {
+            case 0:
+                MainProgram.jump = MainProgram.Jump.ApplyFilter;
+                break;
+            case 1:
+                MainProgram.jump = MainProgram.Jump.ApplyManipulation;
+                break;
+            case 2: case -1:
+                MainProgram.jump = MainProgram.Jump.Source_Folder;
+                break;
+        }
+    }
+    /// <summary>This method is used to display the filters menu.</summary>
+    public static void ApplyFilter()
+    {
+        Image image = new (Image.imagePath);
+        switch (ScrollingMenu("You may choose one filter to apply on your picture.", new string[]{
                 "Greyscale       ",
                 "Black and white ",
-                "Rotate          ",
-                "Resize          ",
                 "Back            "}, titlePath))
         {
             case 0:
@@ -103,72 +123,85 @@ public static class GeneralMethods
             case 1:
                 image = image.BlackAndWhite();
                 break;
-            case 2:
-                int? angle = null;
-                do
-                {
-                    Title("Type an angle to rotate the picture.", titlePath);
-                    Write("{0," + ((WindowWidth / 2) - ("Type an angle to rotate the picture.".Length / 2)) + "}", "");
-                    Write("> ");
-                    ConsoleConfiguration(false);
-                    angle = Convert.ToInt32(ReadLine());
-                    ConsoleConfiguration();
-                } while (angle is null || angle < 0 || angle > 360);
-                if (angle is not null) image = image.Rotate((int)angle);
-
-                break;
-            case 3:
-                int? scale = null;
-                do
-                {
-                    Title("Type an angle to rotate the picture.", titlePath);
-                    Write("{0," + ((WindowWidth / 2) - ("Type an angle to rotate the picture.".Length / 2)) + "}", "");
-                    Write("> ");
-                    ConsoleConfiguration(false);
-                    scale = Convert.ToInt32(ReadLine());
-                    ConsoleConfiguration();
-                } while (scale is null || scale < 0);
-                if (scale is not null) image = image.Scale((int)scale);
-                break;
-            case 4:
-            case -1:
-                MainProgram.jump = MainProgram.Jump.Main_Menu;
+            case 2: case -1:
+                MainProgram.jump = MainProgram.Jump.Actions;
                 return;
         }
-        string fileName = "";
-        do
+        image.Save();
+    }
+    /// <summary>This method is used to display the manipulations menu.</summary>
+    public static void ApplyManipulation()
+    {
+        Image image = new Image(Image.imagePath);
+        switch (ScrollingMenu("You may choose one manipulation to do on your picture.", new string[]{
+                "Rotate          ",
+                "Resize          ",
+                "Back            "}, titlePath))
         {
-            Title("Type the name of the file.", titlePath);
-            Write("{0," + ((WindowWidth / 2) - ("Type the name of the file.".Length / 2)) + "}", "");
-            Write("> ");
-            ConsoleConfiguration(false);
-            fileName = ReadLine() ?? "";
-            ConsoleConfiguration();
-        } while (fileName == "");
-        image.Save("Images/OUT/" + fileName + ".bmp");
+            case 0:
+                int? angle = null;
+                int occurrenceRotation = 0;
+                do
+                {
+                    angle = int.Parse(Prompt("Type an angle to rotate the picture.", occurrenceRotation, titlePath));
+                    occurrenceRotation++;
+                } while (angle is null || angle < 0 || angle > 360);
+                image = image.Rotate((int)angle);
+                break;
+            case 1:
+                int? scale = null;
+                int occurrenceRescale = 0;
+                do
+                {
+                    scale = int.Parse(Prompt("Type an angle to rotate the picture.", occurrenceRescale, titlePath));
+                    occurrenceRescale++;
+                } while (scale is null || scale < 0);
+                image = image.Rescale((int)scale);
+                break;
+            case 2: case -1:
+                MainProgram.jump = MainProgram.Jump.Actions;
+                return;
+        }
+        image.Save();
     }
     #endregion
  
     #region Extension to the Stream class
     /// <summary> This method reads a <see cref="byte"/> array from a <see cref="Stream"/>. </summary>
+    /// <param name="stream"> The <see cref="Stream"/> to read from. </param>
+    /// <param name="length"> The length of the array to read. </param>
+    /// <returns> The <see cref="byte"/> array read. </returns>
     public static byte[] ReadBytes(this Stream stream, int length)
     {
         byte[] array = new byte[length];
-        for(int i = 0; i < length; i++) array[i] = (byte)stream.ReadByte();
+        for (int i = 0; i < length; i++) 
+            array[i] = (byte)stream.ReadByte();
         return array;
     }
     /// <summary> This method extracts a <see cref="byte"/> array from a <see cref="Stream"/>. </summary>
+    /// <param name="array"> The <see cref="byte"/> array to extract from. </param>
+    /// <param name="length"> The length of the array to extract. </param>
+    /// <param name="offset"> The offset in the array. </param>
+    /// <returns> The <see cref="byte"/> array extracted. </returns>
     public static byte[] ExtractBytes(this byte[] array, int length, int offset = 0)
     {
         byte[] bytes = new byte[length];
-        for(int i = 0; i < length; i++) bytes[i] = array[offset + i];
+        for (int i = 0; i < length; i++) 
+            bytes[i] = array[offset + i];
         return bytes;
     }
     /// <summary> This method inserts a <see cref="byte"/> array into another <see cref="byte"/> array. </summary>
+    /// <param name="array"> The array to insert into. </param>
+    /// <param name="data"> The array to insert. </param>
+    /// <param name="offsetTo"> The offset in the first array. </param>
+    /// <param name="offsetFrom"> The offset in the second array. </param>
+    /// <param name="length"> The length of the array to insert. </param>
     public static void InsertBytes(this byte[] array, byte[] data, int offsetTo = 0, int offsetFrom = 0, int length = -1)
     {
-        if(length < 0) length = data.Length;
-        for(int i = 0; i < length; i++) array[offsetTo + i] = data[offsetFrom + i];
+        if (length < 0) 
+            length = data.Length;
+        for (int i = 0; i < length; i++) 
+            array[offsetTo + i] = data[offsetFrom + i];
     }
     #endregion
 
@@ -177,7 +210,8 @@ public static class GeneralMethods
     public static void Pause()
     {
         CenteredWL("Press [ENTER] to continue...");
-        while(ReadKey(true).Key != Enter) Sleep(5);
+        while(ReadKey(true).Key != Enter) 
+            Sleep(5);
     }
     /// <summary>This method is used to exit the game.</summary>
     public static void FinalExit()

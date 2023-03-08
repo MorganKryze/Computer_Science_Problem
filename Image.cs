@@ -1,10 +1,8 @@
-﻿using System;
-using System.ComponentModel;
-using System.IO;
-using System.Linq;
-using System.Text;
-
+﻿using System.Text;
 using Utilitary;
+
+using static System.Console;
+using static Visuals.ConsoleVisuals;
 
 namespace Computer_Science_Problem;
 
@@ -118,7 +116,9 @@ public class Image : IEquatable<Image>
     public Image Greyscale()
     {
         Image result = this.Copy();
-        for(int x = 0; x < Width; x++) for(int y = 0; y < Height; y++) result[x, y] = this[x, y].Greyscale();
+        for (int x = 0; x < Width; x++) 
+            for (int y = 0; y < Height; y++) 
+                result[x, y] = this[x, y].Greyscale();
         return result;
     }
     /// <summary> Transform this <see cref="Image"/> to black and white (this method generate a copy). </summary>
@@ -126,7 +126,9 @@ public class Image : IEquatable<Image>
     public Image BlackAndWhite()
     {
         Image result = this.Copy();
-        for(int x = 0; x < Width; x++) for(int y = 0; y < Height; y++) result[x, y] = this[x, y].Greyscale().R > 127 ? new Pixel(255, 255, 255) : new Pixel(0, 0, 0);
+        for (int x = 0; x < Width; x++) 
+            for (int y = 0; y < Height; y++) 
+                result[x, y] = this[x, y].Greyscale().R > 127 ? new Pixel(255, 255, 255) : new Pixel(0, 0, 0);
         return result;
     }
     /// <summary> Rotates the <see cref="Image"/> instance at an <paramref name="angle"/>.</summary>
@@ -144,61 +146,69 @@ public class Image : IEquatable<Image>
 
         Image result = new (newWidth, newHeight);
 
-        for(int x = 0; x < newWidth; x++)
+        for (int x = 0; x < newWidth; x++)
         {
-            for(int y = 0; y < newHeight; y++)
+            for (int y = 0; y < newHeight; y++)
             {
                 double newX = (x - newWidth / 2) * cos - (y - newHeight / 2) * sin + Width / 2;
                 double newY = (x - newWidth / 2) * sin + (y - newHeight / 2) * cos + Height / 2;
 
-                if(newX >= 0 && newX < Width && newY >= 0 && newY < Height) result[x, y] = this[(int)newX, (int)newY];
+                if (newX >= 0 && newX < Width && newY >= 0 && newY < Height) 
+                    result[x, y] = this[(int)newX, (int)newY];
             }
         }
         return result;
     }
     /// <summary> This method scales the <see cref="Image"/> instance by a <paramref name="scale"/> factor. </summary>
-    public Image Scale(float scale, bool reduceAntiAliasing = true)
+    /// <param name="scale"> Scale factor.</param>
+    /// <param name="reduceAntiAliasing"> If true, the image will be blurred before being scaled to reduce the anti-aliasing effect. </param>
+    /// <returns> A copy of this <see cref="Image"/> scaled by <paramref name="scale"/> factor.</returns>
+    public Image Rescale(float scale, bool reduceAntiAliasing = true)
     {
-        if(scale == 0) throw new ArgumentOutOfRangeException("scale", "scale must not be 0");
-        else if(scale < 0) throw new ArgumentOutOfRangeException("scale", "scale must be a positive number");
+        if (scale == 0) 
+            throw new ArgumentOutOfRangeException("scale", "The scale must not be 0.");
+        else if (scale < 0) 
+            throw new ArgumentOutOfRangeException("scale", "The scale must be a positive number.");
             
         Image source = this.Copy();
 
-        if(scale == 1) return source;
+        if (scale == 1) 
+            return source;
             
         int newWidth = (int)(Width * scale);
         int newHeight = (int)(Height * scale);
 
-        if(newWidth == 0) newWidth = 1;
-        if(newHeight == 0) newHeight = 1;
+        if (newWidth == 0) 
+            newWidth = 1;
+        if (newHeight == 0) 
+            newHeight = 1;
             
-        if(scale < 1 && reduceAntiAliasing)
+        if (scale < 1 && reduceAntiAliasing)
         {
             int convolSize = (int)Math.Ceiling(1 / scale);
             float[,] kernel = new float[convolSize, convolSize];
             float coef = 1f / kernel.Length;
 
-            for(int y = 0; y < convolSize; y++) for(int x = 0; x < convolSize; x++) kernel[y, x] = coef;
+            for (int y = 0; y < convolSize; y++)
+                for(int x = 0; x < convolSize; x++) 
+                    kernel[y, x] = coef;
             source = source.ApplyKernel(kernel, Convolution.KernelOrigin.TopLeft, Convolution.EdgeProcessing.Extend);
         }
 
         Image result = new (newWidth, newHeight);
 
         for (int x = 0; x < newWidth; x++)
-        {
             for (int y = 0; y < newHeight; y++)
-            {
                 result[x, y] = new (source[(int)(x / scale), (int)(y / scale)]);
-            }
-        }
-
         return result;
     }
     #endregion
 
     #region Operators
-    /// <summary> The </summary>
-    /// <seealso cref="Equals(object)"/>
+    /// <summary> The equality operator. </summary>
+    /// <param name="a"> The first <see cref="Image"/> to compare. </param>
+    /// <param name="b"> The second <see cref="Image"/> to compare. </param>
+    /// <returns> True if the two <see cref="Image"/>s are equal, false otherwise. </returns>
     public static bool operator ==(Image a, Image b)
     {
         if (ReferenceEquals(a, b))
@@ -211,28 +221,19 @@ public class Image : IEquatable<Image>
             return false;
 
         for (int x = 0; x < a.Width; x++)
-        {
             for (int y = 0; y < a.Height; y++)
-            {
                 if (a[x, y] != b[x, y])
                     return false;
-            }
-        }
-
         return true;
     }
-    /// <summary>
-    /// Vérifie l'inégalité entre 2 <see cref="Image"/> (taille ou <see cref="Pixel"/>s différents).
-    /// </summary>
+    /// <summary> The inequality operator. </summary>
+    /// <param name="a"> The first <see cref="Image"/> to compare. </param>
+    /// <param name="b"> The second <see cref="Image"/> to compare. </param>
+    /// <returns> True if the two <see cref="Image"/>s are not equal, false otherwise. </returns>
+    public static bool operator !=(Image a, Image b) => !(a == b);
+    /// <summary> This method is used to check if 2 <see cref="Image"/> are equal. </summary>
     /// <seealso cref="operator ==(Image, Image)"/>
-    public static bool operator !=(Image a, Image b)
-    {
-        return !(a == b);
-    }
-    /// <summary>
-    /// Vérifie l'égalité de cette <see cref="Image"/> avec <paramref name="other"/>.
-    /// </summary>
-    /// <seealso cref="operator ==(Image, Image)"/>
+    /// <returns>True if the 2 <see cref="Image"/> are equal, false otherwise.</returns>
     public override bool Equals(object? other) => other is Image && this == (Image)other;
     /// <summary> This method is used to check if 2 <see cref="Image"/> are equal. </summary>
     /// <seealso cref="operator ==(Image, Image)"/>
@@ -244,10 +245,13 @@ public class Image : IEquatable<Image>
 
     #region Methods
     /// <summary> This method is used to get a copy of this <see cref="Image"/>. </summary>
+    /// <returns> A copy of this <see cref="Image"/>. </returns>
     public Image Copy() => new (this);
     /// <summary> This method is used to get the <see cref="Pixel"/> at the specified <paramref name="x"/> and <paramref name="y"/> coordinates. </summary>
+    /// <param name="x"> The x coordinate of the <see cref="Pixel"/>. </param>
+    /// <param name="y"> The y coordinate of the <see cref="Pixel"/>. </param>
+    /// <returns> The position at the specified <paramref name="x"/> and <paramref name="y"/> coordinates. </returns>
     private int _position(int x, int y) => x * 3 + (Height - y - 1) * Stride;
-
     /// <summary> This method is used to get the <see cref="Pixel"/> at the specified <paramref name="x"/> and <paramref name="y"/> coordinates. </summary>
     public Pixel this[int x, int y]
     {
@@ -264,13 +268,10 @@ public class Image : IEquatable<Image>
             Pixels[position + 0] = value.B;
         }
     }
-    
-
-    /// <summary> This method saves the <see cref="Image"/> to the specified <paramref name="filename"/>. </summary>
-    /// <param name="filename">The path of the file to save the <see cref="Image"/> to.</param>
-    public void Save(string filename)
+    /// <summary> This method saves the <see cref="Image"/>. </summary>
+    public void Save()
     {
-        using (FileStream stream = File.OpenWrite(filename))
+        using (FileStream stream = File.OpenWrite("Images/OUT/" + Prompt("Type the name of the file.", 0,titlePath) + ".bmp"))
         {
             stream.Write(Header, 0, Header.Length);
             stream.Write(Pixels, 0, Pixels.Length);
