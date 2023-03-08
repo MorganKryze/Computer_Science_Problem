@@ -5,3 +5,4 @@ tasks.json
 .DS_Store
 .vs
 .vscode
+docfx_project
