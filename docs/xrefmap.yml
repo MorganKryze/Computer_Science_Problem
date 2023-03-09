@@ -1,0 +1,1197 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: Computer_Science_Problem
+  name: Computer_Science_Problem
+  href: api/Computer_Science_Problem.html
+  commentId: N:Computer_Science_Problem
+  fullName: Computer_Science_Problem
+  nameWithType: Computer_Science_Problem
+- uid: Computer_Science_Problem.Convolution
+  name: Convolution
+  href: api/Computer_Science_Problem.Convolution.html
+  commentId: T:Computer_Science_Problem.Convolution
+  fullName: Computer_Science_Problem.Convolution
+  nameWithType: Convolution
+- uid: Computer_Science_Problem.Convolution.ApplyKernel(Computer_Science_Problem.Image,System.Single[0:,0:],Computer_Science_Problem.Convolution.KernelOrigin,Computer_Science_Problem.Convolution.EdgeProcessing)
+  name: ApplyKernel(Image, Single[,], Convolution.KernelOrigin, Convolution.EdgeProcessing)
+  href: api/Computer_Science_Problem.Convolution.html#Computer_Science_Problem_Convolution_ApplyKernel_Computer_Science_Problem_Image_System_Single_0__0___Computer_Science_Problem_Convolution_KernelOrigin_Computer_Science_Problem_Convolution_EdgeProcessing_
+  commentId: M:Computer_Science_Problem.Convolution.ApplyKernel(Computer_Science_Problem.Image,System.Single[0:,0:],Computer_Science_Problem.Convolution.KernelOrigin,Computer_Science_Problem.Convolution.EdgeProcessing)
+  name.vb: ApplyKernel(Image, Single(,), Convolution.KernelOrigin, Convolution.EdgeProcessing)
+  fullName: Computer_Science_Problem.Convolution.ApplyKernel(Computer_Science_Problem.Image, System.Single[,], Computer_Science_Problem.Convolution.KernelOrigin, Computer_Science_Problem.Convolution.EdgeProcessing)
+  fullName.vb: Computer_Science_Problem.Convolution.ApplyKernel(Computer_Science_Problem.Image, System.Single(,), Computer_Science_Problem.Convolution.KernelOrigin, Computer_Science_Problem.Convolution.EdgeProcessing)
+  nameWithType: Convolution.ApplyKernel(Image, Single[,], Convolution.KernelOrigin, Convolution.EdgeProcessing)
+  nameWithType.vb: Convolution.ApplyKernel(Image, Single(,), Convolution.KernelOrigin, Convolution.EdgeProcessing)
+- uid: Computer_Science_Problem.Convolution.ApplyKernel*
+  name: ApplyKernel
+  href: api/Computer_Science_Problem.Convolution.html#Computer_Science_Problem_Convolution_ApplyKernel_
+  commentId: Overload:Computer_Science_Problem.Convolution.ApplyKernel
+  isSpec: "True"
+  fullName: Computer_Science_Problem.Convolution.ApplyKernel
+  nameWithType: Convolution.ApplyKernel
+- uid: Computer_Science_Problem.Convolution.ApplyKernelgeneral(Computer_Science_Problem.Image,Computer_Science_Problem.Convolution.Kernel,Computer_Science_Problem.Convolution.KernelOrigin,Computer_Science_Problem.Convolution.EdgeProcessing)
+  name: ApplyKernelgeneral(Image, Convolution.Kernel, Convolution.KernelOrigin, Convolution.EdgeProcessing)
+  href: api/Computer_Science_Problem.Convolution.html#Computer_Science_Problem_Convolution_ApplyKernelgeneral_Computer_Science_Problem_Image_Computer_Science_Problem_Convolution_Kernel_Computer_Science_Problem_Convolution_KernelOrigin_Computer_Science_Problem_Convolution_EdgeProcessing_
+  commentId: M:Computer_Science_Problem.Convolution.ApplyKernelgeneral(Computer_Science_Problem.Image,Computer_Science_Problem.Convolution.Kernel,Computer_Science_Problem.Convolution.KernelOrigin,Computer_Science_Problem.Convolution.EdgeProcessing)
+  fullName: Computer_Science_Problem.Convolution.ApplyKernelgeneral(Computer_Science_Problem.Image, Computer_Science_Problem.Convolution.Kernel, Computer_Science_Problem.Convolution.KernelOrigin, Computer_Science_Problem.Convolution.EdgeProcessing)
+  nameWithType: Convolution.ApplyKernelgeneral(Image, Convolution.Kernel, Convolution.KernelOrigin, Convolution.EdgeProcessing)
+- uid: Computer_Science_Problem.Convolution.ApplyKernelgeneral*
+  name: ApplyKernelgeneral
+  href: api/Computer_Science_Problem.Convolution.html#Computer_Science_Problem_Convolution_ApplyKernelgeneral_
+  commentId: Overload:Computer_Science_Problem.Convolution.ApplyKernelgeneral
+  isSpec: "True"
+  fullName: Computer_Science_Problem.Convolution.ApplyKernelgeneral
+  nameWithType: Convolution.ApplyKernelgeneral
+- uid: Computer_Science_Problem.Convolution.EdgeProcessing
+  name: Convolution.EdgeProcessing
+  href: api/Computer_Science_Problem.Convolution.EdgeProcessing.html
+  commentId: T:Computer_Science_Problem.Convolution.EdgeProcessing
+  fullName: Computer_Science_Problem.Convolution.EdgeProcessing
+  nameWithType: Convolution.EdgeProcessing
+- uid: Computer_Science_Problem.Convolution.EdgeProcessing.Crop
+  name: Crop
+  href: api/Computer_Science_Problem.Convolution.EdgeProcessing.html#Computer_Science_Problem_Convolution_EdgeProcessing_Crop
+  commentId: F:Computer_Science_Problem.Convolution.EdgeProcessing.Crop
+  fullName: Computer_Science_Problem.Convolution.EdgeProcessing.Crop
+  nameWithType: Convolution.EdgeProcessing.Crop
+- uid: Computer_Science_Problem.Convolution.EdgeProcessing.Extend
+  name: Extend
+  href: api/Computer_Science_Problem.Convolution.EdgeProcessing.html#Computer_Science_Problem_Convolution_EdgeProcessing_Extend
+  commentId: F:Computer_Science_Problem.Convolution.EdgeProcessing.Extend
+  fullName: Computer_Science_Problem.Convolution.EdgeProcessing.Extend
+  nameWithType: Convolution.EdgeProcessing.Extend
+- uid: Computer_Science_Problem.Convolution.EdgeProcessing.KernelCrop
+  name: KernelCrop
+  href: api/Computer_Science_Problem.Convolution.EdgeProcessing.html#Computer_Science_Problem_Convolution_EdgeProcessing_KernelCrop
+  commentId: F:Computer_Science_Problem.Convolution.EdgeProcessing.KernelCrop
+  fullName: Computer_Science_Problem.Convolution.EdgeProcessing.KernelCrop
+  nameWithType: Convolution.EdgeProcessing.KernelCrop
+- uid: Computer_Science_Problem.Convolution.EdgeProcessing.Mirror
+  name: Mirror
+  href: api/Computer_Science_Problem.Convolution.EdgeProcessing.html#Computer_Science_Problem_Convolution_EdgeProcessing_Mirror
+  commentId: F:Computer_Science_Problem.Convolution.EdgeProcessing.Mirror
+  fullName: Computer_Science_Problem.Convolution.EdgeProcessing.Mirror
+  nameWithType: Convolution.EdgeProcessing.Mirror
+- uid: Computer_Science_Problem.Convolution.EdgeProcessing.Wrap
+  name: Wrap
+  href: api/Computer_Science_Problem.Convolution.EdgeProcessing.html#Computer_Science_Problem_Convolution_EdgeProcessing_Wrap
+  commentId: F:Computer_Science_Problem.Convolution.EdgeProcessing.Wrap
+  fullName: Computer_Science_Problem.Convolution.EdgeProcessing.Wrap
+  nameWithType: Convolution.EdgeProcessing.Wrap
+- uid: Computer_Science_Problem.Convolution.Kernel
+  name: Convolution.Kernel
+  href: api/Computer_Science_Problem.Convolution.Kernel.html
+  commentId: T:Computer_Science_Problem.Convolution.Kernel
+  fullName: Computer_Science_Problem.Convolution.Kernel
+  nameWithType: Convolution.Kernel
+- uid: Computer_Science_Problem.Convolution.Kernel.BoxBlur
+  name: BoxBlur
+  href: api/Computer_Science_Problem.Convolution.Kernel.html#Computer_Science_Problem_Convolution_Kernel_BoxBlur
+  commentId: F:Computer_Science_Problem.Convolution.Kernel.BoxBlur
+  fullName: Computer_Science_Problem.Convolution.Kernel.BoxBlur
+  nameWithType: Convolution.Kernel.BoxBlur
+- uid: Computer_Science_Problem.Convolution.Kernel.Contrast
+  name: Contrast
+  href: api/Computer_Science_Problem.Convolution.Kernel.html#Computer_Science_Problem_Convolution_Kernel_Contrast
+  commentId: F:Computer_Science_Problem.Convolution.Kernel.Contrast
+  fullName: Computer_Science_Problem.Convolution.Kernel.Contrast
+  nameWithType: Convolution.Kernel.Contrast
+- uid: Computer_Science_Problem.Convolution.Kernel.EdgeDetection
+  name: EdgeDetection
+  href: api/Computer_Science_Problem.Convolution.Kernel.html#Computer_Science_Problem_Convolution_Kernel_EdgeDetection
+  commentId: F:Computer_Science_Problem.Convolution.Kernel.EdgeDetection
+  fullName: Computer_Science_Problem.Convolution.Kernel.EdgeDetection
+  nameWithType: Convolution.Kernel.EdgeDetection
+- uid: Computer_Science_Problem.Convolution.Kernel.EdgePushing
+  name: EdgePushing
+  href: api/Computer_Science_Problem.Convolution.Kernel.html#Computer_Science_Problem_Convolution_Kernel_EdgePushing
+  commentId: F:Computer_Science_Problem.Convolution.Kernel.EdgePushing
+  fullName: Computer_Science_Problem.Convolution.Kernel.EdgePushing
+  nameWithType: Convolution.Kernel.EdgePushing
+- uid: Computer_Science_Problem.Convolution.Kernel.GaussianBlur3x3
+  name: GaussianBlur3x3
+  href: api/Computer_Science_Problem.Convolution.Kernel.html#Computer_Science_Problem_Convolution_Kernel_GaussianBlur3x3
+  commentId: F:Computer_Science_Problem.Convolution.Kernel.GaussianBlur3x3
+  fullName: Computer_Science_Problem.Convolution.Kernel.GaussianBlur3x3
+  nameWithType: Convolution.Kernel.GaussianBlur3x3
+- uid: Computer_Science_Problem.Convolution.Kernel.Sharpen
+  name: Sharpen
+  href: api/Computer_Science_Problem.Convolution.Kernel.html#Computer_Science_Problem_Convolution_Kernel_Sharpen
+  commentId: F:Computer_Science_Problem.Convolution.Kernel.Sharpen
+  fullName: Computer_Science_Problem.Convolution.Kernel.Sharpen
+  nameWithType: Convolution.Kernel.Sharpen
+- uid: Computer_Science_Problem.Convolution.KernelOrigin
+  name: Convolution.KernelOrigin
+  href: api/Computer_Science_Problem.Convolution.KernelOrigin.html
+  commentId: T:Computer_Science_Problem.Convolution.KernelOrigin
+  fullName: Computer_Science_Problem.Convolution.KernelOrigin
+  nameWithType: Convolution.KernelOrigin
+- uid: Computer_Science_Problem.Convolution.KernelOrigin.Center
+  name: Center
+  href: api/Computer_Science_Problem.Convolution.KernelOrigin.html#Computer_Science_Problem_Convolution_KernelOrigin_Center
+  commentId: F:Computer_Science_Problem.Convolution.KernelOrigin.Center
+  fullName: Computer_Science_Problem.Convolution.KernelOrigin.Center
+  nameWithType: Convolution.KernelOrigin.Center
+- uid: Computer_Science_Problem.Convolution.KernelOrigin.TopLeft
+  name: TopLeft
+  href: api/Computer_Science_Problem.Convolution.KernelOrigin.html#Computer_Science_Problem_Convolution_KernelOrigin_TopLeft
+  commentId: F:Computer_Science_Problem.Convolution.KernelOrigin.TopLeft
+  fullName: Computer_Science_Problem.Convolution.KernelOrigin.TopLeft
+  nameWithType: Convolution.KernelOrigin.TopLeft
+- uid: Computer_Science_Problem.GeneralMethods
+  name: GeneralMethods
+  href: api/Computer_Science_Problem.GeneralMethods.html
+  commentId: T:Computer_Science_Problem.GeneralMethods
+  fullName: Computer_Science_Problem.GeneralMethods
+  nameWithType: GeneralMethods
+- uid: Computer_Science_Problem.GeneralMethods.Actions
+  name: Actions()
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_Actions
+  commentId: M:Computer_Science_Problem.GeneralMethods.Actions
+  fullName: Computer_Science_Problem.GeneralMethods.Actions()
+  nameWithType: GeneralMethods.Actions()
+- uid: Computer_Science_Problem.GeneralMethods.Actions*
+  name: Actions
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_Actions_
+  commentId: Overload:Computer_Science_Problem.GeneralMethods.Actions
+  isSpec: "True"
+  fullName: Computer_Science_Problem.GeneralMethods.Actions
+  nameWithType: GeneralMethods.Actions
+- uid: Computer_Science_Problem.GeneralMethods.ApplyFilter
+  name: ApplyFilter()
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_ApplyFilter
+  commentId: M:Computer_Science_Problem.GeneralMethods.ApplyFilter
+  fullName: Computer_Science_Problem.GeneralMethods.ApplyFilter()
+  nameWithType: GeneralMethods.ApplyFilter()
+- uid: Computer_Science_Problem.GeneralMethods.ApplyFilter*
+  name: ApplyFilter
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_ApplyFilter_
+  commentId: Overload:Computer_Science_Problem.GeneralMethods.ApplyFilter
+  isSpec: "True"
+  fullName: Computer_Science_Problem.GeneralMethods.ApplyFilter
+  nameWithType: GeneralMethods.ApplyFilter
+- uid: Computer_Science_Problem.GeneralMethods.ApplyManipulation
+  name: ApplyManipulation()
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_ApplyManipulation
+  commentId: M:Computer_Science_Problem.GeneralMethods.ApplyManipulation
+  fullName: Computer_Science_Problem.GeneralMethods.ApplyManipulation()
+  nameWithType: GeneralMethods.ApplyManipulation()
+- uid: Computer_Science_Problem.GeneralMethods.ApplyManipulation*
+  name: ApplyManipulation
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_ApplyManipulation_
+  commentId: Overload:Computer_Science_Problem.GeneralMethods.ApplyManipulation
+  isSpec: "True"
+  fullName: Computer_Science_Problem.GeneralMethods.ApplyManipulation
+  nameWithType: GeneralMethods.ApplyManipulation
+- uid: Computer_Science_Problem.GeneralMethods.ChooseFile(System.String)
+  name: ChooseFile(String)
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_ChooseFile_System_String_
+  commentId: M:Computer_Science_Problem.GeneralMethods.ChooseFile(System.String)
+  fullName: Computer_Science_Problem.GeneralMethods.ChooseFile(System.String)
+  nameWithType: GeneralMethods.ChooseFile(String)
+- uid: Computer_Science_Problem.GeneralMethods.ChooseFile*
+  name: ChooseFile
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_ChooseFile_
+  commentId: Overload:Computer_Science_Problem.GeneralMethods.ChooseFile
+  isSpec: "True"
+  fullName: Computer_Science_Problem.GeneralMethods.ChooseFile
+  nameWithType: GeneralMethods.ChooseFile
+- uid: Computer_Science_Problem.GeneralMethods.ChooseFolder
+  name: ChooseFolder()
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_ChooseFolder
+  commentId: M:Computer_Science_Problem.GeneralMethods.ChooseFolder
+  fullName: Computer_Science_Problem.GeneralMethods.ChooseFolder()
+  nameWithType: GeneralMethods.ChooseFolder()
+- uid: Computer_Science_Problem.GeneralMethods.ChooseFolder*
+  name: ChooseFolder
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_ChooseFolder_
+  commentId: Overload:Computer_Science_Problem.GeneralMethods.ChooseFolder
+  isSpec: "True"
+  fullName: Computer_Science_Problem.GeneralMethods.ChooseFolder
+  nameWithType: GeneralMethods.ChooseFolder
+- uid: Computer_Science_Problem.GeneralMethods.ExtractBytes(System.Byte[],System.Int32,System.Int32)
+  name: ExtractBytes(Byte[], Int32, Int32)
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_ExtractBytes_System_Byte___System_Int32_System_Int32_
+  commentId: M:Computer_Science_Problem.GeneralMethods.ExtractBytes(System.Byte[],System.Int32,System.Int32)
+  name.vb: ExtractBytes(Byte(), Int32, Int32)
+  fullName: Computer_Science_Problem.GeneralMethods.ExtractBytes(System.Byte[], System.Int32, System.Int32)
+  fullName.vb: Computer_Science_Problem.GeneralMethods.ExtractBytes(System.Byte(), System.Int32, System.Int32)
+  nameWithType: GeneralMethods.ExtractBytes(Byte[], Int32, Int32)
+  nameWithType.vb: GeneralMethods.ExtractBytes(Byte(), Int32, Int32)
+- uid: Computer_Science_Problem.GeneralMethods.ExtractBytes*
+  name: ExtractBytes
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_ExtractBytes_
+  commentId: Overload:Computer_Science_Problem.GeneralMethods.ExtractBytes
+  isSpec: "True"
+  fullName: Computer_Science_Problem.GeneralMethods.ExtractBytes
+  nameWithType: GeneralMethods.ExtractBytes
+- uid: Computer_Science_Problem.GeneralMethods.FinalExit
+  name: FinalExit()
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_FinalExit
+  commentId: M:Computer_Science_Problem.GeneralMethods.FinalExit
+  fullName: Computer_Science_Problem.GeneralMethods.FinalExit()
+  nameWithType: GeneralMethods.FinalExit()
+- uid: Computer_Science_Problem.GeneralMethods.FinalExit*
+  name: FinalExit
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_FinalExit_
+  commentId: Overload:Computer_Science_Problem.GeneralMethods.FinalExit
+  isSpec: "True"
+  fullName: Computer_Science_Problem.GeneralMethods.FinalExit
+  nameWithType: GeneralMethods.FinalExit
+- uid: Computer_Science_Problem.GeneralMethods.FutureLanguageFeature
+  name: FutureLanguageFeature()
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_FutureLanguageFeature
+  commentId: M:Computer_Science_Problem.GeneralMethods.FutureLanguageFeature
+  fullName: Computer_Science_Problem.GeneralMethods.FutureLanguageFeature()
+  nameWithType: GeneralMethods.FutureLanguageFeature()
+- uid: Computer_Science_Problem.GeneralMethods.FutureLanguageFeature*
+  name: FutureLanguageFeature
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_FutureLanguageFeature_
+  commentId: Overload:Computer_Science_Problem.GeneralMethods.FutureLanguageFeature
+  isSpec: "True"
+  fullName: Computer_Science_Problem.GeneralMethods.FutureLanguageFeature
+  nameWithType: GeneralMethods.FutureLanguageFeature
+- uid: Computer_Science_Problem.GeneralMethods.InsertBytes(System.Byte[],System.Byte[],System.Int32,System.Int32,System.Int32)
+  name: InsertBytes(Byte[], Byte[], Int32, Int32, Int32)
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_InsertBytes_System_Byte___System_Byte___System_Int32_System_Int32_System_Int32_
+  commentId: M:Computer_Science_Problem.GeneralMethods.InsertBytes(System.Byte[],System.Byte[],System.Int32,System.Int32,System.Int32)
+  name.vb: InsertBytes(Byte(), Byte(), Int32, Int32, Int32)
+  fullName: Computer_Science_Problem.GeneralMethods.InsertBytes(System.Byte[], System.Byte[], System.Int32, System.Int32, System.Int32)
+  fullName.vb: Computer_Science_Problem.GeneralMethods.InsertBytes(System.Byte(), System.Byte(), System.Int32, System.Int32, System.Int32)
+  nameWithType: GeneralMethods.InsertBytes(Byte[], Byte[], Int32, Int32, Int32)
+  nameWithType.vb: GeneralMethods.InsertBytes(Byte(), Byte(), Int32, Int32, Int32)
+- uid: Computer_Science_Problem.GeneralMethods.InsertBytes*
+  name: InsertBytes
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_InsertBytes_
+  commentId: Overload:Computer_Science_Problem.GeneralMethods.InsertBytes
+  isSpec: "True"
+  fullName: Computer_Science_Problem.GeneralMethods.InsertBytes
+  nameWithType: GeneralMethods.InsertBytes
+- uid: Computer_Science_Problem.GeneralMethods.MainMenu
+  name: MainMenu()
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_MainMenu
+  commentId: M:Computer_Science_Problem.GeneralMethods.MainMenu
+  fullName: Computer_Science_Problem.GeneralMethods.MainMenu()
+  nameWithType: GeneralMethods.MainMenu()
+- uid: Computer_Science_Problem.GeneralMethods.MainMenu*
+  name: MainMenu
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_MainMenu_
+  commentId: Overload:Computer_Science_Problem.GeneralMethods.MainMenu
+  isSpec: "True"
+  fullName: Computer_Science_Problem.GeneralMethods.MainMenu
+  nameWithType: GeneralMethods.MainMenu
+- uid: Computer_Science_Problem.GeneralMethods.Pause
+  name: Pause()
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_Pause
+  commentId: M:Computer_Science_Problem.GeneralMethods.Pause
+  fullName: Computer_Science_Problem.GeneralMethods.Pause()
+  nameWithType: GeneralMethods.Pause()
+- uid: Computer_Science_Problem.GeneralMethods.Pause*
+  name: Pause
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_Pause_
+  commentId: Overload:Computer_Science_Problem.GeneralMethods.Pause
+  isSpec: "True"
+  fullName: Computer_Science_Problem.GeneralMethods.Pause
+  nameWithType: GeneralMethods.Pause
+- uid: Computer_Science_Problem.GeneralMethods.ReadBytes(System.IO.Stream,System.Int32)
+  name: ReadBytes(Stream, Int32)
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_ReadBytes_System_IO_Stream_System_Int32_
+  commentId: M:Computer_Science_Problem.GeneralMethods.ReadBytes(System.IO.Stream,System.Int32)
+  fullName: Computer_Science_Problem.GeneralMethods.ReadBytes(System.IO.Stream, System.Int32)
+  nameWithType: GeneralMethods.ReadBytes(Stream, Int32)
+- uid: Computer_Science_Problem.GeneralMethods.ReadBytes*
+  name: ReadBytes
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_ReadBytes_
+  commentId: Overload:Computer_Science_Problem.GeneralMethods.ReadBytes
+  isSpec: "True"
+  fullName: Computer_Science_Problem.GeneralMethods.ReadBytes
+  nameWithType: GeneralMethods.ReadBytes
+- uid: Computer_Science_Problem.GeneralMethods.rnd
+  name: rnd
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_rnd
+  commentId: F:Computer_Science_Problem.GeneralMethods.rnd
+  fullName: Computer_Science_Problem.GeneralMethods.rnd
+  nameWithType: GeneralMethods.rnd
+- uid: Computer_Science_Problem.Image
+  name: Image
+  href: api/Computer_Science_Problem.Image.html
+  commentId: T:Computer_Science_Problem.Image
+  fullName: Computer_Science_Problem.Image
+  nameWithType: Image
+- uid: Computer_Science_Problem.Image.#ctor(Computer_Science_Problem.Image)
+  name: Image(Image)
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image__ctor_Computer_Science_Problem_Image_
+  commentId: M:Computer_Science_Problem.Image.#ctor(Computer_Science_Problem.Image)
+  fullName: Computer_Science_Problem.Image.Image(Computer_Science_Problem.Image)
+  nameWithType: Image.Image(Image)
+- uid: Computer_Science_Problem.Image.#ctor(System.Int32,System.Int32)
+  name: Image(Int32, Int32)
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image__ctor_System_Int32_System_Int32_
+  commentId: M:Computer_Science_Problem.Image.#ctor(System.Int32,System.Int32)
+  fullName: Computer_Science_Problem.Image.Image(System.Int32, System.Int32)
+  nameWithType: Image.Image(Int32, Int32)
+- uid: Computer_Science_Problem.Image.#ctor(System.String)
+  name: Image(String)
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image__ctor_System_String_
+  commentId: M:Computer_Science_Problem.Image.#ctor(System.String)
+  fullName: Computer_Science_Problem.Image.Image(System.String)
+  nameWithType: Image.Image(String)
+- uid: Computer_Science_Problem.Image.#ctor*
+  name: Image
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image__ctor_
+  commentId: Overload:Computer_Science_Problem.Image.#ctor
+  isSpec: "True"
+  fullName: Computer_Science_Problem.Image.Image
+  nameWithType: Image.Image
+- uid: Computer_Science_Problem.Image.BlackAndWhite
+  name: BlackAndWhite()
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_BlackAndWhite
+  commentId: M:Computer_Science_Problem.Image.BlackAndWhite
+  fullName: Computer_Science_Problem.Image.BlackAndWhite()
+  nameWithType: Image.BlackAndWhite()
+- uid: Computer_Science_Problem.Image.BlackAndWhite*
+  name: BlackAndWhite
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_BlackAndWhite_
+  commentId: Overload:Computer_Science_Problem.Image.BlackAndWhite
+  isSpec: "True"
+  fullName: Computer_Science_Problem.Image.BlackAndWhite
+  nameWithType: Image.BlackAndWhite
+- uid: Computer_Science_Problem.Image.ColorDepth
+  name: ColorDepth
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_ColorDepth
+  commentId: P:Computer_Science_Problem.Image.ColorDepth
+  fullName: Computer_Science_Problem.Image.ColorDepth
+  nameWithType: Image.ColorDepth
+- uid: Computer_Science_Problem.Image.ColorDepth*
+  name: ColorDepth
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_ColorDepth_
+  commentId: Overload:Computer_Science_Problem.Image.ColorDepth
+  isSpec: "True"
+  fullName: Computer_Science_Problem.Image.ColorDepth
+  nameWithType: Image.ColorDepth
+- uid: Computer_Science_Problem.Image.ColorPlanes
+  name: ColorPlanes
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_ColorPlanes
+  commentId: P:Computer_Science_Problem.Image.ColorPlanes
+  fullName: Computer_Science_Problem.Image.ColorPlanes
+  nameWithType: Image.ColorPlanes
+- uid: Computer_Science_Problem.Image.ColorPlanes*
+  name: ColorPlanes
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_ColorPlanes_
+  commentId: Overload:Computer_Science_Problem.Image.ColorPlanes
+  isSpec: "True"
+  fullName: Computer_Science_Problem.Image.ColorPlanes
+  nameWithType: Image.ColorPlanes
+- uid: Computer_Science_Problem.Image.Copy
+  name: Copy()
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Copy
+  commentId: M:Computer_Science_Problem.Image.Copy
+  fullName: Computer_Science_Problem.Image.Copy()
+  nameWithType: Image.Copy()
+- uid: Computer_Science_Problem.Image.Copy*
+  name: Copy
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Copy_
+  commentId: Overload:Computer_Science_Problem.Image.Copy
+  isSpec: "True"
+  fullName: Computer_Science_Problem.Image.Copy
+  nameWithType: Image.Copy
+- uid: Computer_Science_Problem.Image.Equals(Computer_Science_Problem.Image)
+  name: Equals(Image)
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Equals_Computer_Science_Problem_Image_
+  commentId: M:Computer_Science_Problem.Image.Equals(Computer_Science_Problem.Image)
+  fullName: Computer_Science_Problem.Image.Equals(Computer_Science_Problem.Image)
+  nameWithType: Image.Equals(Image)
+- uid: Computer_Science_Problem.Image.Equals(System.Object)
+  name: Equals(Object)
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Equals_System_Object_
+  commentId: M:Computer_Science_Problem.Image.Equals(System.Object)
+  fullName: Computer_Science_Problem.Image.Equals(System.Object)
+  nameWithType: Image.Equals(Object)
+- uid: Computer_Science_Problem.Image.Equals*
+  name: Equals
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Equals_
+  commentId: Overload:Computer_Science_Problem.Image.Equals
+  isSpec: "True"
+  fullName: Computer_Science_Problem.Image.Equals
+  nameWithType: Image.Equals
+- uid: Computer_Science_Problem.Image.fileSize
+  name: fileSize
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_fileSize
+  commentId: F:Computer_Science_Problem.Image.fileSize
+  fullName: Computer_Science_Problem.Image.fileSize
+  nameWithType: Image.fileSize
+- uid: Computer_Science_Problem.Image.FileSize
+  name: FileSize
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_FileSize
+  commentId: P:Computer_Science_Problem.Image.FileSize
+  fullName: Computer_Science_Problem.Image.FileSize
+  nameWithType: Image.FileSize
+- uid: Computer_Science_Problem.Image.FileSize*
+  name: FileSize
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_FileSize_
+  commentId: Overload:Computer_Science_Problem.Image.FileSize
+  isSpec: "True"
+  fullName: Computer_Science_Problem.Image.FileSize
+  nameWithType: Image.FileSize
+- uid: Computer_Science_Problem.Image.GetHashCode
+  name: GetHashCode()
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_GetHashCode
+  commentId: M:Computer_Science_Problem.Image.GetHashCode
+  fullName: Computer_Science_Problem.Image.GetHashCode()
+  nameWithType: Image.GetHashCode()
+- uid: Computer_Science_Problem.Image.GetHashCode*
+  name: GetHashCode
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_GetHashCode_
+  commentId: Overload:Computer_Science_Problem.Image.GetHashCode
+  isSpec: "True"
+  fullName: Computer_Science_Problem.Image.GetHashCode
+  nameWithType: Image.GetHashCode
+- uid: Computer_Science_Problem.Image.Greyscale
+  name: Greyscale()
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Greyscale
+  commentId: M:Computer_Science_Problem.Image.Greyscale
+  fullName: Computer_Science_Problem.Image.Greyscale()
+  nameWithType: Image.Greyscale()
+- uid: Computer_Science_Problem.Image.Greyscale*
+  name: Greyscale
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Greyscale_
+  commentId: Overload:Computer_Science_Problem.Image.Greyscale
+  isSpec: "True"
+  fullName: Computer_Science_Problem.Image.Greyscale
+  nameWithType: Image.Greyscale
+- uid: Computer_Science_Problem.Image.Header
+  name: Header
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Header
+  commentId: F:Computer_Science_Problem.Image.Header
+  fullName: Computer_Science_Problem.Image.Header
+  nameWithType: Image.Header
+- uid: Computer_Science_Problem.Image.Height
+  name: Height
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Height
+  commentId: P:Computer_Science_Problem.Image.Height
+  fullName: Computer_Science_Problem.Image.Height
+  nameWithType: Image.Height
+- uid: Computer_Science_Problem.Image.Height*
+  name: Height
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Height_
+  commentId: Overload:Computer_Science_Problem.Image.Height
+  isSpec: "True"
+  fullName: Computer_Science_Problem.Image.Height
+  nameWithType: Image.Height
+- uid: Computer_Science_Problem.Image.imagePath
+  name: imagePath
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_imagePath
+  commentId: F:Computer_Science_Problem.Image.imagePath
+  fullName: Computer_Science_Problem.Image.imagePath
+  nameWithType: Image.imagePath
+- uid: Computer_Science_Problem.Image.infoHeaderSize
+  name: infoHeaderSize
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_infoHeaderSize
+  commentId: F:Computer_Science_Problem.Image.infoHeaderSize
+  fullName: Computer_Science_Problem.Image.infoHeaderSize
+  nameWithType: Image.infoHeaderSize
+- uid: Computer_Science_Problem.Image.InfoHeaderSize
+  name: InfoHeaderSize
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_InfoHeaderSize
+  commentId: P:Computer_Science_Problem.Image.InfoHeaderSize
+  fullName: Computer_Science_Problem.Image.InfoHeaderSize
+  nameWithType: Image.InfoHeaderSize
+- uid: Computer_Science_Problem.Image.InfoHeaderSize*
+  name: InfoHeaderSize
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_InfoHeaderSize_
+  commentId: Overload:Computer_Science_Problem.Image.InfoHeaderSize
+  isSpec: "True"
+  fullName: Computer_Science_Problem.Image.InfoHeaderSize
+  nameWithType: Image.InfoHeaderSize
+- uid: Computer_Science_Problem.Image.Item(System.Int32,System.Int32)
+  name: Item[Int32, Int32]
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Item_System_Int32_System_Int32_
+  commentId: P:Computer_Science_Problem.Image.Item(System.Int32,System.Int32)
+  name.vb: Item(Int32, Int32)
+  fullName: Computer_Science_Problem.Image.Item[System.Int32, System.Int32]
+  fullName.vb: Computer_Science_Problem.Image.Item(System.Int32, System.Int32)
+  nameWithType: Image.Item[Int32, Int32]
+  nameWithType.vb: Image.Item(Int32, Int32)
+- uid: Computer_Science_Problem.Image.Item*
+  name: Item
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Item_
+  commentId: Overload:Computer_Science_Problem.Image.Item
+  isSpec: "True"
+  fullName: Computer_Science_Problem.Image.Item
+  nameWithType: Image.Item
+- uid: Computer_Science_Problem.Image.offsetColorDepth
+  name: offsetColorDepth
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_offsetColorDepth
+  commentId: F:Computer_Science_Problem.Image.offsetColorDepth
+  fullName: Computer_Science_Problem.Image.offsetColorDepth
+  nameWithType: Image.offsetColorDepth
+- uid: Computer_Science_Problem.Image.offsetColorPlanes
+  name: offsetColorPlanes
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_offsetColorPlanes
+  commentId: F:Computer_Science_Problem.Image.offsetColorPlanes
+  fullName: Computer_Science_Problem.Image.offsetColorPlanes
+  nameWithType: Image.offsetColorPlanes
+- uid: Computer_Science_Problem.Image.offsetFirstPixel
+  name: offsetFirstPixel
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_offsetFirstPixel
+  commentId: F:Computer_Science_Problem.Image.offsetFirstPixel
+  fullName: Computer_Science_Problem.Image.offsetFirstPixel
+  nameWithType: Image.offsetFirstPixel
+- uid: Computer_Science_Problem.Image.offsetHeight
+  name: offsetHeight
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_offsetHeight
+  commentId: F:Computer_Science_Problem.Image.offsetHeight
+  fullName: Computer_Science_Problem.Image.offsetHeight
+  nameWithType: Image.offsetHeight
+- uid: Computer_Science_Problem.Image.offsetWidth
+  name: offsetWidth
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_offsetWidth
+  commentId: F:Computer_Science_Problem.Image.offsetWidth
+  fullName: Computer_Science_Problem.Image.offsetWidth
+  nameWithType: Image.offsetWidth
+- uid: Computer_Science_Problem.Image.op_Equality(Computer_Science_Problem.Image,Computer_Science_Problem.Image)
+  name: Equality(Image, Image)
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_op_Equality_Computer_Science_Problem_Image_Computer_Science_Problem_Image_
+  commentId: M:Computer_Science_Problem.Image.op_Equality(Computer_Science_Problem.Image,Computer_Science_Problem.Image)
+  fullName: Computer_Science_Problem.Image.Equality(Computer_Science_Problem.Image, Computer_Science_Problem.Image)
+  nameWithType: Image.Equality(Image, Image)
+- uid: Computer_Science_Problem.Image.op_Equality*
+  name: Equality
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_op_Equality_
+  commentId: Overload:Computer_Science_Problem.Image.op_Equality
+  isSpec: "True"
+  fullName: Computer_Science_Problem.Image.Equality
+  nameWithType: Image.Equality
+- uid: Computer_Science_Problem.Image.op_Inequality(Computer_Science_Problem.Image,Computer_Science_Problem.Image)
+  name: Inequality(Image, Image)
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_op_Inequality_Computer_Science_Problem_Image_Computer_Science_Problem_Image_
+  commentId: M:Computer_Science_Problem.Image.op_Inequality(Computer_Science_Problem.Image,Computer_Science_Problem.Image)
+  fullName: Computer_Science_Problem.Image.Inequality(Computer_Science_Problem.Image, Computer_Science_Problem.Image)
+  nameWithType: Image.Inequality(Image, Image)
+- uid: Computer_Science_Problem.Image.op_Inequality*
+  name: Inequality
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_op_Inequality_
+  commentId: Overload:Computer_Science_Problem.Image.op_Inequality
+  isSpec: "True"
+  fullName: Computer_Science_Problem.Image.Inequality
+  nameWithType: Image.Inequality
+- uid: Computer_Science_Problem.Image.Pixels
+  name: Pixels
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Pixels
+  commentId: F:Computer_Science_Problem.Image.Pixels
+  fullName: Computer_Science_Problem.Image.Pixels
+  nameWithType: Image.Pixels
+- uid: Computer_Science_Problem.Image.Rescale(System.Single,System.Boolean)
+  name: Rescale(Single, Boolean)
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Rescale_System_Single_System_Boolean_
+  commentId: M:Computer_Science_Problem.Image.Rescale(System.Single,System.Boolean)
+  fullName: Computer_Science_Problem.Image.Rescale(System.Single, System.Boolean)
+  nameWithType: Image.Rescale(Single, Boolean)
+- uid: Computer_Science_Problem.Image.Rescale*
+  name: Rescale
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Rescale_
+  commentId: Overload:Computer_Science_Problem.Image.Rescale
+  isSpec: "True"
+  fullName: Computer_Science_Problem.Image.Rescale
+  nameWithType: Image.Rescale
+- uid: Computer_Science_Problem.Image.Rotate(System.Int32)
+  name: Rotate(Int32)
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Rotate_System_Int32_
+  commentId: M:Computer_Science_Problem.Image.Rotate(System.Int32)
+  fullName: Computer_Science_Problem.Image.Rotate(System.Int32)
+  nameWithType: Image.Rotate(Int32)
+- uid: Computer_Science_Problem.Image.Rotate*
+  name: Rotate
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Rotate_
+  commentId: Overload:Computer_Science_Problem.Image.Rotate
+  isSpec: "True"
+  fullName: Computer_Science_Problem.Image.Rotate
+  nameWithType: Image.Rotate
+- uid: Computer_Science_Problem.Image.Save
+  name: Save()
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Save
+  commentId: M:Computer_Science_Problem.Image.Save
+  fullName: Computer_Science_Problem.Image.Save()
+  nameWithType: Image.Save()
+- uid: Computer_Science_Problem.Image.Save*
+  name: Save
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Save_
+  commentId: Overload:Computer_Science_Problem.Image.Save
+  isSpec: "True"
+  fullName: Computer_Science_Problem.Image.Save
+  nameWithType: Image.Save
+- uid: Computer_Science_Problem.Image.StartOffset
+  name: StartOffset
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_StartOffset
+  commentId: P:Computer_Science_Problem.Image.StartOffset
+  fullName: Computer_Science_Problem.Image.StartOffset
+  nameWithType: Image.StartOffset
+- uid: Computer_Science_Problem.Image.StartOffset*
+  name: StartOffset
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_StartOffset_
+  commentId: Overload:Computer_Science_Problem.Image.StartOffset
+  isSpec: "True"
+  fullName: Computer_Science_Problem.Image.StartOffset
+  nameWithType: Image.StartOffset
+- uid: Computer_Science_Problem.Image.Stride
+  name: Stride
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Stride
+  commentId: P:Computer_Science_Problem.Image.Stride
+  fullName: Computer_Science_Problem.Image.Stride
+  nameWithType: Image.Stride
+- uid: Computer_Science_Problem.Image.Stride*
+  name: Stride
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Stride_
+  commentId: Overload:Computer_Science_Problem.Image.Stride
+  isSpec: "True"
+  fullName: Computer_Science_Problem.Image.Stride
+  nameWithType: Image.Stride
+- uid: Computer_Science_Problem.Image.type
+  name: type
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_type
+  commentId: F:Computer_Science_Problem.Image.type
+  fullName: Computer_Science_Problem.Image.type
+  nameWithType: Image.type
+- uid: Computer_Science_Problem.Image.Type
+  name: Type
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Type
+  commentId: P:Computer_Science_Problem.Image.Type
+  fullName: Computer_Science_Problem.Image.Type
+  nameWithType: Image.Type
+- uid: Computer_Science_Problem.Image.Type*
+  name: Type
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Type_
+  commentId: Overload:Computer_Science_Problem.Image.Type
+  isSpec: "True"
+  fullName: Computer_Science_Problem.Image.Type
+  nameWithType: Image.Type
+- uid: Computer_Science_Problem.Image.Width
+  name: Width
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Width
+  commentId: P:Computer_Science_Problem.Image.Width
+  fullName: Computer_Science_Problem.Image.Width
+  nameWithType: Image.Width
+- uid: Computer_Science_Problem.Image.Width*
+  name: Width
+  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Width_
+  commentId: Overload:Computer_Science_Problem.Image.Width
+  isSpec: "True"
+  fullName: Computer_Science_Problem.Image.Width
+  nameWithType: Image.Width
+- uid: Utilitary
+  name: Utilitary
+  href: api/Utilitary.html
+  commentId: N:Utilitary
+  fullName: Utilitary
+  nameWithType: Utilitary
+- uid: Utilitary.Complex
+  name: Complex
+  href: api/Utilitary.Complex.html
+  commentId: T:Utilitary.Complex
+  fullName: Utilitary.Complex
+  nameWithType: Complex
+- uid: Utilitary.Complex.#ctor(System.Double,System.Double)
+  name: Complex(Double, Double)
+  href: api/Utilitary.Complex.html#Utilitary_Complex__ctor_System_Double_System_Double_
+  commentId: M:Utilitary.Complex.#ctor(System.Double,System.Double)
+  fullName: Utilitary.Complex.Complex(System.Double, System.Double)
+  nameWithType: Complex.Complex(Double, Double)
+- uid: Utilitary.Complex.#ctor*
+  name: Complex
+  href: api/Utilitary.Complex.html#Utilitary_Complex__ctor_
+  commentId: Overload:Utilitary.Complex.#ctor
+  isSpec: "True"
+  fullName: Utilitary.Complex.Complex
+  nameWithType: Complex.Complex
+- uid: Utilitary.Complex.Abs
+  name: Abs()
+  href: api/Utilitary.Complex.html#Utilitary_Complex_Abs
+  commentId: M:Utilitary.Complex.Abs
+  fullName: Utilitary.Complex.Abs()
+  nameWithType: Complex.Abs()
+- uid: Utilitary.Complex.Abs*
+  name: Abs
+  href: api/Utilitary.Complex.html#Utilitary_Complex_Abs_
+  commentId: Overload:Utilitary.Complex.Abs
+  isSpec: "True"
+  fullName: Utilitary.Complex.Abs
+  nameWithType: Complex.Abs
+- uid: Utilitary.Complex.Im
+  name: Im
+  href: api/Utilitary.Complex.html#Utilitary_Complex_Im
+  commentId: F:Utilitary.Complex.Im
+  fullName: Utilitary.Complex.Im
+  nameWithType: Complex.Im
+- uid: Utilitary.Complex.op_Addition(System.Double,Utilitary.Complex)
+  name: Addition(Double, Complex)
+  href: api/Utilitary.Complex.html#Utilitary_Complex_op_Addition_System_Double_Utilitary_Complex_
+  commentId: M:Utilitary.Complex.op_Addition(System.Double,Utilitary.Complex)
+  fullName: Utilitary.Complex.Addition(System.Double, Utilitary.Complex)
+  nameWithType: Complex.Addition(Double, Complex)
+- uid: Utilitary.Complex.op_Addition(Utilitary.Complex,System.Double)
+  name: Addition(Complex, Double)
+  href: api/Utilitary.Complex.html#Utilitary_Complex_op_Addition_Utilitary_Complex_System_Double_
+  commentId: M:Utilitary.Complex.op_Addition(Utilitary.Complex,System.Double)
+  fullName: Utilitary.Complex.Addition(Utilitary.Complex, System.Double)
+  nameWithType: Complex.Addition(Complex, Double)
+- uid: Utilitary.Complex.op_Addition(Utilitary.Complex,Utilitary.Complex)
+  name: Addition(Complex, Complex)
+  href: api/Utilitary.Complex.html#Utilitary_Complex_op_Addition_Utilitary_Complex_Utilitary_Complex_
+  commentId: M:Utilitary.Complex.op_Addition(Utilitary.Complex,Utilitary.Complex)
+  fullName: Utilitary.Complex.Addition(Utilitary.Complex, Utilitary.Complex)
+  nameWithType: Complex.Addition(Complex, Complex)
+- uid: Utilitary.Complex.op_Addition*
+  name: Addition
+  href: api/Utilitary.Complex.html#Utilitary_Complex_op_Addition_
+  commentId: Overload:Utilitary.Complex.op_Addition
+  isSpec: "True"
+  fullName: Utilitary.Complex.Addition
+  nameWithType: Complex.Addition
+- uid: Utilitary.Complex.op_Division(Utilitary.Complex,System.Double)
+  name: Division(Complex, Double)
+  href: api/Utilitary.Complex.html#Utilitary_Complex_op_Division_Utilitary_Complex_System_Double_
+  commentId: M:Utilitary.Complex.op_Division(Utilitary.Complex,System.Double)
+  fullName: Utilitary.Complex.Division(Utilitary.Complex, System.Double)
+  nameWithType: Complex.Division(Complex, Double)
+- uid: Utilitary.Complex.op_Division(Utilitary.Complex,Utilitary.Complex)
+  name: Division(Complex, Complex)
+  href: api/Utilitary.Complex.html#Utilitary_Complex_op_Division_Utilitary_Complex_Utilitary_Complex_
+  commentId: M:Utilitary.Complex.op_Division(Utilitary.Complex,Utilitary.Complex)
+  fullName: Utilitary.Complex.Division(Utilitary.Complex, Utilitary.Complex)
+  nameWithType: Complex.Division(Complex, Complex)
+- uid: Utilitary.Complex.op_Division*
+  name: Division
+  href: api/Utilitary.Complex.html#Utilitary_Complex_op_Division_
+  commentId: Overload:Utilitary.Complex.op_Division
+  isSpec: "True"
+  fullName: Utilitary.Complex.Division
+  nameWithType: Complex.Division
+- uid: Utilitary.Complex.op_Multiply(Utilitary.Complex,System.Double)
+  name: Multiply(Complex, Double)
+  href: api/Utilitary.Complex.html#Utilitary_Complex_op_Multiply_Utilitary_Complex_System_Double_
+  commentId: M:Utilitary.Complex.op_Multiply(Utilitary.Complex,System.Double)
+  fullName: Utilitary.Complex.Multiply(Utilitary.Complex, System.Double)
+  nameWithType: Complex.Multiply(Complex, Double)
+- uid: Utilitary.Complex.op_Multiply(Utilitary.Complex,Utilitary.Complex)
+  name: Multiply(Complex, Complex)
+  href: api/Utilitary.Complex.html#Utilitary_Complex_op_Multiply_Utilitary_Complex_Utilitary_Complex_
+  commentId: M:Utilitary.Complex.op_Multiply(Utilitary.Complex,Utilitary.Complex)
+  fullName: Utilitary.Complex.Multiply(Utilitary.Complex, Utilitary.Complex)
+  nameWithType: Complex.Multiply(Complex, Complex)
+- uid: Utilitary.Complex.op_Multiply*
+  name: Multiply
+  href: api/Utilitary.Complex.html#Utilitary_Complex_op_Multiply_
+  commentId: Overload:Utilitary.Complex.op_Multiply
+  isSpec: "True"
+  fullName: Utilitary.Complex.Multiply
+  nameWithType: Complex.Multiply
+- uid: Utilitary.Complex.op_Subtraction(System.Double,Utilitary.Complex)
+  name: Subtraction(Double, Complex)
+  href: api/Utilitary.Complex.html#Utilitary_Complex_op_Subtraction_System_Double_Utilitary_Complex_
+  commentId: M:Utilitary.Complex.op_Subtraction(System.Double,Utilitary.Complex)
+  fullName: Utilitary.Complex.Subtraction(System.Double, Utilitary.Complex)
+  nameWithType: Complex.Subtraction(Double, Complex)
+- uid: Utilitary.Complex.op_Subtraction(Utilitary.Complex,System.Double)
+  name: Subtraction(Complex, Double)
+  href: api/Utilitary.Complex.html#Utilitary_Complex_op_Subtraction_Utilitary_Complex_System_Double_
+  commentId: M:Utilitary.Complex.op_Subtraction(Utilitary.Complex,System.Double)
+  fullName: Utilitary.Complex.Subtraction(Utilitary.Complex, System.Double)
+  nameWithType: Complex.Subtraction(Complex, Double)
+- uid: Utilitary.Complex.op_Subtraction(Utilitary.Complex,Utilitary.Complex)
+  name: Subtraction(Complex, Complex)
+  href: api/Utilitary.Complex.html#Utilitary_Complex_op_Subtraction_Utilitary_Complex_Utilitary_Complex_
+  commentId: M:Utilitary.Complex.op_Subtraction(Utilitary.Complex,Utilitary.Complex)
+  fullName: Utilitary.Complex.Subtraction(Utilitary.Complex, Utilitary.Complex)
+  nameWithType: Complex.Subtraction(Complex, Complex)
+- uid: Utilitary.Complex.op_Subtraction*
+  name: Subtraction
+  href: api/Utilitary.Complex.html#Utilitary_Complex_op_Subtraction_
+  commentId: Overload:Utilitary.Complex.op_Subtraction
+  isSpec: "True"
+  fullName: Utilitary.Complex.Subtraction
+  nameWithType: Complex.Subtraction
+- uid: Utilitary.Complex.Re
+  name: Re
+  href: api/Utilitary.Complex.html#Utilitary_Complex_Re
+  commentId: F:Utilitary.Complex.Re
+  fullName: Utilitary.Complex.Re
+  nameWithType: Complex.Re
+- uid: Utilitary.Complex.ToString
+  name: ToString()
+  href: api/Utilitary.Complex.html#Utilitary_Complex_ToString
+  commentId: M:Utilitary.Complex.ToString
+  fullName: Utilitary.Complex.ToString()
+  nameWithType: Complex.ToString()
+- uid: Utilitary.Complex.ToString*
+  name: ToString
+  href: api/Utilitary.Complex.html#Utilitary_Complex_ToString_
+  commentId: Overload:Utilitary.Complex.ToString
+  isSpec: "True"
+  fullName: Utilitary.Complex.ToString
+  nameWithType: Complex.ToString
+- uid: Utilitary.ConvertTo
+  name: ConvertTo
+  href: api/Utilitary.ConvertTo.html
+  commentId: T:Utilitary.ConvertTo
+  fullName: Utilitary.ConvertTo
+  nameWithType: ConvertTo
+- uid: Utilitary.ConvertTo.Int(System.Byte[],System.Int32)
+  name: Int(Byte[], Int32)
+  href: api/Utilitary.ConvertTo.html#Utilitary_ConvertTo_Int_System_Byte___System_Int32_
+  commentId: M:Utilitary.ConvertTo.Int(System.Byte[],System.Int32)
+  name.vb: Int(Byte(), Int32)
+  fullName: Utilitary.ConvertTo.Int(System.Byte[], System.Int32)
+  fullName.vb: Utilitary.ConvertTo.Int(System.Byte(), System.Int32)
+  nameWithType: ConvertTo.Int(Byte[], Int32)
+  nameWithType.vb: ConvertTo.Int(Byte(), Int32)
+- uid: Utilitary.ConvertTo.Int*
+  name: Int
+  href: api/Utilitary.ConvertTo.html#Utilitary_ConvertTo_Int_
+  commentId: Overload:Utilitary.ConvertTo.Int
+  isSpec: "True"
+  fullName: Utilitary.ConvertTo.Int
+  nameWithType: ConvertTo.Int
+- uid: Utilitary.ConvertTo.LittleEndian(System.Int32)
+  name: LittleEndian(Int32)
+  href: api/Utilitary.ConvertTo.html#Utilitary_ConvertTo_LittleEndian_System_Int32_
+  commentId: M:Utilitary.ConvertTo.LittleEndian(System.Int32)
+  fullName: Utilitary.ConvertTo.LittleEndian(System.Int32)
+  nameWithType: ConvertTo.LittleEndian(Int32)
+- uid: Utilitary.ConvertTo.LittleEndian(System.UInt16)
+  name: LittleEndian(UInt16)
+  href: api/Utilitary.ConvertTo.html#Utilitary_ConvertTo_LittleEndian_System_UInt16_
+  commentId: M:Utilitary.ConvertTo.LittleEndian(System.UInt16)
+  fullName: Utilitary.ConvertTo.LittleEndian(System.UInt16)
+  nameWithType: ConvertTo.LittleEndian(UInt16)
+- uid: Utilitary.ConvertTo.LittleEndian(System.UInt32)
+  name: LittleEndian(UInt32)
+  href: api/Utilitary.ConvertTo.html#Utilitary_ConvertTo_LittleEndian_System_UInt32_
+  commentId: M:Utilitary.ConvertTo.LittleEndian(System.UInt32)
+  fullName: Utilitary.ConvertTo.LittleEndian(System.UInt32)
+  nameWithType: ConvertTo.LittleEndian(UInt32)
+- uid: Utilitary.ConvertTo.LittleEndian*
+  name: LittleEndian
+  href: api/Utilitary.ConvertTo.html#Utilitary_ConvertTo_LittleEndian_
+  commentId: Overload:Utilitary.ConvertTo.LittleEndian
+  isSpec: "True"
+  fullName: Utilitary.ConvertTo.LittleEndian
+  nameWithType: ConvertTo.LittleEndian
+- uid: Utilitary.ConvertTo.UInt(System.Byte[],System.Int32)
+  name: UInt(Byte[], Int32)
+  href: api/Utilitary.ConvertTo.html#Utilitary_ConvertTo_UInt_System_Byte___System_Int32_
+  commentId: M:Utilitary.ConvertTo.UInt(System.Byte[],System.Int32)
+  name.vb: UInt(Byte(), Int32)
+  fullName: Utilitary.ConvertTo.UInt(System.Byte[], System.Int32)
+  fullName.vb: Utilitary.ConvertTo.UInt(System.Byte(), System.Int32)
+  nameWithType: ConvertTo.UInt(Byte[], Int32)
+  nameWithType.vb: ConvertTo.UInt(Byte(), Int32)
+- uid: Utilitary.ConvertTo.UInt*
+  name: UInt
+  href: api/Utilitary.ConvertTo.html#Utilitary_ConvertTo_UInt_
+  commentId: Overload:Utilitary.ConvertTo.UInt
+  isSpec: "True"
+  fullName: Utilitary.ConvertTo.UInt
+  nameWithType: ConvertTo.UInt
+- uid: Utilitary.ConvertTo.UShort(System.Byte[],System.Int32)
+  name: UShort(Byte[], Int32)
+  href: api/Utilitary.ConvertTo.html#Utilitary_ConvertTo_UShort_System_Byte___System_Int32_
+  commentId: M:Utilitary.ConvertTo.UShort(System.Byte[],System.Int32)
+  name.vb: UShort(Byte(), Int32)
+  fullName: Utilitary.ConvertTo.UShort(System.Byte[], System.Int32)
+  fullName.vb: Utilitary.ConvertTo.UShort(System.Byte(), System.Int32)
+  nameWithType: ConvertTo.UShort(Byte[], Int32)
+  nameWithType.vb: ConvertTo.UShort(Byte(), Int32)
+- uid: Utilitary.ConvertTo.UShort*
+  name: UShort
+  href: api/Utilitary.ConvertTo.html#Utilitary_ConvertTo_UShort_
+  commentId: Overload:Utilitary.ConvertTo.UShort
+  isSpec: "True"
+  fullName: Utilitary.ConvertTo.UShort
+  nameWithType: ConvertTo.UShort
+- uid: Utilitary.Pixel
+  name: Pixel
+  href: api/Utilitary.Pixel.html
+  commentId: T:Utilitary.Pixel
+  fullName: Utilitary.Pixel
+  nameWithType: Pixel
+- uid: Utilitary.Pixel.#ctor
+  name: Pixel()
+  href: api/Utilitary.Pixel.html#Utilitary_Pixel__ctor
+  commentId: M:Utilitary.Pixel.#ctor
+  fullName: Utilitary.Pixel.Pixel()
+  nameWithType: Pixel.Pixel()
+- uid: Utilitary.Pixel.#ctor(System.Byte,System.Byte,System.Byte)
+  name: Pixel(Byte, Byte, Byte)
+  href: api/Utilitary.Pixel.html#Utilitary_Pixel__ctor_System_Byte_System_Byte_System_Byte_
+  commentId: M:Utilitary.Pixel.#ctor(System.Byte,System.Byte,System.Byte)
+  fullName: Utilitary.Pixel.Pixel(System.Byte, System.Byte, System.Byte)
+  nameWithType: Pixel.Pixel(Byte, Byte, Byte)
+- uid: Utilitary.Pixel.#ctor(Utilitary.Pixel)
+  name: Pixel(Pixel)
+  href: api/Utilitary.Pixel.html#Utilitary_Pixel__ctor_Utilitary_Pixel_
+  commentId: M:Utilitary.Pixel.#ctor(Utilitary.Pixel)
+  fullName: Utilitary.Pixel.Pixel(Utilitary.Pixel)
+  nameWithType: Pixel.Pixel(Pixel)
+- uid: Utilitary.Pixel.#ctor*
+  name: Pixel
+  href: api/Utilitary.Pixel.html#Utilitary_Pixel__ctor_
+  commentId: Overload:Utilitary.Pixel.#ctor
+  isSpec: "True"
+  fullName: Utilitary.Pixel.Pixel
+  nameWithType: Pixel.Pixel
+- uid: Utilitary.Pixel.B
+  name: B
+  href: api/Utilitary.Pixel.html#Utilitary_Pixel_B
+  commentId: F:Utilitary.Pixel.B
+  fullName: Utilitary.Pixel.B
+  nameWithType: Pixel.B
+- uid: Utilitary.Pixel.Copy
+  name: Copy()
+  href: api/Utilitary.Pixel.html#Utilitary_Pixel_Copy
+  commentId: M:Utilitary.Pixel.Copy
+  fullName: Utilitary.Pixel.Copy()
+  nameWithType: Pixel.Copy()
+- uid: Utilitary.Pixel.Copy*
+  name: Copy
+  href: api/Utilitary.Pixel.html#Utilitary_Pixel_Copy_
+  commentId: Overload:Utilitary.Pixel.Copy
+  isSpec: "True"
+  fullName: Utilitary.Pixel.Copy
+  nameWithType: Pixel.Copy
+- uid: Utilitary.Pixel.Equals(System.Object)
+  name: Equals(Object)
+  href: api/Utilitary.Pixel.html#Utilitary_Pixel_Equals_System_Object_
+  commentId: M:Utilitary.Pixel.Equals(System.Object)
+  fullName: Utilitary.Pixel.Equals(System.Object)
+  nameWithType: Pixel.Equals(Object)
+- uid: Utilitary.Pixel.Equals(Utilitary.Pixel)
+  name: Equals(Pixel)
+  href: api/Utilitary.Pixel.html#Utilitary_Pixel_Equals_Utilitary_Pixel_
+  commentId: M:Utilitary.Pixel.Equals(Utilitary.Pixel)
+  fullName: Utilitary.Pixel.Equals(Utilitary.Pixel)
+  nameWithType: Pixel.Equals(Pixel)
+- uid: Utilitary.Pixel.Equals*
+  name: Equals
+  href: api/Utilitary.Pixel.html#Utilitary_Pixel_Equals_
+  commentId: Overload:Utilitary.Pixel.Equals
+  isSpec: "True"
+  fullName: Utilitary.Pixel.Equals
+  nameWithType: Pixel.Equals
+- uid: Utilitary.Pixel.G
+  name: G
+  href: api/Utilitary.Pixel.html#Utilitary_Pixel_G
+  commentId: F:Utilitary.Pixel.G
+  fullName: Utilitary.Pixel.G
+  nameWithType: Pixel.G
+- uid: Utilitary.Pixel.GetHashCode
+  name: GetHashCode()
+  href: api/Utilitary.Pixel.html#Utilitary_Pixel_GetHashCode
+  commentId: M:Utilitary.Pixel.GetHashCode
+  fullName: Utilitary.Pixel.GetHashCode()
+  nameWithType: Pixel.GetHashCode()
+- uid: Utilitary.Pixel.GetHashCode*
+  name: GetHashCode
+  href: api/Utilitary.Pixel.html#Utilitary_Pixel_GetHashCode_
+  commentId: Overload:Utilitary.Pixel.GetHashCode
+  isSpec: "True"
+  fullName: Utilitary.Pixel.GetHashCode
+  nameWithType: Pixel.GetHashCode
+- uid: Utilitary.Pixel.Greyscale
+  name: Greyscale()
+  href: api/Utilitary.Pixel.html#Utilitary_Pixel_Greyscale
+  commentId: M:Utilitary.Pixel.Greyscale
+  fullName: Utilitary.Pixel.Greyscale()
+  nameWithType: Pixel.Greyscale()
+- uid: Utilitary.Pixel.Greyscale*
+  name: Greyscale
+  href: api/Utilitary.Pixel.html#Utilitary_Pixel_Greyscale_
+  commentId: Overload:Utilitary.Pixel.Greyscale
+  isSpec: "True"
+  fullName: Utilitary.Pixel.Greyscale
+  nameWithType: Pixel.Greyscale
+- uid: Utilitary.Pixel.op_Equality(Utilitary.Pixel,Utilitary.Pixel)
+  name: Equality(Pixel, Pixel)
+  href: api/Utilitary.Pixel.html#Utilitary_Pixel_op_Equality_Utilitary_Pixel_Utilitary_Pixel_
+  commentId: M:Utilitary.Pixel.op_Equality(Utilitary.Pixel,Utilitary.Pixel)
+  fullName: Utilitary.Pixel.Equality(Utilitary.Pixel, Utilitary.Pixel)
+  nameWithType: Pixel.Equality(Pixel, Pixel)
+- uid: Utilitary.Pixel.op_Equality*
+  name: Equality
+  href: api/Utilitary.Pixel.html#Utilitary_Pixel_op_Equality_
+  commentId: Overload:Utilitary.Pixel.op_Equality
+  isSpec: "True"
+  fullName: Utilitary.Pixel.Equality
+  nameWithType: Pixel.Equality
+- uid: Utilitary.Pixel.op_Inequality(Utilitary.Pixel,Utilitary.Pixel)
+  name: Inequality(Pixel, Pixel)
+  href: api/Utilitary.Pixel.html#Utilitary_Pixel_op_Inequality_Utilitary_Pixel_Utilitary_Pixel_
+  commentId: M:Utilitary.Pixel.op_Inequality(Utilitary.Pixel,Utilitary.Pixel)
+  fullName: Utilitary.Pixel.Inequality(Utilitary.Pixel, Utilitary.Pixel)
+  nameWithType: Pixel.Inequality(Pixel, Pixel)
+- uid: Utilitary.Pixel.op_Inequality*
+  name: Inequality
+  href: api/Utilitary.Pixel.html#Utilitary_Pixel_op_Inequality_
+  commentId: Overload:Utilitary.Pixel.op_Inequality
+  isSpec: "True"
+  fullName: Utilitary.Pixel.Inequality
+  nameWithType: Pixel.Inequality
+- uid: Utilitary.Pixel.R
+  name: R
+  href: api/Utilitary.Pixel.html#Utilitary_Pixel_R
+  commentId: F:Utilitary.Pixel.R
+  fullName: Utilitary.Pixel.R
+  nameWithType: Pixel.R
+- uid: Utilitary.Pixel.ToString
+  name: ToString()
+  href: api/Utilitary.Pixel.html#Utilitary_Pixel_ToString
+  commentId: M:Utilitary.Pixel.ToString
+  fullName: Utilitary.Pixel.ToString()
+  nameWithType: Pixel.ToString()
+- uid: Utilitary.Pixel.ToString*
+  name: ToString
+  href: api/Utilitary.Pixel.html#Utilitary_Pixel_ToString_
+  commentId: Overload:Utilitary.Pixel.ToString
+  isSpec: "True"
+  fullName: Utilitary.Pixel.ToString
+  nameWithType: Pixel.ToString
+- uid: Visuals
+  name: Visuals
+  href: api/Visuals.html
+  commentId: N:Visuals
+  fullName: Visuals
+  nameWithType: Visuals
+- uid: Visuals.ConsoleVisuals
+  name: ConsoleVisuals
+  href: api/Visuals.ConsoleVisuals.html
+  commentId: T:Visuals.ConsoleVisuals
+  fullName: Visuals.ConsoleVisuals
+  nameWithType: ConsoleVisuals
+- uid: Visuals.ConsoleVisuals.BoardMessage(System.String[],System.ConsoleColor)
+  name: BoardMessage(String[], ConsoleColor)
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_BoardMessage_System_String___System_ConsoleColor_
+  commentId: M:Visuals.ConsoleVisuals.BoardMessage(System.String[],System.ConsoleColor)
+  name.vb: BoardMessage(String(), ConsoleColor)
+  fullName: Visuals.ConsoleVisuals.BoardMessage(System.String[], System.ConsoleColor)
+  fullName.vb: Visuals.ConsoleVisuals.BoardMessage(System.String(), System.ConsoleColor)
+  nameWithType: ConsoleVisuals.BoardMessage(String[], ConsoleColor)
+  nameWithType.vb: ConsoleVisuals.BoardMessage(String(), ConsoleColor)
+- uid: Visuals.ConsoleVisuals.BoardMessage*
+  name: BoardMessage
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_BoardMessage_
+  commentId: Overload:Visuals.ConsoleVisuals.BoardMessage
+  isSpec: "True"
+  fullName: Visuals.ConsoleVisuals.BoardMessage
+  nameWithType: ConsoleVisuals.BoardMessage
+- uid: Visuals.ConsoleVisuals.CenteredW(System.String,System.ConsoleColor,System.ConsoleColor)
+  name: CenteredW(String, ConsoleColor, ConsoleColor)
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_CenteredW_System_String_System_ConsoleColor_System_ConsoleColor_
+  commentId: M:Visuals.ConsoleVisuals.CenteredW(System.String,System.ConsoleColor,System.ConsoleColor)
+  fullName: Visuals.ConsoleVisuals.CenteredW(System.String, System.ConsoleColor, System.ConsoleColor)
+  nameWithType: ConsoleVisuals.CenteredW(String, ConsoleColor, ConsoleColor)
+- uid: Visuals.ConsoleVisuals.CenteredW*
+  name: CenteredW
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_CenteredW_
+  commentId: Overload:Visuals.ConsoleVisuals.CenteredW
+  isSpec: "True"
+  fullName: Visuals.ConsoleVisuals.CenteredW
+  nameWithType: ConsoleVisuals.CenteredW
+- uid: Visuals.ConsoleVisuals.CenteredWL(System.String,System.ConsoleColor,System.ConsoleColor)
+  name: CenteredWL(String, ConsoleColor, ConsoleColor)
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_CenteredWL_System_String_System_ConsoleColor_System_ConsoleColor_
+  commentId: M:Visuals.ConsoleVisuals.CenteredWL(System.String,System.ConsoleColor,System.ConsoleColor)
+  fullName: Visuals.ConsoleVisuals.CenteredWL(System.String, System.ConsoleColor, System.ConsoleColor)
+  nameWithType: ConsoleVisuals.CenteredWL(String, ConsoleColor, ConsoleColor)
+- uid: Visuals.ConsoleVisuals.CenteredWL*
+  name: CenteredWL
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_CenteredWL_
+  commentId: Overload:Visuals.ConsoleVisuals.CenteredWL
+  isSpec: "True"
+  fullName: Visuals.ConsoleVisuals.CenteredWL
+  nameWithType: ConsoleVisuals.CenteredWL
+- uid: Visuals.ConsoleVisuals.ConsoleConfiguration(System.Boolean)
+  name: ConsoleConfiguration(Boolean)
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_ConsoleConfiguration_System_Boolean_
+  commentId: M:Visuals.ConsoleVisuals.ConsoleConfiguration(System.Boolean)
+  fullName: Visuals.ConsoleVisuals.ConsoleConfiguration(System.Boolean)
+  nameWithType: ConsoleVisuals.ConsoleConfiguration(Boolean)
+- uid: Visuals.ConsoleVisuals.ConsoleConfiguration*
+  name: ConsoleConfiguration
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_ConsoleConfiguration_
+  commentId: Overload:Visuals.ConsoleVisuals.ConsoleConfiguration
+  isSpec: "True"
+  fullName: Visuals.ConsoleVisuals.ConsoleConfiguration
+  nameWithType: ConsoleVisuals.ConsoleConfiguration
+- uid: Visuals.ConsoleVisuals.LoadingScreen(System.String)
+  name: LoadingScreen(String)
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_LoadingScreen_System_String_
+  commentId: M:Visuals.ConsoleVisuals.LoadingScreen(System.String)
+  fullName: Visuals.ConsoleVisuals.LoadingScreen(System.String)
+  nameWithType: ConsoleVisuals.LoadingScreen(String)
+- uid: Visuals.ConsoleVisuals.LoadingScreen*
+  name: LoadingScreen
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_LoadingScreen_
+  commentId: Overload:Visuals.ConsoleVisuals.LoadingScreen
+  isSpec: "True"
+  fullName: Visuals.ConsoleVisuals.LoadingScreen
+  nameWithType: ConsoleVisuals.LoadingScreen
+- uid: Visuals.ConsoleVisuals.PrintSpecialText(System.String)
+  name: PrintSpecialText(String)
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_PrintSpecialText_System_String_
+  commentId: M:Visuals.ConsoleVisuals.PrintSpecialText(System.String)
+  fullName: Visuals.ConsoleVisuals.PrintSpecialText(System.String)
+  nameWithType: ConsoleVisuals.PrintSpecialText(String)
+- uid: Visuals.ConsoleVisuals.PrintSpecialText*
+  name: PrintSpecialText
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_PrintSpecialText_
+  commentId: Overload:Visuals.ConsoleVisuals.PrintSpecialText
+  isSpec: "True"
+  fullName: Visuals.ConsoleVisuals.PrintSpecialText
+  nameWithType: ConsoleVisuals.PrintSpecialText
+- uid: Visuals.ConsoleVisuals.Prompt(System.String,System.Int32,System.String)
+  name: Prompt(String, Int32, String)
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_Prompt_System_String_System_Int32_System_String_
+  commentId: M:Visuals.ConsoleVisuals.Prompt(System.String,System.Int32,System.String)
+  fullName: Visuals.ConsoleVisuals.Prompt(System.String, System.Int32, System.String)
+  nameWithType: ConsoleVisuals.Prompt(String, Int32, String)
+- uid: Visuals.ConsoleVisuals.Prompt*
+  name: Prompt
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_Prompt_
+  commentId: Overload:Visuals.ConsoleVisuals.Prompt
+  isSpec: "True"
+  fullName: Visuals.ConsoleVisuals.Prompt
+  nameWithType: ConsoleVisuals.Prompt
+- uid: Visuals.ConsoleVisuals.ScrollingMenu(System.String,System.String[],System.String)
+  name: ScrollingMenu(String, String[], String)
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_ScrollingMenu_System_String_System_String___System_String_
+  commentId: M:Visuals.ConsoleVisuals.ScrollingMenu(System.String,System.String[],System.String)
+  name.vb: ScrollingMenu(String, String(), String)
+  fullName: Visuals.ConsoleVisuals.ScrollingMenu(System.String, System.String[], System.String)
+  fullName.vb: Visuals.ConsoleVisuals.ScrollingMenu(System.String, System.String(), System.String)
+  nameWithType: ConsoleVisuals.ScrollingMenu(String, String[], String)
+  nameWithType.vb: ConsoleVisuals.ScrollingMenu(String, String(), String)
+- uid: Visuals.ConsoleVisuals.ScrollingMenu*
+  name: ScrollingMenu
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_ScrollingMenu_
+  commentId: Overload:Visuals.ConsoleVisuals.ScrollingMenu
+  isSpec: "True"
+  fullName: Visuals.ConsoleVisuals.ScrollingMenu
+  nameWithType: ConsoleVisuals.ScrollingMenu
+- uid: Visuals.ConsoleVisuals.Title(System.String,System.String,System.Int32)
+  name: Title(String, String, Int32)
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_Title_System_String_System_String_System_Int32_
+  commentId: M:Visuals.ConsoleVisuals.Title(System.String,System.String,System.Int32)
+  fullName: Visuals.ConsoleVisuals.Title(System.String, System.String, System.Int32)
+  nameWithType: ConsoleVisuals.Title(String, String, Int32)
+- uid: Visuals.ConsoleVisuals.Title*
+  name: Title
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_Title_
+  commentId: Overload:Visuals.ConsoleVisuals.Title
+  isSpec: "True"
+  fullName: Visuals.ConsoleVisuals.Title
+  nameWithType: ConsoleVisuals.Title
+- uid: Visuals.ConsoleVisuals.titlePath
+  name: titlePath
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_titlePath
+  commentId: F:Visuals.ConsoleVisuals.titlePath
+  fullName: Visuals.ConsoleVisuals.titlePath
+  nameWithType: ConsoleVisuals.titlePath
