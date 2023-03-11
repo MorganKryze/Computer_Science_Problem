@@ -1,5 +1,3 @@
-using System;
-
 using static Visuals.ConsoleVisuals;
 
 using static System.Console;
@@ -113,17 +111,29 @@ public static class GeneralMethods
     {
         Image image = new (Image.imagePath);
         switch (ScrollingMenu("You may choose one filter to apply on your picture.", new string[]{
-                "Greyscale       ",
-                "Black and white ",
-                "Back            "}, titlePath))
+                "Turn to grey",
+                "Black and white",
+                "Gaussian blur",
+                "Sarpen",
+                "Contrast",
+                "Back"}, titlePath))
         {
             case 0:
-                image = image.Greyscale();
+                image = image.TurnGrey();
                 break;
             case 1:
                 image = image.BlackAndWhite();
                 break;
-            case 2: case -1:
+            case 2:
+                image = image.ApplyKernelByName(Convolution.Kernel.GaussianBlur3x3);
+                break;
+            case 3:
+                image = image.ApplyKernelByName(Convolution.Kernel.Sharpen);
+                break;
+            case 4:
+                image = image.ApplyKernelByName(Convolution.Kernel.Contrast);
+                break;
+            case 5: case -1:
                 MainProgram.jump = MainProgram.Jump.Actions;
                 return;
         }
@@ -134,31 +144,40 @@ public static class GeneralMethods
     {
         Image image = new Image(Image.imagePath);
         switch (ScrollingMenu("You may choose one manipulation to do on your picture.", new string[]{
-                "Rotate          ",
-                "Resize          ",
-                "Back            "}, titlePath))
+                "Rotate",
+                "Resize",
+                "Detect edges",
+                "Push the edges",
+                "Back"}, titlePath))
         {
             case 0:
                 int? angle = null;
                 int occurrenceRotation = 0;
                 do
-                {
-                    angle = int.Parse(Prompt("Type an angle to rotate the picture.", occurrenceRotation, titlePath));
+                {   string answer = Prompt("Type an positive angle to rotate the picture.", occurrenceRotation, titlePath);
+                    angle = int.TryParse(answer, out int result) ? result : null;
                     occurrenceRotation++;
                 } while (angle is null || angle < 0 || angle > 360);
                 image = image.Rotate((int)angle);
                 break;
             case 1:
-                int? scale = null;
+                float? scale = null;
                 int occurrenceRescale = 0;
                 do
                 {
-                    scale = int.Parse(Prompt("Type an angle to rotate the picture.", occurrenceRescale, titlePath));
+                    string answer = Prompt("Type an integer greater than 0 to rescale the picture.", occurrenceRescale, titlePath);
+                    scale = float.TryParse(answer, out float result) ? result : null;
                     occurrenceRescale++;
-                } while (scale is null || scale < 0);
-                image = image.Rescale((int)scale);
+                } while (scale is null || scale < 1);
+                image = image.Resize((float)scale);
                 break;
-            case 2: case -1:
+            case 2:
+                image = image.ApplyKernelByName(Convolution.Kernel.EdgeDetection);
+                break;
+            case 3:
+                image = image.ApplyKernelByName(Convolution.Kernel.EdgePushing);
+                break;
+            case 4: case -1:
                 MainProgram.jump = MainProgram.Jump.Actions;
                 return;
         }

@@ -1,7 +1,6 @@
 ﻿using System.Text;
 using Utilitary;
 
-using static System.Console;
 using static Visuals.ConsoleVisuals;
 
 namespace Computer_Science_Problem;
@@ -11,7 +10,7 @@ public class Image : IEquatable<Image>
 {
     #region Constants
     /// <summary> Represents the path of the image.</summary>
-    public static string imagePath = "Images/lac.bmp";
+    public static string imagePath = "Images/";
     /// <summary> Represents the file type (bmp in this case). </summary>
     public const int type = 0;
     /// <summary> Represents the total file size (in bytes). </summary>
@@ -56,6 +55,11 @@ public class Image : IEquatable<Image>
     public ushort ColorDepth => ConvertTo.UShort(Header, offsetColorDepth);
     /// <summary> Stride is the number of bytes per line of pixels. </summary>
     public int Stride => (Width * ColorDepth / 8 + 3) / 4 * 4; 
+    /// <summary> This method is used to get the <see cref="Pixel"/> at the specified <paramref name="x"/> and <paramref name="y"/> coordinates. </summary>
+    /// <param name="x"> The x coordinate of the <see cref="Pixel"/>. </param>
+    /// <param name="y"> The y coordinate of the <see cref="Pixel"/>. </param>
+    /// <returns> The position at the specified <paramref name="x"/> and <paramref name="y"/> coordinates. </returns>
+    private int _position(int x, int y) => x * 3 + (Height - y - 1) * Stride;
     #endregion
 
     #region Constructors
@@ -63,28 +67,34 @@ public class Image : IEquatable<Image>
     /// <param name="filename"> Image path to open. </param>
     public Image(string filename)
     {
-        using(FileStream stream = File.OpenRead(filename))
+        using (FileStream stream = File.OpenRead(filename))
         {
             Header = stream.ReadBytes(54);
-            if(Type is not "BM") throw new FormatException("Invalid file type. We can only load BMP files.");
-            if(ColorDepth is not 24) throw new FormatException("We cannot load images with a depth of 24 bits.");
+
+            if (Type is not "BM") 
+                throw new FormatException("Invalid file type. We can only load BMP files.");
+            if (ColorDepth is not 24) 
+                throw new FormatException("We cannot load images with a depth of 24 bits.");
+
             Pixels = stream.ReadBytes((int)(FileSize - StartOffset));
         }
-        if(Header is null) throw new ArgumentNullException(nameof(Header));
-        if(Pixels is null) throw new ArgumentNullException(nameof(Pixels));
+
+        if (Header is null) 
+            throw new ArgumentNullException(nameof(Header));
+        if (Pixels is null) 
+            throw new ArgumentNullException(nameof(Pixels));
     }
     /// <summary> Creates an <see cref="Image"/> instance from an height <paramref name="height"/> and a width <paramref name="width"/>. <br/>The image is automatically filled in black (components set to 0).</summary>
     /// <param name="width">Image width.</param>
     /// <param name="height">Image height.</param>
     public Image(int width, int height)
     {
-        if(width < 1 || height < 1) throw new ArgumentOutOfRangeException("Width and height must be positive");
+        if (width < 1 || height < 1) 
+            throw new ArgumentOutOfRangeException("Width and height must be positive");
             
         Header = new byte[54];
-
         Header.InsertBytes(Encoding.ASCII.GetBytes("BM"), type);
         Header.InsertBytes(ConvertTo.LittleEndian((uint)Header.Length), offsetFirstPixel);
-
         Header.InsertBytes(ConvertTo.LittleEndian(0x28), infoHeaderSize);
         Header.InsertBytes(ConvertTo.LittleEndian(width), offsetWidth);
         Header.InsertBytes(ConvertTo.LittleEndian(height), offsetHeight);
@@ -99,7 +109,7 @@ public class Image : IEquatable<Image>
     /// <param name="original"><see cref="Image"/>to copy.</param>
     public Image(Image original)
     {
-        if(original is null) throw new ArgumentNullException("original");
+        if (original is null) throw new ArgumentNullException("Original");
 
         Header = new byte[original.Header.Length];
         Array.Copy(original.Header, Header, Header.Length);
@@ -113,38 +123,41 @@ public class Image : IEquatable<Image>
     #region Transformations
     /// <summary>Transform this <see cref="Image"/> to shades of grey (this method generates a copy).</summary>
     /// <returns> A greyscale copy of this <see cref="Image"/>.</returns>
-    public Image Greyscale()
+    public Image TurnGrey()
     {
         Image result = this.Copy();
+
         for (int x = 0; x < Width; x++) 
             for (int y = 0; y < Height; y++) 
-                result[x, y] = this[x, y].Greyscale();
+                result[x, y] = this[x, y].TurnGrey();
         return result;
     }
     /// <summary> Transform this <see cref="Image"/> to black and white (this method generate a copy). </summary>
     /// <returns> A black and white copy of this <see cref="Image"/>.</returns>
     public Image BlackAndWhite()
     {
-        Image result = this.Copy();
+        Image previousImage = this.Copy();
+
         for (int x = 0; x < Width; x++) 
             for (int y = 0; y < Height; y++) 
-                result[x, y] = this[x, y].Greyscale().R > 127 ? new Pixel(255, 255, 255) : new Pixel(0, 0, 0);
-        return result;
+                previousImage[x, y] = this[x, y].TurnGrey().Red > 127 ? new Pixel(255, 255, 255) : new Pixel(0, 0, 0);
+        return previousImage;
     }
     /// <summary> Rotates the <see cref="Image"/> instance at an <paramref name="angle"/>.</summary>
     /// <param name="angle">Angle of the rotation (in degrees)</param>
     /// <returns>A copy of this <see cref="Image"/> rotated by <paramref name="angle"/> degrees.</returns>
     public Image Rotate(int angle)
     {
+        Image previousImage = this.Copy();
+
         double radians = angle * (double)Math.PI / 180;
-        
         double cos = (double)Math.Cos(radians);
         double sin = (double)Math.Sin(radians);
 
         int newWidth = (int)(Width * Math.Abs(cos) + Height * Math.Abs(sin));
         int newHeight = (int)(Width * Math.Abs(sin) + Height * Math.Abs(cos));
 
-        Image result = new (newWidth, newHeight);
+        Image newImage = new (newWidth, newHeight);
 
         for (int x = 0; x < newWidth; x++)
         {
@@ -154,53 +167,30 @@ public class Image : IEquatable<Image>
                 double newY = (x - newWidth / 2) * sin + (y - newHeight / 2) * cos + Height / 2;
 
                 if (newX >= 0 && newX < Width && newY >= 0 && newY < Height) 
-                    result[x, y] = this[(int)newX, (int)newY];
+                    newImage[x, y] = this[(int)newX, (int)newY];
             }
         }
-        return result;
+        return newImage;
     }
     /// <summary> This method scales the <see cref="Image"/> instance by a <paramref name="scale"/> factor. </summary>
     /// <param name="scale"> Scale factor.</param>
-    /// <param name="reduceAntiAliasing"> If true, the image will be blurred before being scaled to reduce the anti-aliasing effect. </param>
     /// <returns> A copy of this <see cref="Image"/> scaled by <paramref name="scale"/> factor.</returns>
-    public Image Rescale(float scale, bool reduceAntiAliasing = true)
+    public Image Resize(float scale)
     {
-        if (scale == 0) 
-            throw new ArgumentOutOfRangeException("scale", "The scale must not be 0.");
-        else if (scale < 0) 
-            throw new ArgumentOutOfRangeException("scale", "The scale must be a positive number.");
-            
-        Image source = this.Copy();
+        Image previousImage = this.Copy();
 
         if (scale == 1) 
-            return source;
+            return previousImage;
             
         int newWidth = (int)(Width * scale);
         int newHeight = (int)(Height * scale);
 
-        if (newWidth == 0) 
-            newWidth = 1;
-        if (newHeight == 0) 
-            newHeight = 1;
-            
-        if (scale < 1 && reduceAntiAliasing)
-        {
-            int convolSize = (int)Math.Ceiling(1 / scale);
-            float[,] kernel = new float[convolSize, convolSize];
-            float coef = 1f / kernel.Length;
-
-            for (int y = 0; y < convolSize; y++)
-                for(int x = 0; x < convolSize; x++) 
-                    kernel[y, x] = coef;
-            source = source.ApplyKernel(kernel, Convolution.KernelOrigin.TopLeft, Convolution.EdgeProcessing.Extend);
-        }
-
-        Image result = new (newWidth, newHeight);
+        Image newImage = new (newWidth, newHeight);
 
         for (int x = 0; x < newWidth; x++)
             for (int y = 0; y < newHeight; y++)
-                result[x, y] = new (source[(int)(x / scale), (int)(y / scale)]);
-        return result;
+                newImage[x, y] = new (previousImage[(int)(x / scale), (int)(y / scale)]);
+        return newImage;
     }
     #endregion
 
@@ -248,11 +238,6 @@ public class Image : IEquatable<Image>
     /// <returns> A copy of this <see cref="Image"/>. </returns>
     public Image Copy() => new (this);
     /// <summary> This method is used to get the <see cref="Pixel"/> at the specified <paramref name="x"/> and <paramref name="y"/> coordinates. </summary>
-    /// <param name="x"> The x coordinate of the <see cref="Pixel"/>. </param>
-    /// <param name="y"> The y coordinate of the <see cref="Pixel"/>. </param>
-    /// <returns> The position at the specified <paramref name="x"/> and <paramref name="y"/> coordinates. </returns>
-    private int _position(int x, int y) => x * 3 + (Height - y - 1) * Stride;
-    /// <summary> This method is used to get the <see cref="Pixel"/> at the specified <paramref name="x"/> and <paramref name="y"/> coordinates. </summary>
     public Pixel this[int x, int y]
     {
         get
@@ -263,9 +248,9 @@ public class Image : IEquatable<Image>
         set
         {
             int position = _position(x, y);
-            Pixels[position + 2] = value.R;
-            Pixels[position + 1] = value.G;
-            Pixels[position + 0] = value.B;
+            Pixels[position + 2] = value.Red;
+            Pixels[position + 1] = value.Green;
+            Pixels[position + 0] = value.Blue;
         }
     }
     /// <summary> This method saves the <see cref="Image"/>. </summary>

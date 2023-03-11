@@ -3,28 +3,39 @@ using static Computer_Science_Problem.GeneralMethods;
 
 namespace Computer_Science_Problem;
 
-class MainProgram
+/// <summary> The Mainprogram class is the entry point of the program. from this point, every processing method is called. </summary>
+public class MainProgram
 {
     #region Field
     /// <summary>The jump variable, used as a thread to gat the information wether to continue the execution or to "jump" to a specific part of the code.</summary>
     public static Jump jump = Jump.Continue;
     #endregion
 
-    #region Enum
+    #region Jump enumaration
+    /// <summary> Enumerates the different jumps. </summary>
     public enum Jump
     {
+        /// <summary> Continue the execution. </summary>
         Continue,
+        /// <summary> Go to the main menu. </summary>
         Main_Menu,
+        /// <summary> Go to the future language feature. </summary>
         FutureLanguageFeature,
+        /// <summary> Go to the source folder chooser. </summary>
         Source_Folder,
+        /// <summary> Go to the actions menu. </summary>
         Actions,
+        /// <summary> Go to the manipulation application. </summary>
         ApplyManipulation,
+        /// <summary> Go to the filter application. </summary>
         ApplyFilter,
+        /// <summary> Exit the program. </summary>
         Exit
     }
     #endregion
 
     #region Main
+    /// <summary> The entry point of the program. </summary>
     public static void Main(string[] args)
     {
         ConsoleConfiguration();

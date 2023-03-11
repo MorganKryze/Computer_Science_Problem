@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace Utilitary;
 
 /// <summary> This class contains methods to convert from and to little endian.</summary>
@@ -16,7 +11,8 @@ public static class ConvertTo
     public static uint UInt(byte[] array, int offset = 0)
     {
         uint result = 0;
-        for (int i = 0; i < 4; i++) result += array[offset + i] * (uint)Math.Pow(256, i);
+        for (int i = 0; i < 4; i++) 
+            result += array[offset + i] * (uint)Math.Pow(256, i);
         return result;
     }
     /// <summary> This method converts a bytes array to an <see cref="int"/>. </summary>
@@ -26,7 +22,8 @@ public static class ConvertTo
     public static int Int(byte[] array, int offset = 0)
     {
         int result = 0;
-        for (int i = 0; i < 4; i++) result += array[offset + i] * (int)Math.Pow(256, i);
+        for (int i = 0; i < 4; i++) 
+            result += array[offset + i] * (int)Math.Pow(256, i);
         return result;
     }
     /// <summary> This method converts a bytes array to an <see cref="ushort"/>. </summary>
@@ -36,7 +33,8 @@ public static class ConvertTo
     public static ushort UShort(byte[] array, int offset = 0)
     {
         ushort result = 0;
-        for (int i = 0; i < 2; i++) result += (ushort)(array[offset + i] * Math.Pow(256, i));
+        for (int i = 0; i < 2; i++) 
+            result += (ushort)(array[offset + i] * Math.Pow(256, i));
         return result;
     }
     #endregion

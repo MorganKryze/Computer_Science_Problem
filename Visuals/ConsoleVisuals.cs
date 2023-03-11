@@ -4,7 +4,6 @@ using static System.IO.File;
 using static System.ConsoleColor;
 using static System.ConsoleKey;
 
-
 namespace Visuals;
 /// <summary> The class ConsoleVisuals contains all the methods used to display the app on the console. </summary>
 public static class ConsoleVisuals
@@ -173,7 +172,7 @@ public static class ConsoleVisuals
                 if (i == position)
                 {
                     currentChoice[i] = $" > {choices[i]}";
-                    CenteredWL(currentChoice[i], Black, Green);
+                    CenteredWL(currentChoice[i], Black, White);
                     ConsoleConfiguration();
                 }
                 else
