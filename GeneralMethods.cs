@@ -9,12 +9,7 @@ namespace Computer_Science_Problem;
 
 /// <summary>The vocation of the Methods class is to be accessible from anywhere.It contains a random variable, utility and core methods.</summary>
 public static class GeneralMethods
-{
-    #region Field
-    /// <summary>The random variable, usable everywhere.</summary>
-    public static Random rnd = new Random();
-    #endregion
-    
+{  
     #region Processing methods
     /// <summary>This method is used to display the main menu.</summary>
     public static void MainMenu()
@@ -66,7 +61,7 @@ public static class GeneralMethods
             for (int i = 0; i < files.Length; i++)
                 filesName[i] = files[i].Substring(11);
         int namePosition;
-        switch (namePosition = ScrollingMenu("Choose a file:", filesName))
+        switch (namePosition = ScrollingMenu("You may choose a file.", filesName))
         {
             case -1:
                 MainProgram.jump = MainProgram.Jump.Source_Folder;

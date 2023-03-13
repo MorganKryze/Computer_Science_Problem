@@ -14,7 +14,7 @@ public static class ConsoleVisuals
     private static  string[] titleContent = ReadAllLines(titlePath);
     private static int initialWindowWidth = WindowWidth;
     private static (string, string, string) defaultHeader = (" Inspired by l_eg116, th0m4s", "Home", "Created by MorganKryze, Sheesh3218 ");
-    private static (string, string, string) defaultFooter = (" [Esc] Go back", "[Z|↑] Selection up   [S|↓] Selection down", "[Enter] Select ");
+    private static (string, string, string) defaultFooter = (" [ESC] Go back", "[Z|↑] Selection up   [S|↓] Selection down", "[ENTER] Select ");
     private static (ConsoleColor,ConsoleColor) colorPanel = (White, Black);
     private static (ConsoleColor,ConsoleColor) initialColorpanel = (ForegroundColor, BackgroundColor);
     #endregion
@@ -159,6 +159,7 @@ public static class ConsoleVisuals
         WriteBanner(header, true);
         WriteBanner(footer, false);
         ClearPanel();
+        LoadingScreen("[ Loading the program ...]");
     }
     /// <summary> This method prints a message in the console and gets a string written by the user. </summary>
     /// <param name="message"> The message to print. </param>
@@ -266,7 +267,7 @@ public static class ConsoleVisuals
     {
         LoadingScreen("[ Exiting the program ... ]");
         ClearAll();
-        CursorVisible = false;
+        CursorVisible = true;
         Environment.Exit(0);
     }
     #endregion
