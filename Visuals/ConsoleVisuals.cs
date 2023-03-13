@@ -5,203 +5,107 @@ using static System.ConsoleColor;
 using static System.ConsoleKey;
 
 namespace Visuals;
-/// <summary> The class ConsoleVisuals contains all the methods used to display the app on the console. </summary>
+
+/// <summary> The <see cref="ConsoleVisuals"/> classe contains all the visual elements for a console app. </summary>
 public static class ConsoleVisuals
 {
-    #region Constants
-    /// <summary> The path to the title file. </summary>
-    public const string titlePath = "Images/Title/title.txt";
+    #region Attributes
+    private const string titlePath = "Images/Title/title.txt";
+    private static  string[] titleContent = ReadAllLines(titlePath);
+    private static int initialWindowWidth = WindowWidth;
+    private static (string, string, string) defaultHeader = (" Inspired by l_eg116, th0m4s", "Home", "Created by MorganKryze, Sheesh3218 ");
+    private static (string, string, string) defaultFooter = (" [Esc] Go back", "[Z|↑] Selection up   [S|↓] Selection down", "[Enter] Select ");
+    private static (ConsoleColor,ConsoleColor) colorPanel = (White, Black);
+    private static (ConsoleColor,ConsoleColor) initialColorpanel = (ForegroundColor, BackgroundColor);
     #endregion
 
-    #region Print on screen
-    /// <summary>This method is used to display a title.</summary>
-    /// <param name= "text"> The content of the title.</param>
-    /// <param name= "pathSpecialText"> A special text stored in a file.</param>
-    /// <param name= "occurrence"> Whether the title has been displayed yet or not.</param>
-    public static void Title(string text = "", string pathSpecialText = "", int occurrence = 0)
-    {
-        if (occurrence <  0)
-            throw new ArgumentException("The occurrence must be positive or equal to 0.");
-        Clear();
-        if(pathSpecialText != "") PrintSpecialText(pathSpecialText);
-        if(text != "")
-        {
-            if(occurrence != 0) CenteredWL(text);
-            else
-            {
-                Write("{0," + ((WindowWidth / 2) - (text.Length / 2)) + "}", "");
-                for(int i = 0; i < text.Length; i++)
-                {
-                    Write(text[i]);
-                    Sleep(50);
-                    if(KeyAvailable)
-                    {
-                        ConsoleKeyInfo keyPressed = ReadKey(true);
-                        if(keyPressed.Key == Enter || keyPressed.Key == Escape)
-                        {
-                            Write(text.Substring(i + 1));
-                            break;
-                        }
-                    }
-                }
-                Write("\n");
-            }
-            Write("\n");
+    #region Properties
+    private static int TitleHeight => titleContent.Length;
+    private static int HeaderHeigth => TitleHeight ;
+    private static int FooterHeigth => WindowHeight - 2;
+    private static int ContentHeigth => HeaderHeigth + 1;
+    #endregion
 
-        }
-
-    }
-    /// <summary>This method is used to display a special text, stored in a txt file. </summary>
-    /// <param name="path">the relative path of the file.</param>
-    public static void PrintSpecialText(string path)
+    #region Enums
+    /// <summary> The <see cref="Placement"/> enum defines the placement of a string in the console. </summary>
+    public enum Placement
     {
-        string[] specialText = ReadAllLines(path);
-        foreach(string line in specialText) WriteLine("{0," + ((WindowWidth / 2) + (line.Length / 2)) + "}", line);
-        WriteLine("\n");
-    }
-    /// <summary>This method is used to display a centered text and come back to line.</summary>
-    /// <param name="text"> The text to display. </param>
-    /// <param name="fore"> The foreground color of the text. </param>
-    /// <param name="back"> The background color of the text. </param>
-    public static void CenteredWL(string text, ConsoleColor fore = White, ConsoleColor back = Black)
-    {
-        ConsoleConfiguration();
-        Write("{0," + ((WindowWidth / 2) - (text.Length / 2)) + "}", "");
-        ForegroundColor = fore;
-        BackgroundColor = back;
-        WriteLine(text);
-        ConsoleConfiguration();
-    }
-    /// <summary>This method is used to display a centered text.</summary>
-    /// <param name="text"> The text to display. </param>
-    /// <param name="fore"> The foreground color of the text. </param>
-    /// <param name="back"> The background color of the text. </param>
-    public static void CenteredW(string text, ConsoleColor fore = White, ConsoleColor back = Black)
-    {
-        ConsoleConfiguration();
-        Write("{0," + ((WindowWidth / 2) - (text.Length / 2)) + "}", "");
-        ForegroundColor = fore;
-        BackgroundColor = back;
-        Write(text);
-        ConsoleConfiguration();
-    }
-
-    /// <summary>This method is used to print a message telling whether the player has won or not.</summary>
-    /// <param name="message">The message to be displayed.</param>
-    /// <param name="backColor">The background color of the message.</param>
-    public static void BoardMessage(string[] message, ConsoleColor backColor = Green)
-    {
-        Clear();
-        WriteLine();
-        string max = message[0];
-        for(int i = 0; i < message.Length; i++)
-        {
-            if(max.Length < message[i].Length) max = message[i];
-        }
-        int index = Array.IndexOf(message, max);
-        CenteredWL(String.Format("{0," + message[index].Length + "}", ""), Black, backColor);
-        for(int i = 0; i < message.Length; i++)
-        {
-            if(message[index].Length > message[i].Length)
-            {
-                for(int j = 0; message[index].Length != message[i].Length; j++)
-                {
-                    if(j % 2 == 0) message[i] += " ";
-                    else message[i] = " " + message[i];
-                }
-            }
-            CenteredWL(String.Format("{0," + message[index].Length + "}", message[i]), Black, backColor);
-        }
-        CenteredWL(String.Format("{0," + message[index].Length + "}", ""), Black, backColor);
-        WriteLine();
-    }
-    /// <summary>This method is used to display a prompt and get a string in return.</summary>
-    /// <param name="message"> The message to be displayed. </param>
-    /// <param name="occurrence"> Whether the prompt has been displayed yet or not. </param>
-    /// <param name="specialtext"> A special text stored in a file. </param>
-    /// <returns> The string entered by the user. </returns>
-    public static string Prompt(string message, int occurrence = 0, string specialtext = "")
-    {
-        string prompt = "";
-        do
-        {
-            Title(message, specialtext, occurrence);
-            Write("{0," + ((WindowWidth / 2) - (message.Length / 2)) + "}", "");
-            Write("> ");
-            ConsoleConfiguration(false);
-            prompt = ReadLine() ?? "";
-            ConsoleConfiguration();
-            occurrence++;
-        } while (prompt is "");
-        return prompt;
+        /// <summary> The string is placed at the left of the console. </summary>
+        Left,
+        /// <summary> The string is placed at the center of the console. </summary>
+        Center,
+        /// <summary> The string is placed at the right of the console. </summary>
+        Right
     }
     #endregion
 
-    #region General
-    /// <summary> This method is used to set the console configuration. </summary>
-    /// <param name="start"> Wether the config is used as the default config (true) or for the end of the program (false). </param>
-    public static void ConsoleConfiguration(bool start = true)
+    #region Utility ethods
+
+    private static void SetColor(bool negative = false)
     {
-        if(start)
-        {
-            CursorVisible = false;
-            BackgroundColor = Black;
-            ForegroundColor = White;
-        }
-        else CursorVisible = true;
+        ForegroundColor = negative ? colorPanel.Item2 : colorPanel.Item1;
+        BackgroundColor = negative ? colorPanel.Item1 : colorPanel.Item2;
     }
-    /// <summary>This method is used to display a scrolling menu.</summary>
-    /// <param name="question"> The question to be displayed.</param>
-    /// <param name="choices"> The choices to be displayed.</param>
-    /// <param name="specialText"> A special text stored in a file.</param>
-    /// <returns> The position of the choice selected.</returns>
-    public static int ScrollingMenu(string question, string[] choices, string specialText = titlePath)
+    
+    private static void WritePositionnedString(string str, Placement position = Placement.Center, bool negative = false, int line = -1, bool chariot = false)
+	{
+        SetColor(negative);
+		if (line < 0) 
+            line = Console.CursorTop;
+		if (str.Length < Console.WindowWidth) 
+            switch (position)
+		    {
+		    	case (Placement.Left): 
+                    SetCursorPosition(0, line); 
+                    break;
+		    	case (Placement.Center): 
+                    SetCursorPosition((WindowWidth - str.Length) / 2, line); 
+                    break;
+		    	case (Placement.Right): 
+                    SetCursorPosition(WindowWidth - str.Length, line); 
+                    break;
+		    }
+		else SetCursorPosition(0, line);
+		if (chariot) WriteLine(str);
+        else Write(str);
+        SetColor(default);
+	}
+
+    private static void ClearLine(int line)
+	{
+		SetColor(default);
+		WritePositionnedString("".PadRight(Console.WindowWidth), Placement.Left, default, line);
+	}
+
+    private static void ClearPanel()
     {
-        int position = 0;
-        int recurrence = 0;
-        int longestChoice = 0;
-        for (int i = 0; i < choices.Length; i++) if (choices[i].Length > longestChoice) longestChoice = choices[i].Length;
-        for (int i = 0; i < choices.Length; i++) choices[i] = choices[i].PadRight(longestChoice + 1);
-        while (true)
-        {
-            Clear();
-            Title(question, specialText, recurrence);
-            string[] currentChoice = new string[choices.Length];
-            for (int i = 0; i < choices.Length; i++)
-            {
-                if (i == position)
-                {
-                    currentChoice[i] = $" > {choices[i]}";
-                    CenteredWL(currentChoice[i], Black, White);
-                    ConsoleConfiguration();
-                }
-                else
-                {
-                    currentChoice[i] = $"   {choices[i]}";
-                    CenteredWL(currentChoice[i]);
-                }
-            }
-            switch (ReadKey().Key)
-            {
-                case UpArrow: case Z: if (position == 0) position = choices.Length - 1; else if (position > 0) position--; break;
-                case DownArrow: case S: if (position == choices.Length - 1) position = 0; else if (position < choices.Length - 1) position++; break;
-                case Enter: return position;
-                case Escape: return -1;
-            }
-            recurrence++;
-        }
+        for (int i = ContentHeigth; i < FooterHeigth; i++)
+            ClearLine(i);
     }
-    /// <summary>This method is used to display a loading screen.</summary>
-    /// <param name="text"> The text to display. </param>
-    public static void LoadingScreen(string text)
+
+    private static void ClearAll()
     {
+        colorPanel = initialColorpanel;
+        for (int i = 0; i < WindowHeight; i++)
+            ContinuousPrint("".PadRight(WindowWidth), i, default, 100, 10);
         Clear();
-        int t_interval = (int)2000 / text.Length;
-        char[] loadingBar = new char[text.Length];
-        for(int j = 0; j < loadingBar.Length; j++) loadingBar[j] = '█';
-        for(int i = 0; i <= text.Length; i++)
+        colorPanel = (White, Black);
+    }
+    
+    private static void ContinuousPrint(string text, int line, bool negative = false, int stringTime = 2000, int endStringTime = 1000)
+    {
+        int t_interval = (int)(stringTime / text.Length);
+        for (int i = 0; i <= text.Length; i++)
         {
-            Title(text, titlePath, 1);
+            string continuous = "";
+            for(int j = 0; j < i; j++) 
+                continuous += text[j];
+            continuous = continuous.PadRight(text.Length);
+            WritePositionnedString(continuous.BuildString(WindowWidth, Placement.Center), default, negative, line);
+
+            if(i != text.Length)
+                Sleep(t_interval);
+
             if(KeyAvailable)
             {
                 ConsoleKeyInfo keyPressed = ReadKey(true);
@@ -211,24 +115,190 @@ public static class ConsoleVisuals
                     break;
                 }
             }
-            WriteLine("\n");
-            string bar = "";
-            for(int l = 0; l < i; l++) bar += loadingBar[l];
-            Write("{0," + ((WindowWidth / 2) - (text.Length / 2)) + "}", "");
-            ForegroundColor = Green;
-            Write(bar);
-            bar = "";
-            if(i != text.Length)
+        }
+        WritePositionnedString(text.BuildString(WindowWidth, Placement.Center), default, negative, line);
+        Sleep(endStringTime);
+    }
+    #endregion
+
+    #region Processing methods
+    /// <summary> This method prints the title of the console app. </summary>
+    public static void PrintTitle()
+    {
+        Clear();
+        SetCursorPosition(0, 0);
+        foreach (string line in titleContent)
+        {
+            WritePositionnedString(line.BuildString(WindowWidth, Placement.Center));
+            WriteLine("");
+        } 
+    }
+    /// <summary> This method prints a banner in the console. </summary>
+    /// <param name="banner"> The banner to print. </param>
+    /// <param name="header"> If true, the banner is printed at the top of the console. If false, the banner is printed at the bottom of the console. </param>
+    public static void WriteBanner((string, string, string)? banner = null, bool header = true)
+	{
+        (string, string, string) newBanner = banner ??= header ? defaultHeader : defaultFooter;
+
+		SetColor(true);
+		string strBanner = newBanner.Item2.BuildString(Console.WindowWidth, Placement.Center, true);
+		strBanner = strBanner.Substring(0, strBanner.Length - newBanner.Item3.Length) + newBanner.Item3;
+		strBanner = newBanner.Item1 + strBanner.Substring(newBanner.Item1.Length);
+		ContinuousPrint(strBanner, header ? HeaderHeigth : FooterHeigth, true);
+		SetColor();
+	}
+    /// <summary> This method prints a full screen in the console. </summary>
+    /// <param name="header"> The header of the screen. </param>
+    /// <param name="footer"> The footer of the screen. </param>
+    public static void WriteFullScreen((string, string, string)? header = null, (string, string, string)? footer = null)
+    {
+        header ??= defaultHeader;
+        footer ??= defaultFooter;
+        CursorVisible = false;
+        PrintTitle();
+        WriteBanner(header, true);
+        WriteBanner(footer, false);
+        ClearPanel();
+    }
+    /// <summary> This method prints a message in the console and gets a string written by the user. </summary>
+    /// <param name="message"> The message to print. </param>
+    /// <returns> The string written by the user. </returns>
+    public static string WritePrompt(string message)
+    {
+        ClearPanel();
+        ContinuousPrint(message.BuildString(message.Length, Placement.Center), ContentHeigth + 1, default, 1500, 50);
+        //WriteAligned(message.BuildString(message.Length, Placement.Center), Placement.Center, false, ContentHeigth + 1, true);
+        string prompt = "";
+        do
+        {
+            ClearLine(ContentHeigth + 2);
+            Write("{0," + ((WindowWidth / 2) - (message.Length / 2) + 2) + "}", "> ");
+            CursorVisible = true;
+            prompt = ReadLine() ?? "";
+            CursorVisible = false;
+        } while (prompt is "");
+        return prompt;
+    }
+    /// <summary> This method prints a paragraph in the console. </summary>
+    /// <param name="lines"> The lines of the paragraph. </param>
+    /// <param name="negative"> If true, the paragraph is printed in the negative colors. </param>
+    /// <param name="truncate"> If true, the paragraph is truncated if it is too long. </param>
+    public static void WriteParagraph(IEnumerable<string> lines, bool negative = false, bool truncate = true)
+	{
+        ClearPanel();
+		int maxLength = lines.Count() > 0 ? lines.Max(s => s.Length) : 0;
+		if (truncate) maxLength = Math.Min(maxLength, Console.WindowWidth);
+        
+		SetColor();
+		int i = TitleHeight + 2;
+		foreach (string line in lines)
+		{
+			WritePositionnedString(line.BuildString(maxLength, Placement.Center), Placement.Center, negative, i++);
+			if (truncate && i >= Console.WindowHeight - 1) 
+                break;
+		}
+		Console.ReadKey(true);
+        SetColor();
+	}
+    /// <summary> This method prints a menu in the console and gets the choice of the user. </summary>
+    /// <param name="question"> The question to print. </param>
+    /// <param name="choices"> The choices of the menu. </param>
+    /// <returns> The choice of the user. </returns>
+    public static int ScrollingMenu(string question, string[] choices)
+    {
+        ClearPanel();
+        int startDisplayposition = ContentHeigth + 1;
+        int currentPosition = 0;
+        int maxLength = choices.Count() > 0 ? choices.Max(s => s.Length) : 0;
+
+        for (int i = 0; i < choices.Length; i++) 
+            choices[i] = choices[i].PadRight(maxLength + 1);
+        ContinuousPrint(question, startDisplayposition, default, 1500, 50);
+        //WriteAligned(question, Placement.Center, false, startDisplayposition , default);
+        while (true)
+        {
+            string[] currentChoice = new string[choices.Length];
+            for (int i = 0; i < choices.Length; i++)
             {
-                for(int l = i; l < text.Length; l++) bar += loadingBar[l];
-                ForegroundColor = Red;
-                Write(bar);
-                Sleep(t_interval);
+                if (i == currentPosition)
+                {
+                    currentChoice[i] = $" > {choices[i]}";
+                    WritePositionnedString(currentChoice[i], Placement.Center, true, startDisplayposition + 2 + i);
+                    continue;
+                }
+                currentChoice[i] = $"   {choices[i]}";
+                WritePositionnedString(currentChoice[i], Placement.Center, false, startDisplayposition + 2 + i);
             }
-            else Sleep(1000);
-            ConsoleConfiguration();
-            Clear();
+            switch (ReadKey(true).Key)
+            {
+                case UpArrow: case Z: 
+                    if (currentPosition == 0) 
+                        currentPosition = choices.Length - 1; 
+                    else if (currentPosition > 0)
+                        currentPosition--; 
+                        break;
+                case DownArrow: case S: 
+                    if (currentPosition == choices.Length - 1) 
+                        currentPosition = 0;  
+                    else if (currentPosition < choices.Length - 1) 
+                        currentPosition++; 
+                        break;
+                case Enter: 
+                    return currentPosition;
+                case Escape: 
+                    return -1;
+            }
         }
     }
+    /// <summary> This method prints a loading screen in the console. </summary>
+    /// <param name="text"> The text to print. </param>
+    public static void LoadingScreen(string text)
+    {
+        ClearPanel();
+        WritePositionnedString(text.BuildString(WindowWidth, Placement.Center), default, default, ContentHeigth + 1, true);
+        string loadingBar = "";
+            for(int j = 0; j < text.Length; j++) 
+                loadingBar += '█';
+        ContinuousPrint(loadingBar, ContentHeigth + 3);
+    }
+    /// <summary> This method exits the program. </summary>
+    public static void ProgramExit()
+    {
+        LoadingScreen("[ Exiting the program ... ]");
+        ClearAll();
+        CursorVisible = false;
+        Environment.Exit(0);
+    }
+    #endregion
+
+    #region Extensions  
+    /// <summary> This method builds a string with a specific size and a specific placement. </summary>
+    /// <param name="str"> The string to build. </param>
+    /// <param name="size"> The size of the string. </param>
+    /// <param name="position"> The placement of the string. </param>
+    /// <param name="truncate"> If true, the string is truncated if it is too long. </param>
+    /// <returns> The built string. </returns>
+    public static string BuildString(this string str, int size, Placement position = Placement.Center, bool truncate = true)
+	{
+		int padding = size - str.Length;
+        if (truncate && padding < 0) 
+            switch (position)
+		    {
+		    	case (Placement.Left): return str.Substring(0, size);
+		    	case (Placement.Center): return str.Substring((- padding) / 2, size);
+		    	case (Placement.Right): return str.Substring(- padding, size);
+		    }
+        else 
+		    switch (position)
+		    {
+		    	case (Placement.Left):
+		    		return str.PadRight(size);
+		    	case (Placement.Center):
+		    		return str.PadLeft(padding / 2 + padding % 2 + str.Length).PadRight(padding + str.Length);
+		    	case (Placement.Right):
+		    		return str.PadLeft(size);
+		    }
+		return str;
+	}
     #endregion
 }

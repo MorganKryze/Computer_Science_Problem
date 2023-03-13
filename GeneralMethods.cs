@@ -22,7 +22,7 @@ public static class GeneralMethods
         switch (ScrollingMenu("Welcome User! Use the arrow keys to move and press [ENTER] to confirm.", new string[] { 
             "Play", 
             "Options", 
-            "Quit" }, titlePath))
+            "Quit" }))
         {
             case 0:
                 MainProgram.jump = MainProgram.Jump.Continue;
@@ -41,7 +41,7 @@ public static class GeneralMethods
         switch (ScrollingMenu("You may choose a source file.", new string[]{
                 "Default pictures ",
                 "Created pictures ",
-                "Back             "}, titlePath))
+                "Back             "}))
         {
             case 0:
                 return "Images";
@@ -66,7 +66,7 @@ public static class GeneralMethods
             for (int i = 0; i < files.Length; i++)
                 filesName[i] = files[i].Substring(11);
         int namePosition;
-        switch (namePosition = ScrollingMenu("Choose a file:", filesName, titlePath))
+        switch (namePosition = ScrollingMenu("Choose a file:", filesName))
         {
             case -1:
                 MainProgram.jump = MainProgram.Jump.Source_Folder;
@@ -80,7 +80,7 @@ public static class GeneralMethods
     /// <summary> Not implemented yet. </summary>
     public static void FutureLanguageFeature()
     {
-        switch(ScrollingMenu("This feature is not implemented yet !", new string[]{"Back"}, titlePath))
+        switch(ScrollingMenu("This feature is not implemented yet !", new string[]{"Back"}))
         {
             default:
                 MainProgram.jump = MainProgram.Jump.Main_Menu;
@@ -93,7 +93,7 @@ public static class GeneralMethods
         switch (ScrollingMenu("You may choose an action to do on your picture.", new string[]{
                 "Apply a filter ",
                 "Apply a manipulation ",
-                "Back"}, titlePath))
+                "Back"}))
         {
             case 0:
                 MainProgram.jump = MainProgram.Jump.ApplyFilter;
@@ -116,7 +116,7 @@ public static class GeneralMethods
                 "Gaussian blur",
                 "Sarpen",
                 "Contrast",
-                "Back"}, titlePath))
+                "Back"}))
         {
             case 0:
                 image = image.TurnGrey();
@@ -148,13 +148,13 @@ public static class GeneralMethods
                 "Resize",
                 "Detect edges",
                 "Push the edges",
-                "Back"}, titlePath))
+                "Back"}))
         {
             case 0:
                 int? angle = null;
                 int occurrenceRotation = 0;
                 do
-                {   string answer = Prompt("Type an positive angle to rotate the picture.", occurrenceRotation, titlePath);
+                {   string answer = WritePrompt("Type an positive angle to rotate the picture.");
                     angle = int.TryParse(answer, out int result) ? result : null;
                     occurrenceRotation++;
                 } while (angle is null || angle < 0 || angle > 360);
@@ -165,7 +165,7 @@ public static class GeneralMethods
                 int occurrenceRescale = 0;
                 do
                 {
-                    string answer = Prompt("Type an integer greater than 0 to rescale the picture.", occurrenceRescale, titlePath);
+                    string answer = WritePrompt("Type an integer greater than 0 to rescale the picture.");
                     scale = float.TryParse(answer, out float result) ? result : null;
                     occurrenceRescale++;
                 } while (scale is null || scale < 1);
@@ -221,24 +221,6 @@ public static class GeneralMethods
             length = data.Length;
         for (int i = 0; i < length; i++) 
             array[offsetTo + i] = data[offsetFrom + i];
-    }
-    #endregion
-
-    #region Utility Methods
-    /// <summary>This method is used to pause the program.</summary>
-    public static void Pause()
-    {
-        CenteredWL("Press [ENTER] to continue...");
-        while(ReadKey(true).Key != Enter) 
-            Sleep(5);
-    }
-    /// <summary>This method is used to exit the game.</summary>
-    public static void FinalExit()
-    {
-        LoadingScreen("[  Shutting down ...  ]");
-        ConsoleConfiguration(false);
-        Clear();
-        Exit(0);
     }
     #endregion
 }

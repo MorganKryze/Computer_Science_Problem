@@ -256,7 +256,7 @@ public class Image : IEquatable<Image>
     /// <summary> This method saves the <see cref="Image"/>. </summary>
     public void Save()
     {
-        using (FileStream stream = File.OpenWrite("Images/OUT/" + Prompt("Type the name of the file.", 0,titlePath) + ".bmp"))
+        using (FileStream stream = File.OpenWrite("Images/OUT/" + WritePrompt("Type the name of the file.") + ".bmp"))
         {
             stream.Write(Header, 0, Header.Length);
             stream.Write(Pixels, 0, Pixels.Length);

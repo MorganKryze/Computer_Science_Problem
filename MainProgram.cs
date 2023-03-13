@@ -38,7 +38,7 @@ public class MainProgram
     /// <summary> The entry point of the program. </summary>
     public static void Main(string[] args)
     {
-        ConsoleConfiguration();
+        WriteFullScreen();
         
         Main_Menu:
 
@@ -86,7 +86,7 @@ public class MainProgram
                 jump = Jump.Continue;
                 goto Actions;
             case Jump.Exit:
-                FinalExit();
+                ProgramExit();
                 break;
             default:
                 goto Main_Menu;
