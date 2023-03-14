@@ -13,22 +13,22 @@ references:
   commentId: T:Computer_Science_Problem.Convolution
   fullName: Computer_Science_Problem.Convolution
   nameWithType: Convolution
-- uid: Computer_Science_Problem.Convolution.ApplyKernelByMatrix(Computer_Science_Problem.Image,System.Single[0:,0:])
-  name: ApplyKernelByMatrix(Image, Single[,])
-  href: api/Computer_Science_Problem.Convolution.html#Computer_Science_Problem_Convolution_ApplyKernelByMatrix_Computer_Science_Problem_Image_System_Single_0__0___
-  commentId: M:Computer_Science_Problem.Convolution.ApplyKernelByMatrix(Computer_Science_Problem.Image,System.Single[0:,0:])
-  name.vb: ApplyKernelByMatrix(Image, Single(,))
-  fullName: Computer_Science_Problem.Convolution.ApplyKernelByMatrix(Computer_Science_Problem.Image, System.Single[,])
-  fullName.vb: Computer_Science_Problem.Convolution.ApplyKernelByMatrix(Computer_Science_Problem.Image, System.Single(,))
-  nameWithType: Convolution.ApplyKernelByMatrix(Image, Single[,])
-  nameWithType.vb: Convolution.ApplyKernelByMatrix(Image, Single(,))
-- uid: Computer_Science_Problem.Convolution.ApplyKernelByMatrix*
-  name: ApplyKernelByMatrix
-  href: api/Computer_Science_Problem.Convolution.html#Computer_Science_Problem_Convolution_ApplyKernelByMatrix_
-  commentId: Overload:Computer_Science_Problem.Convolution.ApplyKernelByMatrix
+- uid: Computer_Science_Problem.Convolution.ApplyKernel(Computer_Science_Problem.Image,System.Single[0:,0:])
+  name: ApplyKernel(Image, Single[,])
+  href: api/Computer_Science_Problem.Convolution.html#Computer_Science_Problem_Convolution_ApplyKernel_Computer_Science_Problem_Image_System_Single_0__0___
+  commentId: M:Computer_Science_Problem.Convolution.ApplyKernel(Computer_Science_Problem.Image,System.Single[0:,0:])
+  name.vb: ApplyKernel(Image, Single(,))
+  fullName: Computer_Science_Problem.Convolution.ApplyKernel(Computer_Science_Problem.Image, System.Single[,])
+  fullName.vb: Computer_Science_Problem.Convolution.ApplyKernel(Computer_Science_Problem.Image, System.Single(,))
+  nameWithType: Convolution.ApplyKernel(Image, Single[,])
+  nameWithType.vb: Convolution.ApplyKernel(Image, Single(,))
+- uid: Computer_Science_Problem.Convolution.ApplyKernel*
+  name: ApplyKernel
+  href: api/Computer_Science_Problem.Convolution.html#Computer_Science_Problem_Convolution_ApplyKernel_
+  commentId: Overload:Computer_Science_Problem.Convolution.ApplyKernel
   isSpec: "True"
-  fullName: Computer_Science_Problem.Convolution.ApplyKernelByMatrix
-  nameWithType: Convolution.ApplyKernelByMatrix
+  fullName: Computer_Science_Problem.Convolution.ApplyKernel
+  nameWithType: Convolution.ApplyKernel
 - uid: Computer_Science_Problem.Convolution.ApplyKernelByName(Computer_Science_Problem.Image,Computer_Science_Problem.Convolution.Kernel)
   name: ApplyKernelByName(Image, Convolution.Kernel)
   href: api/Computer_Science_Problem.Convolution.html#Computer_Science_Problem_Convolution_ApplyKernelByName_Computer_Science_Problem_Image_Computer_Science_Problem_Convolution_Kernel_
@@ -165,19 +165,6 @@ references:
   isSpec: "True"
   fullName: Computer_Science_Problem.GeneralMethods.ExtractBytes
   nameWithType: GeneralMethods.ExtractBytes
-- uid: Computer_Science_Problem.GeneralMethods.FinalExit
-  name: FinalExit()
-  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_FinalExit
-  commentId: M:Computer_Science_Problem.GeneralMethods.FinalExit
-  fullName: Computer_Science_Problem.GeneralMethods.FinalExit()
-  nameWithType: GeneralMethods.FinalExit()
-- uid: Computer_Science_Problem.GeneralMethods.FinalExit*
-  name: FinalExit
-  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_FinalExit_
-  commentId: Overload:Computer_Science_Problem.GeneralMethods.FinalExit
-  isSpec: "True"
-  fullName: Computer_Science_Problem.GeneralMethods.FinalExit
-  nameWithType: GeneralMethods.FinalExit
 - uid: Computer_Science_Problem.GeneralMethods.FutureLanguageFeature
   name: FutureLanguageFeature()
   href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_FutureLanguageFeature
@@ -220,19 +207,6 @@ references:
   isSpec: "True"
   fullName: Computer_Science_Problem.GeneralMethods.MainMenu
   nameWithType: GeneralMethods.MainMenu
-- uid: Computer_Science_Problem.GeneralMethods.Pause
-  name: Pause()
-  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_Pause
-  commentId: M:Computer_Science_Problem.GeneralMethods.Pause
-  fullName: Computer_Science_Problem.GeneralMethods.Pause()
-  nameWithType: GeneralMethods.Pause()
-- uid: Computer_Science_Problem.GeneralMethods.Pause*
-  name: Pause
-  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_Pause_
-  commentId: Overload:Computer_Science_Problem.GeneralMethods.Pause
-  isSpec: "True"
-  fullName: Computer_Science_Problem.GeneralMethods.Pause
-  nameWithType: GeneralMethods.Pause
 - uid: Computer_Science_Problem.GeneralMethods.ReadBytes(System.IO.Stream,System.Int32)
   name: ReadBytes(Stream, Int32)
   href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_ReadBytes_System_IO_Stream_System_Int32_
@@ -246,12 +220,6 @@ references:
   isSpec: "True"
   fullName: Computer_Science_Problem.GeneralMethods.ReadBytes
   nameWithType: GeneralMethods.ReadBytes
-- uid: Computer_Science_Problem.GeneralMethods.rnd
-  name: rnd
-  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_rnd
-  commentId: F:Computer_Science_Problem.GeneralMethods.rnd
-  fullName: Computer_Science_Problem.GeneralMethods.rnd
-  nameWithType: GeneralMethods.rnd
 - uid: Computer_Science_Problem.Image
   name: Image
   href: api/Computer_Science_Problem.Image.html
@@ -1027,61 +995,19 @@ references:
   commentId: T:Visuals.ConsoleVisuals
   fullName: Visuals.ConsoleVisuals
   nameWithType: ConsoleVisuals
-- uid: Visuals.ConsoleVisuals.BoardMessage(System.String[],System.ConsoleColor)
-  name: BoardMessage(String[], ConsoleColor)
-  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_BoardMessage_System_String___System_ConsoleColor_
-  commentId: M:Visuals.ConsoleVisuals.BoardMessage(System.String[],System.ConsoleColor)
-  name.vb: BoardMessage(String(), ConsoleColor)
-  fullName: Visuals.ConsoleVisuals.BoardMessage(System.String[], System.ConsoleColor)
-  fullName.vb: Visuals.ConsoleVisuals.BoardMessage(System.String(), System.ConsoleColor)
-  nameWithType: ConsoleVisuals.BoardMessage(String[], ConsoleColor)
-  nameWithType.vb: ConsoleVisuals.BoardMessage(String(), ConsoleColor)
-- uid: Visuals.ConsoleVisuals.BoardMessage*
-  name: BoardMessage
-  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_BoardMessage_
-  commentId: Overload:Visuals.ConsoleVisuals.BoardMessage
+- uid: Visuals.ConsoleVisuals.BuildString(System.String,System.Int32,Visuals.ConsoleVisuals.Placement,System.Boolean)
+  name: BuildString(String, Int32, ConsoleVisuals.Placement, Boolean)
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_BuildString_System_String_System_Int32_Visuals_ConsoleVisuals_Placement_System_Boolean_
+  commentId: M:Visuals.ConsoleVisuals.BuildString(System.String,System.Int32,Visuals.ConsoleVisuals.Placement,System.Boolean)
+  fullName: Visuals.ConsoleVisuals.BuildString(System.String, System.Int32, Visuals.ConsoleVisuals.Placement, System.Boolean)
+  nameWithType: ConsoleVisuals.BuildString(String, Int32, ConsoleVisuals.Placement, Boolean)
+- uid: Visuals.ConsoleVisuals.BuildString*
+  name: BuildString
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_BuildString_
+  commentId: Overload:Visuals.ConsoleVisuals.BuildString
   isSpec: "True"
-  fullName: Visuals.ConsoleVisuals.BoardMessage
-  nameWithType: ConsoleVisuals.BoardMessage
-- uid: Visuals.ConsoleVisuals.CenteredW(System.String,System.ConsoleColor,System.ConsoleColor)
-  name: CenteredW(String, ConsoleColor, ConsoleColor)
-  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_CenteredW_System_String_System_ConsoleColor_System_ConsoleColor_
-  commentId: M:Visuals.ConsoleVisuals.CenteredW(System.String,System.ConsoleColor,System.ConsoleColor)
-  fullName: Visuals.ConsoleVisuals.CenteredW(System.String, System.ConsoleColor, System.ConsoleColor)
-  nameWithType: ConsoleVisuals.CenteredW(String, ConsoleColor, ConsoleColor)
-- uid: Visuals.ConsoleVisuals.CenteredW*
-  name: CenteredW
-  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_CenteredW_
-  commentId: Overload:Visuals.ConsoleVisuals.CenteredW
-  isSpec: "True"
-  fullName: Visuals.ConsoleVisuals.CenteredW
-  nameWithType: ConsoleVisuals.CenteredW
-- uid: Visuals.ConsoleVisuals.CenteredWL(System.String,System.ConsoleColor,System.ConsoleColor)
-  name: CenteredWL(String, ConsoleColor, ConsoleColor)
-  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_CenteredWL_System_String_System_ConsoleColor_System_ConsoleColor_
-  commentId: M:Visuals.ConsoleVisuals.CenteredWL(System.String,System.ConsoleColor,System.ConsoleColor)
-  fullName: Visuals.ConsoleVisuals.CenteredWL(System.String, System.ConsoleColor, System.ConsoleColor)
-  nameWithType: ConsoleVisuals.CenteredWL(String, ConsoleColor, ConsoleColor)
-- uid: Visuals.ConsoleVisuals.CenteredWL*
-  name: CenteredWL
-  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_CenteredWL_
-  commentId: Overload:Visuals.ConsoleVisuals.CenteredWL
-  isSpec: "True"
-  fullName: Visuals.ConsoleVisuals.CenteredWL
-  nameWithType: ConsoleVisuals.CenteredWL
-- uid: Visuals.ConsoleVisuals.ConsoleConfiguration(System.Boolean)
-  name: ConsoleConfiguration(Boolean)
-  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_ConsoleConfiguration_System_Boolean_
-  commentId: M:Visuals.ConsoleVisuals.ConsoleConfiguration(System.Boolean)
-  fullName: Visuals.ConsoleVisuals.ConsoleConfiguration(System.Boolean)
-  nameWithType: ConsoleVisuals.ConsoleConfiguration(Boolean)
-- uid: Visuals.ConsoleVisuals.ConsoleConfiguration*
-  name: ConsoleConfiguration
-  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_ConsoleConfiguration_
-  commentId: Overload:Visuals.ConsoleVisuals.ConsoleConfiguration
-  isSpec: "True"
-  fullName: Visuals.ConsoleVisuals.ConsoleConfiguration
-  nameWithType: ConsoleVisuals.ConsoleConfiguration
+  fullName: Visuals.ConsoleVisuals.BuildString
+  nameWithType: ConsoleVisuals.BuildString
 - uid: Visuals.ConsoleVisuals.LoadingScreen(System.String)
   name: LoadingScreen(String)
   href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_LoadingScreen_System_String_
@@ -1095,41 +1021,65 @@ references:
   isSpec: "True"
   fullName: Visuals.ConsoleVisuals.LoadingScreen
   nameWithType: ConsoleVisuals.LoadingScreen
-- uid: Visuals.ConsoleVisuals.PrintSpecialText(System.String)
-  name: PrintSpecialText(String)
-  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_PrintSpecialText_System_String_
-  commentId: M:Visuals.ConsoleVisuals.PrintSpecialText(System.String)
-  fullName: Visuals.ConsoleVisuals.PrintSpecialText(System.String)
-  nameWithType: ConsoleVisuals.PrintSpecialText(String)
-- uid: Visuals.ConsoleVisuals.PrintSpecialText*
-  name: PrintSpecialText
-  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_PrintSpecialText_
-  commentId: Overload:Visuals.ConsoleVisuals.PrintSpecialText
+- uid: Visuals.ConsoleVisuals.Placement
+  name: ConsoleVisuals.Placement
+  href: api/Visuals.ConsoleVisuals.Placement.html
+  commentId: T:Visuals.ConsoleVisuals.Placement
+  fullName: Visuals.ConsoleVisuals.Placement
+  nameWithType: ConsoleVisuals.Placement
+- uid: Visuals.ConsoleVisuals.Placement.Center
+  name: Center
+  href: api/Visuals.ConsoleVisuals.Placement.html#Visuals_ConsoleVisuals_Placement_Center
+  commentId: F:Visuals.ConsoleVisuals.Placement.Center
+  fullName: Visuals.ConsoleVisuals.Placement.Center
+  nameWithType: ConsoleVisuals.Placement.Center
+- uid: Visuals.ConsoleVisuals.Placement.Left
+  name: Left
+  href: api/Visuals.ConsoleVisuals.Placement.html#Visuals_ConsoleVisuals_Placement_Left
+  commentId: F:Visuals.ConsoleVisuals.Placement.Left
+  fullName: Visuals.ConsoleVisuals.Placement.Left
+  nameWithType: ConsoleVisuals.Placement.Left
+- uid: Visuals.ConsoleVisuals.Placement.Right
+  name: Right
+  href: api/Visuals.ConsoleVisuals.Placement.html#Visuals_ConsoleVisuals_Placement_Right
+  commentId: F:Visuals.ConsoleVisuals.Placement.Right
+  fullName: Visuals.ConsoleVisuals.Placement.Right
+  nameWithType: ConsoleVisuals.Placement.Right
+- uid: Visuals.ConsoleVisuals.PrintTitle
+  name: PrintTitle()
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_PrintTitle
+  commentId: M:Visuals.ConsoleVisuals.PrintTitle
+  fullName: Visuals.ConsoleVisuals.PrintTitle()
+  nameWithType: ConsoleVisuals.PrintTitle()
+- uid: Visuals.ConsoleVisuals.PrintTitle*
+  name: PrintTitle
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_PrintTitle_
+  commentId: Overload:Visuals.ConsoleVisuals.PrintTitle
   isSpec: "True"
-  fullName: Visuals.ConsoleVisuals.PrintSpecialText
-  nameWithType: ConsoleVisuals.PrintSpecialText
-- uid: Visuals.ConsoleVisuals.Prompt(System.String,System.Int32,System.String)
-  name: Prompt(String, Int32, String)
-  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_Prompt_System_String_System_Int32_System_String_
-  commentId: M:Visuals.ConsoleVisuals.Prompt(System.String,System.Int32,System.String)
-  fullName: Visuals.ConsoleVisuals.Prompt(System.String, System.Int32, System.String)
-  nameWithType: ConsoleVisuals.Prompt(String, Int32, String)
-- uid: Visuals.ConsoleVisuals.Prompt*
-  name: Prompt
-  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_Prompt_
-  commentId: Overload:Visuals.ConsoleVisuals.Prompt
+  fullName: Visuals.ConsoleVisuals.PrintTitle
+  nameWithType: ConsoleVisuals.PrintTitle
+- uid: Visuals.ConsoleVisuals.ProgramExit
+  name: ProgramExit()
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_ProgramExit
+  commentId: M:Visuals.ConsoleVisuals.ProgramExit
+  fullName: Visuals.ConsoleVisuals.ProgramExit()
+  nameWithType: ConsoleVisuals.ProgramExit()
+- uid: Visuals.ConsoleVisuals.ProgramExit*
+  name: ProgramExit
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_ProgramExit_
+  commentId: Overload:Visuals.ConsoleVisuals.ProgramExit
   isSpec: "True"
-  fullName: Visuals.ConsoleVisuals.Prompt
-  nameWithType: ConsoleVisuals.Prompt
-- uid: Visuals.ConsoleVisuals.ScrollingMenu(System.String,System.String[],System.String)
-  name: ScrollingMenu(String, String[], String)
-  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_ScrollingMenu_System_String_System_String___System_String_
-  commentId: M:Visuals.ConsoleVisuals.ScrollingMenu(System.String,System.String[],System.String)
-  name.vb: ScrollingMenu(String, String(), String)
-  fullName: Visuals.ConsoleVisuals.ScrollingMenu(System.String, System.String[], System.String)
-  fullName.vb: Visuals.ConsoleVisuals.ScrollingMenu(System.String, System.String(), System.String)
-  nameWithType: ConsoleVisuals.ScrollingMenu(String, String[], String)
-  nameWithType.vb: ConsoleVisuals.ScrollingMenu(String, String(), String)
+  fullName: Visuals.ConsoleVisuals.ProgramExit
+  nameWithType: ConsoleVisuals.ProgramExit
+- uid: Visuals.ConsoleVisuals.ScrollingMenu(System.String,System.String[])
+  name: ScrollingMenu(String, String[])
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_ScrollingMenu_System_String_System_String___
+  commentId: M:Visuals.ConsoleVisuals.ScrollingMenu(System.String,System.String[])
+  name.vb: ScrollingMenu(String, String())
+  fullName: Visuals.ConsoleVisuals.ScrollingMenu(System.String, System.String[])
+  fullName.vb: Visuals.ConsoleVisuals.ScrollingMenu(System.String, System.String())
+  nameWithType: ConsoleVisuals.ScrollingMenu(String, String[])
+  nameWithType.vb: ConsoleVisuals.ScrollingMenu(String, String())
 - uid: Visuals.ConsoleVisuals.ScrollingMenu*
   name: ScrollingMenu
   href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_ScrollingMenu_
@@ -1137,22 +1087,64 @@ references:
   isSpec: "True"
   fullName: Visuals.ConsoleVisuals.ScrollingMenu
   nameWithType: ConsoleVisuals.ScrollingMenu
-- uid: Visuals.ConsoleVisuals.Title(System.String,System.String,System.Int32)
-  name: Title(String, String, Int32)
-  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_Title_System_String_System_String_System_Int32_
-  commentId: M:Visuals.ConsoleVisuals.Title(System.String,System.String,System.Int32)
-  fullName: Visuals.ConsoleVisuals.Title(System.String, System.String, System.Int32)
-  nameWithType: ConsoleVisuals.Title(String, String, Int32)
-- uid: Visuals.ConsoleVisuals.Title*
-  name: Title
-  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_Title_
-  commentId: Overload:Visuals.ConsoleVisuals.Title
+- uid: Visuals.ConsoleVisuals.WriteBanner(System.Nullable{System.ValueTuple{System.String,System.String,System.String}},System.Boolean,System.Boolean)
+  name: WriteBanner(Nullable<(String, String, String)>, Boolean, Boolean)
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_WriteBanner_System_Nullable_System_ValueTuple_System_String_System_String_System_String___System_Boolean_System_Boolean_
+  commentId: M:Visuals.ConsoleVisuals.WriteBanner(System.Nullable{System.ValueTuple{System.String,System.String,System.String}},System.Boolean,System.Boolean)
+  name.vb: WriteBanner(Nullable(Of (String, String, String)(Of String, String, String)), Boolean, Boolean)
+  fullName: Visuals.ConsoleVisuals.WriteBanner(System.Nullable<System.ValueTuple<System.String, System.String, System.String>>, System.Boolean, System.Boolean)
+  fullName.vb: Visuals.ConsoleVisuals.WriteBanner(System.Nullable(Of System.ValueTuple(Of System.String, System.String, System.String)), System.Boolean, System.Boolean)
+  nameWithType: ConsoleVisuals.WriteBanner(Nullable<(String, String, String)>, Boolean, Boolean)
+  nameWithType.vb: ConsoleVisuals.WriteBanner(Nullable(Of (String, String, String)(Of String, String, String)), Boolean, Boolean)
+- uid: Visuals.ConsoleVisuals.WriteBanner*
+  name: WriteBanner
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_WriteBanner_
+  commentId: Overload:Visuals.ConsoleVisuals.WriteBanner
   isSpec: "True"
-  fullName: Visuals.ConsoleVisuals.Title
-  nameWithType: ConsoleVisuals.Title
-- uid: Visuals.ConsoleVisuals.titlePath
-  name: titlePath
-  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_titlePath
-  commentId: F:Visuals.ConsoleVisuals.titlePath
-  fullName: Visuals.ConsoleVisuals.titlePath
-  nameWithType: ConsoleVisuals.titlePath
+  fullName: Visuals.ConsoleVisuals.WriteBanner
+  nameWithType: ConsoleVisuals.WriteBanner
+- uid: Visuals.ConsoleVisuals.WriteFullScreen(System.Boolean,System.Nullable{System.ValueTuple{System.String,System.String,System.String}},System.Nullable{System.ValueTuple{System.String,System.String,System.String}})
+  name: WriteFullScreen(Boolean, Nullable<(String, String, String)>, Nullable<(String, String, String)>)
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_WriteFullScreen_System_Boolean_System_Nullable_System_ValueTuple_System_String_System_String_System_String___System_Nullable_System_ValueTuple_System_String_System_String_System_String___
+  commentId: M:Visuals.ConsoleVisuals.WriteFullScreen(System.Boolean,System.Nullable{System.ValueTuple{System.String,System.String,System.String}},System.Nullable{System.ValueTuple{System.String,System.String,System.String}})
+  name.vb: WriteFullScreen(Boolean, Nullable(Of (String, String, String)(Of String, String, String)), Nullable(Of (String, String, String)(Of String, String, String)))
+  fullName: Visuals.ConsoleVisuals.WriteFullScreen(System.Boolean, System.Nullable<System.ValueTuple<System.String, System.String, System.String>>, System.Nullable<System.ValueTuple<System.String, System.String, System.String>>)
+  fullName.vb: Visuals.ConsoleVisuals.WriteFullScreen(System.Boolean, System.Nullable(Of System.ValueTuple(Of System.String, System.String, System.String)), System.Nullable(Of System.ValueTuple(Of System.String, System.String, System.String)))
+  nameWithType: ConsoleVisuals.WriteFullScreen(Boolean, Nullable<(String, String, String)>, Nullable<(String, String, String)>)
+  nameWithType.vb: ConsoleVisuals.WriteFullScreen(Boolean, Nullable(Of (String, String, String)(Of String, String, String)), Nullable(Of (String, String, String)(Of String, String, String)))
+- uid: Visuals.ConsoleVisuals.WriteFullScreen*
+  name: WriteFullScreen
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_WriteFullScreen_
+  commentId: Overload:Visuals.ConsoleVisuals.WriteFullScreen
+  isSpec: "True"
+  fullName: Visuals.ConsoleVisuals.WriteFullScreen
+  nameWithType: ConsoleVisuals.WriteFullScreen
+- uid: Visuals.ConsoleVisuals.WriteParagraph(System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Boolean)
+  name: WriteParagraph(IEnumerable<String>, Boolean, Boolean)
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_WriteParagraph_System_Collections_Generic_IEnumerable_System_String__System_Boolean_System_Boolean_
+  commentId: M:Visuals.ConsoleVisuals.WriteParagraph(System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Boolean)
+  name.vb: WriteParagraph(IEnumerable(Of String), Boolean, Boolean)
+  fullName: Visuals.ConsoleVisuals.WriteParagraph(System.Collections.Generic.IEnumerable<System.String>, System.Boolean, System.Boolean)
+  fullName.vb: Visuals.ConsoleVisuals.WriteParagraph(System.Collections.Generic.IEnumerable(Of System.String), System.Boolean, System.Boolean)
+  nameWithType: ConsoleVisuals.WriteParagraph(IEnumerable<String>, Boolean, Boolean)
+  nameWithType.vb: ConsoleVisuals.WriteParagraph(IEnumerable(Of String), Boolean, Boolean)
+- uid: Visuals.ConsoleVisuals.WriteParagraph*
+  name: WriteParagraph
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_WriteParagraph_
+  commentId: Overload:Visuals.ConsoleVisuals.WriteParagraph
+  isSpec: "True"
+  fullName: Visuals.ConsoleVisuals.WriteParagraph
+  nameWithType: ConsoleVisuals.WriteParagraph
+- uid: Visuals.ConsoleVisuals.WritePrompt(System.String)
+  name: WritePrompt(String)
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_WritePrompt_System_String_
+  commentId: M:Visuals.ConsoleVisuals.WritePrompt(System.String)
+  fullName: Visuals.ConsoleVisuals.WritePrompt(System.String)
+  nameWithType: ConsoleVisuals.WritePrompt(String)
+- uid: Visuals.ConsoleVisuals.WritePrompt*
+  name: WritePrompt
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_WritePrompt_
+  commentId: Overload:Visuals.ConsoleVisuals.WritePrompt
+  isSpec: "True"
+  fullName: Visuals.ConsoleVisuals.WritePrompt
+  nameWithType: ConsoleVisuals.WritePrompt
