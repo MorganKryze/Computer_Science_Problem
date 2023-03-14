@@ -38,7 +38,7 @@ public class MainProgram
     /// <summary> The entry point of the program. </summary>
     public static void Main(string[] args)
     {
-        WriteFullScreen();
+        WriteFullScreen(default);
         
         Main_Menu:
 

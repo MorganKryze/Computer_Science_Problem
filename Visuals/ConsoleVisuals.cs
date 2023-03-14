@@ -119,6 +119,15 @@ public static class ConsoleVisuals
         WritePositionnedString(text.BuildString(WindowWidth, Placement.Center), default, negative, line);
         Sleep(endStringTime);
     }
+    
+    private static void ReloadScreen()
+    {
+        if (WindowWidth != initialWindowWidth)
+            WriteFullScreen(true);
+        else
+            ClearPanel();
+        initialWindowWidth = WindowWidth;
+    }
     #endregion
 
     #region Processing methods
@@ -136,7 +145,8 @@ public static class ConsoleVisuals
     /// <summary> This method prints a banner in the console. </summary>
     /// <param name="banner"> The banner to print. </param>
     /// <param name="header"> If true, the banner is printed at the top of the console. If false, the banner is printed at the bottom of the console. </param>
-    public static void WriteBanner((string, string, string)? banner = null, bool header = true)
+    /// <param name="straight"> If true, the title is not continuously printed. </param>
+    public static void WriteBanner((string, string, string)? banner = null, bool header = true, bool straight = false)
 	{
         (string, string, string) newBanner = banner ??= header ? defaultHeader : defaultFooter;
 
@@ -144,29 +154,34 @@ public static class ConsoleVisuals
 		string strBanner = newBanner.Item2.BuildString(Console.WindowWidth, Placement.Center, true);
 		strBanner = strBanner.Substring(0, strBanner.Length - newBanner.Item3.Length) + newBanner.Item3;
 		strBanner = newBanner.Item1 + strBanner.Substring(newBanner.Item1.Length);
-		ContinuousPrint(strBanner, header ? HeaderHeigth : FooterHeigth, true);
+        if (straight) 
+            WritePositionnedString(strBanner, default, true, header ? HeaderHeigth : FooterHeigth);
+        else
+		    ContinuousPrint(strBanner, header ? HeaderHeigth : FooterHeigth, true);
 		SetColor();
 	}
     /// <summary> This method prints a full screen in the console. </summary>
+    /// <param name="straight"> If true, the title is not continuously printed. </param>
     /// <param name="header"> The header of the screen. </param>
     /// <param name="footer"> The footer of the screen. </param>
-    public static void WriteFullScreen((string, string, string)? header = null, (string, string, string)? footer = null)
+    public static void WriteFullScreen(bool straight = false, (string, string, string)? header = null, (string, string, string)? footer = null)
     {
         header ??= defaultHeader;
         footer ??= defaultFooter;
         CursorVisible = false;
         PrintTitle();
-        WriteBanner(header, true);
-        WriteBanner(footer, false);
+        WriteBanner(header, true, straight);
+        WriteBanner(footer, false, straight);
         ClearPanel();
-        LoadingScreen("[ Loading the program ...]");
+        if (!straight) 
+            LoadingScreen("[ Loading the program ...]");
     }
     /// <summary> This method prints a message in the console and gets a string written by the user. </summary>
     /// <param name="message"> The message to print. </param>
     /// <returns> The string written by the user. </returns>
     public static string WritePrompt(string message)
     {
-        ClearPanel();
+        ReloadScreen();
         ContinuousPrint(message.BuildString(message.Length, Placement.Center), ContentHeigth + 1, default, 1500, 50);
         //WriteAligned(message.BuildString(message.Length, Placement.Center), Placement.Center, false, ContentHeigth + 1, true);
         string prompt = "";
@@ -186,7 +201,7 @@ public static class ConsoleVisuals
     /// <param name="truncate"> If true, the paragraph is truncated if it is too long. </param>
     public static void WriteParagraph(IEnumerable<string> lines, bool negative = false, bool truncate = true)
 	{
-        ClearPanel();
+        ReloadScreen();
 		int maxLength = lines.Count() > 0 ? lines.Max(s => s.Length) : 0;
 		if (truncate) maxLength = Math.Min(maxLength, Console.WindowWidth);
         
@@ -207,7 +222,7 @@ public static class ConsoleVisuals
     /// <returns> The choice of the user. </returns>
     public static int ScrollingMenu(string question, string[] choices)
     {
-        ClearPanel();
+        ReloadScreen();
         int startDisplayposition = ContentHeigth + 1;
         int currentPosition = 0;
         int maxLength = choices.Count() > 0 ? choices.Max(s => s.Length) : 0;
@@ -255,7 +270,7 @@ public static class ConsoleVisuals
     /// <param name="text"> The text to print. </param>
     public static void LoadingScreen(string text)
     {
-        ClearPanel();
+        ReloadScreen();
         WritePositionnedString(text.BuildString(WindowWidth, Placement.Center), default, default, ContentHeigth + 1, true);
         string loadingBar = "";
             for(int j = 0; j < text.Length; j++) 
