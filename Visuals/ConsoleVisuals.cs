@@ -300,9 +300,12 @@ public static class ConsoleVisuals
         if (truncate && padding < 0) 
             switch (position)
 		    {
-		    	case (Placement.Left): return str.Substring(0, size);
-		    	case (Placement.Center): return str.Substring((- padding) / 2, size);
-		    	case (Placement.Right): return str.Substring(- padding, size);
+		    	case (Placement.Left): 
+                    return str.Substring(0, size);
+		    	case (Placement.Center): 
+                    return str.Substring((- padding) / 2, size);
+		    	case (Placement.Right): 
+                    return str.Substring(- padding, size);
 		    }
         else 
 		    switch (position)
