@@ -37,20 +37,14 @@ public class Image : IEquatable<Image>
     #endregion
 
     #region Properties
-    /// <summary> Encoding.ASCII.GetString is a method which turn a bytes array into a string </summary>
-    public string Type => Encoding.ASCII.GetString(Header.ExtractBytes(2, type));
     /// <summary> Utils.LittleEndianToUInt is a method which turn the information of the file size contained in a bytes array into an unsigned integer </summary>
     public uint FileSize => ConvertTo.UInt(Header, fileSize);
     /// <summary> Utils.LittleEndianToUInt is a method which turn the information of the start offset contained in a bytes array into an unsigned integer </summary>
     public uint StartOffset => ConvertTo.UInt(Header, offsetFirstPixel);
-    /// <summary> Utils.LittleEndianToUInt is a method which turn the information of the info header size contained in a bytes array into an unsigned integer </summary>
-    public uint InfoHeaderSize => ConvertTo.UInt(Header, infoHeaderSize);
     /// <summary> Utils.LittleEndianToInt is a method which turn the information of the width contained in a bytes array into an integer </summary>
     public int Width => ConvertTo.Int(Header, offsetWidth);
     /// <summary> Utils.LittleEndianToInt is a method which turn the information of the height contained in a bytes array into an integer </summary>
     public int Height => ConvertTo.Int(Header, offsetHeight);
-    /// <summary> Utils.LittleEndianToUShort is a method which turn the information of the color planes contained in a bytes array into an unsigned short </summary>
-    public ushort ColorPlanes => ConvertTo.UShort(Header, offsetColorPlanes);
     /// <summary> Utils.LittleEndianToUShort is a method which turn the information of the color depth contained in a bytes array into an unsigned short </summary>
     public ushort ColorDepth => ConvertTo.UShort(Header, offsetColorDepth);
     /// <summary> Stride is the number of bytes per line of pixels. </summary>
@@ -70,12 +64,6 @@ public class Image : IEquatable<Image>
         using (FileStream stream = File.OpenRead(filename))
         {
             Header = stream.ReadBytes(54);
-
-            if (Type is not "BM") 
-                throw new FormatException("Invalid file type. We can only load BMP files.");
-            if (ColorDepth is not 24) 
-                throw new FormatException("We cannot load images with a depth of 24 bits.");
-
             Pixels = stream.ReadBytes((int)(FileSize - StartOffset));
         }
 
