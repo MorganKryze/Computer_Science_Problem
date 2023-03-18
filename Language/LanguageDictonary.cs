@@ -12,7 +12,7 @@ public static class LanguageDictonary
     /// <summary> This field represents the dictionary. </summary>
     public static Dictionary<string, Dictionary<string, string>> Dict { get; set; } = new();
     /// <summary> This field represents the current language. </summary>
-    public static string CurrentLanguage = "en";
+    public static string CurrentLanguage = "english";
 
     /// <summary> This method initializes the dictionary. </summary>
     public static void IntializeDict()

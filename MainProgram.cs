@@ -41,7 +41,7 @@ public class MainProgram
     public static void Main(string[] args)
     {
         IntializeDict();
-        
+
         WriteFullScreen(default);
         
         Main_Menu:
@@ -53,7 +53,7 @@ public class MainProgram
 
         FutureLanguageFeature:
 
-        FutureLanguageFeature();
+        ChangeLanguage();
         goto Select;
 
         Source_Folder:

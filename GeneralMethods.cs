@@ -75,14 +75,22 @@ public static class GeneralMethods
         }
     }
     /// <summary> Not implemented yet. </summary>
-    public static void FutureLanguageFeature()
+    public static void ChangeLanguage()
     {
-        switch(ScrollingMenu("This feature is not implemented yet !", new string[]{"Back"}))
+        switch(ScrollingMenu(Dict[CurrentLanguage]["ChangeLanguageTitle"], new string[]{
+            Dict[CurrentLanguage]["ChangeLanguageButton1"], 
+            Dict[CurrentLanguage]["ChangeLanguageButton2"]}))
         {
-            default:
-                MainProgram.jump = MainProgram.Jump.Main_Menu;
+            case 0:
+                CurrentLanguage = "french";
+                break;
+            case 1:
+                CurrentLanguage = "english";
+                break;
+            default :
                 break;
         }
+        MainProgram.jump = MainProgram.Jump.Main_Menu;
     }
     /// <summary>This method is used to display the actions menu.</summary>
     public static void Actions()

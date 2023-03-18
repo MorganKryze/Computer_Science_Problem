@@ -15,13 +15,14 @@ public static class ConsoleVisuals
     private const string titlePath = "Images/Title/title.txt";
     private static  string[] titleContent = ReadAllLines(titlePath);
     private static int initialWindowWidth = WindowWidth;
-    private static (string, string, string) defaultHeader = (Dict[CurrentLanguage]["DefaultHeader1"], Dict[CurrentLanguage]["DefaultHeader2"], Dict[CurrentLanguage]["DefaultHeader3"]);
-    private static (string, string, string) defaultFooter = (Dict[CurrentLanguage]["DefaultFooter1"], Dict[CurrentLanguage]["DefaultFooter2"], Dict[CurrentLanguage]["DefaultFooter3"]);
-    private static (ConsoleColor,ConsoleColor) colorPanel = (White, Black);
+    private static string initialLanguage = CurrentLanguage;
     private static (ConsoleColor,ConsoleColor) initialColorpanel = (ForegroundColor, BackgroundColor);
+    private static (ConsoleColor,ConsoleColor) colorPanel = (White, Black);
     #endregion
 
     #region Properties
+    private static (string, string, string) defaultHeader => (Dict[CurrentLanguage]["DefaultHeader1"], Dict[CurrentLanguage]["DefaultHeader2"], Dict[CurrentLanguage]["DefaultHeader3"]);
+    private static (string, string, string) defaultFooter => (Dict[CurrentLanguage]["DefaultFooter1"], Dict[CurrentLanguage]["DefaultFooter2"], Dict[CurrentLanguage]["DefaultFooter3"]);
     private static int TitleHeight => titleContent.Length;
     private static int HeaderHeigth => TitleHeight ;
     private static int FooterHeigth => WindowHeight - 2;
@@ -124,11 +125,14 @@ public static class ConsoleVisuals
     
     private static void ReloadScreen()
     {
-        if (WindowWidth != initialWindowWidth)
+        if (WindowWidth != initialWindowWidth || CurrentLanguage != initialLanguage)
+        {
             WriteFullScreen(true);
+            initialWindowWidth = WindowWidth;
+            initialLanguage = CurrentLanguage;
+        }
         else
             ClearPanel();
-        initialWindowWidth = WindowWidth;
     }
     #endregion
 
@@ -185,7 +189,6 @@ public static class ConsoleVisuals
     {
         ReloadScreen();
         ContinuousPrint(message.BuildString(message.Length, Placement.Center), ContentHeigth + 1, default, 1500, 50);
-        //WriteAligned(message.BuildString(message.Length, Placement.Center), Placement.Center, false, ContentHeigth + 1, true);
         string prompt = "";
         do
         {
@@ -232,7 +235,6 @@ public static class ConsoleVisuals
         for (int i = 0; i < choices.Length; i++) 
             choices[i] = choices[i].PadRight(maxLength + 1);
         ContinuousPrint(question, startDisplayposition, default, 1500, 50);
-        //WriteAligned(question, Placement.Center, false, startDisplayposition , default);
         while (true)
         {
             string[] currentChoice = new string[choices.Length];
