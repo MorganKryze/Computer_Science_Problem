@@ -1,0 +1,102 @@
+{
+    "en": {
+        "MainMenuTitle": "Welcome User! Use the arrow keys to move and press [ENTER] to confirm.",
+        "MainMenuButton1": "Play",
+        "MainMenuButton2": "Options",
+        "MainMenuButton3": "Quit",
+
+        "FolderTitle": "You may choose a source folder.",
+        "FolderButton1": "Default pictures",
+        "FolderButton2": "Generated pictures",
+        "FolderButton3": "Back",
+
+        "BrowseFilesTitle": "You may choose a file.",
+
+        "ActionTitle" : "You may choose an action to do on your picture.",
+        "ActionButton1": "Apply a filter",
+        "ActionButton2": "Apply a transformation",
+        "ActionButton3": "Back",
+
+        "ApplyFilterTitle": "You may choose a filter to apply on your picture.",
+        "ApplyFilterButton1": "Turn to grey",
+        "ApplyFilterButton2": "Black and white",
+        "ApplyFilterButton3": "Gaussian blur",
+        "ApplyFilterButton4": "Sarpen",
+        "ApplyFilterButton5": "Contrast",
+        "ApplyFilterButton6": "Back",
+
+        "ApplyManipulationTitle": "You may choose a transformation to apply on your picture.",
+        "ApplyManipulationButton1": "Rotate",
+        "ApplyManipulationButton2": "Resize",
+        "ApplyManipulationButton3": "Detect the edges",
+        "ApplyManipulationButton4": "Push the edges",
+        "ApplyManipulationButton5": "Back",
+
+        "RotatePrompt": "Type an positive angle to rotate the picture.",
+        "ResizePrompt": "Type an integer greater than 0 to rescale the picture.",
+
+        "SaveTitle": "You may choose the name of the file to save.",
+
+        "DefaultHeader1" : "Inspired by l_eg116, th0m4s",
+        "DefaultHeader2" : "Home",
+        "DefaultHeader3" : "Created by MorganKryze, Sheesh3218",
+
+        "DefaultFooter1" : "[ESC] Go back",
+        "DefaultFooter2" : "[Z|↑] Selection up   [S|↓] Selection down",
+        "DefaultFooter3" : "[ENTER] Select",
+
+        "FirstLoadingTitle" : "[ Loading the program ...]",
+        "LastLoadingTitle" : "[ Exiting the program ...]"
+
+
+    },
+    "french": {
+        "MainMenuTitle": "Welcome User! Use the arrow keys to move and press [ENTER] to confirm.",
+        "MainMenuButton1": "Play",
+        "MainMenuButton2": "Options",
+        "MainMenuButton3": "Quit",
+
+        "FolderTitle": "You may choose a source folder.",
+        "FolderButton1": "Default pictures",
+        "FolderButton2": "Generated pictures",
+        "FolderButton3": "Back",
+
+        "BrowseFilesTitle": "You may choose a file.",
+
+        "ActionTitle" : "You may choose an action to do on your picture.",
+        "ActionButton1": "Apply a filter",
+        "ActionButton2": "Apply a transformation",
+        "ActionButton3": "Back",
+
+        "ApplyFilterTitle": "You may choose a filter to apply on your picture.",
+        "ApplyFilterButton1": "Turn to grey",
+        "ApplyFilterButton2": "Black and white",
+        "ApplyFilterButton3": "Gaussian blur",
+        "ApplyFilterButton4": "Sarpen",
+        "ApplyFilterButton5": "Contrast",
+        "ApplyFilterButton6": "Back",
+
+        "ApplyManipulationTitle": "You may choose a transformation to apply on your picture.",
+        "ApplyManipulationButton1": "Rotate",
+        "ApplyManipulationButton2": "Resize",
+        "ApplyManipulationButton3": "Detect the edges",
+        "ApplyManipulationButton4": "Push the edges",
+        "ApplyManipulationButton5": "Back",
+
+        "RotatePrompt": "Type an positive angle to rotate the picture.",
+        "ResizePrompt": "Type an integer greater than 0 to rescale the picture.",
+
+        "SaveTitle": "You may choose the name of the file to save.",
+
+        "DefaultHeader1" : "Inspired by l_eg116, th0m4s",
+        "DefaultHeader2" : "Home",
+        "DefaultHeader3" : "Created by MorganKryze, Sheesh3218",
+
+        "DefaultFooter1" : "[ESC] Go back",
+        "DefaultFooter2" : "[Z|↑] Selection up   [S|↓] Selection down",
+        "DefaultFooter3" : "[ENTER] Select",
+
+        "FirstLoadingTitle" : "[ Loading the program ...]",
+        "LastLoadingTitle" : "[ Exiting the program ...]"
+    }
+}

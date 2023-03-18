@@ -2,6 +2,7 @@
 using Utilitary;
 
 using static Visuals.ConsoleVisuals;
+using static Computer_Science_Problem.Language.LanguageDictonary;
 
 namespace Computer_Science_Problem;
 
@@ -97,7 +98,8 @@ public class Image : IEquatable<Image>
     /// <param name="original"><see cref="Image"/>to copy.</param>
     public Image(Image original)
     {
-        if (original is null) throw new ArgumentNullException("Original");
+        if (original is null) 
+            throw new ArgumentNullException("Original");
 
         Header = new byte[original.Header.Length];
         Array.Copy(original.Header, Header, Header.Length);
@@ -244,7 +246,7 @@ public class Image : IEquatable<Image>
     /// <summary> This method saves the <see cref="Image"/>. </summary>
     public void Save()
     {
-        using (FileStream stream = File.OpenWrite("Images/OUT/" + WritePrompt("Type the name of the file.") + ".bmp"))
+        using (FileStream stream = File.OpenWrite("Images/OUT/" + WritePrompt(Dict[CurrentLanguage]["SaveTitle"]) + ".bmp"))
         {
             stream.Write(Header, 0, Header.Length);
             stream.Write(Pixels, 0, Pixels.Length);

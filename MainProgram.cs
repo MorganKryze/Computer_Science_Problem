@@ -1,5 +1,7 @@
-﻿using static Visuals.ConsoleVisuals;
-using static Computer_Science_Problem.GeneralMethods;
+﻿using static Computer_Science_Problem.GeneralMethods;
+using static Visuals.ConsoleVisuals;
+
+using static Computer_Science_Problem.Language.LanguageDictonary;
 
 namespace Computer_Science_Problem;
 
@@ -38,6 +40,8 @@ public class MainProgram
     /// <summary> The entry point of the program. </summary>
     public static void Main(string[] args)
     {
+        IntializeDict();
+        
         WriteFullScreen(default);
         
         Main_Menu:

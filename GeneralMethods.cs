@@ -5,6 +5,8 @@ using static System.Environment;
 using static System.Threading.Thread;
 using static System.ConsoleKey;
 
+using static Computer_Science_Problem.Language.LanguageDictonary;
+
 namespace Computer_Science_Problem;
 
 /// <summary>The vocation of the Methods class is to be accessible from anywhere.It contains a random variable, utility and core methods.</summary>
@@ -14,10 +16,10 @@ public static class GeneralMethods
     /// <summary>This method is used to display the main menu.</summary>
     public static void MainMenu()
     {
-        switch (ScrollingMenu("Welcome User! Use the arrow keys to move and press [ENTER] to confirm.", new string[] { 
-            "Play", 
-            "Options", 
-            "Quit" }))
+        switch (ScrollingMenu(Dict[CurrentLanguage]["MainMenuTitle"], new string[] { 
+            Dict[CurrentLanguage]["MainMenuButton1"], 
+            Dict[CurrentLanguage]["MainMenuButton2"],
+            Dict[CurrentLanguage]["MainMenuButton3"], }))
         {
             case 0:
                 MainProgram.jump = MainProgram.Jump.Continue;
@@ -33,10 +35,10 @@ public static class GeneralMethods
     /// <summary>This method is used to display the Image source folder chooser.</summary>
     public static string ChooseFolder()
     {
-        switch (ScrollingMenu("You may choose a source file.", new string[]{
-                "Default pictures ",
-                "Created pictures ",
-                "Back             "}))
+        switch (ScrollingMenu(Dict[CurrentLanguage]["FolderTitle"], new string[]{
+                Dict[CurrentLanguage]["FolderButton1"],
+                Dict[CurrentLanguage]["FolderButton2"],
+                Dict[CurrentLanguage]["FolderButton3"]}))
         {
             case 0:
                 return "Images";
@@ -61,7 +63,7 @@ public static class GeneralMethods
             for (int i = 0; i < files.Length; i++)
                 filesName[i] = files[i].Substring(11);
         int namePosition;
-        switch (namePosition = ScrollingMenu("You may choose a file.", filesName))
+        switch (namePosition = ScrollingMenu(Dict[CurrentLanguage]["BrowseFilesTitle"], filesName))
         {
             case -1:
                 MainProgram.jump = MainProgram.Jump.Source_Folder;
@@ -85,10 +87,10 @@ public static class GeneralMethods
     /// <summary>This method is used to display the actions menu.</summary>
     public static void Actions()
     {
-        switch (ScrollingMenu("You may choose an action to do on your picture.", new string[]{
-                "Apply a filter ",
-                "Apply a manipulation ",
-                "Back"}))
+        switch (ScrollingMenu(Dict[CurrentLanguage]["ActionTitle"], new string[]{
+                Dict[CurrentLanguage]["ActionButton1"],
+                Dict[CurrentLanguage]["ActionButton2"],
+                Dict[CurrentLanguage]["ActionButton3"]}))
         {
             case 0:
                 MainProgram.jump = MainProgram.Jump.ApplyFilter;
@@ -105,13 +107,13 @@ public static class GeneralMethods
     public static void ApplyFilter()
     {
         Image image = new (Image.imagePath);
-        switch (ScrollingMenu("You may choose one filter to apply on your picture.", new string[]{
-                "Turn to grey",
-                "Black and white",
-                "Gaussian blur",
-                "Sarpen",
-                "Contrast",
-                "Back"}))
+        switch (ScrollingMenu(Dict[CurrentLanguage]["ApplyFilterTitle"], new string[]{
+                Dict[CurrentLanguage]["ApplyFilterButton1"],
+                Dict[CurrentLanguage]["ApplyFilterButton2"],
+                Dict[CurrentLanguage]["ApplyFilterButton3"],
+                Dict[CurrentLanguage]["ApplyFilterButton4"],
+                Dict[CurrentLanguage]["ApplyFilterButton5"],
+                Dict[CurrentLanguage]["ApplyFilterButton6"]}))
         {
             case 0:
                 image = image.TurnGrey();
@@ -138,18 +140,18 @@ public static class GeneralMethods
     public static void ApplyManipulation()
     {
         Image image = new Image(Image.imagePath);
-        switch (ScrollingMenu("You may choose one manipulation to do on your picture.", new string[]{
-                "Rotate",
-                "Resize",
-                "Detect edges",
-                "Push the edges",
-                "Back"}))
+        switch (ScrollingMenu(Dict[CurrentLanguage]["ApplyManipulationTitle"], new string[]{
+                Dict[CurrentLanguage]["ApplyManipulationButton1"],
+                Dict[CurrentLanguage]["ApplyManipulationButton2"],
+                Dict[CurrentLanguage]["ApplyManipulationButton3"],
+                Dict[CurrentLanguage]["ApplyManipulationButton4"],
+                Dict[CurrentLanguage]["ApplyManipulationButton5"]}))
         {
             case 0:
                 int? angle = null;
                 int occurrenceRotation = 0;
                 do
-                {   string answer = WritePrompt("Type an positive angle to rotate the picture.");
+                {   string answer = WritePrompt(Dict[CurrentLanguage]["RotatePrompt"]);
                     angle = int.TryParse(answer, out int result) ? result : null;
                     occurrenceRotation++;
                 } while (angle is null || angle < 0 || angle > 360);
@@ -160,7 +162,7 @@ public static class GeneralMethods
                 int occurrenceRescale = 0;
                 do
                 {
-                    string answer = WritePrompt("Type an integer greater than 0 to rescale the picture.");
+                    string answer = WritePrompt(Dict[CurrentLanguage]["ResizePrompt"]);
                     scale = float.TryParse(answer, out float result) ? result : null;
                     occurrenceRescale++;
                 } while (scale is null || scale < 1);

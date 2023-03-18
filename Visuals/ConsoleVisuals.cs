@@ -4,6 +4,8 @@ using static System.IO.File;
 using static System.ConsoleColor;
 using static System.ConsoleKey;
 
+using static Computer_Science_Problem.Language.LanguageDictonary;
+
 namespace Visuals;
 
 /// <summary> The <see cref="ConsoleVisuals"/> classe contains all the visual elements for a console app. </summary>
@@ -13,8 +15,8 @@ public static class ConsoleVisuals
     private const string titlePath = "Images/Title/title.txt";
     private static  string[] titleContent = ReadAllLines(titlePath);
     private static int initialWindowWidth = WindowWidth;
-    private static (string, string, string) defaultHeader = (" Inspired by l_eg116, th0m4s", "Home", "Created by MorganKryze, Sheesh3218 ");
-    private static (string, string, string) defaultFooter = (" [ESC] Go back", "[Z|↑] Selection up   [S|↓] Selection down", "[ENTER] Select ");
+    private static (string, string, string) defaultHeader = (Dict[CurrentLanguage]["DefaultHeader1"], Dict[CurrentLanguage]["DefaultHeader2"], Dict[CurrentLanguage]["DefaultHeader3"]);
+    private static (string, string, string) defaultFooter = (Dict[CurrentLanguage]["DefaultFooter1"], Dict[CurrentLanguage]["DefaultFooter2"], Dict[CurrentLanguage]["DefaultFooter3"]);
     private static (ConsoleColor,ConsoleColor) colorPanel = (White, Black);
     private static (ConsoleColor,ConsoleColor) initialColorpanel = (ForegroundColor, BackgroundColor);
     #endregion
@@ -174,7 +176,7 @@ public static class ConsoleVisuals
         WriteBanner(footer, false, straight);
         ClearPanel();
         if (!straight) 
-            LoadingScreen("[ Loading the program ...]");
+            LoadingScreen(Dict[CurrentLanguage]["FirstLoadingTitle"]);
     }
     /// <summary> This method prints a message in the console and gets a string written by the user. </summary>
     /// <param name="message"> The message to print. </param>
@@ -280,7 +282,7 @@ public static class ConsoleVisuals
     /// <summary> This method exits the program. </summary>
     public static void ProgramExit()
     {
-        LoadingScreen("[ Exiting the program ... ]");
+        LoadingScreen(Dict[CurrentLanguage]["LastLoadingTitle"]);
         ClearAll();
         CursorVisible = true;
         Environment.Exit(0);
