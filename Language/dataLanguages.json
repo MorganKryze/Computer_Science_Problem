@@ -58,13 +58,13 @@
 
         "SaveTitle": "You may choose the name of the file to save.",
 
-        "DefaultHeader1" : "Inspired by l_eg116, th0m4s",
+        "DefaultHeader1" : " Special Thanks to the fabulous lab",
         "DefaultHeader2" : "Home",
-        "DefaultHeader3" : "Created by MorganKryze, Sheesh3218",
+        "DefaultHeader3" : "Created by MorganKryze, Sheesh3218 ",
 
-        "DefaultFooter1" : "[ESC] Go back",
+        "DefaultFooter1" : " [ESC] Go back",
         "DefaultFooter2" : "[Z|↑] Selection up   [S|↓] Selection down",
-        "DefaultFooter3" : "[ENTER] Select",
+        "DefaultFooter3" : "[ENTER] Select ",
 
         "FirstLoadingTitle" : "[ Loading the program ...]",
         "LastLoadingTitle" : "[ Exiting the program ...]"
@@ -129,13 +129,13 @@
 
         "SaveTitle": "Veuillez écrire le nom du fichier à sauvegarder.",
 
-        "DefaultHeader1" : "Inspiré du travail de l_eg116, th0m4s",
+        "DefaultHeader1" : " Merci au fabuleux laboratoire",
         "DefaultHeader2" : "Accueil",
-        "DefaultHeader3" : "Créé par MorganKryze, Sheesh3218",
+        "DefaultHeader3" : "Créé par MorganKryze, Sheesh3218 ",
 
-        "DefaultFooter1" : "[ESC] Retour",
+        "DefaultFooter1" : " [ESC] Retour",
         "DefaultFooter2" : "[Z|↑] Monter   [S|↓] Descendre",
-        "DefaultFooter3" : "[ENTRER] Selectionner",
+        "DefaultFooter3" : "[ENTRER] Selectionner ",
 
         "FirstLoadingTitle" : "[ Chargement du programme ...]",
         "LastLoadingTitle" : "[ Fermeture du programme ...]"
