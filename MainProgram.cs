@@ -21,8 +21,12 @@ public class MainProgram
         Continue,
         /// <summary> Go to the main menu. </summary>
         Main_Menu,
-        /// <summary> Go to the future language feature. </summary>
-        FutureLanguageFeature,
+        /// <summary> Go to the options menu. </summary>
+        Options,
+        /// <summary> Go to the language menu. </summary>
+        Language,
+        /// <summary> Go to the font color menu. </summary>
+        FontColor,
         /// <summary> Go to the source folder chooser. </summary>
         Source_Folder,
         /// <summary> Go to the actions menu. </summary>
@@ -47,13 +51,23 @@ public class MainProgram
         Main_Menu:
 
         MainMenu();
-        if (jump is not Jump.Continue) 
-            goto Select;
-        goto Source_Folder;
+        if (jump is Jump.Continue) 
+            goto Source_Folder;
+        goto Select;
 
-        FutureLanguageFeature:
+        Options:
+
+        Options();
+        goto Select;
+
+        Language:
 
         ChangeLanguage();
+        goto Select;
+
+        FontColor:
+
+        ChangeColor();
         goto Select;
 
         Source_Folder:
@@ -80,9 +94,15 @@ public class MainProgram
             case Jump.Main_Menu:
                 jump = Jump.Continue;
                 goto Main_Menu;
-            case Jump.FutureLanguageFeature:
+            case Jump.Options:
                 jump = Jump.Continue;
-                goto FutureLanguageFeature;
+                goto Options;
+            case Jump.Language:
+                jump = Jump.Continue;
+                goto Language;
+            case Jump.FontColor:
+                jump = Jump.Continue;
+                goto FontColor;
             case Jump.Source_Folder:
                 jump = Jump.Continue;
                 goto Source_Folder;
@@ -93,6 +113,7 @@ public class MainProgram
                 ProgramExit();
                 break;
             default:
+                jump = Jump.Main_Menu;
                 goto Main_Menu;
         }
     }

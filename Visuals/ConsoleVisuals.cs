@@ -16,8 +16,9 @@ public static class ConsoleVisuals
     private static  string[] titleContent = ReadAllLines(titlePath);
     private static int initialWindowWidth = WindowWidth;
     private static string initialLanguage = CurrentLanguage;
-    private static (ConsoleColor,ConsoleColor) initialColorpanel = (ForegroundColor, BackgroundColor);
-    private static (ConsoleColor,ConsoleColor) colorPanel = (White, Black);
+    private static (ConsoleColor,ConsoleColor) terminalColorpanel = (ForegroundColor, BackgroundColor);
+    private static (ConsoleColor,ConsoleColor) initialColorPanel = (colorPanel.Item1, colorPanel.Item2);
+    private  static (ConsoleColor,ConsoleColor) colorPanel = (White, Black);
     #endregion
 
     #region Properties
@@ -43,8 +44,12 @@ public static class ConsoleVisuals
     #endregion
 
     #region Utility ethods
-
-    private static void SetColor(bool negative = false)
+    /// <summary> this method changes the font color of the console. </summary>
+    public static void ChangeFont(ConsoleColor newfont)
+    {
+        colorPanel.Item1 = newfont;
+    }
+    private static void TryNegative(bool negative = false)
     {
         ForegroundColor = negative ? colorPanel.Item2 : colorPanel.Item1;
         BackgroundColor = negative ? colorPanel.Item1 : colorPanel.Item2;
@@ -52,7 +57,7 @@ public static class ConsoleVisuals
     
     private static void WritePositionnedString(string str, Placement position = Placement.Center, bool negative = false, int line = -1, bool chariot = false)
 	{
-        SetColor(negative);
+        TryNegative(negative);
 		if (line < 0) 
             line = Console.CursorTop;
 		if (str.Length < Console.WindowWidth) 
@@ -71,12 +76,12 @@ public static class ConsoleVisuals
 		else SetCursorPosition(0, line);
 		if (chariot) WriteLine(str);
         else Write(str);
-        SetColor(default);
+        TryNegative(default);
 	}
 
     private static void ClearLine(int line)
 	{
-		SetColor(default);
+		TryNegative(default);
 		WritePositionnedString("".PadRight(Console.WindowWidth), Placement.Left, default, line);
 	}
 
@@ -88,7 +93,7 @@ public static class ConsoleVisuals
 
     private static void ClearAll()
     {
-        colorPanel = initialColorpanel;
+        colorPanel = terminalColorpanel;
         for (int i = 0; i < WindowHeight; i++)
             ContinuousPrint("".PadRight(WindowWidth), i, default, 100, 10);
         Clear();
@@ -125,11 +130,12 @@ public static class ConsoleVisuals
     
     private static void ReloadScreen()
     {
-        if (WindowWidth != initialWindowWidth || CurrentLanguage != initialLanguage)
+        if (WindowWidth != initialWindowWidth || CurrentLanguage != initialLanguage || colorPanel != initialColorPanel)
         {
             WriteFullScreen(true);
             initialWindowWidth = WindowWidth;
             initialLanguage = CurrentLanguage;
+            initialColorPanel = (colorPanel.Item1, colorPanel.Item2);
         }
         else
             ClearPanel();
@@ -156,7 +162,7 @@ public static class ConsoleVisuals
 	{
         (string, string, string) newBanner = banner ??= header ? defaultHeader : defaultFooter;
 
-		SetColor(true);
+		TryNegative(true);
 		string strBanner = newBanner.Item2.BuildString(Console.WindowWidth, Placement.Center, true);
 		strBanner = strBanner.Substring(0, strBanner.Length - newBanner.Item3.Length) + newBanner.Item3;
 		strBanner = newBanner.Item1 + strBanner.Substring(newBanner.Item1.Length);
@@ -164,7 +170,7 @@ public static class ConsoleVisuals
             WritePositionnedString(strBanner, default, true, header ? HeaderHeigth : FooterHeigth);
         else
 		    ContinuousPrint(strBanner, header ? HeaderHeigth : FooterHeigth, true);
-		SetColor();
+		TryNegative();
 	}
     /// <summary> This method prints a full screen in the console. </summary>
     /// <param name="straight"> If true, the title is not continuously printed. </param>
@@ -210,7 +216,7 @@ public static class ConsoleVisuals
 		int maxLength = lines.Count() > 0 ? lines.Max(s => s.Length) : 0;
 		if (truncate) maxLength = Math.Min(maxLength, Console.WindowWidth);
         
-		SetColor();
+		TryNegative();
 		int i = TitleHeight + 2;
 		foreach (string line in lines)
 		{
@@ -219,7 +225,7 @@ public static class ConsoleVisuals
                 break;
 		}
 		Console.ReadKey(true);
-        SetColor();
+        TryNegative();
 	}
     /// <summary> This method prints a menu in the console and gets the choice of the user. </summary>
     /// <param name="question"> The question to print. </param>

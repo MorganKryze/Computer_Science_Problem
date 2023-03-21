@@ -35,10 +35,26 @@
 
         "RotatePrompt": "Type an positive angle to rotate the picture.",
         "ResizePrompt": "Type an integer greater than 0 to rescale the picture.",
+
+        "OptionsTitle": "You may choose an option.",
+        "OptionsButton1": "Change color",
+        "OptionsButton2": "Change language",
+        "OptionsButton3": "Back",
         
         "ChangeLanguageTitle": "You may choose a language.",
         "ChangeLanguageButton1": "French",
         "ChangeLanguageButton2": "English",
+        "ChangeLanguageButton3": "Back",
+
+        "ChangeColorTitle": "You may choose a color.",
+        "ChangeColorButton1": "Red",
+        "ChangeColorButton2": "Magenta",
+        "ChangeColorButton3": "Yellow",
+        "ChangeColorButton4": "Green",
+        "ChangeColorButton5": "Blue",
+        "ChangeColorButton6": "Cyan",
+        "ChangeColorButton7": "White",
+        "ChangeColorButton8": "Back",
 
         "SaveTitle": "You may choose the name of the file to save.",
 
@@ -92,9 +108,24 @@
         "RotatePrompt": "Écrivez un angle positif pour faire tourner l'image.",
         "ResizePrompt": "Écrivez un entier positif pour redimensionner l'image.",
 
+        "OptionsTitle": "Veuillez choisir une option.",
+        "OptionsButton1": "Changer la couleur",
+        "OptionsButton2": "Changer la langue",
+        "OptionsButton3": "Retour",
+        
         "ChangeLanguageTitle": "Veuillez choisir une langue.",
         "ChangeLanguageButton1": "Français",
         "ChangeLanguageButton2": "Anglais",
+
+        "ChangeColorTitle": "Veuillez choisir une couleur",
+        "ChangeColorButton1": "Rouge",
+        "ChangeColorButton2": "Magenta",
+        "ChangeColorButton3": "Jaune",
+        "ChangeColorButton4": "Vert",
+        "ChangeColorButton5": "Bleu",
+        "ChangeColorButton6": "Cyan",
+        "ChangeColorButton7": "Blanc",
+        "ChangeColorButton8": "Retour",
 
         "SaveTitle": "Veuillez écrire le nom du fichier à sauvegarder.",
 

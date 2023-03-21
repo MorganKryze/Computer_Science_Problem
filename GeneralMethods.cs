@@ -1,9 +1,7 @@
 using static Visuals.ConsoleVisuals;
 
 using static System.Console;
-using static System.Environment;
-using static System.Threading.Thread;
-using static System.ConsoleKey;
+using static System.ConsoleColor;
 
 using static Computer_Science_Problem.Language.LanguageDictonary;
 
@@ -25,7 +23,7 @@ public static class GeneralMethods
                 MainProgram.jump = MainProgram.Jump.Continue;
                 break;
             case 1:
-                MainProgram.jump = MainProgram.Jump.FutureLanguageFeature;
+                MainProgram.jump = MainProgram.Jump.Options;
                 break;
             case 2: case -1:
                 MainProgram.jump = MainProgram.Jump.Exit;
@@ -74,12 +72,32 @@ public static class GeneralMethods
                 break;
         }
     }
-    /// <summary> Not implemented yet. </summary>
+    /// <summary> This method is used to display the options menu. </summary>
+    public static void Options()
+    {
+        switch(ScrollingMenu(Dict[CurrentLanguage]["OptionsTitle"], new string[]{
+            Dict[CurrentLanguage]["OptionsButton1"], 
+            Dict[CurrentLanguage]["OptionsButton2"],
+            Dict[CurrentLanguage]["OptionsButton3"]}))
+        {
+            case 0:
+                MainProgram.jump = MainProgram.Jump.FontColor;
+                break;
+            case 1:
+                MainProgram.jump = MainProgram.Jump.Language;
+                break;
+            case 2: case -1:
+                MainProgram.jump = MainProgram.Jump.Main_Menu;
+                break;
+        }
+    }
+    /// <summary> This method is used to display the language chooser. </summary>
     public static void ChangeLanguage()
     {
         switch(ScrollingMenu(Dict[CurrentLanguage]["ChangeLanguageTitle"], new string[]{
             Dict[CurrentLanguage]["ChangeLanguageButton1"], 
-            Dict[CurrentLanguage]["ChangeLanguageButton2"]}))
+            Dict[CurrentLanguage]["ChangeLanguageButton2"],
+            Dict[CurrentLanguage]["ChangeLanguageButton3"]}))
         {
             case 0:
                 CurrentLanguage = "french";
@@ -87,10 +105,51 @@ public static class GeneralMethods
             case 1:
                 CurrentLanguage = "english";
                 break;
-            default :
-                break;
+            default:
+                MainProgram.jump = MainProgram.Jump.Options;
+                return;
         }
         MainProgram.jump = MainProgram.Jump.Main_Menu;
+    }
+    /// <summary> This method is used to display the color chooser. </summary>
+    public static void ChangeColor()
+    {
+        switch(ScrollingMenu(Dict[CurrentLanguage]["ChangeColorTitle"], new string[]{
+            Dict[CurrentLanguage]["ChangeColorButton1"], 
+            Dict[CurrentLanguage]["ChangeColorButton2"],
+            Dict[CurrentLanguage]["ChangeColorButton3"],
+            Dict[CurrentLanguage]["ChangeColorButton4"],
+            Dict[CurrentLanguage]["ChangeColorButton5"],
+            Dict[CurrentLanguage]["ChangeColorButton6"],
+            Dict[CurrentLanguage]["ChangeColorButton7"],
+            Dict[CurrentLanguage]["ChangeColorButton8"],}))
+            {
+                case 0:
+                    ChangeFont(Red);
+                    break;
+                case 1:
+                    ChangeFont(Magenta);
+                    break;
+                case 2:
+                    ChangeFont(Yellow);
+                    break;
+                case 3:
+                    ChangeFont(Green);
+                    break;
+                case 4:
+                    ChangeFont(Blue);
+                    break;
+                case 5:
+                    ChangeFont(Cyan);
+                    break;
+                case 6:
+                    ChangeFont(White);
+                    break;
+                default:
+                    MainProgram.jump = MainProgram.Jump.Options;
+                    return;
+            }
+            MainProgram.jump = MainProgram.Jump.Main_Menu;
     }
     /// <summary>This method is used to display the actions menu.</summary>
     public static void Actions()
