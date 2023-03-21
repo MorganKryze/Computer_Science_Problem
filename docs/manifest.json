@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Computer_Science_Problem.GeneralMethods.html",
-          "hash": "joY8piKdMhvvpkwtprm9QfW9ES6FCQ8axPjyAJyX6oY="
+          "hash": "880x0Xrj5e0lIwO4aKgaGy7LJceG40eygkcQNazFeVQ="
         }
       },
       "is_incremental": false,
@@ -45,7 +45,31 @@
       "output": {
         ".html": {
           "relative_path": "api/Computer_Science_Problem.Image.html",
-          "hash": "0dd2Q3nI5odziqNPjYBxOk1mDeWpDVyneanWjaLuXAk="
+          "hash": "iAYne86bRLpfkvPWC1bB2M6/OpL1vzlo3Y8//SQXxh8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Computer_Science_Problem.Language.LanguageDictonary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Computer_Science_Problem.Language.LanguageDictonary.html",
+          "hash": "7p2QnIguIZGjPIHtpKNb84y4e60eIDcy/5mAf5KEFBw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Computer_Science_Problem.Language.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Computer_Science_Problem.Language.html",
+          "hash": "5KWFRa8OXjJnv1OT4gS3RQrm0avgi5Felq/w34iqDec="
         }
       },
       "is_incremental": false,
@@ -57,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Computer_Science_Problem.MainProgram.Jump.html",
-          "hash": "6bOOZ21lhOYK0nxk75OjvCMWucB2wldsMohebTDZXJg="
+          "hash": "ZwH+phvJm2rCkZWBR/8xpuXqeTEeA0cVkahzj6eztkc="
         }
       },
       "is_incremental": false,
@@ -69,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Computer_Science_Problem.MainProgram.html",
-          "hash": "+d2MuetndgC7cfacWVYRf1GC4Fnwwl8gBgU0ZpeFsUU="
+          "hash": "UwXDVugiq78oewiRSkjQoRXlD9sERO5K39rMdwvRJmo="
         }
       },
       "is_incremental": false,
@@ -141,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Visuals.ConsoleVisuals.Placement.html",
-          "hash": "60bUTX4c45HfR9AECVsJOuVK6Mo545AdfCOjVn/0y/E="
+          "hash": "f653FEqIaLRhfXdirV5luVK44DlLjEBF7CULfq0aeSA="
         }
       },
       "is_incremental": false,
@@ -153,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Visuals.ConsoleVisuals.html",
-          "hash": "dfIcW9SRsMSh5tKF7HqU9vTwbZcDFI5oPZ/cPSvSMCA="
+          "hash": "I+LqWo9ZAp7jJfaHBc/bGt826cD1UWOZfsoy9Vx9t0s="
         }
       },
       "is_incremental": false,
@@ -189,7 +213,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "UNXmrEQDz/7yJhjEdEHsyyMEorEvHzRicQC6au32Dwo="
+          "hash": "43FuFPqwyS4fWcvUbDDijDzJoanpOCrtNRv+fVHcce0="
         }
       },
       "is_incremental": false,
@@ -201,10 +225,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "MXV37bCqxIBu+GTMv+sqFht1c++REBu0soeSeJXKoFU="
+          "hash": "sf18TOv151pJHIY37hCEvwS11tfo7zZSK7lwWcdCvfQ="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -257,13 +281,13 @@
           "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 3,
-          "skipped_file_count": 3
+          "skipped_file_count": 2
         },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 14,
-          "skipped_file_count": 7
+          "total_file_count": 16,
+          "skipped_file_count": 8
         },
         "TocDocumentProcessor": {
           "can_incremental": false,

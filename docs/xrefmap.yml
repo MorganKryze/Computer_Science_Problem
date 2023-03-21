@@ -123,6 +123,32 @@ references:
   isSpec: "True"
   fullName: Computer_Science_Problem.GeneralMethods.ApplyManipulation
   nameWithType: GeneralMethods.ApplyManipulation
+- uid: Computer_Science_Problem.GeneralMethods.ChangeColor
+  name: ChangeColor()
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_ChangeColor
+  commentId: M:Computer_Science_Problem.GeneralMethods.ChangeColor
+  fullName: Computer_Science_Problem.GeneralMethods.ChangeColor()
+  nameWithType: GeneralMethods.ChangeColor()
+- uid: Computer_Science_Problem.GeneralMethods.ChangeColor*
+  name: ChangeColor
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_ChangeColor_
+  commentId: Overload:Computer_Science_Problem.GeneralMethods.ChangeColor
+  isSpec: "True"
+  fullName: Computer_Science_Problem.GeneralMethods.ChangeColor
+  nameWithType: GeneralMethods.ChangeColor
+- uid: Computer_Science_Problem.GeneralMethods.ChangeLanguage
+  name: ChangeLanguage()
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_ChangeLanguage
+  commentId: M:Computer_Science_Problem.GeneralMethods.ChangeLanguage
+  fullName: Computer_Science_Problem.GeneralMethods.ChangeLanguage()
+  nameWithType: GeneralMethods.ChangeLanguage()
+- uid: Computer_Science_Problem.GeneralMethods.ChangeLanguage*
+  name: ChangeLanguage
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_ChangeLanguage_
+  commentId: Overload:Computer_Science_Problem.GeneralMethods.ChangeLanguage
+  isSpec: "True"
+  fullName: Computer_Science_Problem.GeneralMethods.ChangeLanguage
+  nameWithType: GeneralMethods.ChangeLanguage
 - uid: Computer_Science_Problem.GeneralMethods.ChooseFile(System.String)
   name: ChooseFile(String)
   href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_ChooseFile_System_String_
@@ -165,19 +191,6 @@ references:
   isSpec: "True"
   fullName: Computer_Science_Problem.GeneralMethods.ExtractBytes
   nameWithType: GeneralMethods.ExtractBytes
-- uid: Computer_Science_Problem.GeneralMethods.FutureLanguageFeature
-  name: FutureLanguageFeature()
-  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_FutureLanguageFeature
-  commentId: M:Computer_Science_Problem.GeneralMethods.FutureLanguageFeature
-  fullName: Computer_Science_Problem.GeneralMethods.FutureLanguageFeature()
-  nameWithType: GeneralMethods.FutureLanguageFeature()
-- uid: Computer_Science_Problem.GeneralMethods.FutureLanguageFeature*
-  name: FutureLanguageFeature
-  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_FutureLanguageFeature_
-  commentId: Overload:Computer_Science_Problem.GeneralMethods.FutureLanguageFeature
-  isSpec: "True"
-  fullName: Computer_Science_Problem.GeneralMethods.FutureLanguageFeature
-  nameWithType: GeneralMethods.FutureLanguageFeature
 - uid: Computer_Science_Problem.GeneralMethods.InsertBytes(System.Byte[],System.Byte[],System.Int32,System.Int32,System.Int32)
   name: InsertBytes(Byte[], Byte[], Int32, Int32, Int32)
   href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_InsertBytes_System_Byte___System_Byte___System_Int32_System_Int32_System_Int32_
@@ -207,6 +220,19 @@ references:
   isSpec: "True"
   fullName: Computer_Science_Problem.GeneralMethods.MainMenu
   nameWithType: GeneralMethods.MainMenu
+- uid: Computer_Science_Problem.GeneralMethods.Options
+  name: Options()
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_Options
+  commentId: M:Computer_Science_Problem.GeneralMethods.Options
+  fullName: Computer_Science_Problem.GeneralMethods.Options()
+  nameWithType: GeneralMethods.Options()
+- uid: Computer_Science_Problem.GeneralMethods.Options*
+  name: Options
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_Options_
+  commentId: Overload:Computer_Science_Problem.GeneralMethods.Options
+  isSpec: "True"
+  fullName: Computer_Science_Problem.GeneralMethods.Options
+  nameWithType: GeneralMethods.Options
 - uid: Computer_Science_Problem.GeneralMethods.ReadBytes(System.IO.Stream,System.Int32)
   name: ReadBytes(Stream, Int32)
   href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_ReadBytes_System_IO_Stream_System_Int32_
@@ -277,19 +303,6 @@ references:
   isSpec: "True"
   fullName: Computer_Science_Problem.Image.ColorDepth
   nameWithType: Image.ColorDepth
-- uid: Computer_Science_Problem.Image.ColorPlanes
-  name: ColorPlanes
-  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_ColorPlanes
-  commentId: P:Computer_Science_Problem.Image.ColorPlanes
-  fullName: Computer_Science_Problem.Image.ColorPlanes
-  nameWithType: Image.ColorPlanes
-- uid: Computer_Science_Problem.Image.ColorPlanes*
-  name: ColorPlanes
-  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_ColorPlanes_
-  commentId: Overload:Computer_Science_Problem.Image.ColorPlanes
-  isSpec: "True"
-  fullName: Computer_Science_Problem.Image.ColorPlanes
-  nameWithType: Image.ColorPlanes
 - uid: Computer_Science_Problem.Image.Copy
   name: Copy()
   href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Copy
@@ -385,19 +398,6 @@ references:
   commentId: F:Computer_Science_Problem.Image.infoHeaderSize
   fullName: Computer_Science_Problem.Image.infoHeaderSize
   nameWithType: Image.infoHeaderSize
-- uid: Computer_Science_Problem.Image.InfoHeaderSize
-  name: InfoHeaderSize
-  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_InfoHeaderSize
-  commentId: P:Computer_Science_Problem.Image.InfoHeaderSize
-  fullName: Computer_Science_Problem.Image.InfoHeaderSize
-  nameWithType: Image.InfoHeaderSize
-- uid: Computer_Science_Problem.Image.InfoHeaderSize*
-  name: InfoHeaderSize
-  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_InfoHeaderSize_
-  commentId: Overload:Computer_Science_Problem.Image.InfoHeaderSize
-  isSpec: "True"
-  fullName: Computer_Science_Problem.Image.InfoHeaderSize
-  nameWithType: Image.InfoHeaderSize
 - uid: Computer_Science_Problem.Image.Item(System.Int32,System.Int32)
   name: Item[Int32, Int32]
   href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Item_System_Int32_System_Int32_
@@ -560,19 +560,6 @@ references:
   commentId: F:Computer_Science_Problem.Image.type
   fullName: Computer_Science_Problem.Image.type
   nameWithType: Image.type
-- uid: Computer_Science_Problem.Image.Type
-  name: Type
-  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Type
-  commentId: P:Computer_Science_Problem.Image.Type
-  fullName: Computer_Science_Problem.Image.Type
-  nameWithType: Image.Type
-- uid: Computer_Science_Problem.Image.Type*
-  name: Type
-  href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Type_
-  commentId: Overload:Computer_Science_Problem.Image.Type
-  isSpec: "True"
-  fullName: Computer_Science_Problem.Image.Type
-  nameWithType: Image.Type
 - uid: Computer_Science_Problem.Image.Width
   name: Width
   href: api/Computer_Science_Problem.Image.html#Computer_Science_Problem_Image_Width
@@ -586,6 +573,50 @@ references:
   isSpec: "True"
   fullName: Computer_Science_Problem.Image.Width
   nameWithType: Image.Width
+- uid: Computer_Science_Problem.Language
+  name: Computer_Science_Problem.Language
+  href: api/Computer_Science_Problem.Language.html
+  commentId: N:Computer_Science_Problem.Language
+  fullName: Computer_Science_Problem.Language
+  nameWithType: Computer_Science_Problem.Language
+- uid: Computer_Science_Problem.Language.LanguageDictonary
+  name: LanguageDictonary
+  href: api/Computer_Science_Problem.Language.LanguageDictonary.html
+  commentId: T:Computer_Science_Problem.Language.LanguageDictonary
+  fullName: Computer_Science_Problem.Language.LanguageDictonary
+  nameWithType: LanguageDictonary
+- uid: Computer_Science_Problem.Language.LanguageDictonary.CurrentLanguage
+  name: CurrentLanguage
+  href: api/Computer_Science_Problem.Language.LanguageDictonary.html#Computer_Science_Problem_Language_LanguageDictonary_CurrentLanguage
+  commentId: F:Computer_Science_Problem.Language.LanguageDictonary.CurrentLanguage
+  fullName: Computer_Science_Problem.Language.LanguageDictonary.CurrentLanguage
+  nameWithType: LanguageDictonary.CurrentLanguage
+- uid: Computer_Science_Problem.Language.LanguageDictonary.Dict
+  name: Dict
+  href: api/Computer_Science_Problem.Language.LanguageDictonary.html#Computer_Science_Problem_Language_LanguageDictonary_Dict
+  commentId: P:Computer_Science_Problem.Language.LanguageDictonary.Dict
+  fullName: Computer_Science_Problem.Language.LanguageDictonary.Dict
+  nameWithType: LanguageDictonary.Dict
+- uid: Computer_Science_Problem.Language.LanguageDictonary.Dict*
+  name: Dict
+  href: api/Computer_Science_Problem.Language.LanguageDictonary.html#Computer_Science_Problem_Language_LanguageDictonary_Dict_
+  commentId: Overload:Computer_Science_Problem.Language.LanguageDictonary.Dict
+  isSpec: "True"
+  fullName: Computer_Science_Problem.Language.LanguageDictonary.Dict
+  nameWithType: LanguageDictonary.Dict
+- uid: Computer_Science_Problem.Language.LanguageDictonary.IntializeDict
+  name: IntializeDict()
+  href: api/Computer_Science_Problem.Language.LanguageDictonary.html#Computer_Science_Problem_Language_LanguageDictonary_IntializeDict
+  commentId: M:Computer_Science_Problem.Language.LanguageDictonary.IntializeDict
+  fullName: Computer_Science_Problem.Language.LanguageDictonary.IntializeDict()
+  nameWithType: LanguageDictonary.IntializeDict()
+- uid: Computer_Science_Problem.Language.LanguageDictonary.IntializeDict*
+  name: IntializeDict
+  href: api/Computer_Science_Problem.Language.LanguageDictonary.html#Computer_Science_Problem_Language_LanguageDictonary_IntializeDict_
+  commentId: Overload:Computer_Science_Problem.Language.LanguageDictonary.IntializeDict
+  isSpec: "True"
+  fullName: Computer_Science_Problem.Language.LanguageDictonary.IntializeDict
+  nameWithType: LanguageDictonary.IntializeDict
 - uid: Computer_Science_Problem.MainProgram
   name: MainProgram
   href: api/Computer_Science_Problem.MainProgram.html
@@ -634,18 +665,30 @@ references:
   commentId: F:Computer_Science_Problem.MainProgram.Jump.Exit
   fullName: Computer_Science_Problem.MainProgram.Jump.Exit
   nameWithType: MainProgram.Jump.Exit
-- uid: Computer_Science_Problem.MainProgram.Jump.FutureLanguageFeature
-  name: FutureLanguageFeature
-  href: api/Computer_Science_Problem.MainProgram.Jump.html#Computer_Science_Problem_MainProgram_Jump_FutureLanguageFeature
-  commentId: F:Computer_Science_Problem.MainProgram.Jump.FutureLanguageFeature
-  fullName: Computer_Science_Problem.MainProgram.Jump.FutureLanguageFeature
-  nameWithType: MainProgram.Jump.FutureLanguageFeature
+- uid: Computer_Science_Problem.MainProgram.Jump.FontColor
+  name: FontColor
+  href: api/Computer_Science_Problem.MainProgram.Jump.html#Computer_Science_Problem_MainProgram_Jump_FontColor
+  commentId: F:Computer_Science_Problem.MainProgram.Jump.FontColor
+  fullName: Computer_Science_Problem.MainProgram.Jump.FontColor
+  nameWithType: MainProgram.Jump.FontColor
+- uid: Computer_Science_Problem.MainProgram.Jump.Language
+  name: Language
+  href: api/Computer_Science_Problem.MainProgram.Jump.html#Computer_Science_Problem_MainProgram_Jump_Language
+  commentId: F:Computer_Science_Problem.MainProgram.Jump.Language
+  fullName: Computer_Science_Problem.MainProgram.Jump.Language
+  nameWithType: MainProgram.Jump.Language
 - uid: Computer_Science_Problem.MainProgram.Jump.Main_Menu
   name: Main_Menu
   href: api/Computer_Science_Problem.MainProgram.Jump.html#Computer_Science_Problem_MainProgram_Jump_Main_Menu
   commentId: F:Computer_Science_Problem.MainProgram.Jump.Main_Menu
   fullName: Computer_Science_Problem.MainProgram.Jump.Main_Menu
   nameWithType: MainProgram.Jump.Main_Menu
+- uid: Computer_Science_Problem.MainProgram.Jump.Options
+  name: Options
+  href: api/Computer_Science_Problem.MainProgram.Jump.html#Computer_Science_Problem_MainProgram_Jump_Options
+  commentId: F:Computer_Science_Problem.MainProgram.Jump.Options
+  fullName: Computer_Science_Problem.MainProgram.Jump.Options
+  nameWithType: MainProgram.Jump.Options
 - uid: Computer_Science_Problem.MainProgram.Jump.Source_Folder
   name: Source_Folder
   href: api/Computer_Science_Problem.MainProgram.Jump.html#Computer_Science_Problem_MainProgram_Jump_Source_Folder
@@ -1008,6 +1051,19 @@ references:
   isSpec: "True"
   fullName: Visuals.ConsoleVisuals.BuildString
   nameWithType: ConsoleVisuals.BuildString
+- uid: Visuals.ConsoleVisuals.ChangeFont(System.ConsoleColor)
+  name: ChangeFont(ConsoleColor)
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_ChangeFont_System_ConsoleColor_
+  commentId: M:Visuals.ConsoleVisuals.ChangeFont(System.ConsoleColor)
+  fullName: Visuals.ConsoleVisuals.ChangeFont(System.ConsoleColor)
+  nameWithType: ConsoleVisuals.ChangeFont(ConsoleColor)
+- uid: Visuals.ConsoleVisuals.ChangeFont*
+  name: ChangeFont
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_ChangeFont_
+  commentId: Overload:Visuals.ConsoleVisuals.ChangeFont
+  isSpec: "True"
+  fullName: Visuals.ConsoleVisuals.ChangeFont
+  nameWithType: ConsoleVisuals.ChangeFont
 - uid: Visuals.ConsoleVisuals.LoadingScreen(System.String)
   name: LoadingScreen(String)
   href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_LoadingScreen_System_String_
