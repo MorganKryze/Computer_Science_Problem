@@ -15,6 +15,7 @@ public static class ConsoleVisuals
     private const string titlePath = "Images/Title/title.txt";
     private static  string[] titleContent = ReadAllLines(titlePath);
     private static int initialWindowWidth = WindowWidth;
+    private static int intialWindowHeight = WindowHeight;
     private static string initialLanguage = CurrentLanguage;
     private static (ConsoleColor,ConsoleColor) terminalColorpanel = (ForegroundColor, BackgroundColor);
     private static (ConsoleColor,ConsoleColor) initialColorPanel = (colorPanel.Item1, colorPanel.Item2);
@@ -28,6 +29,7 @@ public static class ConsoleVisuals
     private static int HeaderHeigth => TitleHeight ;
     private static int FooterHeigth => WindowHeight - 2;
     private static int ContentHeigth => HeaderHeigth + 1;
+    private static bool WindowManipulated => WindowWidth != initialWindowWidth || WindowHeight != intialWindowHeight;
     #endregion
 
     #region Enums
@@ -130,7 +132,7 @@ public static class ConsoleVisuals
     
     private static void ReloadScreen()
     {
-        if (WindowWidth != initialWindowWidth || CurrentLanguage != initialLanguage || colorPanel != initialColorPanel)
+        if (WindowManipulated || CurrentLanguage != initialLanguage || colorPanel != initialColorPanel)
         {
             WriteFullScreen(true);
             initialWindowWidth = WindowWidth;
