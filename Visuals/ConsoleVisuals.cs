@@ -227,7 +227,7 @@ public static class ConsoleVisuals
                 break;
 		}
 		Console.ReadKey(true);
-        TryNegative();
+        TryNegative(default);
 	}
     /// <summary> This method prints a menu in the console and gets the choice of the user. </summary>
     /// <param name="question"> The question to print. </param>

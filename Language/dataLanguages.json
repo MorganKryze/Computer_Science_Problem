@@ -57,17 +57,20 @@
         "ChangeColorButton8": "Back",
 
         "SaveTitle": "You may choose the name of the file to save.",
+        "SaveSuccess1": " SuccessFully saved at: ",
+        "SaveSuccess2": "The subprocess took ",
+        "SaveSuccess3": "Press any key to continue ...",
 
-        "DefaultHeader1" : " Special Thanks to the fabulous lab",
-        "DefaultHeader2" : "Home",
-        "DefaultHeader3" : "Created by MorganKryze, Sheesh3218 ",
+        "DefaultHeader1": " Special Thanks to the fabulous lab",
+        "DefaultHeader2": "Home",
+        "DefaultHeader3": "Created by MorganKryze, Sheesh3218 ",
 
-        "DefaultFooter1" : " [ESC] Go back",
-        "DefaultFooter2" : "[Z|↑] Selection up   [S|↓] Selection down",
-        "DefaultFooter3" : "[ENTER] Select ",
+        "DefaultFooter1": " [ESC] Go back",
+        "DefaultFooter2": "[Z|↑] Selection up   [S|↓] Selection down",
+        "DefaultFooter3": "[ENTER] Select ",
 
-        "FirstLoadingTitle" : "[ Loading the program ...]",
-        "LastLoadingTitle" : "[ Exiting the program ...]"
+        "FirstLoadingTitle": "[ Loading the program ...]",
+        "LastLoadingTitle": "[ Exiting the program ...]"
 
 
     },
@@ -128,6 +131,9 @@
         "ChangeColorButton8": "Retour",
 
         "SaveTitle": "Veuillez écrire le nom du fichier à sauvegarder.",
+        "SaveSuccess1": " Sauvegarde réussie à l'adresse : ",
+        "SaveSuccess2": "L'enregistrement a pris ",
+        "SaveSuccess3": "Appuyez sur une touche pour continuer ...",
 
         "DefaultHeader1" : " Merci au fabuleux laboratoire",
         "DefaultHeader2" : "Accueil",

@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Diagnostics;
+using System.Text;
 using Utilitary;
 
 using static Visuals.ConsoleVisuals;
@@ -246,12 +247,16 @@ public class Image : IEquatable<Image>
     /// <summary> This method saves the <see cref="Image"/>. </summary>
     public void Save()
     {
-        using (FileStream stream = File.OpenWrite("Images/OUT/" + WritePrompt(Dict[CurrentLanguage]["SaveTitle"]) + ".bmp"))
+        string path = "Images/OUT/" + WritePrompt(Dict[CurrentLanguage]["SaveTitle"]) + ".bmp";
+        Stopwatch stopwatch = new ();
+        stopwatch.Start();
+        using (FileStream stream = File.OpenWrite(path))
         {
             stream.Write(Header, 0, Header.Length);
             stream.Write(Pixels, 0, Pixels.Length);
         }
+        stopwatch.Stop();
+        WriteParagraph(new string[] { Dict[CurrentLanguage]["SaveSuccess1"]  + path , Dict[CurrentLanguage]["SaveSuccess2"] + stopwatch.ElapsedMilliseconds + " ms. ", Dict[CurrentLanguage]["SaveSuccess3"]}, true);
     }
-    
     #endregion
 }
