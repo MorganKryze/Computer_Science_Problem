@@ -31,6 +31,8 @@ public class MainProgram
         Source_Folder,
         /// <summary> Go to the actions menu. </summary>
         Actions,
+        /// <summary> Go to the specific kernel application. </summary>
+        ApplySpecificKernel,
         /// <summary> Go to the manipulation application. </summary>
         ApplyManipulation,
         /// <summary> Go to the filter application. </summary>
@@ -44,10 +46,10 @@ public class MainProgram
     /// <summary> The entry point of the program. </summary>
     public static void Main(string[] args)
     {
+        #region Processing
         IntializeDict();
-
         WriteFullScreen(default);
-        
+
         Main_Menu:
 
         MainMenu();
@@ -86,7 +88,11 @@ public class MainProgram
             ApplyFilter();
         else if (jump is Jump.ApplyManipulation)
             ApplyManipulation();
+        else if (jump is Jump.ApplySpecificKernel)
+            ApplySpecificKernel();
+        #endregion
 
+        #region Selection
         Select:
 
         switch (jump)
@@ -116,6 +122,7 @@ public class MainProgram
                 jump = Jump.Main_Menu;
                 goto Main_Menu;
         }
+        #endregion
     }
     #endregion
     

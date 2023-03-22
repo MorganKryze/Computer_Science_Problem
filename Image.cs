@@ -257,6 +257,7 @@ public class Image : IEquatable<Image>
         }
         stopwatch.Stop();
         WriteParagraph(new string[] { Dict[CurrentLanguage]["SaveSuccess1"]  + path , Dict[CurrentLanguage]["SaveSuccess2"] + stopwatch.ElapsedMilliseconds + " ms. ", Dict[CurrentLanguage]["SaveSuccess3"]}, true);
+		Console.ReadKey(true);
     }
     #endregion
 }

@@ -16,7 +16,8 @@
         "ActionTitle" : "You may choose an action to do on your picture.",
         "ActionButton1": "Apply a filter",
         "ActionButton2": "Apply a transformation",
-        "ActionButton3": "Back",
+        "ActionButton3": "Apply a custom kernel",
+        "ActionButton4": "Back",
 
         "ApplyFilterTitle": "You may choose a filter to apply on your picture.",
         "ApplyFilterButton1": "Turn to grey",
@@ -36,10 +37,20 @@
         "RotatePrompt": "Type an positive angle to rotate the picture.",
         "ResizePrompt": "Type an integer greater than 0 to rescale the picture.",
 
+        "MatrixSelectorTitle": "Here is the default matrix. You may change it as you wish.",
+        "MatrixSelectorInstructions1": "Press [TAB] to select a number. Press [ENTER] to confirm.",
+        "MatrixSelectorInstructions2": "To go back to the previous menu press [ESC].",
+        "MatrixSelectorPrompt": "You may type a float number to change the value of the selected number.",
+        "MatrixSelectorQuestion": "You may choose what you want to do next.",
+        "MatrixSelectorButton1": "Continue",
+        "MatrixSelectorButton2": "Confirm",
+        "MatrixSelectorButton3": "Back",
+
         "OptionsTitle": "You may choose an option.",
         "OptionsButton1": "Change color",
         "OptionsButton2": "Change language",
-        "OptionsButton3": "Back",
+        "OptionsButton3": "Reload",
+        "OptionsButton4": "Back",
         
         "ChangeLanguageTitle": "You may choose a language.",
         "ChangeLanguageButton1": "French",
@@ -91,7 +102,8 @@
         "ActionTitle" : "Veuillez choisir une action à réaliser sur votre image.",
         "ActionButton1": "Appliquer un filtre",
         "ActionButton2": "Appliquer une transformation",
-        "ActionButton3": "Retour",
+        "ActionButton3": "Appliquer un kernel personnalisé",
+        "ActionButton4": "Retour",
 
         "ApplyFilterTitle": "Veuillez choisir un filtre à appliquer sur votre image.",
         "ApplyFilterButton1": "Rendre l'image en niveaux de gris",
@@ -111,10 +123,20 @@
         "RotatePrompt": "Écrivez un angle positif pour faire tourner l'image.",
         "ResizePrompt": "Écrivez un entier positif pour redimensionner l'image.",
 
+        "MatrixSelectorTitle": "Voici la matrice par défaut. Vous pouvez la changer comme vous le souhaitez.",
+        "MatrixSelectorInstructions1": "Appuyez sur [TAB] pour sélectionner un nombre. Appuyez sur [ENTRER] pour confirmer.",
+        "MatrixSelectorInstructions2": "Pour revenir au menu précédent appuyez sur [ECHAP].",
+        "MatrixSelectorPrompt": "Vous pouvez écrire un nombre flottant pour changer la valeur du nombre sélectionné.",
+        "MatrixSelectorQuestion": "Vous pouvez choisir ce que vous voulez faire ensuite.",
+        "MatrixSelectorButton1": "Continuer",
+        "MatrixSelectorButton2": "Confirmer",
+        "MatrixSelectorButton3": "Retour",
+
         "OptionsTitle": "Veuillez choisir une option.",
         "OptionsButton1": "Changer la couleur",
         "OptionsButton2": "Changer la langue",
-        "OptionsButton3": "Retour",
+        "OptionsButton3": "Rafraîchir",
+        "OptionsButton4": "Retour",
         
         "ChangeLanguageTitle": "Veuillez choisir une langue.",
         "ChangeLanguageButton1": "Français",

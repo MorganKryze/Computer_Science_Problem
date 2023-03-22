@@ -5,6 +5,7 @@ using static System.ConsoleColor;
 using static System.ConsoleKey;
 
 using static Computer_Science_Problem.Language.LanguageDictonary;
+using  Utilitary;
 
 namespace Visuals;
 
@@ -28,7 +29,7 @@ public static class ConsoleVisuals
     private static int TitleHeight => titleContent.Length;
     private static int HeaderHeigth => TitleHeight ;
     private static int FooterHeigth => WindowHeight - 2;
-    private static int ContentHeigth => HeaderHeigth + 1;
+    private static int ContentHeigth => HeaderHeigth + 2;
     private static bool WindowManipulated => WindowWidth != initialWindowWidth || WindowHeight != intialWindowHeight;
     #endregion
 
@@ -89,7 +90,7 @@ public static class ConsoleVisuals
 
     private static void ClearPanel()
     {
-        for (int i = ContentHeigth; i < FooterHeigth; i++)
+        for (int i = ContentHeigth - 1; i < FooterHeigth; i++)
             ClearLine(i);
     }
 
@@ -145,8 +146,30 @@ public static class ConsoleVisuals
     #endregion
 
     #region Processing methods
+    /// <summary> This method prints a float matrix in the console. </summary>
+    /// <param name="matrix"> The matrix to print. </param>
+    /// <param name="currentPosition"> The current position of the cursor. </param>
+    /// <param name="line"> The line where the matrix will be printed. </param>
+    public static void WriteMatrix(float[,] matrix, Position currentPosition, int line)
+    {
+        for(int i = line; i < matrix.GetLength(0); i++)
+            ClearLine(i);
+        SetCursorPosition(0, line);
+        for (int i = 0; i < matrix.GetLength(0); i++)
+        {
+            Write("{0,"+((WindowWidth / 2) - (matrix.GetLength(1))) + "}","");
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                TryNegative(currentPosition.Equals(new Position(i, j)));
+                Write(matrix[i, j]);
+                TryNegative(default);
+                Write("  ");
+            }
+            WriteLine("");
+        }
+    }
     /// <summary> This method prints the title of the console app. </summary>
-    public static void PrintTitle()
+    public static void WriteTitle()
     {
         Clear();
         SetCursorPosition(0, 0);
@@ -183,7 +206,7 @@ public static class ConsoleVisuals
         header ??= defaultHeader;
         footer ??= defaultFooter;
         CursorVisible = false;
-        PrintTitle();
+        WriteTitle();
         WriteBanner(header, true, straight);
         WriteBanner(footer, false, straight);
         ClearPanel();
@@ -192,15 +215,23 @@ public static class ConsoleVisuals
     }
     /// <summary> This method prints a message in the console and gets a string written by the user. </summary>
     /// <param name="message"> The message to print. </param>
+    /// <param name="clearPanel"> If true, the panel is cleared before printing the message. </param>
+    /// <param name="line"> The line where the message will be printed. </param>
     /// <returns> The string written by the user. </returns>
-    public static string WritePrompt(string message)
+    public static string WritePrompt(string message,bool clearPanel = true, int line = -1)
     {
-        ReloadScreen();
-        ContinuousPrint(message.BuildString(message.Length, Placement.Center), ContentHeigth + 1, default, 1500, 50);
+        if (line == -1) 
+            line = ContentHeigth + 1;
+        if (clearPanel) 
+            ReloadScreen();
+        else
+            for (int i = line; i < line + 3; i++)
+                ClearLine(i);
+        ContinuousPrint(message.BuildString(message.Length, Placement.Center), line, default, 1500, 50);
         string prompt = "";
         do
         {
-            ClearLine(ContentHeigth + 2);
+            ClearLine(line + 1);
             Write("{0," + ((WindowWidth / 2) - (message.Length / 2) + 2) + "}", "> ");
             CursorVisible = true;
             prompt = ReadLine() ?? "";
@@ -211,38 +242,51 @@ public static class ConsoleVisuals
     /// <summary> This method prints a paragraph in the console. </summary>
     /// <param name="lines"> The lines of the paragraph. </param>
     /// <param name="negative"> If true, the paragraph is printed in the negative colors. </param>
-    /// <param name="truncate"> If true, the paragraph is truncated if it is too long. </param>
-    public static void WriteParagraph(IEnumerable<string> lines, bool negative = false, bool truncate = true)
+    /// <param name="clearPanel"> If true, the console is cleard. </param>
+    /// <param name="height"> The height of the paragraph. </param>
+    public static void WriteParagraph(IEnumerable<string> lines, bool negative = false, bool clearPanel = true, int height = -1)
 	{
-        ReloadScreen();
+        if (height == -1)
+            height =  ContentHeigth;
+
+        if (clearPanel)
+            ReloadScreen();
+        else
+            for (int i = height; i < lines.Count(); i++)
+                ClearLine(i);
+
+        TryNegative(negative);
 		int maxLength = lines.Count() > 0 ? lines.Max(s => s.Length) : 0;
-		if (truncate) maxLength = Math.Min(maxLength, Console.WindowWidth);
-        
-		TryNegative();
-		int i = TitleHeight + 2;
 		foreach (string line in lines)
 		{
-			WritePositionnedString(line.BuildString(maxLength, Placement.Center), Placement.Center, negative, i++);
-			if (truncate && i >= Console.WindowHeight - 1) 
+			WritePositionnedString(line.BuildString(maxLength, Placement.Center), Placement.Center, negative, height++);
+			if (height >= WindowHeight - 1) 
                 break;
 		}
-		Console.ReadKey(true);
         TryNegative(default);
 	}
     /// <summary> This method prints a menu in the console and gets the choice of the user. </summary>
     /// <param name="question"> The question to print. </param>
     /// <param name="choices"> The choices of the menu. </param>
+    /// <param name="clearPanel"> If true, the entire console is cleard. </param>
+    /// <param name="line"> The line where the menu is printed. </param>
     /// <returns> The choice of the user. </returns>
-    public static int ScrollingMenu(string question, string[] choices)
+    public static int ScrollingMenu(string question, string[] choices, bool clearPanel = true, int line = -1)
     {
-        ReloadScreen();
-        int startDisplayposition = ContentHeigth + 1;
+        if (line == -1)
+            line = ContentHeigth;
+        if (clearPanel)
+            ReloadScreen();
+        else
+            for (int i = line; i < choices.Length; i++)
+                ClearLine(i);
+
         int currentPosition = 0;
         int maxLength = choices.Count() > 0 ? choices.Max(s => s.Length) : 0;
 
         for (int i = 0; i < choices.Length; i++) 
             choices[i] = choices[i].PadRight(maxLength + 1);
-        ContinuousPrint(question, startDisplayposition, default, 1500, 50);
+        ContinuousPrint(question, line, default, 1500, 50);
         while (true)
         {
             string[] currentChoice = new string[choices.Length];
@@ -251,11 +295,11 @@ public static class ConsoleVisuals
                 if (i == currentPosition)
                 {
                     currentChoice[i] = $" > {choices[i]}";
-                    WritePositionnedString(currentChoice[i], Placement.Center, true, startDisplayposition + 2 + i);
+                    WritePositionnedString(currentChoice[i], Placement.Center, true, line + 2 + i);
                     continue;
                 }
                 currentChoice[i] = $"   {choices[i]}";
-                WritePositionnedString(currentChoice[i], Placement.Center, false, startDisplayposition + 2 + i);
+                WritePositionnedString(currentChoice[i], Placement.Center, false, line + 2 + i);
             }
             switch (ReadKey(true).Key)
             {
@@ -278,16 +322,91 @@ public static class ConsoleVisuals
             }
         }
     }
+    /// <summary> This method prints a matrix selcetor in the console. </summary>
+    /// <param name="matrix"> The matrix to print. </param>
+    public static float[,]? MatrixSelector(this float[,] matrix)
+    {
+        ReloadScreen();
+        WriteParagraph(new string[]{
+            Dict[CurrentLanguage]["MatrixSelectorTitle"], 
+            Dict[CurrentLanguage]["MatrixSelectorInstructions1"], 
+            Dict[CurrentLanguage]["MatrixSelectorInstructions2"]});
+
+        Position currentPosition = new Position(0, 0);
+        List<Position> possiblePositions = new List<Position>();
+        for(int i = 0; i < matrix.GetLength(0); i++)
+            for(int j = 0; j < matrix.GetLength(1); j++)
+                possiblePositions.Add(new Position(i, j));
+
+        while(true)
+        {
+            WriteMatrix(matrix, currentPosition, ContentHeigth + 4);                    
+            switch(ReadKey(true).Key)
+            {
+                case UpArrow : case Z :
+                    if(possiblePositions.Contains(new Position(currentPosition.X - 1, currentPosition.Y))) currentPosition.X--;
+                    else if (currentPosition.X == 0) currentPosition.X = matrix.GetLength(0) - 1;
+                    break;
+                case DownArrow : case S :
+                    if(possiblePositions.Contains(new Position(currentPosition.X + 1, currentPosition.Y))) currentPosition.X++;
+                    else if (currentPosition.X == matrix.GetLength(0) - 1) currentPosition.X = 0;
+                    break;
+                case LeftArrow :case Q :
+                    if(possiblePositions.Contains(new Position(currentPosition.X, currentPosition.Y - 1))) currentPosition.Y--;
+                    else if (currentPosition.Y == 0) currentPosition.Y = matrix.GetLength(1) - 1;
+                    break;
+                case RightArrow : case D :
+                    if(possiblePositions.Contains(new Position(currentPosition.X, currentPosition.Y + 1))) currentPosition.Y++;
+                    else if (currentPosition.Y == matrix.GetLength(1) - 1) currentPosition.Y = 0;
+                    break;
+                case Tab: 
+                    float number = 0;
+                    while (true)
+                    {
+                        if (float.TryParse(WritePrompt(Dict[CurrentLanguage]["MatrixSelectorPrompt"] , false, ContentHeigth + 3 + matrix.GetLength(0) + 2), out float value))
+                        {
+                            number = value;
+                            break;
+                        }
+                    }
+                    smallClear();
+                    matrix[currentPosition.X, currentPosition.Y] = number;
+                    break;
+                case Enter:
+                    switch(ScrollingMenu(Dict[CurrentLanguage]["MatrixSelectorQuestion"] , new string[]{
+                        Dict[CurrentLanguage]["MatrixSelectorButton1"],
+                        Dict[CurrentLanguage]["MatrixSelectorButton2"], 
+                        Dict[CurrentLanguage]["MatrixSelectorButton3"]}, false, ContentHeigth + 3 + matrix.GetLength(0) + 2))
+                    {
+                        case 0:
+                            break;
+                        case 1:
+                            return matrix;
+                        case 2: case -1:
+                            return null;
+                    }
+                    smallClear();
+                    break;
+                case Escape :
+                    return null;
+            }
+        }
+        void smallClear()
+        {
+            for (int i = 0; i < 10; i++)
+                ClearLine(ContentHeigth + 2 + matrix.GetLength(0) + 1 + i);
+        }
+    }
     /// <summary> This method prints a loading screen in the console. </summary>
     /// <param name="text"> The text to print. </param>
     public static void LoadingScreen(string text)
     {
         ReloadScreen();
-        WritePositionnedString(text.BuildString(WindowWidth, Placement.Center), default, default, ContentHeigth + 1, true);
+        WritePositionnedString(text.BuildString(WindowWidth, Placement.Center), default, default, ContentHeigth, true);
         string loadingBar = "";
             for(int j = 0; j < text.Length; j++) 
                 loadingBar += '█';
-        ContinuousPrint(loadingBar, ContentHeigth + 3);
+        ContinuousPrint(loadingBar, ContentHeigth + 2);
     }
     /// <summary> This method exits the program. </summary>
     public static void ProgramExit()

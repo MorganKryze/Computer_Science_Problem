@@ -78,7 +78,8 @@ public static class GeneralMethods
         switch(ScrollingMenu(Dict[CurrentLanguage]["OptionsTitle"], new string[]{
             Dict[CurrentLanguage]["OptionsButton1"], 
             Dict[CurrentLanguage]["OptionsButton2"],
-            Dict[CurrentLanguage]["OptionsButton3"]}))
+            Dict[CurrentLanguage]["OptionsButton3"],
+            Dict[CurrentLanguage]["OptionsButton4"]}))
         {
             case 0:
                 MainProgram.jump = MainProgram.Jump.FontColor;
@@ -86,7 +87,11 @@ public static class GeneralMethods
             case 1:
                 MainProgram.jump = MainProgram.Jump.Language;
                 break;
-            case 2: case -1:
+            case 2:
+                WriteFullScreen(true);
+                MainProgram.jump = MainProgram.Jump.Main_Menu;
+                break;
+            case 3: case -1:
                 MainProgram.jump = MainProgram.Jump.Main_Menu;
                 break;
         }
@@ -157,7 +162,8 @@ public static class GeneralMethods
         switch (ScrollingMenu(Dict[CurrentLanguage]["ActionTitle"], new string[]{
                 Dict[CurrentLanguage]["ActionButton1"],
                 Dict[CurrentLanguage]["ActionButton2"],
-                Dict[CurrentLanguage]["ActionButton3"]}))
+                Dict[CurrentLanguage]["ActionButton3"],
+                Dict[CurrentLanguage]["ActionButton4"]}))
         {
             case 0:
                 MainProgram.jump = MainProgram.Jump.ApplyFilter;
@@ -165,7 +171,10 @@ public static class GeneralMethods
             case 1:
                 MainProgram.jump = MainProgram.Jump.ApplyManipulation;
                 break;
-            case 2: case -1:
+            case 2:
+                MainProgram.jump = MainProgram.Jump.ApplySpecificKernel;
+                break;
+            case 3: case -1:
                 MainProgram.jump = MainProgram.Jump.Source_Folder;
                 break;
         }
@@ -246,6 +255,30 @@ public static class GeneralMethods
                 return;
         }
         image.Save();
+    }
+    /// <summary>This method is used to display the specific kernels menu.</summary>
+    public static void ApplySpecificKernel()
+    {
+        float[,]? kernel;
+        while (true)
+        {
+            if(int.TryParse(WritePrompt("You may type the size of the new kernel, a integer greater than 2."), out int value) && value > 2)
+            {
+                kernel = new float[value, value];
+                break;
+            }
+        }
+        if (kernel.MatrixSelector() is null)
+        {
+            MainProgram.jump = MainProgram.Jump.Actions;
+        }
+        else
+        {
+            Image image = new Image(Image.imagePath);
+            image = image.ApplyKernel(kernel);
+            image.Save();
+            MainProgram.jump = MainProgram.Jump.Main_Menu;
+        }
     }
     #endregion
  
