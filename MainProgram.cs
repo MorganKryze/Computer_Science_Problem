@@ -32,7 +32,7 @@ public class MainProgram
         /// <summary> Go to the actions menu. </summary>
         Actions,
         /// <summary> Go to the specific kernel application. </summary>
-        ApplySpecificKernel,
+        ApplyCustomKernel,
         /// <summary> Go to the manipulation application. </summary>
         ApplyManipulation,
         /// <summary> Go to the filter application. </summary>
@@ -88,8 +88,8 @@ public class MainProgram
             ApplyFilter();
         else if (jump is Jump.ApplyManipulation)
             ApplyManipulation();
-        else if (jump is Jump.ApplySpecificKernel)
-            ApplySpecificKernel();
+        else if (jump is Jump.ApplyCustomKernel)
+            ApplyCustomKernel();
         #endregion
 
         #region Selection

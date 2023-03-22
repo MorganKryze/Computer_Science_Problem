@@ -37,6 +37,8 @@
         "RotatePrompt": "Type an positive angle to rotate the picture.",
         "ResizePrompt": "Type an integer greater than 0 to rescale the picture.",
 
+        "ApplyCustomKernelPrompt":"You may type the size of the new kernel, a integer greater than 2.",
+
         "MatrixSelectorTitle": "Here is the default matrix. You may change it as you wish.",
         "MatrixSelectorInstructions1": "Press [TAB] to select a number. Press [ENTER] to confirm.",
         "MatrixSelectorInstructions2": "To go back to the previous menu press [ESC].",
@@ -122,6 +124,8 @@
 
         "RotatePrompt": "Écrivez un angle positif pour faire tourner l'image.",
         "ResizePrompt": "Écrivez un entier positif pour redimensionner l'image.",
+
+        "ApplyCustomKernelPrompt":"Écrivez la taille du nouveau kernel, un entier positif supérieur à 2.",
 
         "MatrixSelectorTitle": "Voici la matrice par défaut. Vous pouvez la changer comme vous le souhaitez.",
         "MatrixSelectorInstructions1": "Appuyez sur [TAB] pour sélectionner un nombre. Appuyez sur [ENTRER] pour confirmer.",

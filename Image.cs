@@ -247,7 +247,7 @@ public class Image : IEquatable<Image>
     /// <summary> This method saves the <see cref="Image"/>. </summary>
     public void Save()
     {
-        string path = "Images/OUT/" + WritePrompt(Dict[CurrentLanguage]["SaveTitle"]) + ".bmp";
+        string path = "Images/OUT/" + WritePrompt(Dict[CurrentLanguage]["SaveTitle"]) + ".bmp ";
         Stopwatch stopwatch = new ();
         stopwatch.Start();
         using (FileStream stream = File.OpenWrite(path))

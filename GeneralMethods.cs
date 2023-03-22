@@ -172,7 +172,7 @@ public static class GeneralMethods
                 MainProgram.jump = MainProgram.Jump.ApplyManipulation;
                 break;
             case 2:
-                MainProgram.jump = MainProgram.Jump.ApplySpecificKernel;
+                MainProgram.jump = MainProgram.Jump.ApplyCustomKernel;
                 break;
             case 3: case -1:
                 MainProgram.jump = MainProgram.Jump.Source_Folder;
@@ -257,12 +257,12 @@ public static class GeneralMethods
         image.Save();
     }
     /// <summary>This method is used to display the specific kernels menu.</summary>
-    public static void ApplySpecificKernel()
+    public static void ApplyCustomKernel()
     {
         float[,]? kernel;
         while (true)
         {
-            if(int.TryParse(WritePrompt("You may type the size of the new kernel, a integer greater than 2."), out int value) && value > 2)
+            if(int.TryParse(WritePrompt(Dict[CurrentLanguage]["ApplyCustomKernelPrompt"]), out int value) && value > 2)
             {
                 kernel = new float[value, value];
                 break;
