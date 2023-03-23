@@ -11,7 +11,7 @@ public static class LanguageDictonary
     public static string s_Lang = "english";
 
     /// <summary> This method initializes the dictionary. </summary>
-    public static void IntializeDict()
+    public static void InitializeDict()
     {
         string jsonString = File.ReadAllText("Language/dataLanguages.json");
 

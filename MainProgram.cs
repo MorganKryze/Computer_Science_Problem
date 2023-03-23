@@ -47,7 +47,7 @@ public class MainProgram
     public static void Main(string[] args)
     {
         #region Processing
-        IntializeDict();
+        InitializeDict();
         WriteFullScreen(default);
 
         Main_Menu:
