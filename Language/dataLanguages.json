@@ -1,175 +1,192 @@
 {
     "english": {
 
-        "MainMenuTitle": "Welcome User! Use the arrow keys to move and press [ENTER] to confirm.",
-        "MainMenuButton1": "Play",
-        "MainMenuButton2": "Options",
-        "MainMenuButton3": "Quit",
+        "title": {
 
-        "FolderTitle": "You may choose a source folder.",
-        "FolderButton1": "Default pictures",
-        "FolderButton2": "Generated pictures",
-        "FolderButton3": "Back",
+            "main": "Welcome User! Use the arrow keys to move and press [ENTER] to confirm.",
+            "folder": "You may choose a source folder.",
+            "file": "You may choose a file.",
+            "actions": "You may choose an action to do on your picture.",
+            "filter": "You may choose a filter to apply on your picture.",
+            "manip": "You may choose a transformation to apply on your picture.",
 
-        "BrowseFilesTitle": "You may choose a file.",
+            "matrix1": "Here is the default matrix. You may change it as you wish.",
+            "matrix2": "Press [TAB] to select a number. Press [ENTER] to confirm.",
+            "matrix3": "To go back to the previous menu press [ESC].",
 
-        "ActionTitle" : "You may choose an action to do on your picture.",
-        "ActionButton1": "Apply a filter",
-        "ActionButton2": "Apply a transformation",
-        "ActionButton3": "Apply a custom kernel",
-        "ActionButton4": "Back",
+            "options": "You may choose an option.",
+            "language": "You may choose a language.",
+            "color": "You may choose a color.",
 
-        "ApplyFilterTitle": "You may choose a filter to apply on your picture.",
-        "ApplyFilterButton1": "Turn to grey",
-        "ApplyFilterButton2": "Black and white",
-        "ApplyFilterButton3": "Gaussian blur",
-        "ApplyFilterButton4": "Sarpen",
-        "ApplyFilterButton5": "Contrast",
-        "ApplyFilterButton6": "Back",
+            "save1": " SuccessFully saved at: ",
+            "save2": "The subprocess took ",
+            "save3": "Press any key to continue ...",
 
-        "ApplyManipulationTitle": "You may choose a transformation to apply on your picture.",
-        "ApplyManipulationButton1": "Rotate",
-        "ApplyManipulationButton2": "Resize",
-        "ApplyManipulationButton3": "Detect the edges",
-        "ApplyManipulationButton4": "Push the edges",
-        "ApplyManipulationButton5": "Back",
+            "loading_begin": "[ Loading the program ...]",
+            "loading_end": "[ Exiting the program ...]"
+            
+        },
+        "prompt": {
 
-        "RotatePrompt": "Type an positive angle to rotate the picture.",
-        "ResizePrompt": "Type an integer greater than 0 to rescale the picture.",
+            "rotate": "Type an positive angle to rotate the picture.",
 
-        "ApplyCustomKernelPrompt":"You may type the size of the new kernel, a integer greater than 2.",
+            "resize": "Type an integer greater than 0 to rescale the picture.",
 
-        "MatrixSelectorTitle": "Here is the default matrix. You may change it as you wish.",
-        "MatrixSelectorInstructions1": "Press [TAB] to select a number. Press [ENTER] to confirm.",
-        "MatrixSelectorInstructions2": "To go back to the previous menu press [ESC].",
-        "MatrixSelectorPrompt": "You may type a float number to change the value of the selected number.",
-        "MatrixSelectorQuestion": "You may choose what you want to do next.",
-        "MatrixSelectorButton1": "Continue",
-        "MatrixSelectorButton2": "Confirm",
-        "MatrixSelectorButton3": "Back",
+            "custom":"You may type the size of the new kernel, a integer greater than 2.",
 
-        "OptionsTitle": "You may choose an option.",
-        "OptionsButton1": "Change color",
-        "OptionsButton2": "Change language",
-        "OptionsButton3": "Reload",
-        "OptionsButton4": "Back",
-        
-        "ChangeLanguageTitle": "You may choose a language.",
-        "ChangeLanguageButton1": "French",
-        "ChangeLanguageButton2": "English",
-        "ChangeLanguageButton3": "Back",
+            "matrix_prompt": "You may type a float number to change the value of the selected number.",
+            "matrix_choice": "You may choose what you want to do next.",
 
-        "ChangeColorTitle": "You may choose a color.",
-        "ChangeColorButton1": "Red",
-        "ChangeColorButton2": "Magenta",
-        "ChangeColorButton3": "Yellow",
-        "ChangeColorButton4": "Green",
-        "ChangeColorButton5": "Blue",
-        "ChangeColorButton6": "Cyan",
-        "ChangeColorButton7": "White",
-        "ChangeColorButton8": "Back",
+            "save": "You may choose the name of the file to save."
+        },
+        "options": {
 
-        "SaveTitle": "You may choose the name of the file to save.",
-        "SaveSuccess1": " SuccessFully saved at: ",
-        "SaveSuccess2": "The subprocess took ",
-        "SaveSuccess3": "Press any key to continue ...",
+            "main_play": "Play",
+            "main_options": "Options",
+            "main_quit": "Quit",
 
-        "DefaultHeader1": " Special Thanks to the fabulous lab",
-        "DefaultHeader2": "Home",
-        "DefaultHeader3": "Created by MorganKryze, Sheesh3218 ",
+            "folder_default": "Default pictures",
+            "folder_generated": "Generated pictures",
 
-        "DefaultFooter1": " [ESC] Go back",
-        "DefaultFooter2": "[Z|↑] Selection up   [S|↓] Selection down",
-        "DefaultFooter3": "[ENTER] Select ",
+            "actions_filter": "Apply a filter",
+            "actions_transformation": "Apply a transformation",
+            "actions_custom": "Apply a custom kernel",
 
-        "FirstLoadingTitle": "[ Loading the program ...]",
-        "LastLoadingTitle": "[ Exiting the program ...]"
+            "filter_grey": "Turn to grey",
+            "filter_bnw": "Black and white",
+            "filter_gauss": "Gaussian blur",
+            "filter_sharp": "Sarpen",
+            "filter_contrast": "Contrast",
 
+            "manip_rotate": "Rotate",
+            "manip_resize": "Resize",
+            "manip_detect": "Detect the edges",
+            "manip_push": "Push the edges",
 
+            "options_color": "Change color",
+            "options_language": "Change language",
+
+            "language_fr": "French",
+            "language_en": "English",
+
+            "color_default": "default: White",
+            "color_red": "Red",
+            "color_magenta": "Magenta",
+            "color_yellow": "Yellow",
+            "color_green": "Green",
+            "color_blue": "Blue",
+            "color_cyan": "Cyan"
+        },
+        "generic": {
+
+            "back": "Back",
+            "continue": "Continue",
+            "confirm": "Confirm",
+            "reload": "Reload"
+        },
+        "banner": {
+
+            "header_l": " Special Thanks to the fabulous lab",
+            "header_c": "Home",
+            "header_r": "Created by MorganKryze, Sheesh3218 ",
+
+            "footer_l": " [ESC] Go back",
+            "footer_c": "[Z|↑] Selection up   [S|↓] Selection down",
+            "footer_r": "[ENTER] Select "
+        }
     },
     "french": {
+        "title": {
 
-        "MainMenuTitle": "Bienvenue utilisateur ! Utilisez les touches du clavier pour vous déplacer et pressez [ENTRER] pour confirmer votre choix.",
-        "MainMenuButton1": "Jouer",
-        "MainMenuButton2": "Options",
-        "MainMenuButton3": "Quitter",
+            "main": "Bienvenue utilisateur ! Utilisez les touches du clavier pour vous déplacer et pressez [ENTRER] pour confirmer votre choix.",
+            "folder": "Veuillez choisir un dossier de référence.",
+            "file": "Veuillez choisir un fichier.",
+            "actions": "Veuillez choisir une action à réaliser sur votre image.",
+            "filter": "Veuillez choisir un filtre à appliquer sur votre image.",
+            "manip": "Veuillez choisir une transformation à appliquer sur votre image.",
 
-        "FolderTitle": "Veuillez choisir un dossier de référence.",
-        "FolderButton1": "Images par défaut",
-        "FolderButton2": "Images générées",
-        "FolderButton3": "Retour",
+            "matrix1": "Voici la matrice par défaut. Vous pouvez la changer comme vous le souhaitez.",       
+            "matrix2": "Appuyez sur [TAB] pour sélectionner un nombre. Appuyez sur [ENTRER] pour confirmer.",
+            "matrix3": "Pour revenir au menu précédent appuyez sur [ECHAP].",                                
 
-        "BrowseFilesTitle": "Veuillez choisir un fichier.",
+            "options": "Veuillez choisir une option.",
+            "language": "Veuillez choisir une langue.",
+            "color": "Veuillez choisir une couleur",
+            
+            "save1": " Sauvegarde réussie à l'adresse : ",
+            "save2": "L'enregistrement a pris ",
+            "save3": "Appuyez sur une touche pour continuer ...",
 
-        "ActionTitle" : "Veuillez choisir une action à réaliser sur votre image.",
-        "ActionButton1": "Appliquer un filtre",
-        "ActionButton2": "Appliquer une transformation",
-        "ActionButton3": "Appliquer un kernel personnalisé",
-        "ActionButton4": "Retour",
+            "loading_begin": "[ Chargement du programme ...]",
+            "loading_end": "[ Fermeture du programme ...]"
+        },
+        "prompt": {
 
-        "ApplyFilterTitle": "Veuillez choisir un filtre à appliquer sur votre image.",
-        "ApplyFilterButton1": "Rendre l'image en niveaux de gris",
-        "ApplyFilterButton2": "Rendre l'image en noir et blanc",
-        "ApplyFilterButton3": "Flou gaussien",
-        "ApplyFilterButton4": "Améliorer la netteté",
-        "ApplyFilterButton5": "Contraster",
-        "ApplyFilterButton6": "Retour",
+            "rotate": "Écrivez un angle positif pour faire tourner l'image.",  
 
-        "ApplyManipulationTitle": "Veuillez choisir une transformation à appliquer sur votre image.",
-        "ApplyManipulationButton1": "Rotation",
-        "ApplyManipulationButton2": "Redimensionnement",
-        "ApplyManipulationButton3": "Détection des contours",
-        "ApplyManipulationButton4": "Pousser les contours",
-        "ApplyManipulationButton5": "Retour",
+            "resize": "Écrivez un entier positif pour redimensionner l'image.",
 
-        "RotatePrompt": "Écrivez un angle positif pour faire tourner l'image.",
-        "ResizePrompt": "Écrivez un entier positif pour redimensionner l'image.",
+            "custom":"Écrivez la taille du nouveau kernel, un entier positif supérieur à 2.",
 
-        "ApplyCustomKernelPrompt":"Écrivez la taille du nouveau kernel, un entier positif supérieur à 2.",
+            "matrix_prompt": "Vous pouvez écrire un nombre flottant pour changer la valeur du nombre sélectionné.",
+            "matrix_choice": "Vous pouvez choisir ce que vous voulez faire ensuite.",
 
-        "MatrixSelectorTitle": "Voici la matrice par défaut. Vous pouvez la changer comme vous le souhaitez.",
-        "MatrixSelectorInstructions1": "Appuyez sur [TAB] pour sélectionner un nombre. Appuyez sur [ENTRER] pour confirmer.",
-        "MatrixSelectorInstructions2": "Pour revenir au menu précédent appuyez sur [ECHAP].",
-        "MatrixSelectorPrompt": "Vous pouvez écrire un nombre flottant pour changer la valeur du nombre sélectionné.",
-        "MatrixSelectorQuestion": "Vous pouvez choisir ce que vous voulez faire ensuite.",
-        "MatrixSelectorButton1": "Continuer",
-        "MatrixSelectorButton2": "Confirmer",
-        "MatrixSelectorButton3": "Retour",
+            "save": "Veuillez écrire le nom du fichier à sauvegarder."
+        },
+        "options": {
 
-        "OptionsTitle": "Veuillez choisir une option.",
-        "OptionsButton1": "Changer la couleur",
-        "OptionsButton2": "Changer la langue",
-        "OptionsButton3": "Rafraîchir",
-        "OptionsButton4": "Retour",
-        
-        "ChangeLanguageTitle": "Veuillez choisir une langue.",
-        "ChangeLanguageButton1": "Français",
-        "ChangeLanguageButton2": "Anglais",
+            "main_play": "Jouer",
+            "main_options": "Options",
+            "main_quit": "Quitter",
 
-        "ChangeColorTitle": "Veuillez choisir une couleur",
-        "ChangeColorButton1": "Rouge",
-        "ChangeColorButton2": "Magenta",
-        "ChangeColorButton3": "Jaune",
-        "ChangeColorButton4": "Vert",
-        "ChangeColorButton5": "Bleu",
-        "ChangeColorButton6": "Cyan",
-        "ChangeColorButton7": "Blanc",
-        "ChangeColorButton8": "Retour",
+            "folder_default": "Images par défaut",
+            "folder_generated": "Images générées",  
 
-        "SaveTitle": "Veuillez écrire le nom du fichier à sauvegarder.",
-        "SaveSuccess1": " Sauvegarde réussie à l'adresse : ",
-        "SaveSuccess2": "L'enregistrement a pris ",
-        "SaveSuccess3": "Appuyez sur une touche pour continuer ...",
+            "actions_filter": "Appliquer un filtre",             
+            "actions_transformation": "Appliquer une transformation",    
+            "actions_custom": "Appliquer un kernel personnalisé",
 
-        "DefaultHeader1" : " Merci au fabuleux laboratoire",
-        "DefaultHeader2" : "Accueil",
-        "DefaultHeader3" : "Créé par MorganKryze, Sheesh3218 ",
+            "filter_grey": "Rendre l'image en niveaux de gris",
+            "filter_bnw": "Rendre l'image en noir et blanc",  
+            "filter_gauss": "Flou gaussien",                    
+            "filter_sharp": "Améliorer la netteté",             
+            "filter_contrast": "Contraster",                       
 
-        "DefaultFooter1" : " [ESC] Retour",
-        "DefaultFooter2" : "[Z|↑] Monter   [S|↓] Descendre",
-        "DefaultFooter3" : "[ENTRER] Selectionner ",
+            "manip_rotate": "Rotation",               
+            "manip_resize": "Redimensionnement",      
+            "manip_detect": "Détection des contours",
+            "manip_push": "Pousser les contours",   
 
-        "FirstLoadingTitle" : "[ Chargement du programme ...]",
-        "LastLoadingTitle" : "[ Fermeture du programme ...]"
+            "options_color": "Changer la couleur",
+            "options_language": "Changer la langue", 
+
+            "language_fr": "Français",
+            "language_en": "Anglais", 
+
+            "color_default": "défaut : Blanc",
+            "color_red": "Rouge",         
+            "color_magenta": "Magenta",       
+            "color_yellow": "Jaune",         
+            "color_green": "Vert",          
+            "color_blue": "Bleu",          
+            "color_cyan": "Cyan"           
+        },
+        "generic": {
+
+            "back": "Retour",
+            "continue": "Continuer",
+            "confirm":  "Confirmer",
+            "reload": "Rafraîchir"
+        },
+        "banner": {
+
+            "header_l": " Merci au fabuleux laboratoire",
+            "header_c": "Accueil",
+            "header_r": "Créé par MorganKryze, Sheesh3218 ",
+
+            "footer_l": " [ESC] Retour",
+            "footer_c": "[Z|↑] Monter   [S|↓] Descendre",
+            "footer_r": "[ENTRER] Selectionner "
+        }
     }
 }

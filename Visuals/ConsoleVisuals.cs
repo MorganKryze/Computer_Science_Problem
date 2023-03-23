@@ -17,15 +17,15 @@ public static class ConsoleVisuals
     private static  string[] titleContent = ReadAllLines(titlePath);
     private static int initialWindowWidth = WindowWidth;
     private static int intialWindowHeight = WindowHeight;
-    private static string initialLanguage = CurrentLanguage;
+    private static string initialLanguage = s_Lang;
     private static (ConsoleColor,ConsoleColor) terminalColorpanel = (ForegroundColor, BackgroundColor);
     private static (ConsoleColor,ConsoleColor) initialColorPanel = (colorPanel.Item1, colorPanel.Item2);
     private  static (ConsoleColor,ConsoleColor) colorPanel = (White, Black);
     #endregion
 
     #region Properties
-    private static (string, string, string) defaultHeader => (Dict[CurrentLanguage]["DefaultHeader1"], Dict[CurrentLanguage]["DefaultHeader2"], Dict[CurrentLanguage]["DefaultHeader3"]);
-    private static (string, string, string) defaultFooter => (Dict[CurrentLanguage]["DefaultFooter1"], Dict[CurrentLanguage]["DefaultFooter2"], Dict[CurrentLanguage]["DefaultFooter3"]);
+    private static (string, string, string) defaultHeader => (Dict[s_Lang]["banner"]["header_l"], Dict[s_Lang]["banner"]["header_c"], Dict[s_Lang]["banner"]["header_r"]);
+    private static (string, string, string) defaultFooter => (Dict[s_Lang]["banner"]["footer_l"], Dict[s_Lang]["banner"]["footer_c"], Dict[s_Lang]["banner"]["footer_r"]);
     private static int TitleHeight => titleContent.Length;
     private static int HeaderHeigth => TitleHeight ;
     private static int FooterHeigth => WindowHeight - 2;
@@ -133,11 +133,11 @@ public static class ConsoleVisuals
     
     private static void ReloadScreen()
     {
-        if (WindowManipulated || CurrentLanguage != initialLanguage || colorPanel != initialColorPanel)
+        if (WindowManipulated || s_Lang != initialLanguage || colorPanel != initialColorPanel)
         {
             WriteFullScreen(true);
             initialWindowWidth = WindowWidth;
-            initialLanguage = CurrentLanguage;
+            initialLanguage = s_Lang;
             initialColorPanel = (colorPanel.Item1, colorPanel.Item2);
         }
         else
@@ -211,7 +211,7 @@ public static class ConsoleVisuals
         WriteBanner(footer, false, straight);
         ClearPanel();
         if (!straight) 
-            LoadingScreen(Dict[CurrentLanguage]["FirstLoadingTitle"]);
+            LoadingScreen(Dict[s_Lang]["title"]["loading_begin"]);
     }
     /// <summary> This method prints a message in the console and gets a string written by the user. </summary>
     /// <param name="message"> The message to print. </param>
@@ -294,11 +294,11 @@ public static class ConsoleVisuals
             {
                 if (i == currentPosition)
                 {
-                    currentChoice[i] = $" > {choices[i]}";
+                    currentChoice[i] = $" > {choices[i]} < ";
                     WritePositionnedString(currentChoice[i], Placement.Center, true, line + 2 + i);
                     continue;
                 }
-                currentChoice[i] = $"   {choices[i]}";
+                currentChoice[i] = $"   {choices[i]}   ";
                 WritePositionnedString(currentChoice[i], Placement.Center, false, line + 2 + i);
             }
             switch (ReadKey(true).Key)
@@ -328,9 +328,9 @@ public static class ConsoleVisuals
     {
         ReloadScreen();
         WriteParagraph(new string[]{
-            Dict[CurrentLanguage]["MatrixSelectorTitle"], 
-            Dict[CurrentLanguage]["MatrixSelectorInstructions1"], 
-            Dict[CurrentLanguage]["MatrixSelectorInstructions2"]});
+            Dict[s_Lang]["title"]["matrix1"], 
+            Dict[s_Lang]["title"]["matrix2"], 
+            Dict[s_Lang]["title"]["matrix3"]});
 
         Position currentPosition = new Position(0, 0);
         List<Position> possiblePositions = new List<Position>();
@@ -363,7 +363,7 @@ public static class ConsoleVisuals
                     float number = 0;
                     while (true)
                     {
-                        if (float.TryParse(WritePrompt(Dict[CurrentLanguage]["MatrixSelectorPrompt"] , false, ContentHeigth + 3 + matrix.GetLength(0) + 2), out float value))
+                        if (float.TryParse(WritePrompt(Dict[s_Lang]["prompt"]["matrix_prompt"] , false, ContentHeigth + 3 + matrix.GetLength(0) + 2), out float value))
                         {
                             number = value;
                             break;
@@ -373,10 +373,10 @@ public static class ConsoleVisuals
                     matrix[currentPosition.X, currentPosition.Y] = number;
                     break;
                 case Enter:
-                    switch(ScrollingMenu(Dict[CurrentLanguage]["MatrixSelectorQuestion"] , new string[]{
-                        Dict[CurrentLanguage]["MatrixSelectorButton1"],
-                        Dict[CurrentLanguage]["MatrixSelectorButton2"], 
-                        Dict[CurrentLanguage]["MatrixSelectorButton3"]}, false, ContentHeigth + 3 + matrix.GetLength(0) + 2))
+                    switch(ScrollingMenu(Dict[s_Lang]["prompt"]["matrix_choice"] , new string[]{
+                        Dict[s_Lang]["generic"]["continue"],
+                        Dict[s_Lang]["generic"]["confirm"], 
+                        Dict[s_Lang]["generic"]["back"]}, false, ContentHeigth + 3 + matrix.GetLength(0) + 2))
                     {
                         case 0:
                             break;
@@ -411,7 +411,7 @@ public static class ConsoleVisuals
     /// <summary> This method exits the program. </summary>
     public static void ProgramExit()
     {
-        LoadingScreen(Dict[CurrentLanguage]["LastLoadingTitle"]);
+        LoadingScreen(Dict[s_Lang]["title"]["loading_end"]);
         ClearAll();
         CursorVisible = true;
         Environment.Exit(0);

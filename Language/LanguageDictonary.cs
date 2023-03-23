@@ -10,9 +10,9 @@ namespace Computer_Science_Problem.Language;
 public static class LanguageDictonary
 {
     /// <summary> This field represents the dictionary. </summary>
-    public static Dictionary<string, Dictionary<string, string>> Dict { get; set; } = new();
+    public static Dictionary<string, Dictionary<string,  Dictionary<string, string>>> Dict { get; set; } = new();
     /// <summary> This field represents the current language. </summary>
-    public static string CurrentLanguage = "english";
+    public static string s_Lang = "english";
 
     /// <summary> This method initializes the dictionary. </summary>
     public static void IntializeDict()
@@ -23,7 +23,7 @@ public static class LanguageDictonary
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
         };
-        Dictionary<string, Dictionary<string, string>>? nullHandler = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, string>>>(jsonString, options);
+        Dictionary<string, Dictionary<string,  Dictionary<string, string>>>? nullHandler = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string,  Dictionary<string, string>>>>(jsonString, options);
         Dict = nullHandler ?? throw new NullReferenceException("The dictionary is null.");
     }
 
