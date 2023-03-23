@@ -274,8 +274,9 @@ public static class GeneralMethods
         }
         else
         {
+            float[,] newKernel = (float[,])kernel;
             Image image = new Image(Image.imagePath);
-            image = image.ApplyKernel(kernel);
+            image = image.ApplyKernel(newKernel);
             image.Save();
             MainProgram.jump = MainProgram.Jump.Main_Menu;
         }

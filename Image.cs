@@ -247,7 +247,7 @@ public class Image : IEquatable<Image>
     /// <summary> This method saves the <see cref="Image"/>. </summary>
     public void Save()
     {
-        string path = "Images/OUT/" + WritePrompt(Dict[CurrentLanguage]["SaveTitle"]) + ".bmp ";
+        string path = "Images/OUT/" + WritePrompt(Dict[CurrentLanguage]["SaveTitle"]) + ".bmp";
         Stopwatch stopwatch = new ();
         stopwatch.Start();
         using (FileStream stream = File.OpenWrite(path))
@@ -256,7 +256,7 @@ public class Image : IEquatable<Image>
             stream.Write(Pixels, 0, Pixels.Length);
         }
         stopwatch.Stop();
-        WriteParagraph(new string[] { Dict[CurrentLanguage]["SaveSuccess1"]  + path , Dict[CurrentLanguage]["SaveSuccess2"] + stopwatch.ElapsedMilliseconds + " ms. ", Dict[CurrentLanguage]["SaveSuccess3"]}, true);
+        WriteParagraph(new string[] { Dict[CurrentLanguage]["SaveSuccess1"]  + path + " ", Dict[CurrentLanguage]["SaveSuccess2"] + stopwatch.ElapsedMilliseconds + " ms. ", Dict[CurrentLanguage]["SaveSuccess3"]}, true);
 		Console.ReadKey(true);
     }
     #endregion
