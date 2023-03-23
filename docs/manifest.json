@@ -12,7 +12,7 @@
           "hash": "fy2Wi7H0P85ATcqtWyA6OMbugzIYHUDBLI1OfujQTVc="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -33,10 +33,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Computer_Science_Problem.GeneralMethods.html",
-          "hash": "880x0Xrj5e0lIwO4aKgaGy7LJceG40eygkcQNazFeVQ="
+          "hash": "iFvDcTLpDOsgsRUEZQz4ZMyBjFKBe6CAFLDgoPE8MOI="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -45,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Computer_Science_Problem.Image.html",
-          "hash": "iAYne86bRLpfkvPWC1bB2M6/OpL1vzlo3Y8//SQXxh8="
+          "hash": "+OngNmQn0tpywyP8kXEJNgC8MYKjN5AbFYbdmFicMvY="
         }
       },
       "is_incremental": false,
@@ -57,10 +57,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Computer_Science_Problem.Language.LanguageDictonary.html",
-          "hash": "7p2QnIguIZGjPIHtpKNb84y4e60eIDcy/5mAf5KEFBw="
+          "hash": "XryI5nmS/XygOTvv4sixmXguIYCB9W7ym0Ey2dnYaMM="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -72,7 +72,7 @@
           "hash": "5KWFRa8OXjJnv1OT4gS3RQrm0avgi5Felq/w34iqDec="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -81,10 +81,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Computer_Science_Problem.MainProgram.Jump.html",
-          "hash": "ZwH+phvJm2rCkZWBR/8xpuXqeTEeA0cVkahzj6eztkc="
+          "hash": "5Fnx5ElGaNzObcaClwdUE1AIkGbRE27cAicv+/SquUw="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -93,10 +93,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Computer_Science_Problem.MainProgram.html",
-          "hash": "UwXDVugiq78oewiRSkjQoRXlD9sERO5K39rMdwvRJmo="
+          "hash": "DMW3Q1pVxIWIw5sAdmaTQvy2SRYwNvCfsk6IayuqeP8="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -120,7 +120,7 @@
           "hash": "tcx0yTRvjQhYo7P6arEnG4xDBkr0ZDk2ABBJCyveeQY="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -132,7 +132,7 @@
           "hash": "0WwLIZlC2LQappR1pQhSk3cbYaX6Ufwe1TzV5shJPhE="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -144,6 +144,18 @@
           "hash": "bCHLBZykDs0zmOfkhi/pLlGVO9uDpwkvNsqAx/no1lY="
         }
       },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Utilitary.Position.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Utilitary.Position.html",
+          "hash": "s9LY8C6sYGCL2XLLG3DnJ0KSA6/9YlRyViZZ425Nxxo="
+        }
+      },
       "is_incremental": false,
       "version": ""
     },
@@ -153,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Utilitary.html",
-          "hash": "kUANL/JYX9B23/LZiqGY7CCUqolRDd6Q6uT/8goCuWU="
+          "hash": "MzIcrV/0+puD47I/GBMaf4V//XsuS7aLJYbt5yhILXI="
         }
       },
       "is_incremental": false,
@@ -165,10 +177,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Visuals.ConsoleVisuals.Placement.html",
-          "hash": "f653FEqIaLRhfXdirV5luVK44DlLjEBF7CULfq0aeSA="
+          "hash": "F8G6IBEVOF0v24qpyxB9oRxKkLg05Ftk2QM7xH1x6zU="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -177,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Visuals.ConsoleVisuals.html",
-          "hash": "I+LqWo9ZAp7jJfaHBc/bGt826cD1UWOZfsoy9Vx9t0s="
+          "hash": "cUtg9Ft8e+nuWXMw8KodA8LP5M5CmZ9LurhVAghDx+o="
         }
       },
       "is_incremental": false,
@@ -204,7 +216,7 @@
           "hash": "MSqrajFEDLH3m2nAM5s8xbBw6Y+ge3Aozq/RMWX284w="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -213,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "43FuFPqwyS4fWcvUbDDijDzJoanpOCrtNRv+fVHcce0="
+          "hash": "S/7Mifl7AY5mCDUr2DIXrY15N2OIAvUTZUKJx2aSeg4="
         }
       },
       "is_incremental": false,
@@ -228,7 +240,7 @@
           "hash": "sf18TOv151pJHIY37hCEvwS11tfo7zZSK7lwWcdCvfQ="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -281,13 +293,13 @@
           "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 3,
-          "skipped_file_count": 2
+          "skipped_file_count": 3
         },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 16,
-          "skipped_file_count": 8
+          "total_file_count": 17,
+          "skipped_file_count": 15
         },
         "TocDocumentProcessor": {
           "can_incremental": false,

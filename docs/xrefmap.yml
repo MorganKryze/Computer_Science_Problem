@@ -97,6 +97,19 @@ references:
   isSpec: "True"
   fullName: Computer_Science_Problem.GeneralMethods.Actions
   nameWithType: GeneralMethods.Actions
+- uid: Computer_Science_Problem.GeneralMethods.ApplyCustomKernel
+  name: ApplyCustomKernel()
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_ApplyCustomKernel
+  commentId: M:Computer_Science_Problem.GeneralMethods.ApplyCustomKernel
+  fullName: Computer_Science_Problem.GeneralMethods.ApplyCustomKernel()
+  nameWithType: GeneralMethods.ApplyCustomKernel()
+- uid: Computer_Science_Problem.GeneralMethods.ApplyCustomKernel*
+  name: ApplyCustomKernel
+  href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_ApplyCustomKernel_
+  commentId: Overload:Computer_Science_Problem.GeneralMethods.ApplyCustomKernel
+  isSpec: "True"
+  fullName: Computer_Science_Problem.GeneralMethods.ApplyCustomKernel
+  nameWithType: GeneralMethods.ApplyCustomKernel
 - uid: Computer_Science_Problem.GeneralMethods.ApplyFilter
   name: ApplyFilter()
   href: api/Computer_Science_Problem.GeneralMethods.html#Computer_Science_Problem_GeneralMethods_ApplyFilter
@@ -585,38 +598,38 @@ references:
   commentId: T:Computer_Science_Problem.Language.LanguageDictonary
   fullName: Computer_Science_Problem.Language.LanguageDictonary
   nameWithType: LanguageDictonary
-- uid: Computer_Science_Problem.Language.LanguageDictonary.CurrentLanguage
-  name: CurrentLanguage
-  href: api/Computer_Science_Problem.Language.LanguageDictonary.html#Computer_Science_Problem_Language_LanguageDictonary_CurrentLanguage
-  commentId: F:Computer_Science_Problem.Language.LanguageDictonary.CurrentLanguage
-  fullName: Computer_Science_Problem.Language.LanguageDictonary.CurrentLanguage
-  nameWithType: LanguageDictonary.CurrentLanguage
-- uid: Computer_Science_Problem.Language.LanguageDictonary.Dict
-  name: Dict
-  href: api/Computer_Science_Problem.Language.LanguageDictonary.html#Computer_Science_Problem_Language_LanguageDictonary_Dict
-  commentId: P:Computer_Science_Problem.Language.LanguageDictonary.Dict
-  fullName: Computer_Science_Problem.Language.LanguageDictonary.Dict
-  nameWithType: LanguageDictonary.Dict
-- uid: Computer_Science_Problem.Language.LanguageDictonary.Dict*
-  name: Dict
-  href: api/Computer_Science_Problem.Language.LanguageDictonary.html#Computer_Science_Problem_Language_LanguageDictonary_Dict_
-  commentId: Overload:Computer_Science_Problem.Language.LanguageDictonary.Dict
+- uid: Computer_Science_Problem.Language.LanguageDictonary.InitializeDict
+  name: InitializeDict()
+  href: api/Computer_Science_Problem.Language.LanguageDictonary.html#Computer_Science_Problem_Language_LanguageDictonary_InitializeDict
+  commentId: M:Computer_Science_Problem.Language.LanguageDictonary.InitializeDict
+  fullName: Computer_Science_Problem.Language.LanguageDictonary.InitializeDict()
+  nameWithType: LanguageDictonary.InitializeDict()
+- uid: Computer_Science_Problem.Language.LanguageDictonary.InitializeDict*
+  name: InitializeDict
+  href: api/Computer_Science_Problem.Language.LanguageDictonary.html#Computer_Science_Problem_Language_LanguageDictonary_InitializeDict_
+  commentId: Overload:Computer_Science_Problem.Language.LanguageDictonary.InitializeDict
   isSpec: "True"
-  fullName: Computer_Science_Problem.Language.LanguageDictonary.Dict
-  nameWithType: LanguageDictonary.Dict
-- uid: Computer_Science_Problem.Language.LanguageDictonary.IntializeDict
-  name: IntializeDict()
-  href: api/Computer_Science_Problem.Language.LanguageDictonary.html#Computer_Science_Problem_Language_LanguageDictonary_IntializeDict
-  commentId: M:Computer_Science_Problem.Language.LanguageDictonary.IntializeDict
-  fullName: Computer_Science_Problem.Language.LanguageDictonary.IntializeDict()
-  nameWithType: LanguageDictonary.IntializeDict()
-- uid: Computer_Science_Problem.Language.LanguageDictonary.IntializeDict*
-  name: IntializeDict
-  href: api/Computer_Science_Problem.Language.LanguageDictonary.html#Computer_Science_Problem_Language_LanguageDictonary_IntializeDict_
-  commentId: Overload:Computer_Science_Problem.Language.LanguageDictonary.IntializeDict
+  fullName: Computer_Science_Problem.Language.LanguageDictonary.InitializeDict
+  nameWithType: LanguageDictonary.InitializeDict
+- uid: Computer_Science_Problem.Language.LanguageDictonary.s_Dict
+  name: s_Dict
+  href: api/Computer_Science_Problem.Language.LanguageDictonary.html#Computer_Science_Problem_Language_LanguageDictonary_s_Dict
+  commentId: P:Computer_Science_Problem.Language.LanguageDictonary.s_Dict
+  fullName: Computer_Science_Problem.Language.LanguageDictonary.s_Dict
+  nameWithType: LanguageDictonary.s_Dict
+- uid: Computer_Science_Problem.Language.LanguageDictonary.s_Dict*
+  name: s_Dict
+  href: api/Computer_Science_Problem.Language.LanguageDictonary.html#Computer_Science_Problem_Language_LanguageDictonary_s_Dict_
+  commentId: Overload:Computer_Science_Problem.Language.LanguageDictonary.s_Dict
   isSpec: "True"
-  fullName: Computer_Science_Problem.Language.LanguageDictonary.IntializeDict
-  nameWithType: LanguageDictonary.IntializeDict
+  fullName: Computer_Science_Problem.Language.LanguageDictonary.s_Dict
+  nameWithType: LanguageDictonary.s_Dict
+- uid: Computer_Science_Problem.Language.LanguageDictonary.s_Lang
+  name: s_Lang
+  href: api/Computer_Science_Problem.Language.LanguageDictonary.html#Computer_Science_Problem_Language_LanguageDictonary_s_Lang
+  commentId: F:Computer_Science_Problem.Language.LanguageDictonary.s_Lang
+  fullName: Computer_Science_Problem.Language.LanguageDictonary.s_Lang
+  nameWithType: LanguageDictonary.s_Lang
 - uid: Computer_Science_Problem.MainProgram
   name: MainProgram
   href: api/Computer_Science_Problem.MainProgram.html
@@ -641,6 +654,12 @@ references:
   commentId: F:Computer_Science_Problem.MainProgram.Jump.Actions
   fullName: Computer_Science_Problem.MainProgram.Jump.Actions
   nameWithType: MainProgram.Jump.Actions
+- uid: Computer_Science_Problem.MainProgram.Jump.ApplyCustomKernel
+  name: ApplyCustomKernel
+  href: api/Computer_Science_Problem.MainProgram.Jump.html#Computer_Science_Problem_MainProgram_Jump_ApplyCustomKernel
+  commentId: F:Computer_Science_Problem.MainProgram.Jump.ApplyCustomKernel
+  fullName: Computer_Science_Problem.MainProgram.Jump.ApplyCustomKernel
+  nameWithType: MainProgram.Jump.ApplyCustomKernel
 - uid: Computer_Science_Problem.MainProgram.Jump.ApplyFilter
   name: ApplyFilter
   href: api/Computer_Science_Problem.MainProgram.Jump.html#Computer_Science_Problem_MainProgram_Jump_ApplyFilter
@@ -1026,6 +1045,69 @@ references:
   isSpec: "True"
   fullName: Utilitary.Pixel.TurnGrey
   nameWithType: Pixel.TurnGrey
+- uid: Utilitary.Position
+  name: Position
+  href: api/Utilitary.Position.html
+  commentId: T:Utilitary.Position
+  fullName: Utilitary.Position
+  nameWithType: Position
+- uid: Utilitary.Position.#ctor(System.Int32,System.Int32)
+  name: Position(Int32, Int32)
+  href: api/Utilitary.Position.html#Utilitary_Position__ctor_System_Int32_System_Int32_
+  commentId: M:Utilitary.Position.#ctor(System.Int32,System.Int32)
+  fullName: Utilitary.Position.Position(System.Int32, System.Int32)
+  nameWithType: Position.Position(Int32, Int32)
+- uid: Utilitary.Position.#ctor(Utilitary.Position)
+  name: Position(Position)
+  href: api/Utilitary.Position.html#Utilitary_Position__ctor_Utilitary_Position_
+  commentId: M:Utilitary.Position.#ctor(Utilitary.Position)
+  fullName: Utilitary.Position.Position(Utilitary.Position)
+  nameWithType: Position.Position(Position)
+- uid: Utilitary.Position.#ctor*
+  name: Position
+  href: api/Utilitary.Position.html#Utilitary_Position__ctor_
+  commentId: Overload:Utilitary.Position.#ctor
+  isSpec: "True"
+  fullName: Utilitary.Position.Position
+  nameWithType: Position.Position
+- uid: Utilitary.Position.Equals(Utilitary.Position)
+  name: Equals(Position)
+  href: api/Utilitary.Position.html#Utilitary_Position_Equals_Utilitary_Position_
+  commentId: M:Utilitary.Position.Equals(Utilitary.Position)
+  fullName: Utilitary.Position.Equals(Utilitary.Position)
+  nameWithType: Position.Equals(Position)
+- uid: Utilitary.Position.Equals*
+  name: Equals
+  href: api/Utilitary.Position.html#Utilitary_Position_Equals_
+  commentId: Overload:Utilitary.Position.Equals
+  isSpec: "True"
+  fullName: Utilitary.Position.Equals
+  nameWithType: Position.Equals
+- uid: Utilitary.Position.ToString
+  name: ToString()
+  href: api/Utilitary.Position.html#Utilitary_Position_ToString
+  commentId: M:Utilitary.Position.ToString
+  fullName: Utilitary.Position.ToString()
+  nameWithType: Position.ToString()
+- uid: Utilitary.Position.ToString*
+  name: ToString
+  href: api/Utilitary.Position.html#Utilitary_Position_ToString_
+  commentId: Overload:Utilitary.Position.ToString
+  isSpec: "True"
+  fullName: Utilitary.Position.ToString
+  nameWithType: Position.ToString
+- uid: Utilitary.Position.X
+  name: X
+  href: api/Utilitary.Position.html#Utilitary_Position_X
+  commentId: F:Utilitary.Position.X
+  fullName: Utilitary.Position.X
+  nameWithType: Position.X
+- uid: Utilitary.Position.Y
+  name: Y
+  href: api/Utilitary.Position.html#Utilitary_Position_Y
+  commentId: F:Utilitary.Position.Y
+  fullName: Utilitary.Position.Y
+  nameWithType: Position.Y
 - uid: Visuals
   name: Visuals
   href: api/Visuals.html
@@ -1077,6 +1159,22 @@ references:
   isSpec: "True"
   fullName: Visuals.ConsoleVisuals.LoadingScreen
   nameWithType: ConsoleVisuals.LoadingScreen
+- uid: Visuals.ConsoleVisuals.MatrixSelector(System.Single[0:,0:])
+  name: MatrixSelector(Single[,])
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_MatrixSelector_System_Single_0__0___
+  commentId: M:Visuals.ConsoleVisuals.MatrixSelector(System.Single[0:,0:])
+  name.vb: MatrixSelector(Single(,))
+  fullName: Visuals.ConsoleVisuals.MatrixSelector(System.Single[,])
+  fullName.vb: Visuals.ConsoleVisuals.MatrixSelector(System.Single(,))
+  nameWithType: ConsoleVisuals.MatrixSelector(Single[,])
+  nameWithType.vb: ConsoleVisuals.MatrixSelector(Single(,))
+- uid: Visuals.ConsoleVisuals.MatrixSelector*
+  name: MatrixSelector
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_MatrixSelector_
+  commentId: Overload:Visuals.ConsoleVisuals.MatrixSelector
+  isSpec: "True"
+  fullName: Visuals.ConsoleVisuals.MatrixSelector
+  nameWithType: ConsoleVisuals.MatrixSelector
 - uid: Visuals.ConsoleVisuals.Placement
   name: ConsoleVisuals.Placement
   href: api/Visuals.ConsoleVisuals.Placement.html
@@ -1101,19 +1199,6 @@ references:
   commentId: F:Visuals.ConsoleVisuals.Placement.Right
   fullName: Visuals.ConsoleVisuals.Placement.Right
   nameWithType: ConsoleVisuals.Placement.Right
-- uid: Visuals.ConsoleVisuals.PrintTitle
-  name: PrintTitle()
-  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_PrintTitle
-  commentId: M:Visuals.ConsoleVisuals.PrintTitle
-  fullName: Visuals.ConsoleVisuals.PrintTitle()
-  nameWithType: ConsoleVisuals.PrintTitle()
-- uid: Visuals.ConsoleVisuals.PrintTitle*
-  name: PrintTitle
-  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_PrintTitle_
-  commentId: Overload:Visuals.ConsoleVisuals.PrintTitle
-  isSpec: "True"
-  fullName: Visuals.ConsoleVisuals.PrintTitle
-  nameWithType: ConsoleVisuals.PrintTitle
 - uid: Visuals.ConsoleVisuals.ProgramExit
   name: ProgramExit()
   href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_ProgramExit
@@ -1127,15 +1212,15 @@ references:
   isSpec: "True"
   fullName: Visuals.ConsoleVisuals.ProgramExit
   nameWithType: ConsoleVisuals.ProgramExit
-- uid: Visuals.ConsoleVisuals.ScrollingMenu(System.String,System.String[])
-  name: ScrollingMenu(String, String[])
-  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_ScrollingMenu_System_String_System_String___
-  commentId: M:Visuals.ConsoleVisuals.ScrollingMenu(System.String,System.String[])
-  name.vb: ScrollingMenu(String, String())
-  fullName: Visuals.ConsoleVisuals.ScrollingMenu(System.String, System.String[])
-  fullName.vb: Visuals.ConsoleVisuals.ScrollingMenu(System.String, System.String())
-  nameWithType: ConsoleVisuals.ScrollingMenu(String, String[])
-  nameWithType.vb: ConsoleVisuals.ScrollingMenu(String, String())
+- uid: Visuals.ConsoleVisuals.ScrollingMenu(System.String,System.String[],System.Boolean,System.Int32)
+  name: ScrollingMenu(String, String[], Boolean, Int32)
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_ScrollingMenu_System_String_System_String___System_Boolean_System_Int32_
+  commentId: M:Visuals.ConsoleVisuals.ScrollingMenu(System.String,System.String[],System.Boolean,System.Int32)
+  name.vb: ScrollingMenu(String, String(), Boolean, Int32)
+  fullName: Visuals.ConsoleVisuals.ScrollingMenu(System.String, System.String[], System.Boolean, System.Int32)
+  fullName.vb: Visuals.ConsoleVisuals.ScrollingMenu(System.String, System.String(), System.Boolean, System.Int32)
+  nameWithType: ConsoleVisuals.ScrollingMenu(String, String[], Boolean, Int32)
+  nameWithType.vb: ConsoleVisuals.ScrollingMenu(String, String(), Boolean, Int32)
 - uid: Visuals.ConsoleVisuals.ScrollingMenu*
   name: ScrollingMenu
   href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_ScrollingMenu_
@@ -1175,15 +1260,31 @@ references:
   isSpec: "True"
   fullName: Visuals.ConsoleVisuals.WriteFullScreen
   nameWithType: ConsoleVisuals.WriteFullScreen
-- uid: Visuals.ConsoleVisuals.WriteParagraph(System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Boolean)
-  name: WriteParagraph(IEnumerable<String>, Boolean, Boolean)
-  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_WriteParagraph_System_Collections_Generic_IEnumerable_System_String__System_Boolean_System_Boolean_
-  commentId: M:Visuals.ConsoleVisuals.WriteParagraph(System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Boolean)
-  name.vb: WriteParagraph(IEnumerable(Of String), Boolean, Boolean)
-  fullName: Visuals.ConsoleVisuals.WriteParagraph(System.Collections.Generic.IEnumerable<System.String>, System.Boolean, System.Boolean)
-  fullName.vb: Visuals.ConsoleVisuals.WriteParagraph(System.Collections.Generic.IEnumerable(Of System.String), System.Boolean, System.Boolean)
-  nameWithType: ConsoleVisuals.WriteParagraph(IEnumerable<String>, Boolean, Boolean)
-  nameWithType.vb: ConsoleVisuals.WriteParagraph(IEnumerable(Of String), Boolean, Boolean)
+- uid: Visuals.ConsoleVisuals.WriteMatrix(System.Single[0:,0:],Utilitary.Position,System.Int32)
+  name: WriteMatrix(Single[,], Position, Int32)
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_WriteMatrix_System_Single_0__0___Utilitary_Position_System_Int32_
+  commentId: M:Visuals.ConsoleVisuals.WriteMatrix(System.Single[0:,0:],Utilitary.Position,System.Int32)
+  name.vb: WriteMatrix(Single(,), Position, Int32)
+  fullName: Visuals.ConsoleVisuals.WriteMatrix(System.Single[,], Utilitary.Position, System.Int32)
+  fullName.vb: Visuals.ConsoleVisuals.WriteMatrix(System.Single(,), Utilitary.Position, System.Int32)
+  nameWithType: ConsoleVisuals.WriteMatrix(Single[,], Position, Int32)
+  nameWithType.vb: ConsoleVisuals.WriteMatrix(Single(,), Position, Int32)
+- uid: Visuals.ConsoleVisuals.WriteMatrix*
+  name: WriteMatrix
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_WriteMatrix_
+  commentId: Overload:Visuals.ConsoleVisuals.WriteMatrix
+  isSpec: "True"
+  fullName: Visuals.ConsoleVisuals.WriteMatrix
+  nameWithType: ConsoleVisuals.WriteMatrix
+- uid: Visuals.ConsoleVisuals.WriteParagraph(System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Boolean,System.Int32)
+  name: WriteParagraph(IEnumerable<String>, Boolean, Boolean, Int32)
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_WriteParagraph_System_Collections_Generic_IEnumerable_System_String__System_Boolean_System_Boolean_System_Int32_
+  commentId: M:Visuals.ConsoleVisuals.WriteParagraph(System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Boolean,System.Int32)
+  name.vb: WriteParagraph(IEnumerable(Of String), Boolean, Boolean, Int32)
+  fullName: Visuals.ConsoleVisuals.WriteParagraph(System.Collections.Generic.IEnumerable<System.String>, System.Boolean, System.Boolean, System.Int32)
+  fullName.vb: Visuals.ConsoleVisuals.WriteParagraph(System.Collections.Generic.IEnumerable(Of System.String), System.Boolean, System.Boolean, System.Int32)
+  nameWithType: ConsoleVisuals.WriteParagraph(IEnumerable<String>, Boolean, Boolean, Int32)
+  nameWithType.vb: ConsoleVisuals.WriteParagraph(IEnumerable(Of String), Boolean, Boolean, Int32)
 - uid: Visuals.ConsoleVisuals.WriteParagraph*
   name: WriteParagraph
   href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_WriteParagraph_
@@ -1191,12 +1292,12 @@ references:
   isSpec: "True"
   fullName: Visuals.ConsoleVisuals.WriteParagraph
   nameWithType: ConsoleVisuals.WriteParagraph
-- uid: Visuals.ConsoleVisuals.WritePrompt(System.String)
-  name: WritePrompt(String)
-  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_WritePrompt_System_String_
-  commentId: M:Visuals.ConsoleVisuals.WritePrompt(System.String)
-  fullName: Visuals.ConsoleVisuals.WritePrompt(System.String)
-  nameWithType: ConsoleVisuals.WritePrompt(String)
+- uid: Visuals.ConsoleVisuals.WritePrompt(System.String,System.Boolean,System.Int32)
+  name: WritePrompt(String, Boolean, Int32)
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_WritePrompt_System_String_System_Boolean_System_Int32_
+  commentId: M:Visuals.ConsoleVisuals.WritePrompt(System.String,System.Boolean,System.Int32)
+  fullName: Visuals.ConsoleVisuals.WritePrompt(System.String, System.Boolean, System.Int32)
+  nameWithType: ConsoleVisuals.WritePrompt(String, Boolean, Int32)
 - uid: Visuals.ConsoleVisuals.WritePrompt*
   name: WritePrompt
   href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_WritePrompt_
@@ -1204,3 +1305,16 @@ references:
   isSpec: "True"
   fullName: Visuals.ConsoleVisuals.WritePrompt
   nameWithType: ConsoleVisuals.WritePrompt
+- uid: Visuals.ConsoleVisuals.WriteTitle
+  name: WriteTitle()
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_WriteTitle
+  commentId: M:Visuals.ConsoleVisuals.WriteTitle
+  fullName: Visuals.ConsoleVisuals.WriteTitle()
+  nameWithType: ConsoleVisuals.WriteTitle()
+- uid: Visuals.ConsoleVisuals.WriteTitle*
+  name: WriteTitle
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_WriteTitle_
+  commentId: Overload:Visuals.ConsoleVisuals.WriteTitle
+  isSpec: "True"
+  fullName: Visuals.ConsoleVisuals.WriteTitle
+  nameWithType: ConsoleVisuals.WriteTitle
