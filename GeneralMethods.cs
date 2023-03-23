@@ -14,10 +14,10 @@ public static class GeneralMethods
     /// <summary>This method is used to display the main menu.</summary>
     public static void MainMenu()
     {
-        switch (ScrollingMenu(Dict[s_Lang]["title"]["main"], new string[] { 
-            Dict[s_Lang]["options"]["main_play"], 
-            Dict[s_Lang]["options"]["main_options"],
-            Dict[s_Lang]["options"]["main_quit"], }))
+        switch (ScrollingMenu(s_Dict[s_Lang]["title"]["main"], new string[] { 
+            s_Dict[s_Lang]["options"]["main_play"], 
+            s_Dict[s_Lang]["options"]["main_options"],
+            s_Dict[s_Lang]["options"]["main_quit"], }))
         {
             case 0:
                 MainProgram.jump = MainProgram.Jump.Continue;
@@ -33,10 +33,10 @@ public static class GeneralMethods
     /// <summary>This method is used to display the Image source folder chooser.</summary>
     public static string ChooseFolder()
     {
-        switch (ScrollingMenu(Dict[s_Lang]["title"]["folder"], new string[]{
-                Dict[s_Lang]["options"]["folder_default"],
-                Dict[s_Lang]["options"]["folder_generated"],
-                Dict[s_Lang]["generic"]["back"]}))
+        switch (ScrollingMenu(s_Dict[s_Lang]["title"]["folder"], new string[]{
+                s_Dict[s_Lang]["options"]["folder_default"],
+                s_Dict[s_Lang]["options"]["folder_generated"],
+                s_Dict[s_Lang]["generic"]["back"]}))
         {
             case 0:
                 return "Images";
@@ -61,7 +61,7 @@ public static class GeneralMethods
             for (int i = 0; i < files.Length; i++)
                 filesName[i] = files[i].Substring(11);
         int namePosition;
-        switch (namePosition = ScrollingMenu(Dict[s_Lang]["title"]["file"], filesName))
+        switch (namePosition = ScrollingMenu(s_Dict[s_Lang]["title"]["file"], filesName))
         {
             case -1:
                 MainProgram.jump = MainProgram.Jump.Source_Folder;
@@ -75,11 +75,11 @@ public static class GeneralMethods
     /// <summary> This method is used to display the options menu. </summary>
     public static void Options()
     {
-        switch(ScrollingMenu(Dict[s_Lang]["title"]["options"], new string[]{
-            Dict[s_Lang]["options"]["options_color"], 
-            Dict[s_Lang]["options"]["options_language"],
-            Dict[s_Lang]["generic"]["reload"],
-            Dict[s_Lang]["generic"]["back"]}))
+        switch(ScrollingMenu(s_Dict[s_Lang]["title"]["options"], new string[]{
+            s_Dict[s_Lang]["options"]["options_color"], 
+            s_Dict[s_Lang]["options"]["options_language"],
+            s_Dict[s_Lang]["generic"]["reload"],
+            s_Dict[s_Lang]["generic"]["back"]}))
         {
             case 0:
                 MainProgram.jump = MainProgram.Jump.FontColor;
@@ -99,10 +99,10 @@ public static class GeneralMethods
     /// <summary> This method is used to display the language chooser. </summary>
     public static void ChangeLanguage()
     {
-        switch(ScrollingMenu(Dict[s_Lang]["title"]["language"], new string[]{
-            Dict[s_Lang]["options"]["language_fr"],
-            Dict[s_Lang]["options"]["language_en"],
-            Dict[s_Lang]["generic"]["back"]}))
+        switch(ScrollingMenu(s_Dict[s_Lang]["title"]["language"], new string[]{
+            s_Dict[s_Lang]["options"]["language_fr"],
+            s_Dict[s_Lang]["options"]["language_en"],
+            s_Dict[s_Lang]["generic"]["back"]}))
         {
             case 0:
                 s_Lang = "french";
@@ -119,15 +119,15 @@ public static class GeneralMethods
     /// <summary> This method is used to display the color chooser. </summary>
     public static void ChangeColor()
     {
-        switch(ScrollingMenu(Dict[s_Lang]["title"]["color"], new string[]{
-            Dict[s_Lang]["options"]["color_default"], 
-            Dict[s_Lang]["options"]["color_red"],
-            Dict[s_Lang]["options"]["color_magenta"],
-            Dict[s_Lang]["options"]["color_yellow"],
-            Dict[s_Lang]["options"]["color_green"],
-            Dict[s_Lang]["options"]["color_blue"],
-            Dict[s_Lang]["options"]["color_cyan"],
-            Dict[s_Lang]["generic"]["back"],}))
+        switch(ScrollingMenu(s_Dict[s_Lang]["title"]["color"], new string[]{
+            s_Dict[s_Lang]["options"]["color_default"], 
+            s_Dict[s_Lang]["options"]["color_red"],
+            s_Dict[s_Lang]["options"]["color_magenta"],
+            s_Dict[s_Lang]["options"]["color_yellow"],
+            s_Dict[s_Lang]["options"]["color_green"],
+            s_Dict[s_Lang]["options"]["color_blue"],
+            s_Dict[s_Lang]["options"]["color_cyan"],
+            s_Dict[s_Lang]["generic"]["back"],}))
             {
                 case 0:
                     ChangeFont(White);
@@ -159,11 +159,11 @@ public static class GeneralMethods
     /// <summary>This method is used to display the actions menu.</summary>
     public static void Actions()
     {
-        switch (ScrollingMenu(Dict[s_Lang]["title"]["actions"], new string[]{
-                Dict[s_Lang]["options"]["actions_filter"],
-                Dict[s_Lang]["options"]["actions_transformation"],
-                Dict[s_Lang]["options"]["actions_custom"],
-                Dict[s_Lang]["generic"]["back"]}))
+        switch (ScrollingMenu(s_Dict[s_Lang]["title"]["actions"], new string[]{
+                s_Dict[s_Lang]["options"]["actions_filter"],
+                s_Dict[s_Lang]["options"]["actions_transformation"],
+                s_Dict[s_Lang]["options"]["actions_custom"],
+                s_Dict[s_Lang]["generic"]["back"]}))
         {
             case 0:
                 MainProgram.jump = MainProgram.Jump.ApplyFilter;
@@ -183,13 +183,13 @@ public static class GeneralMethods
     public static void ApplyFilter()
     {
         Image image = new (Image.imagePath);
-        switch (ScrollingMenu(Dict[s_Lang]["title"]["language"], new string[]{
-                Dict[s_Lang]["options"]["filter_grey"],
-                Dict[s_Lang]["options"]["filter_bnw"],
-                Dict[s_Lang]["options"]["filter_gauss"],
-                Dict[s_Lang]["options"]["filter_sharp"],
-                Dict[s_Lang]["options"]["filter_contrast"],
-                Dict[s_Lang]["generic"]["back"]}))
+        switch (ScrollingMenu(s_Dict[s_Lang]["title"]["language"], new string[]{
+                s_Dict[s_Lang]["options"]["filter_grey"],
+                s_Dict[s_Lang]["options"]["filter_bnw"],
+                s_Dict[s_Lang]["options"]["filter_gauss"],
+                s_Dict[s_Lang]["options"]["filter_sharp"],
+                s_Dict[s_Lang]["options"]["filter_contrast"],
+                s_Dict[s_Lang]["generic"]["back"]}))
         {
             case 0:
                 image = image.TurnGrey();
@@ -216,18 +216,18 @@ public static class GeneralMethods
     public static void ApplyManipulation()
     {
         Image image = new Image(Image.imagePath);
-        switch (ScrollingMenu(Dict[s_Lang]["title"]["manip"], new string[]{
-                Dict[s_Lang]["options"]["manip_rotate"],
-                Dict[s_Lang]["options"]["manip_resize"],
-                Dict[s_Lang]["options"]["manip_detect"],
-                Dict[s_Lang]["options"]["manip_push"],
-                Dict[s_Lang]["generic"]["back"]}))
+        switch (ScrollingMenu(s_Dict[s_Lang]["title"]["manip"], new string[]{
+                s_Dict[s_Lang]["options"]["manip_rotate"],
+                s_Dict[s_Lang]["options"]["manip_resize"],
+                s_Dict[s_Lang]["options"]["manip_detect"],
+                s_Dict[s_Lang]["options"]["manip_push"],
+                s_Dict[s_Lang]["generic"]["back"]}))
         {
             case 0:
                 int? angle = null;
                 int occurrenceRotation = 0;
                 do
-                {   string answer = WritePrompt(Dict[s_Lang]["prompt"]["rotate"]);
+                {   string answer = WritePrompt(s_Dict[s_Lang]["prompt"]["rotate"]);
                     angle = int.TryParse(answer, out int result) ? result : null;
                     occurrenceRotation++;
                 } while (angle is null || angle < 0 || angle > 360);
@@ -238,7 +238,7 @@ public static class GeneralMethods
                 int occurrenceRescale = 0;
                 do
                 {
-                    string answer = WritePrompt(Dict[s_Lang]["prompt"]["resize"]);
+                    string answer = WritePrompt(s_Dict[s_Lang]["prompt"]["resize"]);
                     scale = float.TryParse(answer, out float result) ? result : null;
                     occurrenceRescale++;
                 } while (scale is null || scale < 1);
@@ -262,7 +262,7 @@ public static class GeneralMethods
         float[,]? kernel;
         while (true)
         {
-            if(int.TryParse(WritePrompt(Dict[s_Lang]["prompt"]["custom"]), out int value) && value > 2)
+            if(int.TryParse(WritePrompt(s_Dict[s_Lang]["prompt"]["custom"]), out int value) && value > 2)
             {
                 kernel = new float[value, value];
                 break;

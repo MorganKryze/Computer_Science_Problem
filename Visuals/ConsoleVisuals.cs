@@ -24,8 +24,8 @@ public static class ConsoleVisuals
     #endregion
 
     #region Properties
-    private static (string, string, string) defaultHeader => (Dict[s_Lang]["banner"]["header_l"], Dict[s_Lang]["banner"]["header_c"], Dict[s_Lang]["banner"]["header_r"]);
-    private static (string, string, string) defaultFooter => (Dict[s_Lang]["banner"]["footer_l"], Dict[s_Lang]["banner"]["footer_c"], Dict[s_Lang]["banner"]["footer_r"]);
+    private static (string, string, string) defaultHeader => (s_Dict[s_Lang]["banner"]["header_l"], s_Dict[s_Lang]["banner"]["header_c"], s_Dict[s_Lang]["banner"]["header_r"]);
+    private static (string, string, string) defaultFooter => (s_Dict[s_Lang]["banner"]["footer_l"], s_Dict[s_Lang]["banner"]["footer_c"], s_Dict[s_Lang]["banner"]["footer_r"]);
     private static int TitleHeight => titleContent.Length;
     private static int HeaderHeigth => TitleHeight ;
     private static int FooterHeigth => WindowHeight - 2;
@@ -211,7 +211,7 @@ public static class ConsoleVisuals
         WriteBanner(footer, false, straight);
         ClearPanel();
         if (!straight) 
-            LoadingScreen(Dict[s_Lang]["title"]["loading_begin"]);
+            LoadingScreen(s_Dict[s_Lang]["title"]["loading_begin"]);
     }
     /// <summary> This method prints a message in the console and gets a string written by the user. </summary>
     /// <param name="message"> The message to print. </param>
@@ -328,9 +328,9 @@ public static class ConsoleVisuals
     {
         ReloadScreen();
         WriteParagraph(new string[]{
-            Dict[s_Lang]["title"]["matrix1"], 
-            Dict[s_Lang]["title"]["matrix2"], 
-            Dict[s_Lang]["title"]["matrix3"]});
+            s_Dict[s_Lang]["title"]["matrix1"], 
+            s_Dict[s_Lang]["title"]["matrix2"], 
+            s_Dict[s_Lang]["title"]["matrix3"]});
 
         Position currentPosition = new Position(0, 0);
         List<Position> possiblePositions = new List<Position>();
@@ -363,7 +363,7 @@ public static class ConsoleVisuals
                     float number = 0;
                     while (true)
                     {
-                        if (float.TryParse(WritePrompt(Dict[s_Lang]["prompt"]["matrix_prompt"] , false, ContentHeigth + 3 + matrix.GetLength(0) + 2), out float value))
+                        if (float.TryParse(WritePrompt(s_Dict[s_Lang]["prompt"]["matrix_prompt"] , false, ContentHeigth + 3 + matrix.GetLength(0) + 2), out float value))
                         {
                             number = value;
                             break;
@@ -373,10 +373,10 @@ public static class ConsoleVisuals
                     matrix[currentPosition.X, currentPosition.Y] = number;
                     break;
                 case Enter:
-                    switch(ScrollingMenu(Dict[s_Lang]["prompt"]["matrix_choice"] , new string[]{
-                        Dict[s_Lang]["generic"]["continue"],
-                        Dict[s_Lang]["generic"]["confirm"], 
-                        Dict[s_Lang]["generic"]["back"]}, false, ContentHeigth + 3 + matrix.GetLength(0) + 2))
+                    switch(ScrollingMenu(s_Dict[s_Lang]["prompt"]["matrix_choice"] , new string[]{
+                        s_Dict[s_Lang]["generic"]["continue"],
+                        s_Dict[s_Lang]["generic"]["confirm"], 
+                        s_Dict[s_Lang]["generic"]["back"]}, false, ContentHeigth + 3 + matrix.GetLength(0) + 2))
                     {
                         case 0:
                             break;
@@ -411,7 +411,7 @@ public static class ConsoleVisuals
     /// <summary> This method exits the program. </summary>
     public static void ProgramExit()
     {
-        LoadingScreen(Dict[s_Lang]["title"]["loading_end"]);
+        LoadingScreen(s_Dict[s_Lang]["title"]["loading_end"]);
         ClearAll();
         CursorVisible = true;
         Environment.Exit(0);

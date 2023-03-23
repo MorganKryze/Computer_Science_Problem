@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Text.Json;
 
 namespace Computer_Science_Problem.Language;
@@ -10,7 +6,7 @@ namespace Computer_Science_Problem.Language;
 public static class LanguageDictonary
 {
     /// <summary> This field represents the dictionary. </summary>
-    public static Dictionary<string, Dictionary<string,  Dictionary<string, string>>> Dict { get; set; } = new();
+    public static Dictionary<string, Dictionary<string,  Dictionary<string, string>>> s_Dict { get; set; } = new();
     /// <summary> This field represents the current language. </summary>
     public static string s_Lang = "english";
 
@@ -24,7 +20,7 @@ public static class LanguageDictonary
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
         };
         Dictionary<string, Dictionary<string,  Dictionary<string, string>>>? nullHandler = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string,  Dictionary<string, string>>>>(jsonString, options);
-        Dict = nullHandler ?? throw new NullReferenceException("The dictionary is null.");
+        s_Dict = nullHandler ?? throw new NullReferenceException("The dictionary is null.");
     }
 
 }
