@@ -586,50 +586,6 @@ references:
   isSpec: "True"
   fullName: Computer_Science_Problem.Image.Width
   nameWithType: Image.Width
-- uid: Computer_Science_Problem.Language
-  name: Computer_Science_Problem.Language
-  href: api/Computer_Science_Problem.Language.html
-  commentId: N:Computer_Science_Problem.Language
-  fullName: Computer_Science_Problem.Language
-  nameWithType: Computer_Science_Problem.Language
-- uid: Computer_Science_Problem.Language.LanguageDictonary
-  name: LanguageDictonary
-  href: api/Computer_Science_Problem.Language.LanguageDictonary.html
-  commentId: T:Computer_Science_Problem.Language.LanguageDictonary
-  fullName: Computer_Science_Problem.Language.LanguageDictonary
-  nameWithType: LanguageDictonary
-- uid: Computer_Science_Problem.Language.LanguageDictonary.InitializeDict
-  name: InitializeDict()
-  href: api/Computer_Science_Problem.Language.LanguageDictonary.html#Computer_Science_Problem_Language_LanguageDictonary_InitializeDict
-  commentId: M:Computer_Science_Problem.Language.LanguageDictonary.InitializeDict
-  fullName: Computer_Science_Problem.Language.LanguageDictonary.InitializeDict()
-  nameWithType: LanguageDictonary.InitializeDict()
-- uid: Computer_Science_Problem.Language.LanguageDictonary.InitializeDict*
-  name: InitializeDict
-  href: api/Computer_Science_Problem.Language.LanguageDictonary.html#Computer_Science_Problem_Language_LanguageDictonary_InitializeDict_
-  commentId: Overload:Computer_Science_Problem.Language.LanguageDictonary.InitializeDict
-  isSpec: "True"
-  fullName: Computer_Science_Problem.Language.LanguageDictonary.InitializeDict
-  nameWithType: LanguageDictonary.InitializeDict
-- uid: Computer_Science_Problem.Language.LanguageDictonary.s_Dict
-  name: s_Dict
-  href: api/Computer_Science_Problem.Language.LanguageDictonary.html#Computer_Science_Problem_Language_LanguageDictonary_s_Dict
-  commentId: P:Computer_Science_Problem.Language.LanguageDictonary.s_Dict
-  fullName: Computer_Science_Problem.Language.LanguageDictonary.s_Dict
-  nameWithType: LanguageDictonary.s_Dict
-- uid: Computer_Science_Problem.Language.LanguageDictonary.s_Dict*
-  name: s_Dict
-  href: api/Computer_Science_Problem.Language.LanguageDictonary.html#Computer_Science_Problem_Language_LanguageDictonary_s_Dict_
-  commentId: Overload:Computer_Science_Problem.Language.LanguageDictonary.s_Dict
-  isSpec: "True"
-  fullName: Computer_Science_Problem.Language.LanguageDictonary.s_Dict
-  nameWithType: LanguageDictonary.s_Dict
-- uid: Computer_Science_Problem.Language.LanguageDictonary.s_Lang
-  name: s_Lang
-  href: api/Computer_Science_Problem.Language.LanguageDictonary.html#Computer_Science_Problem_Language_LanguageDictonary_s_Lang
-  commentId: F:Computer_Science_Problem.Language.LanguageDictonary.s_Lang
-  fullName: Computer_Science_Problem.Language.LanguageDictonary.s_Lang
-  nameWithType: LanguageDictonary.s_Lang
 - uid: Computer_Science_Problem.MainProgram
   name: MainProgram
   href: api/Computer_Science_Problem.MainProgram.html
@@ -730,6 +686,50 @@ references:
   isSpec: "True"
   fullName: Computer_Science_Problem.MainProgram.Main
   nameWithType: MainProgram.Main
+- uid: Language
+  name: Language
+  href: api/Language.html
+  commentId: N:Language
+  fullName: Language
+  nameWithType: Language
+- uid: Language.LanguageDictonary
+  name: LanguageDictonary
+  href: api/Language.LanguageDictonary.html
+  commentId: T:Language.LanguageDictonary
+  fullName: Language.LanguageDictonary
+  nameWithType: LanguageDictonary
+- uid: Language.LanguageDictonary.InitializeDict
+  name: InitializeDict()
+  href: api/Language.LanguageDictonary.html#Language_LanguageDictonary_InitializeDict
+  commentId: M:Language.LanguageDictonary.InitializeDict
+  fullName: Language.LanguageDictonary.InitializeDict()
+  nameWithType: LanguageDictonary.InitializeDict()
+- uid: Language.LanguageDictonary.InitializeDict*
+  name: InitializeDict
+  href: api/Language.LanguageDictonary.html#Language_LanguageDictonary_InitializeDict_
+  commentId: Overload:Language.LanguageDictonary.InitializeDict
+  isSpec: "True"
+  fullName: Language.LanguageDictonary.InitializeDict
+  nameWithType: LanguageDictonary.InitializeDict
+- uid: Language.LanguageDictonary.s_Dict
+  name: s_Dict
+  href: api/Language.LanguageDictonary.html#Language_LanguageDictonary_s_Dict
+  commentId: P:Language.LanguageDictonary.s_Dict
+  fullName: Language.LanguageDictonary.s_Dict
+  nameWithType: LanguageDictonary.s_Dict
+- uid: Language.LanguageDictonary.s_Dict*
+  name: s_Dict
+  href: api/Language.LanguageDictonary.html#Language_LanguageDictonary_s_Dict_
+  commentId: Overload:Language.LanguageDictonary.s_Dict
+  isSpec: "True"
+  fullName: Language.LanguageDictonary.s_Dict
+  nameWithType: LanguageDictonary.s_Dict
+- uid: Language.LanguageDictonary.s_Lang
+  name: s_Lang
+  href: api/Language.LanguageDictonary.html#Language_LanguageDictonary_s_Lang
+  commentId: F:Language.LanguageDictonary.s_Lang
+  fullName: Language.LanguageDictonary.s_Lang
+  nameWithType: LanguageDictonary.s_Lang
 - uid: Utilitary
   name: Utilitary
   href: api/Utilitary.html
