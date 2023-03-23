@@ -4,7 +4,7 @@ using static System.IO.File;
 using static System.ConsoleColor;
 using static System.ConsoleKey;
 
-using static Computer_Science_Problem.Language.LanguageDictonary;
+using static Language.LanguageDictonary;
 using  Utilitary;
 
 namespace Visuals;

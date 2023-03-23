@@ -3,7 +3,7 @@ using static Visuals.ConsoleVisuals;
 using static System.Console;
 using static System.ConsoleColor;
 
-using static Computer_Science_Problem.Language.LanguageDictonary;
+using static Language.LanguageDictonary;
 
 namespace Computer_Science_Problem;
 

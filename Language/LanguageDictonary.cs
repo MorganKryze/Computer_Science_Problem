@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-namespace Computer_Science_Problem.Language;
+namespace Language;
 
 /// <summary> This class represents a language dictionary. </summary>
 public static class LanguageDictonary
