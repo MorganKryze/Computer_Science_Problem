@@ -258,17 +258,7 @@ public class Image
                     Process.Start(path);
                     break;
                 case PlatformID.Unix:
-                    bool isVsCodeRunning = false;
-                    Process[] processes = Process.GetProcesses();
-                    foreach (Process p in Process.GetProcesses())
-                    {
-                        if (p.ProcessName.Contains("code"))
-                        {
-                            isVsCodeRunning = true;
-                            break;
-                        }
-                    }
-                    if (isVsCodeRunning)
+                    if (isVsCodeRunning())
                         Process.Start("/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code", path);
                     else
                         Process.Start("open", path);
@@ -276,6 +266,29 @@ public class Image
                 default:
                     throw new PlatformNotSupportedException();
             }
+        }
+        bool isVsCodeRunning()
+        {
+            bool running = false;
+            Process process = new Process();
+            ProcessStartInfo startInfo = new ProcessStartInfo()
+            {
+                FileName = "/bin/bash",
+                Arguments = "-c \"pgrep 'Code Helper'\"",
+                RedirectStandardOutput = true,
+                UseShellExecute = false
+            };
+            process.StartInfo = startInfo;
+            process.Start();
+            string output = process.StandardOutput.ReadToEnd();
+            process.WaitForExit();
+
+            if (!string.IsNullOrEmpty(output))
+            {
+                running = true;
+            }
+
+            return running;
         }
     }
     #endregion
