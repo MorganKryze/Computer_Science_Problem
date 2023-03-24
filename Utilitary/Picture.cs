@@ -1,6 +1,12 @@
 ﻿using System.Diagnostics;
 using System.Text;
+using System.Drawing;
+using System.Drawing.Imaging;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Processing;
+using SixLabors.ImageSharp.Formats.Jpeg;
 using static System.Console;
+using System.IO;
 
 using static Visuals.ConsoleVisuals;
 using static Language.LanguageDictonary;
@@ -8,7 +14,7 @@ using static Language.LanguageDictonary;
 namespace Utilitary;
 
 /// <summary> This class represents an image. </summary>
-public class Image 
+public class Picture 
 {
     #region Fields
     /// <summary> Represents the path of the first image. </summary>
@@ -24,9 +30,9 @@ public class Image
     #endregion
 
     #region Constructors
-    /// <summary> Creates an <see cref="Image"/> instance from a referenced file by <paramref name="filePath"/>. </summary>
+    /// <summary> Creates an <see cref="Picture"/> instance from a referenced file by <paramref name="filePath"/>. </summary>
     /// <param name="filePath"> Image path to open. </param>
-    public Image(string? filePath)
+    public Picture(string? filePath)
     {
         if (filePath is null) 
             throw new ArgumentNullException(nameof(filePath));
@@ -47,10 +53,10 @@ public class Image
         if (Content is null) 
             throw new ArgumentNullException(nameof(Content));
     }
-    /// <summary> Creates an <see cref="Image"/> instance from an height <paramref name="height"/> and a width <paramref name="width"/>. <br/>The image is automatically filled in black (components set to 0).</summary>
+    /// <summary> Creates an <see cref="Picture"/> instance from an height <paramref name="height"/> and a width <paramref name="width"/>. <br/>The image is automatically filled in black (components set to 0).</summary>
     /// <param name="width">Image width.</param>
     /// <param name="height">Image height.</param>
-    public Image(int width, int height)
+    public Picture(int width, int height)
     {
         if (width < 1 || height < 1) 
             throw new ArgumentOutOfRangeException("Width and height must be positive");
@@ -93,34 +99,51 @@ public class Image
     #endregion 
 
     #region Transformations
-    /// <summary> Transform this <see cref="Image"/> to shades of grey (this method generates a copy). </summary>
-    /// <returns> A greyscale copy of this <see cref="Image"/>. </returns>
-    public Image TurnGrey()
+    /// <summary> Transform this <see cref="Picture"/> to shades of grey (this method generates a copy). </summary>
+    /// <returns> A greyscale copy of this <see cref="Picture"/>. </returns>
+    public Picture Grey()
     {
-        Image newImage = Copy();
+        Picture newImage = Copy();
 
         for (int x = 0; x < Width; x++) 
             for (int y = 0; y < Height; y++) 
                 newImage[x, y] = this[x, y].TurnGrey();
         return newImage;
     }
-    /// <summary> Transform this <see cref="Image"/> to black and white (this method generate a copy). </summary>
-    /// <returns> A black and white copy of this <see cref="Image"/>.</returns>
-    public Image BlackAndWhite()
+    /// <summary> Transform this <see cref="Picture"/> to black and white (this method generate a copy). </summary>
+    /// <returns> A black and white copy of this <see cref="Picture"/>.</returns>
+    public Picture BlackAndWhite()
     {
-        Image newImage = Copy();
+        Picture newImage = Copy();
 
         for (int x = 0; x < Width; x++) 
             for (int y = 0; y < Height; y++) 
                 newImage[x, y] = this[x, y].TurnGrey().Red > 127 ? new Pixel(255, 255, 255) : new Pixel(0, 0, 0);
         return newImage;
     }
-    /// <summary> Rotates the <see cref="Image"/> instance at an <paramref name="angle"/>.</summary>
+    /// <summary> Transform this <see cref="Picture"/> to a negative (this method generate a copy). </summary>
+    /// <returns> A negative copy of this <see cref="Picture"/>.</returns>
+    public Picture Negative()
+        {
+            Picture newImage = Copy();
+
+            for(int x = 0; x < Width; x++)
+            {
+                for(int y = 0; y < Height; y++)
+                {
+                    Pixel pixel = this[x, y];
+                    newImage[x, y] = new Pixel((byte)(255 - pixel.Red), (byte)(255 - pixel.Green), (byte)(255 - pixel.Blue));
+                }
+            }
+
+            return newImage;
+        }
+    /// <summary> Rotates the <see cref="Picture"/> instance at an <paramref name="angle"/>.</summary>
     /// <param name="angle">Angle of the rotation (in degrees)</param>
-    /// <returns>A copy of this <see cref="Image"/> rotated by <paramref name="angle"/> degrees.</returns>
-    public Image Rotate(int angle)
+    /// <returns>A copy of this <see cref="Picture"/> rotated by <paramref name="angle"/> degrees.</returns>
+    public Picture Rotate(int angle)
     {
-        Image previousImage = Copy();
+        Picture previousImage = Copy();
 
         double radians = angle * (double)Math.PI / 180;
         double cos = (double)Math.Cos(radians);
@@ -129,7 +152,7 @@ public class Image
         int newWidth = (int)(Width * Math.Abs(cos) + Height * Math.Abs(sin));
         int newHeight = (int)(Width * Math.Abs(sin) + Height * Math.Abs(cos));
 
-        Image newImage = new (newWidth, newHeight);
+        Picture newImage = new (newWidth, newHeight);
 
         for (int x = 0; x < newWidth; x++)
         {
@@ -144,17 +167,17 @@ public class Image
         }
         return newImage;
     }
-    /// <summary> This method scales the <see cref="Image"/> instance by a <paramref name="scale"/> factor. </summary>
+    /// <summary> This method scales the <see cref="Picture"/> instance by a <paramref name="scale"/> factor. </summary>
     /// <param name="scale"> Scale factor.</param>
-    /// <returns> A copy of this <see cref="Image"/> scaled by <paramref name="scale"/> factor.</returns>
-    public Image Resize(float scale)
+    /// <returns> A copy of this <see cref="Picture"/> scaled by <paramref name="scale"/> factor.</returns>
+    public Picture Resize(float scale)
     {
-        Image previousImage = Copy();
+        Picture previousImage = Copy();
             
         int newWidth = (int)(Width * scale);
         int newHeight = (int)(Height * scale);
 
-        Image newImage = new (newWidth, newHeight);
+        Picture newImage = new (newWidth, newHeight);
 
         for (int x = 0; x < newWidth; x++)
             for (int y = 0; y < newHeight; y++)
@@ -164,11 +187,11 @@ public class Image
     #endregion
 
     #region Methods
-    /// <summary> This method is used to get a copy of this <see cref="Image"/>. </summary>
-    /// <returns> A copy of this <see cref="Image"/>. </returns>
-    public Image Copy() 
+    /// <summary> This method is used to get a copy of this <see cref="Picture"/>. </summary>
+    /// <returns> A copy of this <see cref="Picture"/>. </returns>
+    public Picture Copy() 
     {
-        Image newImage = new (Width, Height);
+        Picture newImage = new (Width, Height);
         newImage.Header = Header;
         newImage.Content = Content;
         return newImage;
@@ -194,11 +217,11 @@ public class Image
             Content[position + 0] = value.Blue;
         }
     }
-    /// <summary> This method saves the <see cref="Image"/>. </summary>
+    /// <summary> This method saves the <see cref="Picture"/>. </summary>
     public void Save()
     {
         sw.Stop();
-        s_FinalImagePath = "Images/OUT/" + WritePrompt(s_Dict[s_Lang]["prompt"]["save"]) + ".bmp";
+        s_FinalImagePath = "Images/OUT/bmp/" + WritePrompt(s_Dict[s_Lang]["prompt"]["save"]) + ".bmp";
         sw.Start();
         using (FileStream stream = File.OpenWrite(s_FinalImagePath))
         {
@@ -212,7 +235,7 @@ public class Image
         sw.Reset();
         DisplayImage();
     }
-    /// <summary> This method is used to print the <see cref="Image"/>. </summary>
+    /// <summary> This method is used to print the <see cref="Picture"/>. </summary>
     public static void DisplayImage()
     {
         switch(ScrollingMenu(s_Dict[s_Lang]["title"]["display_action"] , new string[]{
@@ -288,5 +311,36 @@ public class Image
             return running;
         }
     }
+    
+    /// <summary> This method is used to compress the <see cref="Picture"/>. </summary>
+    public static void WorkingCompression(string path)
+    {
+        throw new NotImplementedException();
+
+        // using (var image = Image.Load("Images/Default/lena.bmp"))
+        // {
+        //     using (var outputStream = new MemoryStream())
+        //     {
+        //         image.Save(outputStream, new JpegEncoder());
+        //         File.WriteAllBytes("Images/OUT/jpg/lena2.jpg", outputStream.ToArray());
+        //     }
+        // }
+        // string imagePath = "Images/OUT/jpg/lena2.jpg"; //peut être ne pas laisser le même path pour les deux ^^'
+        // string compressedImagePath = "Images/OUT/jpg/lena2.jpg";
+        // int quality = 50;
+
+        // using (Stream inputStream = File.OpenRead(imagePath))
+        // using (Stream outputStream = File.OpenWrite(compressedImagePath))
+        // {
+        //     using (var image = Image.Load(inputStream))
+        //     {
+        //         image.Mutate(x => x.Resize(image.Width, image.Height));
+        //         var encoder = new JpegEncoder{Quality = quality};
+        //         image.Save(outputStream, encoder);
+        //     }
+        // }
+        
+    }
+
     #endregion
 }

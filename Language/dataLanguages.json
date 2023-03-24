@@ -58,6 +58,7 @@
 
             "filter_grey": "Turn to grey",
             "filter_bnw": "Black and white",
+            "filter_negative": "Turn to negative",
             "filter_gauss": "Gaussian blur",
             "filter_sharp": "Sarpen",
             "filter_contrast": "Contrast",
@@ -157,7 +158,8 @@
             "actions_custom": "Appliquer un kernel personnalisé",
 
             "filter_grey": "Rendre l'image en niveaux de gris",
-            "filter_bnw": "Rendre l'image en noir et blanc",  
+            "filter_bnw": "Rendre l'image en noir et blanc",
+            "filter_negative": "Rendre l'image négative",
             "filter_gauss": "Flou gaussien",                    
             "filter_sharp": "Améliorer la netteté",             
             "filter_contrast": "Contraster",                       

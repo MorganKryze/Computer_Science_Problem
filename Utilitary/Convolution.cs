@@ -71,21 +71,21 @@ public static class Convolution
     #endregion
 
     #region Extension methods for Image
-    ///<summary> This method applies a <see cref="Kernel"/> to an <see cref="Image"/>. </summary>
-    /// <param name="image"> The <see cref="Image"/> on which the kernel will be applied. </param>
+    ///<summary> This method applies a <see cref="Kernel"/> to an <see cref="Picture"/>. </summary>
+    /// <param name="image"> The <see cref="Picture"/> on which the kernel will be applied. </param>
     /// <param name="kernel"> The <see cref="Kernel"/> to apply. </param>
-    /// <returns> An <see cref ="Image"/> where a kernel has been applied. </returns>
-    public static Image ApplyKernelByName(this Image image, Kernel kernel)
+    /// <returns> An <see cref ="Picture"/> where a kernel has been applied. </returns>
+    public static Picture ApplyKernelByName(this Picture image, Kernel kernel)
     {
         return ApplyKernel(image, kernels[kernel]);
     }
-    ///<summary> This method applies a <see cref="Kernel"/> to an <see cref="Image"/>. </summary>
-    /// <param name="image"> The <see cref="Image"/> on which the kernel will be applied. </param>
+    ///<summary> This method applies a <see cref="Kernel"/> to an <see cref="Picture"/>. </summary>
+    /// <param name="image"> The <see cref="Picture"/> on which the kernel will be applied. </param>
     /// <param name="kernel"> The <see cref="Kernel"/> to apply. </param>
-    /// <returns> An <see cref ="Image"/> where a kernel has been applied. </returns>
-    public static Image ApplyKernel(this Image image, float[,] kernel)
+    /// <returns> An <see cref ="Picture"/> where a kernel has been applied. </returns>
+    public static Picture ApplyKernel(this Picture image, float[,] kernel)
     {
-        Image newImage = new (image.Width, image.Height);
+        Picture newImage = new (image.Width, image.Height);
 
         for (int y = 0; y < image.Height; y++)
         {
