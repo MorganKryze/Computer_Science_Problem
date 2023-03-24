@@ -20,7 +20,11 @@
 
             "save1": " SuccessFully saved at: ",
             "save2": "The subprocess took ",
-            "save3": "Press any key to continue ...",
+
+            "display_action": "Do you want to display the picture ?", 
+
+            "display_waiting1": "The picture is currently being displayed in another window.",
+            "display_waiting2": "Press [ENTER] to continue...",
 
             "loading_begin": "[ Loading the program ...]",
             "loading_end": "[ Exiting the program ...]"
@@ -79,6 +83,8 @@
         },
         "generic": {
 
+            "yes": "Yes",
+            "no": "No",
             "back": "Back",
             "continue": "Continue",
             "confirm": "Confirm",
@@ -115,7 +121,11 @@
             
             "save1": " Sauvegarde réussie à l'adresse : ",
             "save2": "L'enregistrement a pris ",
-            "save3": "Appuyez sur une touche pour continuer ...",
+
+            "display_action": "Souhaitez-vous afficher l'image ?",
+
+            "display_waiting1": "L'image est actuellement affichée dans une autre fenêtre.",
+            "display_waiting2": "Appuyez sur [ENTRER] pour continuer...",
 
             "loading_begin": "[ Chargement du programme ...]",
             "loading_end": "[ Fermeture du programme ...]"
@@ -172,7 +182,8 @@
             "color_cyan": "Cyan"           
         },
         "generic": {
-
+            "yes": "Oui",
+            "no": "Non",
             "back": "Retour",
             "continue": "Continuer",
             "confirm":  "Confirmer",

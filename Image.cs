@@ -1,5 +1,8 @@
 ﻿using System.Diagnostics;
 using System.Text;
+
+using static System.Console;
+
 using Utilitary;
 
 using static Visuals.ConsoleVisuals;
@@ -8,71 +11,44 @@ using static Language.LanguageDictonary;
 namespace Computer_Science_Problem;
 
 /// <summary> This class represents an image. </summary>
-public class Image : IEquatable<Image>
+public class Image 
 {
-    #region Constants
-    /// <summary> Represents the path of the image.</summary>
-    public static string imagePath = "Images/";
-    /// <summary> Represents the file type (bmp in this case). </summary>
-    public const int type = 0;
-    /// <summary> Represents the total file size (in bytes). </summary>
-    public const int fileSize = 2;
-    /// <summary> Position of the first pixel in the file (in bytes). </summary>
-    public const int offsetFirstPixel = 10;
-    /// <summary> Represents the size of the second part of the header </summary>    
-    public const int infoHeaderSize = 14;
-    /// <summary> Represents the image width (in pixels). </summary>
-    public const int offsetWidth = 18;
-    /// <summary> Represents the image height (in pixels). </summary>
-    public const int offsetHeight = 22;
-    /// <summary> Represents the number of color planes (always equals to 1 for a bmp). </summary>
-    public const int offsetColorPlanes = 26;
-    /// <summary> Represents the number of bits per pixel (often 24 because 3 bytes * 8 bits = 24). </summary>
-    public const int offsetColorDepth = 28;
-    #endregion
-
     #region Fields
-    ///<summary> Creation of the array of bytes of the header.</summary>
+    /// <summary> Represents the path of the first image. </summary>
+    public static string? s_InitialImagePath;
+    /// <summary> Represents the path of the final image. </summary>
+    public static string? s_FinalImagePath;
+    /// <summary> Represents the stopwatch used to measure the time of the execution of the filter. </summary>
+    public static Stopwatch sw = new ();
+    ///<summary> Creation of the array of bytes of the header. </summary>
     public byte[] Header;
-    ///<summary> Creation of the array of bytes of the image.</summary>                            
-    public byte[] Pixels;
-    #endregion
-
-    #region Properties
-    /// <summary> Utils.LittleEndianToUInt is a method which turn the information of the file size contained in a bytes array into an unsigned integer </summary>
-    public uint FileSize => ConvertTo.UInt(Header, fileSize);
-    /// <summary> Utils.LittleEndianToUInt is a method which turn the information of the start offset contained in a bytes array into an unsigned integer </summary>
-    public uint StartOffset => ConvertTo.UInt(Header, offsetFirstPixel);
-    /// <summary> Utils.LittleEndianToInt is a method which turn the information of the width contained in a bytes array into an integer </summary>
-    public int Width => ConvertTo.Int(Header, offsetWidth);
-    /// <summary> Utils.LittleEndianToInt is a method which turn the information of the height contained in a bytes array into an integer </summary>
-    public int Height => ConvertTo.Int(Header, offsetHeight);
-    /// <summary> Utils.LittleEndianToUShort is a method which turn the information of the color depth contained in a bytes array into an unsigned short </summary>
-    public ushort ColorDepth => ConvertTo.UShort(Header, offsetColorDepth);
-    /// <summary> Stride is the number of bytes per line of pixels. </summary>
-    public int Stride => (Width * ColorDepth / 8 + 3) / 4 * 4; 
-    /// <summary> This method is used to get the <see cref="Pixel"/> at the specified <paramref name="x"/> and <paramref name="y"/> coordinates. </summary>
-    /// <param name="x"> The x coordinate of the <see cref="Pixel"/>. </param>
-    /// <param name="y"> The y coordinate of the <see cref="Pixel"/>. </param>
-    /// <returns> The position at the specified <paramref name="x"/> and <paramref name="y"/> coordinates. </returns>
-    private int _position(int x, int y) => x * 3 + (Height - y - 1) * Stride;
+    ///<summary> Creation of the array of bytes of the image. </summary>                            
+    public byte[] Content;
     #endregion
 
     #region Constructors
-    /// <summary> Creates an <see cref="Image"/> instance from a referenced file by <paramref name="filename"/>. </summary>
-    /// <param name="filename"> Image path to open. </param>
-    public Image(string filename)
+    /// <summary> Creates an <see cref="Image"/> instance from a referenced file by <paramref name="filePath"/>. </summary>
+    /// <param name="filePath"> Image path to open. </param>
+    public Image(string? filePath)
     {
-        using (FileStream stream = File.OpenRead(filename))
+        if (filePath is null) 
+            throw new ArgumentNullException(nameof(filePath));
+
+        using (FileStream stream = File.OpenRead(filePath))
         {
-            Header = stream.ReadBytes(54);
-            Pixels = stream.ReadBytes((int)(FileSize - StartOffset));
+            Header = new byte[54];
+            for (int i = 0; i < 54; i++) 
+                Header[i] = (byte)stream.ReadByte();
+
+            Content = new byte[(int)(FileSize - StartOffset)];
+            for (int i = 0; i < (int)(FileSize - StartOffset); i++) 
+                Content[i] = (byte)stream.ReadByte();
         }
 
         if (Header is null) 
             throw new ArgumentNullException(nameof(Header));
-        if (Pixels is null) 
-            throw new ArgumentNullException(nameof(Pixels));
+        if (Content is null) 
+            throw new ArgumentNullException(nameof(Content));
     }
     /// <summary> Creates an <see cref="Image"/> instance from an height <paramref name="height"/> and a width <paramref name="width"/>. <br/>The image is automatically filled in black (components set to 0).</summary>
     /// <param name="width">Image width.</param>
@@ -83,63 +59,71 @@ public class Image : IEquatable<Image>
             throw new ArgumentOutOfRangeException("Width and height must be positive");
             
         Header = new byte[54];
-        Header.InsertBytes(Encoding.ASCII.GetBytes("BM"), type);
-        Header.InsertBytes(ConvertTo.LittleEndian((uint)Header.Length), offsetFirstPixel);
-        Header.InsertBytes(ConvertTo.LittleEndian(0x28), infoHeaderSize);
-        Header.InsertBytes(ConvertTo.LittleEndian(width), offsetWidth);
-        Header.InsertBytes(ConvertTo.LittleEndian(height), offsetHeight);
-        Header.InsertBytes(ConvertTo.LittleEndian((ushort)1), offsetColorPlanes);
-        Header.InsertBytes(ConvertTo.LittleEndian((ushort)24), offsetColorDepth);
+        for (int i = 0; i < Encoding.ASCII.GetBytes("BM").Length; i++) 
+            Header[i] = Encoding.ASCII.GetBytes("BM")[i];
+        for (int i = 0; i < ConvertTo.LittleEndian((uint)Header.Length).Length; i++) 
+            Header[10 + i] = ConvertTo.LittleEndian((uint)Header.Length)[i];
+        for (int i = 0; i < ConvertTo.LittleEndian(40).Length; i++) 
+            Header[14 + i] = ConvertTo.LittleEndian(40)[i];
+        for (int i = 0; i < ConvertTo.LittleEndian(width).Length; i++) 
+            Header[18 + i] = ConvertTo.LittleEndian(width)[i];
+        for (int i = 0; i < ConvertTo.LittleEndian(height).Length; i++) 
+            Header[22 + i] = ConvertTo.LittleEndian(height)[i];
+        for (int i = 0; i < ConvertTo.LittleEndian((ushort)1).Length; i++) 
+            Header[26 + i] = ConvertTo.LittleEndian((ushort)1)[i];
+        for (int i = 0; i < ConvertTo.LittleEndian((ushort)24).Length; i++) 
+            Header[28 + i] = ConvertTo.LittleEndian((ushort)24)[i];
 
-        Pixels = new byte[height * Stride];
-
-        Header.InsertBytes(ConvertTo.LittleEndian((uint)(Header.Length + Pixels.Length)), fileSize);
-    }
-    /// <summary> Creates a copy of an <see cref="Image"/> instance . </summary>
-    /// <param name="original"><see cref="Image"/>to copy.</param>
-    public Image(Image original)
-    {
-        if (original is null) 
-            throw new ArgumentNullException("Original");
-
-        Header = new byte[original.Header.Length];
-        Array.Copy(original.Header, Header, Header.Length);
-
-        Pixels = new byte[original.Pixels.Length];
-        Array.Copy(original.Pixels, Pixels, Pixels.Length);
-
+        Content = new byte[height * Stride];
+        for (int i = 0; i < ConvertTo.LittleEndian((uint)(Header.Length + Content.Length)).Length; i++) 
+            Header[2 + i] = ConvertTo.LittleEndian((uint)(Header.Length + Content.Length))[i];
     }
     #endregion
 
+    #region Properties
+    /// <summary> Utils.LittleEndianToUInt is a method which turn the information of the file size contained in a bytes array into an unsigned integer </summary>
+    public uint FileSize => ConvertTo.UInt(Header, 2);
+    /// <summary> Utils.LittleEndianToUInt is a method which turn the information of the start offset contained in a bytes array into an unsigned integer </summary>
+    public uint StartOffset => ConvertTo.UInt(Header, 10);
+    /// <summary> Utils.LittleEndianToInt is a method which turn the information of the width contained in a bytes array into an integer </summary>
+    public int Width => ConvertTo.Int(Header, 18);
+    /// <summary> Utils.LittleEndianToInt is a method which turn the information of the height contained in a bytes array into an integer </summary>
+    public int Height => ConvertTo.Int(Header, 22);
+    /// <summary> Utils.LittleEndianToUShort is a method which turn the information of the color depth contained in a bytes array into an unsigned short </summary>
+    public ushort ColorDepth => ConvertTo.UShort(Header, 28);
+    /// <summary> Stride is the number of bytes per line of pixels. </summary>
+    public int Stride => (Width * ColorDepth / 8 + 3) / 4 * 4; 
+    #endregion 
+
     #region Transformations
-    /// <summary>Transform this <see cref="Image"/> to shades of grey (this method generates a copy).</summary>
-    /// <returns> A greyscale copy of this <see cref="Image"/>.</returns>
+    /// <summary> Transform this <see cref="Image"/> to shades of grey (this method generates a copy). </summary>
+    /// <returns> A greyscale copy of this <see cref="Image"/>. </returns>
     public Image TurnGrey()
     {
-        Image result = this.Copy();
+        Image newImage = Copy();
 
         for (int x = 0; x < Width; x++) 
             for (int y = 0; y < Height; y++) 
-                result[x, y] = this[x, y].TurnGrey();
-        return result;
+                newImage[x, y] = this[x, y].TurnGrey();
+        return newImage;
     }
     /// <summary> Transform this <see cref="Image"/> to black and white (this method generate a copy). </summary>
     /// <returns> A black and white copy of this <see cref="Image"/>.</returns>
     public Image BlackAndWhite()
     {
-        Image previousImage = this.Copy();
+        Image newImage = Copy();
 
         for (int x = 0; x < Width; x++) 
             for (int y = 0; y < Height; y++) 
-                previousImage[x, y] = this[x, y].TurnGrey().Red > 127 ? new Pixel(255, 255, 255) : new Pixel(0, 0, 0);
-        return previousImage;
+                newImage[x, y] = this[x, y].TurnGrey().Red > 127 ? new Pixel(255, 255, 255) : new Pixel(0, 0, 0);
+        return newImage;
     }
     /// <summary> Rotates the <see cref="Image"/> instance at an <paramref name="angle"/>.</summary>
     /// <param name="angle">Angle of the rotation (in degrees)</param>
     /// <returns>A copy of this <see cref="Image"/> rotated by <paramref name="angle"/> degrees.</returns>
     public Image Rotate(int angle)
     {
-        Image previousImage = this.Copy();
+        Image previousImage = Copy();
 
         double radians = angle * (double)Math.PI / 180;
         double cos = (double)Math.Cos(radians);
@@ -168,10 +152,7 @@ public class Image : IEquatable<Image>
     /// <returns> A copy of this <see cref="Image"/> scaled by <paramref name="scale"/> factor.</returns>
     public Image Resize(float scale)
     {
-        Image previousImage = this.Copy();
-
-        if (scale == 1) 
-            return previousImage;
+        Image previousImage = Copy();
             
         int newWidth = (int)(Width * scale);
         int newHeight = (int)(Height * scale);
@@ -185,79 +166,117 @@ public class Image : IEquatable<Image>
     }
     #endregion
 
-    #region Operators
-    /// <summary> The equality operator. </summary>
-    /// <param name="a"> The first <see cref="Image"/> to compare. </param>
-    /// <param name="b"> The second <see cref="Image"/> to compare. </param>
-    /// <returns> True if the two <see cref="Image"/>s are equal, false otherwise. </returns>
-    public static bool operator ==(Image a, Image b)
-    {
-        if (ReferenceEquals(a, b))
-            return true;
-
-        if (ReferenceEquals(a, null) || ReferenceEquals(b, null))
-            return false;
-
-        if (a.Width != b.Width || a.Height != b.Height)
-            return false;
-
-        for (int x = 0; x < a.Width; x++)
-            for (int y = 0; y < a.Height; y++)
-                if (a[x, y] != b[x, y])
-                    return false;
-        return true;
-    }
-    /// <summary> The inequality operator. </summary>
-    /// <param name="a"> The first <see cref="Image"/> to compare. </param>
-    /// <param name="b"> The second <see cref="Image"/> to compare. </param>
-    /// <returns> True if the two <see cref="Image"/>s are not equal, false otherwise. </returns>
-    public static bool operator !=(Image a, Image b) => !(a == b);
-    /// <summary> This method is used to check if 2 <see cref="Image"/> are equal. </summary>
-    /// <seealso cref="operator ==(Image, Image)"/>
-    /// <returns>True if the 2 <see cref="Image"/> are equal, false otherwise.</returns>
-    public override bool Equals(object? other) => other is Image && this == (Image)other;
-    /// <summary> This method is used to check if 2 <see cref="Image"/> are equal. </summary>
-    /// <seealso cref="operator ==(Image, Image)"/>
-    /// <returns>True if the 2 <see cref="Image"/> are equal, false otherwise.</returns>
-    public bool Equals(Image? other) => other is not null && this == other;
-    /// <summary> This method is used to get the hash code of this <see cref="Image"/>. </summary>
-    public override int GetHashCode() => base.GetHashCode();
-    #endregion
-
     #region Methods
     /// <summary> This method is used to get a copy of this <see cref="Image"/>. </summary>
     /// <returns> A copy of this <see cref="Image"/>. </returns>
-    public Image Copy() => new (this);
+    public Image Copy() 
+    {
+        Image newImage = new (Width, Height);
+        newImage.Header = Header;
+        newImage.Content = Content;
+        return newImage;
+    }
+    /// <summary> This method is used to get the <see cref="Pixel"/> at the specified <paramref name="x"/> and <paramref name="y"/> coordinates. </summary>
+    /// <param name="x"> The x coordinate of the <see cref="Pixel"/>. </param>
+    /// <param name="y"> The y coordinate of the <see cref="Pixel"/>. </param>
+    /// <returns> The position at the specified <paramref name="x"/> and <paramref name="y"/> coordinates. </returns>
+    private int pos(int x, int y) => x * 3 + (Height - y - 1) * Stride;
     /// <summary> This method is used to get the <see cref="Pixel"/> at the specified <paramref name="x"/> and <paramref name="y"/> coordinates. </summary>
     public Pixel this[int x, int y]
     {
         get
         {
-            int position = _position(x, y);
-            return new (Pixels[position + 2], Pixels[position + 1], Pixels[position + 0]);
+            int position = pos(x, y);
+            return new (Content[position + 2], Content[position + 1], Content[position + 0]);
         }
         set
         {
-            int position = _position(x, y);
-            Pixels[position + 2] = value.Red;
-            Pixels[position + 1] = value.Green;
-            Pixels[position + 0] = value.Blue;
+            int position = pos(x, y);
+            Content[position + 2] = value.Red;
+            Content[position + 1] = value.Green;
+            Content[position + 0] = value.Blue;
         }
     }
     /// <summary> This method saves the <see cref="Image"/>. </summary>
     public void Save()
     {
-        string path = "Images/OUT/" + WritePrompt(s_Dict[s_Lang]["prompt"]["save"]) + ".bmp";
-        Stopwatch stopwatch = new ();
-        stopwatch.Start();
-        using (FileStream stream = File.OpenWrite(path))
+        sw.Stop();
+        s_FinalImagePath = "Images/OUT/" + WritePrompt(s_Dict[s_Lang]["prompt"]["save"]) + ".bmp";
+        sw.Start();
+        using (FileStream stream = File.OpenWrite(s_FinalImagePath))
         {
             stream.Write(Header, 0, Header.Length);
-            stream.Write(Pixels, 0, Pixels.Length);
+            stream.Write(Content, 0, Content.Length);
         }
-        stopwatch.Stop();
-        WriteParagraph(new string[] { s_Dict[s_Lang]["title"]["save1"]  + path + " ", s_Dict[s_Lang]["title"]["save2"] + stopwatch.ElapsedMilliseconds + " ms. ", s_Dict[s_Lang]["title"]["save3"]}, true);
-		Console.ReadKey(true);
+        sw.Stop();
+        WriteParagraph(new string[] {
+            s_Dict[s_Lang]["title"]["save1"]  + s_FinalImagePath + " ", 
+            s_Dict[s_Lang]["title"]["save2"] + sw.ElapsedMilliseconds + " ms. "}, true);
+        sw.Reset();
+        DisplayImage();
+    }
+    /// <summary> This method is used to print the <see cref="Image"/>. </summary>
+    public static void DisplayImage()
+    {
+        switch(ScrollingMenu(s_Dict[s_Lang]["title"]["display_action"] , new string[]{
+            s_Dict[s_Lang]["generic"]["no"], 
+            s_Dict[s_Lang]["generic"]["yes"]}, false, CursorTop + 2))
+        {
+            case 1:
+                break;
+            default:
+                if (s_FinalImagePath is not null)
+                {
+                    s_InitialImagePath = null;
+                    s_FinalImagePath = null;
+                }
+                return;
+        }
+        if (s_FinalImagePath is not null)
+            Display(s_FinalImagePath);
+        if (s_InitialImagePath is not null)
+            Display(s_InitialImagePath);
+        else
+            throw new NullReferenceException("The image path is null.");
+            
+        WriteParagraph(new string[] {
+            s_Dict[s_Lang]["title"]["display_waiting1"], 
+            s_Dict[s_Lang]["title"]["display_waiting2"]  }, true);
+        ReadKey(true);
+        if (s_FinalImagePath is not null)
+        {
+            s_InitialImagePath = null;
+            s_FinalImagePath = null;
+        }
+
+        void Display(string path)
+        {
+
+            switch (Environment.OSVersion.Platform)
+            {
+                case PlatformID.Win32NT:
+                    Process.Start(path);
+                    break;
+                case PlatformID.Unix:
+                    bool isVsCodeRunning = false;
+                    Process[] processes = Process.GetProcesses();
+                    foreach (Process p in Process.GetProcesses())
+                    {
+                        if (p.ProcessName.Contains("code"))
+                        {
+                            isVsCodeRunning = true;
+                            break;
+                        }
+                    }
+                    if (isVsCodeRunning)
+                        Process.Start("/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code", path);
+                    else
+                        Process.Start("open", path);
+                    break;
+                default:
+                    throw new PlatformNotSupportedException();
+            }
+        }
     }
     #endregion
 }

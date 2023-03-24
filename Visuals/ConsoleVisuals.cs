@@ -285,7 +285,7 @@ public static class ConsoleVisuals
         int maxLength = choices.Count() > 0 ? choices.Max(s => s.Length) : 0;
 
         for (int i = 0; i < choices.Length; i++) 
-            choices[i] = choices[i].PadRight(maxLength + 1);
+            choices[i] = choices[i].PadRight(maxLength);
         ContinuousPrint(question, line, default, 1500, 50);
         while (true)
         {

@@ -1,8 +1,8 @@
-using static Visuals.ConsoleVisuals;
+using System.Diagnostics;
 
-using static System.Console;
 using static System.ConsoleColor;
 
+using static Visuals.ConsoleVisuals;
 using static Language.LanguageDictonary;
 
 namespace Computer_Science_Problem;
@@ -67,7 +67,8 @@ public static class GeneralMethods
                 MainProgram.jump = MainProgram.Jump.Source_Folder;
                 break;
             default:
-                Image.imagePath = files[namePosition];
+                Image.s_InitialImagePath = files[namePosition];
+                Image.DisplayImage();
                 MainProgram.jump = MainProgram.Jump.Continue;
                 break;
         }
@@ -182,7 +183,7 @@ public static class GeneralMethods
     /// <summary>This method is used to display the filters menu.</summary>
     public static void ApplyFilter()
     {
-        Image image = new (Image.imagePath);
+        Image image = new (Image.s_InitialImagePath);
         switch (ScrollingMenu(s_Dict[s_Lang]["title"]["language"], new string[]{
                 s_Dict[s_Lang]["options"]["filter_grey"],
                 s_Dict[s_Lang]["options"]["filter_bnw"],
@@ -192,18 +193,23 @@ public static class GeneralMethods
                 s_Dict[s_Lang]["generic"]["back"]}))
         {
             case 0:
+                Image.sw.Start();
                 image = image.TurnGrey();
                 break;
             case 1:
+                Image.sw.Start();
                 image = image.BlackAndWhite();
                 break;
             case 2:
+                Image.sw.Start();
                 image = image.ApplyKernelByName(Convolution.Kernel.GaussianBlur3x3);
                 break;
             case 3:
+                Image.sw.Start();
                 image = image.ApplyKernelByName(Convolution.Kernel.Sharpen);
                 break;
             case 4:
+                Image.sw.Start();
                 image = image.ApplyKernelByName(Convolution.Kernel.Contrast);
                 break;
             case 5: case -1:
@@ -215,7 +221,7 @@ public static class GeneralMethods
     /// <summary>This method is used to display the manipulations menu.</summary>
     public static void ApplyManipulation()
     {
-        Image image = new Image(Image.imagePath);
+        Image image = new Image(Image.s_InitialImagePath);
         switch (ScrollingMenu(s_Dict[s_Lang]["title"]["manip"], new string[]{
                 s_Dict[s_Lang]["options"]["manip_rotate"],
                 s_Dict[s_Lang]["options"]["manip_resize"],
@@ -231,6 +237,7 @@ public static class GeneralMethods
                     angle = int.TryParse(answer, out int result) ? result : null;
                     occurrenceRotation++;
                 } while (angle is null || angle < 0 || angle > 360);
+                Image.sw.Start();
                 image = image.Rotate((int)angle);
                 break;
             case 1:
@@ -242,12 +249,15 @@ public static class GeneralMethods
                     scale = float.TryParse(answer, out float result) ? result : null;
                     occurrenceRescale++;
                 } while (scale is null || scale < 1);
+                Image.sw.Start();
                 image = image.Resize((float)scale);
                 break;
             case 2:
+                Image.sw.Start();
                 image = image.ApplyKernelByName(Convolution.Kernel.EdgeDetection);
                 break;
             case 3:
+                Image.sw.Start();
                 image = image.ApplyKernelByName(Convolution.Kernel.EdgePushing);
                 break;
             case 4: case -1:
@@ -275,50 +285,12 @@ public static class GeneralMethods
         else
         {
             float[,] newKernel = (float[,])kernel;
-            Image image = new Image(Image.imagePath);
+            Image image = new Image(Image.s_InitialImagePath);
+            Image.sw.Start();
             image = image.ApplyKernel(newKernel);
             image.Save();
             MainProgram.jump = MainProgram.Jump.Main_Menu;
         }
-    }
-    #endregion
- 
-    #region Extension to the Stream class
-    /// <summary> This method reads a <see cref="byte"/> array from a <see cref="Stream"/>. </summary>
-    /// <param name="stream"> The <see cref="Stream"/> to read from. </param>
-    /// <param name="length"> The length of the array to read. </param>
-    /// <returns> The <see cref="byte"/> array read. </returns>
-    public static byte[] ReadBytes(this Stream stream, int length)
-    {
-        byte[] array = new byte[length];
-        for (int i = 0; i < length; i++) 
-            array[i] = (byte)stream.ReadByte();
-        return array;
-    }
-    /// <summary> This method extracts a <see cref="byte"/> array from a <see cref="Stream"/>. </summary>
-    /// <param name="array"> The <see cref="byte"/> array to extract from. </param>
-    /// <param name="length"> The length of the array to extract. </param>
-    /// <param name="offset"> The offset in the array. </param>
-    /// <returns> The <see cref="byte"/> array extracted. </returns>
-    public static byte[] ExtractBytes(this byte[] array, int length, int offset = 0)
-    {
-        byte[] bytes = new byte[length];
-        for (int i = 0; i < length; i++) 
-            bytes[i] = array[offset + i];
-        return bytes;
-    }
-    /// <summary> This method inserts a <see cref="byte"/> array into another <see cref="byte"/> array. </summary>
-    /// <param name="array"> The array to insert into. </param>
-    /// <param name="data"> The array to insert. </param>
-    /// <param name="offsetTo"> The offset in the first array. </param>
-    /// <param name="offsetFrom"> The offset in the second array. </param>
-    /// <param name="length"> The length of the array to insert. </param>
-    public static void InsertBytes(this byte[] array, byte[] data, int offsetTo = 0, int offsetFrom = 0, int length = -1)
-    {
-        if (length < 0) 
-            length = data.Length;
-        for (int i = 0; i < length; i++) 
-            array[offsetTo + i] = data[offsetFrom + i];
     }
     #endregion
 }
