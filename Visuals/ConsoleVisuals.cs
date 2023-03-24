@@ -4,8 +4,8 @@ using static System.IO.File;
 using static System.ConsoleColor;
 using static System.ConsoleKey;
 
-using static Language.LanguageDictonary;
 using  Utilitary;
+using static Language.LanguageDictonary;
 
 namespace Visuals;
 

@@ -1,7 +1,6 @@
-using System.Diagnostics;
-
 using static System.ConsoleColor;
 
+using Utilitary;
 using static Visuals.ConsoleVisuals;
 using static Language.LanguageDictonary;
 

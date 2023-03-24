@@ -1,14 +1,11 @@
 ﻿using System.Diagnostics;
 using System.Text;
-
 using static System.Console;
-
-using Utilitary;
 
 using static Visuals.ConsoleVisuals;
 using static Language.LanguageDictonary;
 
-namespace Computer_Science_Problem;
+namespace Utilitary;
 
 /// <summary> This class represents an image. </summary>
 public class Image 

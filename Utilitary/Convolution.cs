@@ -1,10 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using Computer_Science_Problem;
 
-using Utilitary;
-
-namespace Computer_Science_Problem;
+namespace Utilitary;
 
 /// <summary> This class represents a convolution. </summary>
 public static class Convolution
