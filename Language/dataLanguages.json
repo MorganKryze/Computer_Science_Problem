@@ -103,6 +103,7 @@
         }
     },
     "french": {
+
         "title": {
 
             "main": "Bienvenue utilisateur ! Utilisez les touches du clavier pour vous déplacer et pressez [ENTRER] pour confirmer votre choix.",
@@ -184,6 +185,7 @@
             "color_cyan": "Cyan"           
         },
         "generic": {
+            
             "yes": "Oui",
             "no": "Non",
             "back": "Retour",
