@@ -37,9 +37,9 @@ public class Complex
     #endregion
 
     #region Utilitary
-    /// <summary> Gets the absolute value of this <see cref="Complex"/> number. </summary>
+    /// <summary> Gets the vectorial standard of this <see cref="Complex"/> number. </summary>
     /// <returns> The absolute value of this <see cref="Complex"/> number. </returns>
-    public double Absolute() => (double)Math.Sqrt(Re * Re + Im * Im);
+    public double VectStand() => (double)Math.Sqrt(Re * Re + Im * Im);
     /// <summary> Textual representation of the value of this complex number. </summary>
     /// <returns> A <see cref="string"/> representaion of the <see cref="Complex"/> number. </returns>
     public override string ToString()

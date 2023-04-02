@@ -1,7 +1,7 @@
 namespace Utilitary;
 
 /// <summary> This class represents a pixel. </summary>
-public class Pixel
+public class Pixel : IEquatable<Pixel>
 {
     #region Fields
     /// <summary> This field represents the red value of the pixel. </summary>
@@ -32,27 +32,26 @@ public class Pixel
     #region Methods
     /// <summary> This method returns the pixel in greyscale. </summary>
     /// <returns> A pixel in greyscale. </returns>
-    public Pixel TurnGrey() => new ((byte)((Red + Green + Blue) / 3), (byte)((Red + Green + Blue) / 3), (byte)((Red + Green + Blue) / 3));
+    public Pixel GreyAverage() => new ((byte)((Red + Green + Blue) / 3), (byte)((Red + Green + Blue) / 3), (byte)((Red + Green + Blue) / 3));
     /// <summary>This method returns a string representation of the pixel.</summary>
     /// <returns> A string representation of the pixel. </returns>
     public override string ToString() => $"({Red}, {Green}, {Blue})";
+    /// <summary>This method defines the equality between two pixels.</summary>
+    /// <param name="other">The pixel to compare.</param>
+    /// <returns>True if the pixels are equal, false otherwise.</returns>
+    public bool Equals(Pixel? other)
+    {
+        if (other is null)
+            return false;
+        else
+            return this.Red == other.Red && this.Green == other.Green && this.Blue == other.Blue;
+    }
      /// <summary>This method also defines the equality between two pixels.</summary>
     /// <param name="other">The object to compare.</param>
     /// <returns>True if the object is a pixel and is equal to the current pixel, false otherwise.</returns>
-    public override bool Equals(object? other) => other is Pixel && this == (Pixel)other;
+    public override bool Equals(object? other) => other is Pixel && this.Red == ((Pixel)other).Red && this.Green == ((Pixel)other).Green && this.Blue == ((Pixel)other).Blue;
     ///<summary>This method gets the hash code.</summary>
     /// <returns>The hash code.</returns>
     public override int GetHashCode() => base.GetHashCode();
-    #endregion
-
-    #region Operators
-    /// <summary>This method defines the equality between two pixels.</summary>
-    /// <param name="a">The first pixel.</param>
-    /// <param name="b">The second pixel.</param>
-    public static bool operator ==(Pixel a, Pixel b) => a.Red == b.Red && a.Green == b.Green && a.Blue == b.Blue;
-    /// <summary>This method defines the inequality between two pixels.</summary>
-    /// <param name="a">The first pixel.</param>
-    /// <param name="b">The second pixel.</param>
-    public static bool operator !=(Pixel a, Pixel b) => !(a == b);
     #endregion
 }

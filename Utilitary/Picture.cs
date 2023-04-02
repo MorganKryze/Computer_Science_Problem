@@ -107,7 +107,7 @@ public class Picture
 
         for (int x = 0; x < Width; x++) 
             for (int y = 0; y < Height; y++) 
-                newImage[x, y] = this[x, y].TurnGrey();
+                newImage[x, y] = this[x, y].GreyAverage();
         return newImage;
     }
     /// <summary> Transform this <see cref="Picture"/> to black and white (this method generate a copy). </summary>
@@ -118,7 +118,7 @@ public class Picture
 
         for (int x = 0; x < Width; x++) 
             for (int y = 0; y < Height; y++) 
-                newImage[x, y] = this[x, y].TurnGrey().Red > 127 ? new Pixel(255, 255, 255) : new Pixel(0, 0, 0);
+                newImage[x, y] = this[x, y].GreyAverage().Red > 127 ? new Pixel(255, 255, 255) : new Pixel(0, 0, 0);
         return newImage;
     }
     /// <summary> Transform this <see cref="Picture"/> to a negative (this method generate a copy). </summary>

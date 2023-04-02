@@ -5,20 +5,20 @@ namespace Utilitary;
 /// <summary> This class represents a convolution. </summary>
 public static class Convolution
 {
-    #region Enumeration
+    #region Kernels
     /// <summary> Enumerates the different kernels. </summary>
     public enum Kernel
     {
         /// <summary> Detects the edges. </summary>
         EdgeDetection,
+        /// <summary> Pushes the edges. </summary>
+        EdgePushing,
         /// <summary> Sharpen the image. </summary>
         Sharpen,
         /// <summary> Better emboss the image. </summary>
-        GaussianBlur3x3, 
+        GaussianBlur, 
         /// <summary> Contrasts the image. </summary>
         Contrast,
-        /// <summary> Pushes the edges. </summary>
-        EdgePushing
     }
 
     #endregion
@@ -26,13 +26,20 @@ public static class Convolution
     #region Dictionary
     private static Dictionary<Kernel, float[,]> kernels = new Dictionary<Kernel, float[,]>
     {
-        
         {
             Kernel.EdgeDetection, new float[,]
             {
                 {  0,  1,  0 },
                 {  1, -4,  1 },
                 {  0,  1,  0 }
+            }
+        },
+        {
+            Kernel.EdgePushing, new float[,]
+            {
+                { -2, -1,  0 },
+                { -1,  1,  1 },
+                {  0,  1,  2 }
             }
         },
         {
@@ -44,7 +51,7 @@ public static class Convolution
             }
         },
         {
-            Kernel.GaussianBlur3x3, new float[,]
+            Kernel.GaussianBlur, new float[,]
             {
                 { 1/16f, 2/16f, 1/16f },
                 { 2/16f, 4/16f, 2/16f },
@@ -57,14 +64,6 @@ public static class Convolution
                 {  0,  -1,  0 },
                 { -1,   5, -1 },
                 {  0,  -1,  0 }
-            }
-        },
-        {
-            Kernel.EdgePushing, new float[,]
-            {
-                { -2, -1,  0 },
-                { -1,  1,  1 },
-                {  0,  1,  2 }
             }
         }
     };

@@ -47,6 +47,7 @@ public static class GeneralMethods
         }
     }
     /// <summary> This method is used to display the file chooser. </summary>
+    /// <param name="path"> The path of the folder to display. </param>
     public static void ChooseFile(string path)
     {
         if (path is "none") 
@@ -206,7 +207,7 @@ public static class GeneralMethods
                 break;
             case 3:
                 Picture.sw.Start();
-                image = image.ApplyKernelByName(Convolution.Kernel.GaussianBlur3x3);
+                image = image.ApplyKernelByName(Convolution.Kernel.GaussianBlur);
                 break;
             case 4:
                 Picture.sw.Start();
@@ -246,12 +247,12 @@ public static class GeneralMethods
                 break;
             case 1:
                 float? scale = null;
-                int occurrenceRescale = 0;
+                int occurrenceResize = 0;
                 do
                 {
                     string answer = WritePrompt(s_Dict[s_Lang]["prompt"]["resize"]);
                     scale = float.TryParse(answer, out float result) ? result : null;
-                    occurrenceRescale++;
+                    occurrenceResize++;
                 } while (scale is null || scale < 1);
                 Picture.sw.Start();
                 image = image.Resize((float)scale);
