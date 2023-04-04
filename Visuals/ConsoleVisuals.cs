@@ -28,7 +28,7 @@ public static class ConsoleVisuals
     private static (string, string, string) defaultFooter => (s_Dict[s_Lang]["banner"]["footer_l"], s_Dict[s_Lang]["banner"]["footer_c"], s_Dict[s_Lang]["banner"]["footer_r"]);
     private static int TitleHeight => titleContent.Length;
     private static int HeaderHeigth => TitleHeight ;
-    private static int FooterHeigth => WindowHeight - 2;
+    private static int FooterHeigth => WindowHeight - 1;
     private static int ContentHeigth => HeaderHeigth + 2;
     private static bool WindowManipulated => WindowWidth != initialWindowWidth || WindowHeight != intialWindowHeight;
     #endregion

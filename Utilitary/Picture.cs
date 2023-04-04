@@ -128,14 +128,11 @@ public class Picture
             Picture newImage = Copy();
 
             for(int x = 0; x < Width; x++)
-            {
                 for(int y = 0; y < Height; y++)
                 {
                     Pixel pixel = this[x, y];
                     newImage[x, y] = new Pixel((byte)(255 - pixel.Red), (byte)(255 - pixel.Green), (byte)(255 - pixel.Blue));
                 }
-            }
-
             return newImage;
         }
     /// <summary> Rotates the <see cref="Picture"/> instance at an <paramref name="angle"/>.</summary>
@@ -155,7 +152,6 @@ public class Picture
         Picture newImage = new (newWidth, newHeight);
 
         for (int x = 0; x < newWidth; x++)
-        {
             for (int y = 0; y < newHeight; y++)
             {
                 double newX = (x - newWidth / 2) * cos - (y - newHeight / 2) * sin + Width / 2;
@@ -164,7 +160,6 @@ public class Picture
                 if (newX >= 0 && newX < Width && newY >= 0 && newY < Height) 
                     newImage[x, y] = this[(int)newX, (int)newY];
             }
-        }
         return newImage;
     }
     /// <summary> This method scales the <see cref="Picture"/> instance by a <paramref name="scale"/> factor. </summary>
@@ -252,11 +247,11 @@ public class Picture
                 }
                 return;
         }
-        if (s_FinalImagePath is not null)
-            Display(s_FinalImagePath);
         if (s_InitialImagePath is not null)
             Display(s_InitialImagePath);
-        else
+        if (s_FinalImagePath is not null)
+            Display(s_FinalImagePath);
+        if(s_InitialImagePath is null && s_FinalImagePath is null)
             throw new NullReferenceException("The image path is null.");
             
         WriteParagraph(new string[] {
