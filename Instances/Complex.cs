@@ -1,4 +1,4 @@
-﻿namespace Utilitary;
+﻿namespace Instances;
 
 /// <summary> Represents a complex number composed by a Real part and an Imaginary part with the associated mathematical operators.</summary>
 public class Complex

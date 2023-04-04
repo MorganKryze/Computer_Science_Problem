@@ -1,6 +1,8 @@
 using static System.ConsoleColor;
 
+using Instances;
 using Utilitary;
+using static Instances.PictureBitMap;
 using static Visuals.ConsoleVisuals;
 using static Language.LanguageDictonary;
 
@@ -56,10 +58,10 @@ public static class GeneralMethods
         string[] filesName = new string[files.Length];
         if (path is "Images/Default")
             for (int i = 0; i < files.Length; i++)
-                filesName[i] = files[i].Substring(15);
+                filesName[i] = files[i].Substring(15, files[i].Length - 19);
         else if (path is "Images/OUT/bmp")
             for (int i = 0; i < files.Length; i++)
-                filesName[i] = files[i].Substring(15);
+                filesName[i] = files[i].Substring(15, files[i].Length - 19);
         int namePosition;
         switch (namePosition = ScrollingMenu(s_Dict[s_Lang]["title"]["file"], filesName))
         {
@@ -67,8 +69,8 @@ public static class GeneralMethods
                 MainProgram.jump = MainProgram.Jump.Source_Folder;
                 break;
             default:
-                Picture.s_InitialImagePath = files[namePosition];
-                Picture.DisplayImage();
+                PictureBitMap.s_WorkingImagePath = files[namePosition];
+                PictureBitMap.DisplayImage();
                 MainProgram.jump = MainProgram.Jump.Continue;
                 break;
         }
@@ -183,7 +185,7 @@ public static class GeneralMethods
     /// <summary>This method is used to display the filters menu.</summary>
     public static void ApplyFilter()
     {
-        Picture image = new (Picture.s_InitialImagePath);
+        PictureBitMap image = new (PictureBitMap.s_WorkingImagePath);
         switch (ScrollingMenu(s_Dict[s_Lang]["title"]["language"], new string[]{
                 s_Dict[s_Lang]["options"]["filter_grey"],
                 s_Dict[s_Lang]["options"]["filter_bnw"],
@@ -194,27 +196,27 @@ public static class GeneralMethods
                 s_Dict[s_Lang]["generic"]["back"]}))
         {
             case 0:
-                Picture.sw.Start();
-                image = image.Grey();
+                PictureBitMap.sw.Start();
+                image = image.AlterColors(Transformations.Grey);
                 break;
             case 1:
-                Picture.sw.Start();
-                image = image.BlackAndWhite();
+                PictureBitMap.sw.Start();
+                image = image.AlterColors(Transformations.BnW);
                 break;
             case 2:
-                Picture.sw.Start();
-                image = image.Negative();
+                PictureBitMap.sw.Start();
+                image = image.AlterColors(Transformations.Negative);
                 break;
             case 3:
-                Picture.sw.Start();
+                PictureBitMap.sw.Start();
                 image = image.ApplyKernelByName(Convolution.Kernel.GaussianBlur);
                 break;
             case 4:
-                Picture.sw.Start();
+                PictureBitMap.sw.Start();
                 image = image.ApplyKernelByName(Convolution.Kernel.Sharpen);
                 break;
             case 5:
-                Picture.sw.Start();
+                PictureBitMap.sw.Start();
                 image = image.ApplyKernelByName(Convolution.Kernel.Contrast);
                 break;
             case 6: case -1:
@@ -226,7 +228,7 @@ public static class GeneralMethods
     /// <summary>This method is used to display the manipulations menu.</summary>
     public static void ApplyManipulation()
     {
-        Picture image = new Picture(Picture.s_InitialImagePath);
+        PictureBitMap image = new PictureBitMap(PictureBitMap.s_WorkingImagePath);
         switch (ScrollingMenu(s_Dict[s_Lang]["title"]["manip"], new string[]{
                 s_Dict[s_Lang]["options"]["manip_rotate"],
                 s_Dict[s_Lang]["options"]["manip_resize"],
@@ -242,8 +244,8 @@ public static class GeneralMethods
                     angle = int.TryParse(answer, out int result) ? result : null;
                     occurrenceRotation++;
                 } while (angle is null || angle < 0 || angle > 360);
-                Picture.sw.Start();
-                image = image.Rotate((int)angle);
+                PictureBitMap.sw.Start();
+                image = image.Rotation((int)angle);
                 break;
             case 1:
                 float? scale = null;
@@ -254,15 +256,15 @@ public static class GeneralMethods
                     scale = float.TryParse(answer, out float result) ? result : null;
                     occurrenceResize++;
                 } while (scale is null || scale < 1);
-                Picture.sw.Start();
+                PictureBitMap.sw.Start();
                 image = image.Resize((float)scale);
                 break;
             case 2:
-                Picture.sw.Start();
+                PictureBitMap.sw.Start();
                 image = image.ApplyKernelByName(Convolution.Kernel.EdgeDetection);
                 break;
             case 3:
-                Picture.sw.Start();
+                PictureBitMap.sw.Start();
                 image = image.ApplyKernelByName(Convolution.Kernel.EdgePushing);
                 break;
             case 4: case -1:
@@ -290,8 +292,8 @@ public static class GeneralMethods
         else
         {
             float[,] newKernel = (float[,])kernel;
-            Picture image = new Picture(Picture.s_InitialImagePath);
-            Picture.sw.Start();
+            PictureBitMap image = new PictureBitMap(PictureBitMap.s_WorkingImagePath);
+            PictureBitMap.sw.Start();
             image = image.ApplyKernel(newKernel);
             image.Save();
             MainProgram.jump = MainProgram.Jump.Main_Menu;

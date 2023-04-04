@@ -1,4 +1,4 @@
-namespace Utilitary;
+namespace Instances;
 
 /// <summary> This class represents a pixel. </summary>
 public class Pixel : IEquatable<Pixel>

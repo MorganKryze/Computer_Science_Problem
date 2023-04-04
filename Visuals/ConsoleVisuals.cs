@@ -4,7 +4,7 @@ using static System.IO.File;
 using static System.ConsoleColor;
 using static System.ConsoleKey;
 
-using  Utilitary;
+using Instances;
 using static Language.LanguageDictonary;
 
 namespace Visuals;

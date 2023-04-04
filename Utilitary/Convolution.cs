@@ -1,4 +1,4 @@
-using Computer_Science_Problem;
+using Instances;
 
 namespace Utilitary;
 
@@ -70,25 +70,25 @@ public static class Convolution
     #endregion
 
     #region Extension methods for Image
-    ///<summary> This method applies a <see cref="Kernel"/> to an <see cref="Picture"/>. </summary>
-    /// <param name="image"> The <see cref="Picture"/> on which the kernel will be applied. </param>
+    ///<summary> This method applies a <see cref="Kernel"/> to an <see cref="PictureBitMap"/>. </summary>
+    /// <param name="image"> The <see cref="PictureBitMap"/> on which the kernel will be applied. </param>
     /// <param name="kernel"> The <see cref="Kernel"/> to apply. </param>
-    /// <returns> An <see cref ="Picture"/> where a kernel has been applied. </returns>
-    public static Picture ApplyKernelByName(this Picture image, Kernel kernel)
+    /// <returns> An <see cref ="PictureBitMap"/> where a kernel has been applied. </returns>
+    public static PictureBitMap ApplyKernelByName(this PictureBitMap image, Kernel kernel)
     {
         return ApplyKernel(image, kernels[kernel]);
     }
-    ///<summary> This method applies a <see cref="Kernel"/> to an <see cref="Picture"/>. </summary>
-    /// <param name="image"> The <see cref="Picture"/> on which the kernel will be applied. </param>
+    ///<summary> This method applies a <see cref="Kernel"/> to an <see cref="PictureBitMap"/>. </summary>
+    /// <param name="image"> The <see cref="PictureBitMap"/> on which the kernel will be applied. </param>
     /// <param name="kernel"> The <see cref="Kernel"/> to apply. </param>
-    /// <returns> An <see cref ="Picture"/> where a kernel has been applied. </returns>
-    public static Picture ApplyKernel(this Picture image, float[,] kernel)
+    /// <returns> An <see cref ="PictureBitMap"/> where a kernel has been applied. </returns>
+    public static PictureBitMap ApplyKernel(this PictureBitMap image, float[,] kernel)
     {
-        Picture newImage = new (image.Width, image.Height);
+        PictureBitMap newImage = new (image.GetLength(0), image.GetLength(1));
 
-        for (int y = 0; y < image.Height; y++)
+        for (int y = 0; y < image.GetLength(1); y++)
         {
-            for (int x = 0; x < image.Width; x++)
+            for (int x = 0; x < image.GetLength(0); x++)
             {
                 int redFinal = 0;
                 int greenFinal = 0;
@@ -104,9 +104,9 @@ public static class Convolution
                         position_dy -= kernel.GetLength(0) / 2;
                         position_dx -= kernel.GetLength(1) / 2;
 
-                        if (position_dy < 0 || position_dy >= image.Height)
+                        if (position_dy < 0 || position_dy >= image.GetLength(1))
                             continue;
-                        if (position_dx < 0 || position_dx >= image.Width)
+                        if (position_dx < 0 || position_dx >= image.GetLength(0))
                             continue;
 
                         float factor = kernel[dy, dx];

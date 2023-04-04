@@ -1,4 +1,4 @@
-namespace Utilitary;
+namespace Instances;
 
 /// <summary>A class that stores the position into X and Y parameters.</summary>
 public struct Position : IEquatable<Position>

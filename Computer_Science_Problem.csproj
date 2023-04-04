@@ -9,10 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="Images/*">
+    <None Update="Images/Default/*">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Images/OUT/*">
+    <None Update="Images/OUT/bmp/*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+     <None Update="Images/OUT/jpg/*">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Images/Title/*">
