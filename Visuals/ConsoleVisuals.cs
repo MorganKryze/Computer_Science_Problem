@@ -12,7 +12,7 @@ namespace Visuals;
 /// <summary> The <see cref="ConsoleVisuals"/> classe contains all the visual elements for a console app. </summary>
 public static class ConsoleVisuals
 {
-    #region Attributes
+    #region Private attributes
     private const string titlePath = "Images/Title/title.txt";
     private static  string[] titleContent = ReadAllLines(titlePath);
     private static int initialWindowWidth = WindowWidth;
@@ -23,7 +23,7 @@ public static class ConsoleVisuals
     private  static (ConsoleColor,ConsoleColor) colorPanel = (White, Black);
     #endregion
 
-    #region Properties
+    #region Private properties
     private static (string, string, string) defaultHeader => (s_Dict[s_Lang]["banner"]["header_l"], s_Dict[s_Lang]["banner"]["header_c"], s_Dict[s_Lang]["banner"]["header_r"]);
     private static (string, string, string) defaultFooter => (s_Dict[s_Lang]["banner"]["footer_l"], s_Dict[s_Lang]["banner"]["footer_c"], s_Dict[s_Lang]["banner"]["footer_r"]);
     private static int TitleHeight => titleContent.Length;
@@ -46,7 +46,7 @@ public static class ConsoleVisuals
     }
     #endregion
 
-    #region Utility ethods
+    #region Utility methods
     /// <summary> this method changes the font color of the console. </summary>
     public static void ChangeFont(ConsoleColor newfont)
     {
@@ -76,9 +76,12 @@ public static class ConsoleVisuals
                     SetCursorPosition(WindowWidth - str.Length, line); 
                     break;
 		    }
-		else SetCursorPosition(0, line);
-		if (chariot) WriteLine(str);
-        else Write(str);
+		else 
+            SetCursorPosition(0, line);
+		if (chariot) 
+            WriteLine(str);
+        else 
+            Write(str);
         TryNegative(default);
 	}
 

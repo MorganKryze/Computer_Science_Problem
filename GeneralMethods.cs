@@ -69,8 +69,8 @@ public static class GeneralMethods
                 MainProgram.jump = MainProgram.Jump.Source_Folder;
                 break;
             default:
-                PictureBitMap.s_WorkingImagePath = files[namePosition];
-                PictureBitMap.DisplayImage();
+                PictureBitMap.s_SourceImagePath = files[namePosition];
+                new PictureBitMap(files[namePosition]).DisplayImage();
                 MainProgram.jump = MainProgram.Jump.Continue;
                 break;
         }
@@ -185,7 +185,7 @@ public static class GeneralMethods
     /// <summary>This method is used to display the filters menu.</summary>
     public static void ApplyFilter()
     {
-        PictureBitMap image = new (PictureBitMap.s_WorkingImagePath);
+        PictureBitMap image = new (PictureBitMap.s_SourceImagePath);
         switch (ScrollingMenu(s_Dict[s_Lang]["title"]["language"], new string[]{
                 s_Dict[s_Lang]["options"]["filter_grey"],
                 s_Dict[s_Lang]["options"]["filter_bnw"],
@@ -228,7 +228,7 @@ public static class GeneralMethods
     /// <summary>This method is used to display the manipulations menu.</summary>
     public static void ApplyManipulation()
     {
-        PictureBitMap image = new PictureBitMap(PictureBitMap.s_WorkingImagePath);
+        PictureBitMap image = new PictureBitMap(PictureBitMap.s_SourceImagePath);
         switch (ScrollingMenu(s_Dict[s_Lang]["title"]["manip"], new string[]{
                 s_Dict[s_Lang]["options"]["manip_rotate"],
                 s_Dict[s_Lang]["options"]["manip_resize"],
@@ -292,7 +292,7 @@ public static class GeneralMethods
         else
         {
             float[,] newKernel = (float[,])kernel;
-            PictureBitMap image = new PictureBitMap(PictureBitMap.s_WorkingImagePath);
+            PictureBitMap image = new PictureBitMap(PictureBitMap.s_SourceImagePath);
             PictureBitMap.sw.Start();
             image = image.ApplyKernel(newKernel);
             image.Save();

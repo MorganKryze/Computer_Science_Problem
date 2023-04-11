@@ -26,9 +26,9 @@ public class PictureBitMap
 
     #region Fields
     /// <summary> Represents the path of the first image. </summary>
-    public static string? s_WorkingImagePath;
+    public static string? s_SourceImagePath;
     /// <summary> Represents the path of the final image. </summary>
-    public static string? s_ResultImagePath;
+    public string? s_ResultImagePath;
     /// <summary> Represents the stopwatch used to measure the time of the execution of the filter. </summary>
     public static Stopwatch sw = new ();
     #endregion
@@ -129,7 +129,7 @@ public class PictureBitMap
     /// <returns> The transformed image. </returns>
     public PictureBitMap AlterColors(Transformations alter)
     {
-        PictureBitMap newImage = Copy();
+        PictureBitMap newImage = Dupplicate();
         for (int x = 0; x < this.GetLength(0); x++) 
             for (int y = 0; y < this.GetLength(1); y++) 
                 switch (alter)
@@ -156,7 +156,7 @@ public class PictureBitMap
     /// <returns>A copy of this <see cref="PictureBitMap"/> rotated by <paramref name="degreesAngle"/> degrees.</returns>
     public PictureBitMap Rotation(int degreesAngle)
     {
-        PictureBitMap previousImage = Copy();
+        PictureBitMap previousImage = Dupplicate();
 
         double radiansAngle = degreesAngle * (double)Math.PI / 180;
         double cos = (double)Math.Cos(radiansAngle);
@@ -183,10 +183,19 @@ public class PictureBitMap
     /// <returns> A copy of this <see cref="PictureBitMap"/> scaled by <paramref name="scale"/> factor.</returns>
     public PictureBitMap Resize(float scale)
     {
-        PictureBitMap previousImage = Copy();
+        if(scale == 1)
+            return Dupplicate();
+        if (scale < 0) 
+            throw new ArgumentException("Scale factor must be positive.");
+        if (scale > 20) 
+            throw new ArgumentException("Scale factor is too high.");
+
+        PictureBitMap previousImage = Dupplicate();
             
         int newWidth = (int)(GetLength(0) * scale);
         int newHeight = (int)(GetLength(1) * scale);
+        if (newWidth < 0 || newHeight < 0) 
+            throw new ArgumentException("Scale factor is too low.");
 
         PictureBitMap newImage = new (newWidth, newHeight);
 
@@ -198,58 +207,75 @@ public class PictureBitMap
     #endregion
 
     #region Steganography
-    /// <summary> This method hides an <paramref name="imageToHide"/> inside this <see cref="PictureBitMap"/> instance. </summary>
-    /// <param name="imageToHide"> Image to hide inside this <see cref="PictureBitMap"/> instance.</param>
-    ///<returns> A copy of this <see cref="PictureBitMap"/> with the <paramref name="imageToHide"/> hidden inside.</returns>
-    public PictureBitMap HideImageInside(PictureBitMap imageToHide)
+    /// <summary> Hides a <paramref name="guestPicture"/> in the <paramref name="hostPicture"/>. </summary>
+    /// <param name="hostPicture"> The picture in which the <paramref name="guestPicture"/> will be hidden. </param>
+    /// <param name="guestPicture"> The picture to hide in the <paramref name="hostPicture"/>. </param>
+    /// <returns> The <paramref name="hostPicture"/> with the <paramref name="guestPicture"/> hidden in it. </returns>
+    public static PictureBitMap PictureEncoding(PictureBitMap hostPicture, PictureBitMap guestPicture)
     {
-        PictureBitMap result = Copy();
-        if (this.GetLength(0) < imageToHide.GetLength(0) || this.GetLength(1) < imageToHide.GetLength(1))
+        byte codeByte(byte host, byte guest)
         {
-            float scaleX = imageToHide.GetLength(0) / this.GetLength(0);
-            float scaleY = imageToHide.GetLength(1) / this.GetLength(1);
-            float scale = Math.Max(scaleX, scaleY);
-            result = result.Resize(scale);
+            return (byte)((host & 0b11110000) | ((guest >> 4) & 0b00001111));
+            //string hostString = Convert.ToString(host, 2).PadLeft(8, '0').Substring(0, 4);
+            //string guestString = Convert.ToString(guest, 2).PadLeft(8, '0').Substring(0, 4);
+            
+            //return Convert.ToByte(hostString + guestString, 2);
         }
-        for(int x = 0; x < result.GetLength(0); x++)
+
+        PictureBitMap composedPicture = hostPicture.Dupplicate();
+        if (hostPicture.GetLength(0) == guestPicture.GetLength(0) && hostPicture.GetLength(1) == guestPicture.GetLength(1))
         {
-            for (int y = 0; y < result.GetLength(1); y++)
+            for (int x = 0; x < hostPicture.GetLength(0); x++)
             {
-                Pixel toHide = new (0, 0, 0);
-                if(x < imageToHide.GetLength(0) && y < imageToHide.GetLength(1))
+                for (int y = 0; y < hostPicture.GetLength(1); y++)
                 {
-                    toHide = imageToHide[x, y];
+                    Pixel host = hostPicture[x, y];
+                    Pixel guest = guestPicture[x, y];
+                    composedPicture[x, y] = new Pixel(
+                        codeByte(host.Red, guest.Red),
+                        codeByte(host.Green, guest.Green),
+                        codeByte(host.Blue, guest.Blue));
                 }
-                Pixel pixel = result[x, y];
-                byte r = (byte)((pixel.Red & 0b11110000) + ((toHide.Red >> 4) & 0b00001111));
-                byte g = (byte)((pixel.Green & 0b11110000) + ((toHide.Green >> 4) & 0b00001111));
-                byte b = (byte)((pixel.Blue & 0b11110000) + ((toHide.Blue >> 4) & 0b00001111));
-                result[x, y] = new Pixel(r, g, b);
             }
         }
-        return result;
+        composedPicture.Save();
+
+        return composedPicture;
     }
-    /// <summary> This method is used to get the hidden image inside this <see cref="PictureBitMap"/>. </summary>
-    /// <returns> The hidden image inside this <see cref="PictureBitMap"/>. </returns>
-    public PictureBitMap GetHiddenImage()
+    /// <summary> Reveals a <see cref="PictureBitMap"/>. </summary>
+    /// <returns> The <see cref="PictureBitMap"/> hidden in the <see cref="PictureBitMap"/> instance. </returns>
+    public PictureBitMap PictureDecoding()
     {
-        PictureBitMap result = this.Copy();
-        for (int x = 0; x < GetLength(0); x++)
+        byte decodeByte(byte composed)
+        {   
+            //string composedString = Convert.ToString(composed, 2).PadLeft(8, '0').Substring(0, 8);
+            
+            //return Convert.ToByte(composedString.Substring(4, 4).PadRight(8, '0'), 2);
+            return (byte)((composed << 4) & 0b11110000);
+        }   
+
+        PictureBitMap revealedPicture = new (this.GetLength(0), this.GetLength(1));
+        for (int x = 0; x < this.GetLength(0); x++)
         {
-            for (int y = 0; y < GetLength(1); y++)
+            for (int y = 0; y < this.GetLength(1); y++)
             {
-                Pixel pixel = this[x, y];
-                result[x, y] = new Pixel((byte)(pixel.Red << 4), (byte)(pixel.Green << 4), (byte)(pixel.Blue << 4));
+                Pixel host = this[x, y];
+                revealedPicture[x, y] = new Pixel(
+                    decodeByte(host.Red),
+                    decodeByte(host.Green),
+                    decodeByte(host.Blue));
             }
         }
-        return result;
+        revealedPicture.Save();
+
+        return revealedPicture;
     }
     #endregion
     
     #region Utility methods
     /// <summary> This method is used to get a copy of this <see cref="PictureBitMap"/>. </summary>
     /// <returns> A copy of this <see cref="PictureBitMap"/>. </returns>
-    public PictureBitMap Copy() 
+    public PictureBitMap Dupplicate() 
     {
         PictureBitMap newImage = new (GetLength(0), GetLength(1));
         newImage.info = info;
@@ -278,10 +304,10 @@ public class PictureBitMap
         }
     }
     /// <summary> This method saves the <see cref="PictureBitMap"/>. </summary>
-    public void Save()
+    public void Save(string savePath = "Images/OUT/bmp/")
     {
         sw.Stop();
-        s_ResultImagePath = "Images/OUT/bmp/" + WritePrompt(s_Dict[s_Lang]["prompt"]["save"]) + ".bmp";
+        s_ResultImagePath = savePath + WritePrompt(s_Dict[s_Lang]["prompt"]["save"]) + ".bmp";
         sw.Start();
         using (FileStream stream = File.OpenWrite(s_ResultImagePath))
         {
@@ -296,39 +322,35 @@ public class PictureBitMap
         DisplayImage();
     }
     /// <summary> This method is used to print the <see cref="PictureBitMap"/>. </summary>
-    public static void DisplayImage()
+    public void DisplayImage()
     {
         switch(ScrollingMenu(s_Dict[s_Lang]["title"]["display_action"] , new string[]{
             s_Dict[s_Lang]["generic"]["no"], 
             s_Dict[s_Lang]["generic"]["yes"]}, false, CursorTop + 2))
         {
+            case 0:
+                break;
             case 1:
+                if (s_SourceImagePath is not null)
+                    Display(s_SourceImagePath);
+                if (s_ResultImagePath is not null)
+                    Display(s_ResultImagePath);
+                if(s_SourceImagePath is null && s_ResultImagePath is null)
+                    throw new NullReferenceException("The image path is null.");
+
+                WriteParagraph(new string[] {
+                    s_Dict[s_Lang]["title"]["display_waiting1"], 
+                    s_Dict[s_Lang]["title"]["display_waiting2"]  }, true);
+                ReadKey(true);
                 break;
             default:
-                if (s_ResultImagePath is not null)
-                {
-                    s_WorkingImagePath = null;
-                    s_ResultImagePath = null;
-                }
-                return;
+                break;
         }
-        if (s_WorkingImagePath is not null)
-            Display(s_WorkingImagePath);
-        if (s_ResultImagePath is not null)
-            Display(s_ResultImagePath);
-        if(s_WorkingImagePath is null && s_ResultImagePath is null)
-            throw new NullReferenceException("The image path is null.");
-            
-        WriteParagraph(new string[] {
-            s_Dict[s_Lang]["title"]["display_waiting1"], 
-            s_Dict[s_Lang]["title"]["display_waiting2"]  }, true);
-        ReadKey(true);
         if (s_ResultImagePath is not null)
         {
-            s_WorkingImagePath = null;
+            s_SourceImagePath = null;
             s_ResultImagePath = null;
         }
-
         void Display(string path)
         {
 
@@ -376,7 +398,9 @@ public class PictureBitMap
     /// <summary> This method is used to compress the <see cref="PictureBitMap"/>. </summary>
     public static void WorkingCompression(string path)
     {
-        //throw new NotImplementedException();
+        if (path is not null)
+            throw new NotImplementedException();
+
 
         using (var image = Image.Load("Images/Default/lena.bmp"))
         {
