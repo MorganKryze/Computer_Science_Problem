@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Globalization;
+using System.Diagnostics;
 using System.Text;
 using System.Text.Json;
 using SixLabors.ImageSharp.Formats.Jpeg;
@@ -410,8 +411,6 @@ public class PictureBitMap
             return running;
         }
     }
-    /// <summary> This method is used to convert the <see cref="PictureBitMap"/> to a JPEG. </summary>
-    
     /// <summary> This method is used to compress the <see cref="PictureBitMap"/>. </summary>
     public static void WorkingCompression(string path)
     {
@@ -443,6 +442,62 @@ public class PictureBitMap
         }
         
     }
+    /// <summary> This method is used to compress the <see cref="PictureBitMap"/>. </summary>
+    public  byte[] Compress()
+    {
+        int[] values = Array.ConvertAll(this.data, b => (int)b);
+        var frequencies = new int[256];
 
+        foreach (var value in values)
+        {
+            frequencies[value]++;
+        }
+
+        var tree = new HuffmanTree(frequencies);
+        var codes = tree.GenerateCodes();
+
+        var bits = new List<bool>();
+
+        foreach (var value in values)
+        {
+            var code = codes[value];
+
+            foreach (var bit in code)
+            {
+                bits.Add(bit == '1');
+            }
+        }
+
+        int padding = bits.Count % 8;
+
+        if (padding > 0)
+        {
+            padding = 8 - padding;
+
+            for (int i = 0; i < padding; i++)
+            {
+                bits.Add(false);
+            }
+        }
+
+        var bytes = new byte[bits.Count / 8];
+
+        for (int i = 0; i < bits.Count; i += 8)
+        {
+            byte b = 0;
+
+            for (int j = 0; j < 8; j++)
+            {
+                if (bits[i + j])
+                {
+                    b |= (byte)(1 << (7 - j));
+                }
+            }
+
+            bytes[i / 8] = b;
+        }
+
+        return bytes;
+    }
     #endregion
 }

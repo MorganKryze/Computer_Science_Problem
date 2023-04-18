@@ -48,6 +48,8 @@ public static class GameManager
                 goto CustomKernel;
             case Jump.Steganography:
                 goto Steganography;
+            case Jump.Compression:
+                goto Compression;
             case Jump.Back:
                 goto Main_Menu;
         }
@@ -98,7 +100,7 @@ public static class GameManager
         }
         
         Encrypt:
-        
+
         WriteParagraph(new string[]{
             s_Dict[s_Lang]["title"]["stega_host1"],
             s_Dict[s_Lang]["title"]["stega_host2"]}, true);
@@ -130,6 +132,19 @@ public static class GameManager
             goto Steganography;
         var encryptedImage = Decrypt(s_SourceImagePath);
         WriteFullScreen(true);
+        goto Main_Menu;
+
+        Compression:
+
+        ChooseFile(ChooseFolder());
+        if (t_Jump is Jump.Back) 
+            goto Actions;
+        var image = new PictureBitMap(s_SourceImagePath);
+        s_ProcessStopwatch.Start();
+        byte[] compressedContent = image.Compress();
+        s_ProcessStopwatch.Stop();
+        WriteParagraph(new string[]{s_Dict[s_Lang]["title"]["compression"]+ s_ProcessStopwatch.ElapsedMilliseconds + " ms. "}, true);
+        ReadKey(true);
         goto Main_Menu;
         #endregion
 
@@ -211,6 +226,8 @@ public static class GameManager
         CustomKernel,
         /// <summary> Go to the steganography menu. </summary>
         Steganography,
+        /// <summary> Go to the compression menu. </summary>
+        Compression,
         /// <summary> Exit the program. </summary>
         Exit
     }
@@ -246,6 +263,7 @@ public static class GameManager
                 s_Dict[s_Lang]["options"]["actions_transformation"],
                 s_Dict[s_Lang]["options"]["actions_custom"],
                 s_Dict[s_Lang]["options"]["actions_steganography"],
+                s_Dict[s_Lang]["options"]["actions_compression"],
                 s_Dict[s_Lang]["generic"]["back"]}))
         {
             case 0:
@@ -260,7 +278,10 @@ public static class GameManager
             case 3:
                 t_Jump = Jump.Steganography;
                 break;
-            case 4: case -1:
+            case 4:
+                t_Jump = Jump.Compression;
+                break;
+            case 5: case -1:
                 t_Jump = Jump.Back;
                 break;
         }
