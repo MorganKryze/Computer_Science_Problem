@@ -1,16 +1,12 @@
 ﻿using System.Diagnostics;
 using System.Text;
-using System.Drawing;
-using System.Drawing.Imaging;
-using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Processing;
+using System.Text.Json;
 using SixLabors.ImageSharp.Formats.Jpeg;
 using static System.Console;
-using System.IO;
 
 using Utilitary;
 using static Visuals.ConsoleVisuals;
-using static Language.LanguageDictonary;
+using static Computer_Science_Problem.GameManager;
 
 namespace Instances;
 
@@ -25,12 +21,7 @@ public class PictureBitMap
     #endregion
 
     #region Fields
-    /// <summary> Represents the path of the first image. </summary>
-    public static string? s_SourceImagePath;
-    /// <summary> Represents the path of the final image. </summary>
-    public string? s_ResultImagePath;
-    /// <summary> Represents the stopwatch used to measure the time of the execution of the filter. </summary>
-    public static Stopwatch sw = new ();
+    private string? imagePath;
     #endregion
 
     #region Indexers
@@ -82,13 +73,14 @@ public class PictureBitMap
             throw new ArgumentNullException(nameof(info));
         if (data is null) 
             throw new ArgumentNullException(nameof(data));
+        imagePath = filePath;
     }
     /// <summary> Creates an <see cref="PictureBitMap"/> instance from an height <paramref name="height"/> and a width <paramref name="width"/>. <br/>The image is automatically filled in black (components set to 0).</summary>
     /// <param name="width">Image width.</param>
     /// <param name="height">Image height.</param>
     public PictureBitMap(int width, int height)
     {
-        if (width < 1 || height < 1) 
+        if (width < 0 || height < 0) 
             throw new ArgumentOutOfRangeException("Width and height must be positive");
             
         info = new byte[54];
@@ -115,36 +107,46 @@ public class PictureBitMap
 
     #region Alter colors
     /// <summary> Represents the possible transformations of the image. </summary>
-    public enum Transformations
+    public enum Transformation
     {
         /// <summary> Transforms the image to shades of grey. </summary>
         Grey,
         /// <summary> Transforms the image to black and white. </summary>
         BnW,
         /// <summary> Transforms the image to negative. </summary>
-        Negative
+        Negative,
+        /// <summary> Detects the edges. </summary>
+        EdgeDetection,
+        /// <summary> Pushes the edges. </summary>
+        EdgePushing,
+        /// <summary> Sharpen the image. </summary>
+        Sharpen,
+        /// <summary> Better emboss the image. </summary>
+        GaussianBlur, 
+        /// <summary> Contrasts the image. </summary>
+        Contrast,
     }
     /// <summary> Applies a transformation to the image. </summary>
     /// <param name="alter"> The transformation to apply. </param>
     /// <returns> The transformed image. </returns>
-    public PictureBitMap AlterColors(Transformations alter)
+    public PictureBitMap AlterColors(Transformation alter)
     {
         PictureBitMap newImage = Dupplicate();
         for (int x = 0; x < this.GetLength(0); x++) 
             for (int y = 0; y < this.GetLength(1); y++) 
                 switch (alter)
                 {
-                    case Transformations.Grey:
+                    case Transformation.Grey:
                         newImage[x, y] = this[x, y].GreyAverage();
                         break;
-                    case Transformations.BnW:
+                    case Transformation.BnW:
                         newImage[x, y] = this[x, y].GreyAverage().Red > 127 ? new Pixel(255, 255, 255) : new Pixel(0, 0, 0);
                         break;
-                    case Transformations.Negative:
+                    case Transformation.Negative:
                         newImage[x, y] = new Pixel((byte)(255 - this[x, y].Red), (byte)(255 - this[x, y].Green), (byte)(255 - this[x, y].Blue));
                         break;
                     default:
-                        throw new ArgumentOutOfRangeException(nameof(alter), alter, null);
+                        throw new NotImplementedException("This transformation is not implemented for this transformation.");
                 } 
         return newImage;
     }
@@ -201,74 +203,83 @@ public class PictureBitMap
 
         for (int x = 0; x < newWidth; x++)
             for (int y = 0; y < newHeight; y++)
-                newImage[x, y] = new (previousImage[(int)(x / scale), (int)(y / scale)]);
+            {
+                int newX = (int)(x / scale);
+                int newY = (int)(y / scale);
+                newImage[x, y] = new (previousImage[newX, newY ]);
+            }
         return newImage;
     }
     #endregion
 
     #region Steganography
-    /// <summary> Hides a <paramref name="guestPicture"/> in the <paramref name="hostPicture"/>. </summary>
-    /// <param name="hostPicture"> The picture in which the <paramref name="guestPicture"/> will be hidden. </param>
-    /// <param name="guestPicture"> The picture to hide in the <paramref name="hostPicture"/>. </param>
-    /// <returns> The <paramref name="hostPicture"/> with the <paramref name="guestPicture"/> hidden in it. </returns>
-    public static PictureBitMap PictureEncoding(PictureBitMap hostPicture, PictureBitMap guestPicture)
+    /// <summary> Hides a <paramref name="guest"/> in the <paramref name="source"/>. </summary>
+    /// <param name="source"> The picture in which the <paramref name="guest"/> will be hidden. </param>
+    /// <param name="guest"> The picture to hide in the <paramref name="source"/>. </param>
+    /// <returns> The <paramref name="source"/> with the <paramref name="guest"/> hidden in it. </returns>
+    public static PictureBitMap Encrypt(PictureBitMap source, PictureBitMap guest)
     {
-        byte codeByte(byte host, byte guest)
+        PictureBitMap host = source.Dupplicate();
+        host.imagePath = source.imagePath;
+        #region Verify dimensions
+        if (host.GetLength(0) < guest.GetLength(0) || host.GetLength(1) < guest.GetLength(1))
         {
-            return (byte)((host & 0b11110000) | ((guest >> 4) & 0b00001111));
-            //string hostString = Convert.ToString(host, 2).PadLeft(8, '0').Substring(0, 4);
-            //string guestString = Convert.ToString(guest, 2).PadLeft(8, '0').Substring(0, 4);
-            
-            //return Convert.ToByte(hostString + guestString, 2);
+            float newScale = Math.Min((float)host.GetLength(0) / guest.GetLength(0), (float)host.GetLength(1) / guest.GetLength(1));
+            guest = guest.Resize(newScale);
         }
+        #endregion
 
-        PictureBitMap composedPicture = hostPicture.Dupplicate();
-        if (hostPicture.GetLength(0) == guestPicture.GetLength(0) && hostPicture.GetLength(1) == guestPicture.GetLength(1))
+        Dictionary<string, int> guestPictureSize = new Dictionary<string, int> { 
+        { "height", guest.GetLength(0) }, 
+        { "width", guest.GetLength(1) } };
+        
+        
+        
+        for (int x = 0; x < guest.GetLength(0); x++)
         {
-            for (int x = 0; x < hostPicture.GetLength(0); x++)
+            for (int y = 0; y < guest.GetLength(1); y++)
             {
-                for (int y = 0; y < hostPicture.GetLength(1); y++)
-                {
-                    Pixel host = hostPicture[x, y];
-                    Pixel guest = guestPicture[x, y];
-                    composedPicture[x, y] = new Pixel(
-                        codeByte(host.Red, guest.Red),
-                        codeByte(host.Green, guest.Green),
-                        codeByte(host.Blue, guest.Blue));
-                }
+                Pixel hostPix = host[x, y];
+                Pixel guestPix = guest[x, y];
+                host[x, y] = new Pixel(
+                    codeByte(hostPix.Red, guestPix.Red),
+                    codeByte(hostPix.Green, guestPix.Green),
+                    codeByte(hostPix.Blue, guestPix.Blue));
             }
         }
-        composedPicture.Save();
+        host.Save("Images/OUT/steganography/encrypted/");
+        if (host.imagePath is null)
+            throw new NullReferenceException("host.imagePath is null.");
+        string jsonPath = $"{host.imagePath.Substring(0, host.imagePath.Length - 3)}json";
+        File.WriteAllText(jsonPath, JsonSerializer.Serialize(guestPictureSize));
+        return host;
 
-        return composedPicture;
+        byte codeByte(byte host, byte guest) => (byte)((host & 0b11110000) | ((guest >> 4) & 0b00001111));
     }
     /// <summary> Reveals a <see cref="PictureBitMap"/>. </summary>
     /// <returns> The <see cref="PictureBitMap"/> hidden in the <see cref="PictureBitMap"/> instance. </returns>
-    public PictureBitMap PictureDecoding()
+    public static PictureBitMap Decrypt(string path)
     {
-        byte decodeByte(byte composed)
-        {   
-            //string composedString = Convert.ToString(composed, 2).PadLeft(8, '0').Substring(0, 8);
-            
-            //return Convert.ToByte(composedString.Substring(4, 4).PadRight(8, '0'), 2);
-            return (byte)((composed << 4) & 0b11110000);
-        }   
+        PictureBitMap composedPicture = new PictureBitMap(path);
+        string json = path.Substring(0, path.Length - 3) + "json";
+        Dictionary<string, int> guestPictureSize = JsonSerializer.Deserialize<Dictionary<string, int>>(File.ReadAllText(json)) ?? throw new NullReferenceException("guestPictureSize.json not found.");
 
-        PictureBitMap revealedPicture = new (this.GetLength(0), this.GetLength(1));
-        for (int x = 0; x < this.GetLength(0); x++)
+        PictureBitMap revealedPicture = new (guestPictureSize["height"], guestPictureSize["width"]);
+        for (int x = 0; x < revealedPicture.GetLength(0); x++)
         {
-            for (int y = 0; y < this.GetLength(1); y++)
+            for (int y = 0; y < revealedPicture.GetLength(1); y++)
             {
-                Pixel host = this[x, y];
+                Pixel host = composedPicture[x, y];
                 revealedPicture[x, y] = new Pixel(
                     decodeByte(host.Red),
                     decodeByte(host.Green),
                     decodeByte(host.Blue));
             }
         }
-        revealedPicture.Save();
-
+        revealedPicture.Save("Images/OUT/steganography/decrypted/dec_");
         return revealedPicture;
+
+        byte decodeByte(byte composed) => (byte)((composed << 4) & 0b11110000);
     }
     #endregion
     
@@ -306,50 +317,56 @@ public class PictureBitMap
     /// <summary> This method saves the <see cref="PictureBitMap"/>. </summary>
     public void Save(string savePath = "Images/OUT/bmp/")
     {
-        sw.Stop();
-        s_ResultImagePath = savePath + WritePrompt(s_Dict[s_Lang]["prompt"]["save"]) + ".bmp";
-        sw.Start();
-        using (FileStream stream = File.OpenWrite(s_ResultImagePath))
+        s_ProcessStopwatch.Stop();
+        string imageName = "";
+        do
+        {
+            if (imageName != "")
+                WriteParagraph(new string[] { s_Dict[s_Lang]["error"]["taken_name"] }, true);
+            imageName = WritePrompt(s_Dict[s_Lang]["prompt"]["save"]);
+        }while(IsFileNameTaken(imageName, savePath));
+        imagePath = savePath + imageName + ".bmp";
+
+        s_ProcessStopwatch.Start();
+        using (FileStream stream = File.OpenWrite(imagePath))
         {
             stream.Write(info, 0, info.Length);
             stream.Write(data, 0, data.Length);
         }
-        sw.Stop();
+        s_ProcessStopwatch.Stop();
         WriteParagraph(new string[] {
-            s_Dict[s_Lang]["title"]["save1"]  + s_ResultImagePath + " ", 
-            s_Dict[s_Lang]["title"]["save2"] + sw.ElapsedMilliseconds + " ms. "}, true);
-        sw.Reset();
+            s_Dict[s_Lang]["title"]["save1"]  + imagePath + " ", 
+            s_Dict[s_Lang]["title"]["save2"] + s_ProcessStopwatch.ElapsedMilliseconds + " ms. "}, true);
+        s_ProcessStopwatch.Reset();
+        ReadKey(true);
+        ClearContent();
         DisplayImage();
     }
     /// <summary> This method is used to print the <see cref="PictureBitMap"/>. </summary>
     public void DisplayImage()
     {
-        switch(ScrollingMenu(s_Dict[s_Lang]["title"]["display_action"] , new string[]{
+        switch (ScrollingMenu(s_Dict[s_Lang]["title"]["display_action"] , new string[]{
             s_Dict[s_Lang]["generic"]["no"], 
-            s_Dict[s_Lang]["generic"]["yes"]}, false, CursorTop + 2))
+            s_Dict[s_Lang]["generic"]["yes"]}))
         {
             case 0:
                 break;
             case 1:
-                if (s_SourceImagePath is not null)
+                if (imagePath is not null)
+                    Display(imagePath);
+                else if (s_SourceImagePath is not "none")
                     Display(s_SourceImagePath);
-                if (s_ResultImagePath is not null)
-                    Display(s_ResultImagePath);
-                if(s_SourceImagePath is null && s_ResultImagePath is null)
+                if(s_SourceImagePath is null && imagePath is null)
                     throw new NullReferenceException("The image path is null.");
 
                 WriteParagraph(new string[] {
                     s_Dict[s_Lang]["title"]["display_waiting1"], 
                     s_Dict[s_Lang]["title"]["display_waiting2"]  }, true);
                 ReadKey(true);
+                ClearContent();
                 break;
             default:
                 break;
-        }
-        if (s_ResultImagePath is not null)
-        {
-            s_SourceImagePath = null;
-            s_ResultImagePath = null;
         }
         void Display(string path)
         {

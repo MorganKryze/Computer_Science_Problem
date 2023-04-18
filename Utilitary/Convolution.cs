@@ -1,33 +1,18 @@
 using Instances;
 
+using static Instances.PictureBitMap;
+
 namespace Utilitary;
 
 /// <summary> This class represents a convolution. </summary>
 public static class Convolution
 {
-    #region Kernels
-    /// <summary> Enumerates the different kernels. </summary>
-    public enum Kernel
-    {
-        /// <summary> Detects the edges. </summary>
-        EdgeDetection,
-        /// <summary> Pushes the edges. </summary>
-        EdgePushing,
-        /// <summary> Sharpen the image. </summary>
-        Sharpen,
-        /// <summary> Better emboss the image. </summary>
-        GaussianBlur, 
-        /// <summary> Contrasts the image. </summary>
-        Contrast,
-    }
-
-    #endregion
     
     #region Dictionary
-    private static Dictionary<Kernel, float[,]> kernels = new Dictionary<Kernel, float[,]>
+    private static Dictionary<Transformation, float[,]> kernels = new Dictionary<Transformation, float[,]>
     {
         {
-            Kernel.EdgeDetection, new float[,]
+            Transformation.EdgeDetection, new float[,]
             {
                 {  0,  1,  0 },
                 {  1, -4,  1 },
@@ -35,7 +20,7 @@ public static class Convolution
             }
         },
         {
-            Kernel.EdgePushing, new float[,]
+            Transformation.EdgePushing, new float[,]
             {
                 { -2, -1,  0 },
                 { -1,  1,  1 },
@@ -43,7 +28,7 @@ public static class Convolution
             }
         },
         {
-            Kernel.Sharpen, new float[,]
+            Transformation.Sharpen, new float[,]
             {
                 {  0, -1,  0 },
                 { -1,  5, -1 },
@@ -51,7 +36,7 @@ public static class Convolution
             }
         },
         {
-            Kernel.GaussianBlur, new float[,]
+            Transformation.GaussianBlur, new float[,]
             {
                 { 1/16f, 2/16f, 1/16f },
                 { 2/16f, 4/16f, 2/16f },
@@ -59,7 +44,7 @@ public static class Convolution
             }
         },
         {
-            Kernel.Contrast, new float[,]
+            Transformation.Contrast, new float[,]
             {
                 {  0,  -1,  0 },
                 { -1,   5, -1 },
@@ -70,17 +55,17 @@ public static class Convolution
     #endregion
 
     #region Extension methods for Image
-    ///<summary> This method applies a <see cref="Kernel"/> to an <see cref="PictureBitMap"/>. </summary>
+    ///<summary> This method applies a <see cref="Transformation"/> to an <see cref="PictureBitMap"/>. </summary>
     /// <param name="image"> The <see cref="PictureBitMap"/> on which the kernel will be applied. </param>
-    /// <param name="kernel"> The <see cref="Kernel"/> to apply. </param>
+    /// <param name="kernel"> The <see cref="Transformation"/> to apply. </param>
     /// <returns> An <see cref ="PictureBitMap"/> where a kernel has been applied. </returns>
-    public static PictureBitMap ApplyKernelByName(this PictureBitMap image, Kernel kernel)
+    public static PictureBitMap ApplyKernelByName(this PictureBitMap image, Transformation kernel)
     {
         return ApplyKernel(image, kernels[kernel]);
     }
-    ///<summary> This method applies a <see cref="Kernel"/> to an <see cref="PictureBitMap"/>. </summary>
+    ///<summary> This method applies a <see cref="Transformation"/> to an <see cref="PictureBitMap"/>. </summary>
     /// <param name="image"> The <see cref="PictureBitMap"/> on which the kernel will be applied. </param>
-    /// <param name="kernel"> The <see cref="Kernel"/> to apply. </param>
+    /// <param name="kernel"> The <see cref="Transformation"/> to apply. </param>
     /// <returns> An <see cref ="PictureBitMap"/> where a kernel has been applied. </returns>
     public static PictureBitMap ApplyKernel(this PictureBitMap image, float[,] kernel)
     {

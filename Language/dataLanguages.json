@@ -9,6 +9,7 @@
             "actions": "You may choose an action to do on your picture.",
             "filter": "You may choose a filter to apply on your picture.",
             "manip": "You may choose a transformation to apply on your picture.",
+            "steganography": "You may choose to encrypt a picture into another one or to decrypt a picture.",
 
             "matrix1": "Here is the default matrix. You may change it as you wish.",
             "matrix2": "Press [TAB] to select a number. Press [ENTER] to confirm.",
@@ -25,6 +26,11 @@
 
             "display_waiting1": "The picture is currently being displayed in another window.",
             "display_waiting2": "Press [ENTER] to continue...",
+
+            "stega_host1": " You may choose a picture that will be the host. ",
+            "stega_host2": " The picture will host the guest picture. ",
+            "stega_guest1": " You may choose a picture that will be the guest. ",
+            "stega_guest2": " The picture will be encrypted into the host. ",
 
             "loading_begin": "[ Loading the program ...]",
             "loading_end": "[ Exiting the program ...]"
@@ -55,6 +61,7 @@
             "actions_filter": "Apply a filter",
             "actions_transformation": "Apply a transformation",
             "actions_custom": "Apply a custom kernel",
+            "actions_steganography": "Encrypt/ Decrypt a picture",
 
             "filter_grey": "Turn to grey",
             "filter_bnw": "Black and white",
@@ -67,6 +74,9 @@
             "manip_resize": "Resize",
             "manip_detect": "Detect the edges",
             "manip_push": "Push the edges",
+
+            "steganography_encrypt": "Encrypt a picture",
+            "steganography_decrypt": "Decrypt a picture",
 
             "options_color": "Change color",
             "options_language": "Change language",
@@ -93,13 +103,24 @@
         },
         "banner": {
 
-            "header_l": " Special Thanks to the fabulous lab",
+            "header_l": " Special thanks to the special lab",
             "header_c": "Home",
             "header_r": "Created by MorganKryze, Sheesh3218 ",
 
             "footer_l": " [ESC] Go back",
             "footer_c": "[Z|↑] Selection up   [S|↓] Selection down",
             "footer_r": "[ENTER] Select "
+        },
+        "error": {
+                
+                "file": "The file you selected is not valid.",
+                "folder": "The folder you selected is not valid.",
+                "taken_name": "The file name you selected is already taken.",
+                "matrix": "The matrix you entered is not valid.",
+                "custom": "The custom kernel you entered is not valid.",
+                "rotate": "The angle you entered is not valid.",
+                "resize": "The size you entered is not valid.",
+                "save": "The name you entered is not valid."
         }
     },
     "french": {
@@ -112,6 +133,7 @@
             "actions": "Veuillez choisir une action à réaliser sur votre image.",
             "filter": "Veuillez choisir un filtre à appliquer sur votre image.",
             "manip": "Veuillez choisir une transformation à appliquer sur votre image.",
+            "steganography": "Veuillez choisir si vous souhaitez crypter une image dans une autre ou décrypter une image.",
 
             "matrix1": "Voici la matrice par défaut. Vous pouvez la changer comme vous le souhaitez.",       
             "matrix2": "Appuyez sur [TAB] pour sélectionner un nombre. Appuyez sur [ENTRER] pour confirmer.",
@@ -128,6 +150,11 @@
 
             "display_waiting1": "L'image est actuellement affichée dans une autre fenêtre.",
             "display_waiting2": "Appuyez sur [ENTRER] pour continuer...",
+
+            "stega_host1": " Vous pouvez choisir une image qui sera l'hôte. ",
+            "stega_host2": " Cette image accueillera l'image à crypter. ",
+            "stega_guest1": " Veuillez choisir une image qui sera l'invitée. ",
+            "stega_guest2": " Cette image sera cryptée dans l'hôte. ",
 
             "loading_begin": "[ Chargement du programme ...]",
             "loading_end": "[ Fermeture du programme ...]"
@@ -157,6 +184,7 @@
             "actions_filter": "Appliquer un filtre",             
             "actions_transformation": "Appliquer une transformation",    
             "actions_custom": "Appliquer un kernel personnalisé",
+            "actions_steganography": "Crypter/Décrypter une image",
 
             "filter_grey": "Rendre l'image en niveaux de gris",
             "filter_bnw": "Rendre l'image en noir et blanc",
@@ -169,6 +197,9 @@
             "manip_resize": "Redimensionnement",      
             "manip_detect": "Détection des contours",
             "manip_push": "Pousser les contours",   
+
+            "steganography_encrypt": "Crypter une image",
+            "steganography_decrypt": "Décrypter une image",
 
             "options_color": "Changer la couleur",
             "options_language": "Changer la langue", 
@@ -195,13 +226,24 @@
         },
         "banner": {
 
-            "header_l": " Merci au fabuleux laboratoire",
+            "header_l": " Merci au fameux laboratoire",
             "header_c": "Accueil",
             "header_r": "Créé par MorganKryze, Sheesh3218 ",
 
             "footer_l": " [ESC] Retour",
             "footer_c": "[Z|↑] Monter   [S|↓] Descendre",
-            "footer_r": "[ENTRER] Selectionner "
+            "footer_r": "[ENTRER] Sélectionner "
+        },
+        "error": {
+                
+                "file": "Le fichier que vous avez sélectionné n'est pas valide.",
+                "folder": "Le dossier que vous avez sélectionné n'est pas valide.",
+                "taken_name": "Le nom de fichier que vous avez sélectionné est déjà pris.",
+                "matrix": "La matrice que vous avez entrée n'est pas valide.",
+                "custom": "Le kernel personnalisé que vous avez entré n'est pas valide.",
+                "rotate": "L'angle que vous avez entré n'est pas valide.",
+                "resize": "La taille que vous avez entrée n'est pas valide.",
+                "save": "Le nom que vous avez entré n'est pas valide."
         }
     }
 }

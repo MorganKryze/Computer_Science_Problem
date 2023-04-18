@@ -5,7 +5,7 @@ using static System.ConsoleColor;
 using static System.ConsoleKey;
 
 using Instances;
-using static Language.LanguageDictonary;
+using static Computer_Science_Problem.GameManager;
 
 namespace Visuals;
 
@@ -14,13 +14,13 @@ public static class ConsoleVisuals
 {
     #region Private attributes
     private const string titlePath = "Images/Title/title.txt";
-    private static  string[] titleContent = ReadAllLines(titlePath);
+    private static string[] titleContent = ReadAllLines(titlePath);
     private static int initialWindowWidth = WindowWidth;
     private static int intialWindowHeight = WindowHeight;
     private static string initialLanguage = s_Lang;
-    private static (ConsoleColor,ConsoleColor) terminalColorpanel = (ForegroundColor, BackgroundColor);
-    private static (ConsoleColor,ConsoleColor) initialColorPanel = (colorPanel.Item1, colorPanel.Item2);
-    private  static (ConsoleColor,ConsoleColor) colorPanel = (White, Black);
+    private static (ConsoleColor, ConsoleColor) colorPanel = (White, Black);
+    private static (ConsoleColor, ConsoleColor) initialColorPanel = (colorPanel.Item1, colorPanel.Item2);
+    private static (ConsoleColor, ConsoleColor) terminalColorpanel = (ForegroundColor, BackgroundColor);
     #endregion
 
     #region Private properties
@@ -46,7 +46,7 @@ public static class ConsoleVisuals
     }
     #endregion
 
-    #region Utility methods
+    #region Low level methods
     /// <summary> this method changes the font color of the console. </summary>
     public static void ChangeFont(ConsoleColor newfont)
     {
@@ -57,7 +57,6 @@ public static class ConsoleVisuals
         ForegroundColor = negative ? colorPanel.Item2 : colorPanel.Item1;
         BackgroundColor = negative ? colorPanel.Item1 : colorPanel.Item2;
     }
-    
     private static void WritePositionnedString(string str, Placement position = Placement.Center, bool negative = false, int line = -1, bool chariot = false)
 	{
         TryNegative(negative);
@@ -84,19 +83,27 @@ public static class ConsoleVisuals
             Write(str);
         TryNegative(default);
 	}
-
     private static void ClearLine(int line)
 	{
 		TryNegative(default);
 		WritePositionnedString("".PadRight(Console.WindowWidth), Placement.Left, default, line);
 	}
-
-    private static void ClearPanel()
+    /// <summary> This method clears a specified part of the console. </summary>
+    /// <param name="startIndex"> The index of the first line to clear. </param>
+    /// <param name="length"> The number of lines to clear. </param>
+    public static void ClearPanel(int startIndex = -1, int length = 1)
+    {
+        if (startIndex == -1)
+            startIndex = ContentHeigth;
+        for (int i = startIndex; i < startIndex + length; i++)
+            ClearLine(i);
+    }
+    /// <summary> This method clears the content of the console. </summary>
+    public static void ClearContent()
     {
         for (int i = ContentHeigth - 1; i < FooterHeigth; i++)
             ClearLine(i);
     }
-
     private static void ClearAll()
     {
         colorPanel = terminalColorpanel;
@@ -105,7 +112,6 @@ public static class ConsoleVisuals
         Clear();
         colorPanel = (White, Black);
     }
-    
     private static void ContinuousPrint(string text, int line, bool negative = false, int stringTime = 2000, int endStringTime = 1000)
     {
         int t_interval = (int)(stringTime / text.Length);
@@ -133,8 +139,7 @@ public static class ConsoleVisuals
         WritePositionnedString(text.BuildString(WindowWidth, Placement.Center), default, negative, line);
         Sleep(endStringTime);
     }
-    
-    private static void ReloadScreen()
+    private static bool IsScreenUpdated()
     {
         if (WindowManipulated || s_Lang != initialLanguage || colorPanel != initialColorPanel)
         {
@@ -142,13 +147,13 @@ public static class ConsoleVisuals
             initialWindowWidth = WindowWidth;
             initialLanguage = s_Lang;
             initialColorPanel = (colorPanel.Item1, colorPanel.Item2);
+            return true;
         }
-        else
-            ClearPanel();
+        return false;
     }
     #endregion
 
-    #region Processing methods
+    #region Mid level methods
     /// <summary> This method prints a float matrix in the console. </summary>
     /// <param name="matrix"> The matrix to print. </param>
     /// <param name="currentPosition"> The current position of the cursor. </param>
@@ -212,24 +217,24 @@ public static class ConsoleVisuals
         WriteTitle();
         WriteBanner(header, true, straight);
         WriteBanner(footer, false, straight);
-        ClearPanel();
+        ClearContent();
         if (!straight) 
             LoadingScreen(s_Dict[s_Lang]["title"]["loading_begin"]);
     }
+    #endregion
+
+    #region High level methods
     /// <summary> This method prints a message in the console and gets a string written by the user. </summary>
     /// <param name="message"> The message to print. </param>
-    /// <param name="clearPanel"> If true, the panel is cleared before printing the message. </param>
     /// <param name="line"> The line where the message will be printed. </param>
     /// <returns> The string written by the user. </returns>
-    public static string WritePrompt(string message,bool clearPanel = true, int line = -1)
+    public static string WritePrompt(string message, int line = -1)
     {
         if (line == -1) 
-            line = ContentHeigth + 1;
-        if (clearPanel) 
-            ReloadScreen();
-        else
-            for (int i = line; i < line + 3; i++)
-                ClearLine(i);
+            line = ContentHeigth;
+        if (!IsScreenUpdated())
+            ClearPanel(line, 3);
+
         ContinuousPrint(message.BuildString(message.Length, Placement.Center), line, default, 1500, 50);
         string prompt = "";
         do
@@ -240,55 +245,47 @@ public static class ConsoleVisuals
             prompt = ReadLine() ?? "";
             CursorVisible = false;
         } while (prompt is "");
+        ClearPanel(line, 3);
         return prompt;
     }
     /// <summary> This method prints a paragraph in the console. </summary>
-    /// <param name="lines"> The lines of the paragraph. </param>
+    /// <param name="text"> The lines of the paragraph. </param>
     /// <param name="negative"> If true, the paragraph is printed in the negative colors. </param>
-    /// <param name="clearPanel"> If true, the console is cleard. </param>
-    /// <param name="height"> The height of the paragraph. </param>
-    public static void WriteParagraph(IEnumerable<string> lines, bool negative = false, bool clearPanel = true, int height = -1)
+    /// <param name="line"> The height of the paragraph. </param>
+    public static void WriteParagraph(IEnumerable<string> text, bool negative = false, int line = -1)
 	{
-        if (height == -1)
-            height =  ContentHeigth;
-
-        if (clearPanel)
-            ReloadScreen();
-        else
-            for (int i = height; i < lines.Count(); i++)
-                ClearLine(i);
+        IsScreenUpdated();
+        if (line == -1)
+            line =  ContentHeigth;
+            ClearPanel(line, text.Count());
 
         TryNegative(negative);
-		int maxLength = lines.Count() > 0 ? lines.Max(s => s.Length) : 0;
-		foreach (string line in lines)
+		int maxLength = text.Count() > 0 ? text.Max(s => s.Length) : 0;
+		foreach (string str in text)
 		{
-			WritePositionnedString(line.BuildString(maxLength, Placement.Center), Placement.Center, negative, height++);
-			if (height >= WindowHeight - 1) 
+			WritePositionnedString(str.BuildString(maxLength, Placement.Center), Placement.Center, negative, line++);
+			if (line >= WindowHeight - 1) 
                 break;
 		}
         TryNegative(default);
+        //ClearPanel(line, text.Count());
 	}
     /// <summary> This method prints a menu in the console and gets the choice of the user. </summary>
     /// <param name="question"> The question to print. </param>
     /// <param name="choices"> The choices of the menu. </param>
-    /// <param name="clearPanel"> If true, the entire console is cleard. </param>
     /// <param name="line"> The line where the menu is printed. </param>
     /// <returns> The choice of the user. </returns>
-    public static int ScrollingMenu(string question, string[] choices, bool clearPanel = true, int line = -1)
+    public static int ScrollingMenu(string question, string[] choices, int line = -1)
     {
+        IsScreenUpdated();
         if (line == -1)
             line = ContentHeigth;
-        if (clearPanel)
-            ReloadScreen();
-        else
-            for (int i = line; i < choices.Length; i++)
-                ClearLine(i);
 
         int currentPosition = 0;
         int maxLength = choices.Count() > 0 ? choices.Max(s => s.Length) : 0;
-
         for (int i = 0; i < choices.Length; i++) 
             choices[i] = choices[i].PadRight(maxLength);
+
         ContinuousPrint(question, line, default, 1500, 50);
         while (true)
         {
@@ -297,11 +294,11 @@ public static class ConsoleVisuals
             {
                 if (i == currentPosition)
                 {
-                    currentChoice[i] = $" > {choices[i]} < ";
+                    currentChoice[i] = $" ► {choices[i]}  ";
                     WritePositionnedString(currentChoice[i], Placement.Center, true, line + 2 + i);
                     continue;
                 }
-                currentChoice[i] = $"   {choices[i]}   ";
+                currentChoice[i] = $"   {choices[i]}  ";
                 WritePositionnedString(currentChoice[i], Placement.Center, false, line + 2 + i);
             }
             switch (ReadKey(true).Key)
@@ -319,8 +316,10 @@ public static class ConsoleVisuals
                         currentPosition++; 
                         break;
                 case Enter: 
+                    ClearPanel(line, choices.Length + 2);
                     return currentPosition;
                 case Escape: 
+                    ClearPanel(line, choices.Length + 2);
                     return -1;
             }
         }
@@ -329,7 +328,8 @@ public static class ConsoleVisuals
     /// <param name="matrix"> The matrix to print. </param>
     public static float[,]? MatrixSelector(this float[,] matrix)
     {
-        ReloadScreen();
+        if (!IsScreenUpdated())
+            ClearPanel(ContentHeigth, matrix.GetLength(0) + 4);
         WriteParagraph(new string[]{
             s_Dict[s_Lang]["title"]["matrix1"], 
             s_Dict[s_Lang]["title"]["matrix2"], 
@@ -366,20 +366,20 @@ public static class ConsoleVisuals
                     float number = 0;
                     while (true)
                     {
-                        if (float.TryParse(WritePrompt(s_Dict[s_Lang]["prompt"]["matrix_prompt"] , false, ContentHeigth + 3 + matrix.GetLength(0) + 2), out float value))
+                        if (float.TryParse(WritePrompt(s_Dict[s_Lang]["prompt"]["matrix_prompt"], ContentHeigth + 3 + matrix.GetLength(0) + 2), out float value))
                         {
                             number = value;
                             break;
                         }
                     }
-                    smallClear();
+                    ClearPanel(ContentHeigth + 2 + matrix.GetLength(0) + 1, 10);
                     matrix[currentPosition.X, currentPosition.Y] = number;
                     break;
                 case Enter:
                     switch(ScrollingMenu(s_Dict[s_Lang]["prompt"]["matrix_choice"] , new string[]{
                         s_Dict[s_Lang]["generic"]["continue"],
                         s_Dict[s_Lang]["generic"]["confirm"], 
-                        s_Dict[s_Lang]["generic"]["back"]}, false, ContentHeigth + 3 + matrix.GetLength(0) + 2))
+                        s_Dict[s_Lang]["generic"]["back"]}, ContentHeigth + 3 + matrix.GetLength(0) + 2))
                     {
                         case 0:
                             break;
@@ -388,23 +388,19 @@ public static class ConsoleVisuals
                         case 2: case -1:
                             return null;
                     }
-                    smallClear();
+                    ClearPanel(ContentHeigth + 2 + matrix.GetLength(0) + 1, 10);
                     break;
                 case Escape :
                     return null;
             }
-        }
-        void smallClear()
-        {
-            for (int i = 0; i < 10; i++)
-                ClearLine(ContentHeigth + 2 + matrix.GetLength(0) + 1 + i);
         }
     }
     /// <summary> This method prints a loading screen in the console. </summary>
     /// <param name="text"> The text to print. </param>
     public static void LoadingScreen(string text)
     {
-        ReloadScreen();
+        if(!IsScreenUpdated())
+            ClearPanel(ContentHeigth, 3);
         WritePositionnedString(text.BuildString(WindowWidth, Placement.Center), default, default, ContentHeigth, true);
         string loadingBar = "";
             for(int j = 0; j < text.Length; j++) 
