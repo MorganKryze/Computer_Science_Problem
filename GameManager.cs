@@ -1,5 +1,4 @@
-﻿using System.Security.AccessControl;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Diagnostics;
 using static System.ConsoleColor;
 using static System.Console;
@@ -19,6 +18,7 @@ public static class GameManager
     public static void Main(string[] args)
     {
         #region Processing
+        //ApplyFractalSet(FractalSet.Mandelbrot).Save();
         WriteFullScreen(default);
 
         Main_Menu:
@@ -145,7 +145,15 @@ public static class GameManager
         s_ProcessStopwatch.Stop();
         WriteParagraph(new string[]{s_Dict[s_Lang]["title"]["compression"]+ s_ProcessStopwatch.ElapsedMilliseconds + " ms. "}, true);
         ReadKey(true);
+
+        // ! Add decompression here
+
         goto Main_Menu;
+
+        //Fractals:
+
+        // ! Add fractals here
+
         #endregion
 
         #region Options
@@ -198,6 +206,8 @@ public static class GameManager
     public static Dictionary<string, Dictionary<string,  Dictionary<string, string>>> s_Dict { get; private set; } = InitializeDictionary();
     /// <summary> Represents the stopwatch used to measure the time of the execution of the action. </summary>
     public static Stopwatch s_ProcessStopwatch = new ();
+    /// <summary> Represents the random object used to generate random numbers. </summary>
+    public static Random s_Random = new ();
     #endregion
 
     #region Jump enum
@@ -554,6 +564,75 @@ public static class GameManager
     }
     #endregion
     
+    #region Fractals
+    /// <summary> The different fractals .</summary>
+    public enum FractalSet
+    {
+        ///<summary> The Mandelbrot set. </summary>
+        Mandelbrot,
+        ///<summary> The Julia set. </summary>
+        Julia,
+    }
+    /// <summary> This method is used to create a Mandelbrot fractal </summary>
+    /// <param name="fractal"> The fractal to create </param>
+    /// <param name="size"> The size of the image </param>
+    /// <param name="depth"> The depth of the fractal </param>
+    /// <returns> The image of the fractal </returns>
+    public static PictureBitMap ApplyFractalSet(FractalSet fractal, int size = 800, int depth = 200)
+	{
+		PictureBitMap image = new PictureBitMap(size, size);
+        switch (fractal)
+        {
+            case FractalSet.Mandelbrot:
+                for(int i = 0; i < image.GetLength(0); i++)
+			        for(int j = 0; j < image.GetLength(1); j++)
+			        {
+                        var z1 = new Complex(2 * j / (double)image.GetLength(0) - 1, 2 * i / (double)image.GetLength(1) - 1);
+                        var z2 = new Complex(0, 0);
+			        	int n;
+			        	for(n = 0; n < depth && z2.Modulus() < 2; n++)
+                            (z2.Re, z2.Im) = (Math.Pow(z2.Re, 2) - Math.Pow(z2.Im, 2) + z1.Re, 2 * z2.Re * z2.Im + z1.Im);
+			        	image[i, j] = n == depth ? new Pixel(0, 0, 0) : Pixel.Hue((int)(360 * n / depth));
+			        }
+                break;
+            case FractalSet.Julia:
+                Complex c = new Complex(0, 0);
+                switch (s_Random.Next(0, 6))
+                {
+                    case 0:
+                        c = new Complex(0.285, 0.013);
+                        break;
+                    case 1:
+                        c = new Complex(-0.70176, -0.3842);
+                        break;
+                    case 2:
+                        c = new Complex(-0.835, -0.2321);
+                        break;
+                    case 3:
+                        c = new Complex(-0.8, 0.156);
+                        break;
+                    case 4:
+                        c = new Complex(-0.7269, 0.1889);
+                        break;
+                    case 5:
+                        c = new Complex(0.3, 0.5);
+                        break;
+                }
+                for(int i = 0; i < image.GetLength(0); i++)
+			        for(int j = 0; j < image.GetLength(1); j++)
+			        {
+                        var z = new Complex(2 * j / (double)image.GetLength(0) - 1, 2 * i / (double)image.GetLength(1) - 1);
+			        	int n;
+			        	for(n = 0; n < depth && z.Modulus() < 2; n++)
+                            (z.Re, z.Im) = (Math.Pow(z.Re, 2) - Math.Pow(z.Im, 2) + c.Re, 2 * z.Re * z.Im + c.Im);
+			        	image[i, j] = n == depth ? new Pixel(0, 0, 0) : Pixel.Hue((int)(360 * n / depth));
+			        }
+                break;
+        }
+		
+		return image;
+	}
+    #endregion
     #region Utilitary methods
     /// <summary> This method initializes the dictionary. </summary>
     public static Dictionary<string, Dictionary<string,  Dictionary<string, string>>> InitializeDictionary()
