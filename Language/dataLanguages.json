@@ -10,7 +10,7 @@
             "filter": "You may choose a filter to apply on your picture.",
             "manip": "You may choose a transformation to apply on your picture.",
             "steganography": "You may choose to encrypt a picture into another one or to decrypt a picture.",
-            "compression": " The compression process took ",
+            "fractal": "You may choose a fractal set to generate one.",
 
             "matrix1": "Here is the default matrix. You may change it as you wish.",
             "matrix2": "Press [TAB] to select a number. Press [ENTER] to confirm.",
@@ -34,7 +34,9 @@
             "stega_guest2": " The picture will be encrypted into the host. ",
 
             "loading_begin": "[ Loading the program ...]",
-            "loading_end": "[ Exiting the program ...]"
+            "loading_end": "[ Exiting the program ...]",
+
+            "process": " The Process took "
             
         },
         "prompt": {
@@ -64,6 +66,7 @@
             "actions_custom": "Apply a custom kernel",
             "actions_steganography": "Encrypt/ Decrypt a picture",
             "actions_compression": "Compress a picture",
+            "actions_fractals": "Generate a fractal",
 
             "filter_grey": "Turn to grey",
             "filter_bnw": "Black and white",
@@ -79,6 +82,9 @@
 
             "steganography_encrypt": "Encrypt a picture",
             "steganography_decrypt": "Decrypt a picture",
+
+            "fractal_mandelbrot": "Mandelbrot set",
+            "fractal_julia": "Julia set",
 
             "options_color": "Change color",
             "options_language": "Change language",
@@ -136,7 +142,7 @@
             "filter": "Veuillez choisir un filtre à appliquer sur votre image.",
             "manip": "Veuillez choisir une transformation à appliquer sur votre image.",
             "steganography": "Veuillez choisir si vous souhaitez crypter une image dans une autre ou décrypter une image.",
-            "compression": " Le processus de compression a pris ",
+            "fractal": "Vous pouvez choisir un set fractal à générer.",
 
             "matrix1": "Voici la matrice par défaut. Vous pouvez la changer comme vous le souhaitez.",       
             "matrix2": "Appuyez sur [TAB] pour sélectionner un nombre. Appuyez sur [ENTRER] pour confirmer.",
@@ -160,7 +166,9 @@
             "stega_guest2": " Cette image sera cryptée dans l'hôte. ",
 
             "loading_begin": "[ Chargement du programme ...]",
-            "loading_end": "[ Fermeture du programme ...]"
+            "loading_end": "[ Fermeture du programme ...]",
+
+            "process": " Le traitement a pris "
         },
         "prompt": {
 
@@ -189,6 +197,7 @@
             "actions_custom": "Appliquer un kernel personnalisé",
             "actions_steganography": "Crypter/Décrypter une image",
             "actions_compression": "Compresser une image",
+            "actions_fractals": "Générer des fractales",
 
             "filter_grey": "Rendre l'image en niveaux de gris",
             "filter_bnw": "Rendre l'image en noir et blanc",
@@ -204,6 +213,9 @@
 
             "steganography_encrypt": "Crypter une image",
             "steganography_decrypt": "Décrypter une image",
+
+            "fractal_mandelbrot":"Set de Mandelbrot",
+            "fractal_julia":"Set de Julia",
 
             "options_color": "Changer la couleur",
             "options_language": "Changer la langue", 

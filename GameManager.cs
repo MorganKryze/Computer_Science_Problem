@@ -18,7 +18,6 @@ public static class GameManager
     public static void Main(string[] args)
     {
         #region Processing
-        //ApplyFractalSet(FractalSet.Mandelbrot).Save();
         WriteFullScreen(default);
 
         Main_Menu:
@@ -50,11 +49,14 @@ public static class GameManager
                 goto Steganography;
             case Jump.Compression:
                 goto Compression;
+            case Jump.Fractals:
+                goto Fractals;
             case Jump.Back:
                 goto Main_Menu;
         }
 
         Filter:
+
         Transformation filter = ChooseFilter();
         if (t_Jump is Jump.Back) 
             goto Actions;
@@ -66,6 +68,7 @@ public static class GameManager
         goto Main_Menu;
 
         Manipulation:
+
         Manipulation manipulation = ChooseManipulation();
         if (t_Jump is Jump.Back) 
             goto Actions;
@@ -77,6 +80,7 @@ public static class GameManager
         goto Main_Menu;
 
         CustomKernel:
+
         float[,]? kernel = DefineCustomKernel();
         if (kernel is null)
             goto Actions;
@@ -88,6 +92,7 @@ public static class GameManager
         goto Main_Menu;
 
         Steganography:
+
         Encrypting encryptingProcess = ChooseEncrypting();
         if (t_Jump is Jump.Back) 
             goto Actions;
@@ -127,6 +132,7 @@ public static class GameManager
         goto Main_Menu;
 
         Decrypt:
+
         ChooseFile("Images/OUT/steganography/encrypted/");
         if (t_Jump is Jump.Back) 
             goto Steganography;
@@ -143,17 +149,21 @@ public static class GameManager
         s_ProcessStopwatch.Start();
         byte[] compressedContent = image.Compress();
         s_ProcessStopwatch.Stop();
-        WriteParagraph(new string[]{s_Dict[s_Lang]["title"]["compression"]+ s_ProcessStopwatch.ElapsedMilliseconds + " ms. "}, true);
+        WriteParagraph(new string[]{s_Dict[s_Lang]["title"]["process"]+ s_ProcessStopwatch.ElapsedMilliseconds + " ms. "}, true);
         ReadKey(true);
 
         // ! Add decompression here
 
         goto Main_Menu;
 
-        //Fractals:
+        Fractals:
 
-        // ! Add fractals here
-
+        FractalSet fractalSet = ChooseFractalSet();
+        if (t_Jump is Jump.Back) 
+            goto Actions;
+        s_ProcessStopwatch.Start();
+        ApplyFractalSet(fractalSet).Save();
+        goto Main_Menu;
         #endregion
 
         #region Options
@@ -238,6 +248,8 @@ public static class GameManager
         Steganography,
         /// <summary> Go to the compression menu. </summary>
         Compression,
+        /// <summary> Go to the fractals menu. </summary>
+        Fractals,
         /// <summary> Exit the program. </summary>
         Exit
     }
@@ -274,6 +286,7 @@ public static class GameManager
                 s_Dict[s_Lang]["options"]["actions_custom"],
                 s_Dict[s_Lang]["options"]["actions_steganography"],
                 s_Dict[s_Lang]["options"]["actions_compression"],
+                s_Dict[s_Lang]["options"]["actions_fractals"],
                 s_Dict[s_Lang]["generic"]["back"]}))
         {
             case 0:
@@ -291,7 +304,10 @@ public static class GameManager
             case 4:
                 t_Jump = Jump.Compression;
                 break;
-            case 5: case -1:
+            case 5:
+                t_Jump = Jump.Fractals;
+                break;
+            default:
                 t_Jump = Jump.Back;
                 break;
         }
@@ -462,7 +478,7 @@ public static class GameManager
             case 3:
                 return Manipulation.Push;
             default:
-                t_Jump = Jump.Actions;
+                t_Jump = Jump.Back;
                 return Manipulation.Rotate;
         }
     }
@@ -572,6 +588,24 @@ public static class GameManager
         Mandelbrot,
         ///<summary> The Julia set. </summary>
         Julia,
+    }
+    /// <summary> This method is used to display the fractals menu. </summary>
+    /// <returns> The fractal chosen by the user </returns>
+    public static FractalSet ChooseFractalSet()
+    {
+        switch (ScrollingMenu(s_Dict[s_Lang]["title"]["fractal"], new string[]{
+                s_Dict[s_Lang]["options"]["fractal_mandelbrot"],
+                s_Dict[s_Lang]["options"]["fractal_julia"],
+                s_Dict[s_Lang]["generic"]["back"]}))
+        {
+            case 0:
+                return FractalSet.Mandelbrot;
+            case 1:
+                return FractalSet.Julia;
+            default: 
+                t_Jump = Jump.Back;
+                return default;
+        }
     }
     /// <summary> This method is used to create a Mandelbrot fractal </summary>
     /// <param name="fractal"> The fractal to create </param>
@@ -686,14 +720,6 @@ public static class GameManager
         files = files.Where(file => Path.GetExtension(file) != exclude).ToArray();
         string[] filesName = new string[files.Length];
         filesName = files.Select(file => Path.GetFileNameWithoutExtension(file)).ToArray();
-
-        // if (directoryPath is "Images/Default")
-        //     for (int i = 0; i < files.Length; i++)
-        //         filesName[i] = files[i].Substring(15, files[i].Length - 19);
-        // else if (directoryPath is "Images/OUT/bmp")
-        //     for (int i = 0; i < files.Length; i++)
-        //         filesName[i] = files[i].Substring(15, files[i].Length - 19);
-                
         int namePosition;
         switch (namePosition = ScrollingMenu(s_Dict[s_Lang]["title"]["file"], 
             filesName))
