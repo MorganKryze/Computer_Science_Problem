@@ -23,7 +23,7 @@ public static class GameManager
         Main_Menu:
 
         MainMenu();
-        switch (t_Jump)
+        switch (s_Jump)
         {
             case Jump.Continue:
                 goto Actions;
@@ -37,7 +37,7 @@ public static class GameManager
         Actions:
 
         Actions();
-        switch (t_Jump)
+        switch (s_Jump)
         {
             case Jump.Filter:
                 goto Filter;
@@ -58,10 +58,10 @@ public static class GameManager
         Filter:
 
         Transformation filter = ChooseFilter();
-        if (t_Jump is Jump.Back) 
+        if (s_Jump is Jump.Back) 
             goto Actions;
         ChooseFile(ChooseFolder());
-        if (t_Jump is Jump.Back) 
+        if (s_Jump is Jump.Back) 
             goto Filter;
         ApplyFilter(filter);
         WriteFullScreen(true);
@@ -70,10 +70,10 @@ public static class GameManager
         Manipulation:
 
         Manipulation manipulation = ChooseManipulation();
-        if (t_Jump is Jump.Back) 
+        if (s_Jump is Jump.Back) 
             goto Actions;
         ChooseFile(ChooseFolder());
-        if (t_Jump is Jump.Back) 
+        if (s_Jump is Jump.Back) 
             goto Manipulation;
         ApplyManipulation(manipulation);
         WriteFullScreen(true);
@@ -85,7 +85,7 @@ public static class GameManager
         if (kernel is null)
             goto Actions;
         ChooseFile(ChooseFolder());
-        if (t_Jump is Jump.Back) 
+        if (s_Jump is Jump.Back) 
             goto CustomKernel;
         ApplyCustomKernel(kernel);
         WriteFullScreen(true);
@@ -94,7 +94,7 @@ public static class GameManager
         Steganography:
 
         Encrypting encryptingProcess = ChooseEncrypting();
-        if (t_Jump is Jump.Back) 
+        if (s_Jump is Jump.Back) 
             goto Actions;
         switch (encryptingProcess)
         {
@@ -112,7 +112,7 @@ public static class GameManager
         ReadKey(true);
         ClearContent();
         ChooseFile(ChooseFolder());
-        if (t_Jump is Jump.Back) 
+        if (s_Jump is Jump.Back) 
             goto Steganography;
         var hostImage = new PictureBitMap(s_SourceImagePath);
         
@@ -122,7 +122,7 @@ public static class GameManager
         ReadKey(true);
         ClearContent();
         ChooseFile(ChooseFolder());
-        if (t_Jump is Jump.Back) 
+        if (s_Jump is Jump.Back) 
             goto Encrypt;
         var guestImage = new PictureBitMap(s_SourceImagePath);
 
@@ -134,7 +134,7 @@ public static class GameManager
         Decrypt:
 
         ChooseFile("Images/OUT/steganography/encrypted/");
-        if (t_Jump is Jump.Back) 
+        if (s_Jump is Jump.Back) 
             goto Steganography;
         var encryptedImage = Decrypt(s_SourceImagePath);
         WriteFullScreen(true);
@@ -143,26 +143,27 @@ public static class GameManager
         Compression:
 
         ChooseFile(ChooseFolder());
-        if (t_Jump is Jump.Back) 
+        if (s_Jump is Jump.Back) 
             goto Actions;
         var image = new PictureBitMap(s_SourceImagePath);
         s_ProcessStopwatch.Start();
-        byte[] compressedContent = image.Compress();
-        s_ProcessStopwatch.Stop();
-        WriteParagraph(new string[]{s_Dict[s_Lang]["title"]["process"]+ s_ProcessStopwatch.ElapsedMilliseconds + " ms. "}, true);
-        ReadKey(true);
-
-        // ! Add decompression here
-
+        image.Decompress(image.Compress());
+        image.Save();
         goto Main_Menu;
 
         Fractals:
 
         FractalSet fractalSet = ChooseFractalSet();
-        if (t_Jump is Jump.Back) 
+        if (s_Jump is Jump.Back) 
             goto Actions;
+        int size = (int)NumberSelector(s_Dict[s_Lang]["options"]["fractal_size"], 400, 16000, 800);
+        if (size == -1)
+            goto Fractals;
+        int depth = (int)NumberSelector(s_Dict[s_Lang]["options"]["fractal_depth"], 50, 700, 200, 50);
+        if (depth == -1)
+            goto Fractals;
         s_ProcessStopwatch.Start();
-        ApplyFractalSet(fractalSet).Save();
+        ApplyFractalSet(fractalSet, size, depth).Save();
         goto Main_Menu;
         #endregion
 
@@ -170,7 +171,7 @@ public static class GameManager
         Options:
 
         Options();
-        switch (t_Jump)
+        switch (s_Jump)
         {
             case Jump.Language:
                 goto Language;
@@ -183,7 +184,7 @@ public static class GameManager
         Language:
 
         ChangeLanguage();
-        switch (t_Jump)
+        switch (s_Jump)
         {
             case Jump.Main_Menu:
                 goto Options;
@@ -194,7 +195,7 @@ public static class GameManager
         FontColor:
 
         ChangeColor();
-        switch (t_Jump)
+        switch (s_Jump)
         {
             case Jump.FontColor:
                 goto FontColor;
@@ -207,7 +208,7 @@ public static class GameManager
 
     #region Fields
     /// <summary> The jump variable, used as a "thread" to get the information wether to continue the execution or to "jump" to a specific part of the code.</summary>
-    public static Jump t_Jump = Jump.Main_Menu;
+    public static Jump s_Jump = Jump.Main_Menu;
     /// <summary> Represents the path of the source image for a specific use. </summary>
     public static string s_SourceImagePath = "none";
     /// <summary> This field represents the current language. </summary>
@@ -218,6 +219,8 @@ public static class GameManager
     public static Stopwatch s_ProcessStopwatch = new ();
     /// <summary> Represents the random object used to generate random numbers. </summary>
     public static Random s_Random = new ();
+    /// <summary> Represents the percentage of the process. </summary>
+    public static float s_ProcessPercentage = 0f;
     #endregion
 
     #region Jump enum
@@ -267,13 +270,13 @@ public static class GameManager
             s_Dict[s_Lang]["options"]["main_quit"], }))
         {
             case 0:
-                t_Jump = Jump.Continue;
+                s_Jump = Jump.Continue;
                 break;
             case 1:
-                t_Jump = Jump.Options;
+                s_Jump = Jump.Options;
                 break;
             case 2: case -1:
-                t_Jump = Jump.Exit;
+                s_Jump = Jump.Exit;
                 break;
         }
     }
@@ -290,25 +293,25 @@ public static class GameManager
                 s_Dict[s_Lang]["generic"]["back"]}))
         {
             case 0:
-                t_Jump = Jump.Filter;
+                s_Jump = Jump.Filter;
                 break;
             case 1:
-                t_Jump = Jump.Manipulation;
+                s_Jump = Jump.Manipulation;
                 break;
             case 2:
-                t_Jump = Jump.CustomKernel;
+                s_Jump = Jump.CustomKernel;
                 break;
             case 3:
-                t_Jump = Jump.Steganography;
+                s_Jump = Jump.Steganography;
                 break;
             case 4:
-                t_Jump = Jump.Compression;
+                s_Jump = Jump.Compression;
                 break;
             case 5:
-                t_Jump = Jump.Fractals;
+                s_Jump = Jump.Fractals;
                 break;
             default:
-                t_Jump = Jump.Back;
+                s_Jump = Jump.Back;
                 break;
         }
     }
@@ -325,13 +328,13 @@ public static class GameManager
             s_Dict[s_Lang]["generic"]["back"]}))
         {
             case 0:
-                t_Jump = Jump.FontColor;
+                s_Jump = Jump.FontColor;
                 break;
             case 1:
-                t_Jump = Jump.Language;
+                s_Jump = Jump.Language;
                 break;
             case 2: case 3: case -1:
-                t_Jump = Jump.Main_Menu;
+                s_Jump = Jump.Main_Menu;
                 break;
         }
     }
@@ -345,14 +348,14 @@ public static class GameManager
         {
             case 0:
                 s_Lang = "french";
-                t_Jump = Jump.Main_Menu;
+                s_Jump = Jump.Main_Menu;
                 break;
             case 1:
                 s_Lang = "english";
-                t_Jump = Jump.Main_Menu;
+                s_Jump = Jump.Main_Menu;
                 break;
             case 2: case -1:
-                t_Jump = Jump.Options;
+                s_Jump = Jump.Options;
                 break;
         }
         
@@ -391,10 +394,10 @@ public static class GameManager
                     ChangeFont(Cyan);
                     break;
                 case -1:
-                    t_Jump = Jump.Back;
+                    s_Jump = Jump.Back;
                     return;
             }
-            t_Jump = Jump.FontColor;
+            s_Jump = Jump.FontColor;
     }
     #endregion
     
@@ -424,7 +427,7 @@ public static class GameManager
             case 5:
                 return Transformation.Contrast;
             default:
-                t_Jump = Jump.Back;
+                s_Jump = Jump.Back;
                 return Transformation.Grey;
         }
     }
@@ -478,7 +481,7 @@ public static class GameManager
             case 3:
                 return Manipulation.Push;
             default:
-                t_Jump = Jump.Back;
+                s_Jump = Jump.Back;
                 return Manipulation.Rotate;
         }
     }
@@ -489,27 +492,39 @@ public static class GameManager
         switch (m)
         {
             case Manipulation.Rotate:
-                int? angle = null;
-                int occurrenceRotation = 0;
-                do
-                {   string answer = WritePrompt(s_Dict[s_Lang]["prompt"]["rotate"]);
-                    angle = int.TryParse(answer, out int result) ? result : null;
-                    occurrenceRotation++;
-                } while (angle is null || angle < 0 || angle > 360);
+                // int? angle = null;
+                // int occurrenceRotation = 0;
+                // do
+                // {   string answer = WritePrompt(s_Dict[s_Lang]["prompt"]["rotate"]);
+                //     angle = int.TryParse(answer, out int result) ? result : null;
+                //     occurrenceRotation++;
+                // } while (angle is null || angle < 0 || angle > 360);
+                double angle = NumberSelector(s_Dict[s_Lang]["prompt"]["rotate"], 0, 360, 180, 0.5f);
+                if (angle == -1)
+                {
+                    ApplyManipulation(m); // ! problème de récursivité, passer par un Back vers manipulation
+                    return;
+                }
                 s_ProcessStopwatch.Start();
-                image = image.Rotation((int)angle);
+                image = image.Rotation(angle);
                 break;
             case Manipulation.Resize:
-                float? scale = null;
-                int occurrenceResize = 0;
-                do
+                // float? scale = null;
+                // int occurrenceResize = 0;
+                // do
+                // {
+                //     string answer = WritePrompt(s_Dict[s_Lang]["prompt"]["resize"]);
+                //     scale = float.TryParse(answer, out float result) ? result : null;
+                //     occurrenceResize++;
+                // } while (scale is null || scale < 1);
+                float scale = NumberSelector(s_Dict[s_Lang]["prompt"]["resize"], 0.5f, 10, 1, 0.1f);
+                if (scale == -1)
                 {
-                    string answer = WritePrompt(s_Dict[s_Lang]["prompt"]["resize"]);
-                    scale = float.TryParse(answer, out float result) ? result : null;
-                    occurrenceResize++;
-                } while (scale is null || scale < 1);
+                    ApplyManipulation(m);
+                    return;
+                } 
                 s_ProcessStopwatch.Start();
-                image = image.Resize((float)scale);
+                image = image.Resize(scale);
                 break;
             case Manipulation.Detect:
                 s_ProcessStopwatch.Start();
@@ -547,7 +562,7 @@ public static class GameManager
         s_ProcessStopwatch.Start();
         image = image.ApplyKernel(newKernel);
         image.Save();
-        t_Jump = Jump.Main_Menu;
+        s_Jump = Jump.Main_Menu;
         
     }
     #endregion
@@ -574,7 +589,7 @@ public static class GameManager
             case 1:
                 return Encrypting.Decrypt;
             default: 
-                t_Jump = Jump.Back;
+                s_Jump = Jump.Back;
                 return default;
         }
     }
@@ -603,7 +618,7 @@ public static class GameManager
             case 1:
                 return FractalSet.Julia;
             default: 
-                t_Jump = Jump.Back;
+                s_Jump = Jump.Back;
                 return default;
         }
     }
@@ -615,12 +630,17 @@ public static class GameManager
     public static PictureBitMap ApplyFractalSet(FractalSet fractal, int size = 800, int depth = 200)
 	{
 		PictureBitMap image = new PictureBitMap(size, size);
+        var t_Loading = new Thread(() => ProcessLoadingSreen(s_Dict[s_Lang]["title"]["loading"]));
         switch (fractal)
         {
             case FractalSet.Mandelbrot:
+                t_Loading.Start();
+                int counterM = 0;
                 for(int i = 0; i < image.GetLength(0); i++)
 			        for(int j = 0; j < image.GetLength(1); j++)
 			        {
+                        counterM++;
+                        s_ProcessPercentage = counterM / (float)(image.GetLength(0) * image.GetLength(1));
                         var z1 = new Complex(2 * j / (double)image.GetLength(0) - 1, 2 * i / (double)image.GetLength(1) - 1);
                         var z2 = new Complex(0, 0);
 			        	int n;
@@ -628,6 +648,7 @@ public static class GameManager
                             (z2.Re, z2.Im) = (Math.Pow(z2.Re, 2) - Math.Pow(z2.Im, 2) + z1.Re, 2 * z2.Re * z2.Im + z1.Im);
 			        	image[i, j] = n == depth ? new Pixel(0, 0, 0) : Pixel.Hue((int)(360 * n / depth));
 			        }
+                t_Loading.Join();
                 break;
             case FractalSet.Julia:
                 Complex c = new Complex(0, 0);
@@ -652,15 +673,20 @@ public static class GameManager
                         c = new Complex(0.3, 0.5);
                         break;
                 }
+                t_Loading.Start();
+                int counterJ = 0;
                 for(int i = 0; i < image.GetLength(0); i++)
 			        for(int j = 0; j < image.GetLength(1); j++)
 			        {
+                        counterJ++;
+                        s_ProcessPercentage = counterJ / (float)(image.GetLength(0) * image.GetLength(1));
                         var z = new Complex(2 * j / (double)image.GetLength(0) - 1, 2 * i / (double)image.GetLength(1) - 1);
 			        	int n;
 			        	for(n = 0; n < depth && z.Modulus() < 2; n++)
                             (z.Re, z.Im) = (Math.Pow(z.Re, 2) - Math.Pow(z.Im, 2) + c.Re, 2 * z.Re * z.Im + c.Im);
 			        	image[i, j] = n == depth ? new Pixel(0, 0, 0) : Pixel.Hue((int)(360 * n / depth));
 			        }
+                t_Loading.Join();
                 break;
         }
 		
@@ -698,13 +724,13 @@ public static class GameManager
                 s_Dict[s_Lang]["generic"]["back"]}))
         {
             case 0:
-                t_Jump = Jump.Continue;
+                s_Jump = Jump.Continue;
                 return "Images/Default";
             case 1:
-                t_Jump = Jump.Continue;
+                s_Jump = Jump.Continue;
                 return "Images/OUT/bmp";
             default:
-                t_Jump = Jump.Back;
+                s_Jump = Jump.Back;
                 return "none";
         }
     }
@@ -725,12 +751,12 @@ public static class GameManager
             filesName))
         {
             case -1:
-                t_Jump = Jump.Back;
+                s_Jump = Jump.Back;
                 break;
             default:
                 s_SourceImagePath = files[namePosition];
                 new PictureBitMap(files[namePosition]).DisplayImage();
-                t_Jump = Jump.Actions;
+                s_Jump = Jump.Actions;
                 break;
         }
     }

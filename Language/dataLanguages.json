@@ -33,8 +33,7 @@
             "stega_guest1": " You may choose a picture that will be the guest. ",
             "stega_guest2": " The picture will be encrypted into the host. ",
 
-            "loading_begin": "[ Loading the program ...]",
-            "loading_end": "[ Exiting the program ...]",
+            "loading": "[ Loading, please wait ... ]",
 
             "process": " The Process took "
             
@@ -85,6 +84,9 @@
 
             "fractal_mandelbrot": "Mandelbrot set",
             "fractal_julia": "Julia set",
+
+            "fractal_size": "You may select the size in pixels of the fractal.",
+            "fractal_depth": "You may select the depth of the fractal.",
 
             "options_color": "Change color",
             "options_language": "Change language",
@@ -165,8 +167,7 @@
             "stega_guest1": " Veuillez choisir une image qui sera l'invitée. ",
             "stega_guest2": " Cette image sera cryptée dans l'hôte. ",
 
-            "loading_begin": "[ Chargement du programme ...]",
-            "loading_end": "[ Fermeture du programme ...]",
+            "loading": "[ Chargement, veuillez patienter ... ]",
 
             "process": " Le traitement a pris "
         },
@@ -216,6 +217,9 @@
 
             "fractal_mandelbrot":"Set de Mandelbrot",
             "fractal_julia":"Set de Julia",
+
+            "fractal_size": "Veuillez choisir la taille de la fractale.",
+            "fractal_depth": "Veuillez choisir la profondeur de la fractale.",
 
             "options_color": "Changer la couleur",
             "options_language": "Changer la langue", 

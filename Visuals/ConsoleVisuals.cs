@@ -219,7 +219,7 @@ public static class ConsoleVisuals
         WriteBanner(footer, false, straight);
         ClearContent();
         if (!straight) 
-            LoadingScreen(s_Dict[s_Lang]["title"]["loading_begin"]);
+            LoadingScreen(s_Dict[s_Lang]["title"]["loading"]);
     }
     #endregion
 
@@ -294,7 +294,7 @@ public static class ConsoleVisuals
             {
                 if (i == currentPosition)
                 {
-                    currentChoice[i] = $" ► {choices[i]}  ";
+                    currentChoice[i] = $" ▶ {choices[i]}  ";
                     WritePositionnedString(currentChoice[i], Placement.Center, true, line + 2 + i);
                     continue;
                 }
@@ -322,6 +322,50 @@ public static class ConsoleVisuals
                     ClearPanel(line, choices.Length + 2);
                     return -1;
             }
+        }
+    }
+    /// <summary> This method prints a menu in the console and gets the choice of the user. </summary>
+    /// <param name="question"> The question to print. </param>
+    /// <param name="min"> The minimum value of the number. </param>
+    /// <param name="max"> The maximum value of the number. </param>
+    /// <param name="start"> The starting value of the number. </param>
+    /// <param name="step"> The step of the number. </param>
+    /// <param name="line"> The line where the menu is printed. </param>
+    /// <returns> The number chose of the user. </returns>
+    public static float NumberSelector(string question, float min, float max, float start = 0,float step = 100, int line = -1)
+    {
+        IsScreenUpdated();
+        if (line == -1)
+            line = ContentHeigth;
+        float currentNumber = start;
+        ContinuousPrint(question, line, default, 1500, 50);
+        while (true)
+        {
+            WritePositionnedString($" ▶ {(float)Math.Round(currentNumber, 1)} ◀ ", Placement.Center, true, line + 2);
+            
+            switch (ReadKey(true).Key)
+            {
+                case UpArrow: case Z: 
+                    if (currentNumber + step <= max)
+                        currentNumber += step;
+                    else if (currentNumber + step > max)
+                        currentNumber = min;
+                    break;
+                case DownArrow: case S: 
+                    if (currentNumber - step >= min)
+                        currentNumber -= step;
+                    else if (currentNumber - step < min)
+                        currentNumber = max;
+                        break;
+                case Enter: 
+                    ClearPanel(line, 4);
+                    return currentNumber;
+                case Escape: 
+                    ClearPanel(line, 4);
+                    return -1;
+            }
+            Sleep(1);
+            ClearLine(line +2);
         }
     }
     /// <summary> This method prints a matrix selcetor in the console. </summary>
@@ -365,13 +409,11 @@ public static class ConsoleVisuals
                 case Tab: 
                     float number = 0;
                     while (true)
-                    {
                         if (float.TryParse(WritePrompt(s_Dict[s_Lang]["prompt"]["matrix_prompt"], ContentHeigth + 3 + matrix.GetLength(0) + 2), out float value))
                         {
                             number = value;
                             break;
                         }
-                    }
                     ClearPanel(ContentHeigth + 2 + matrix.GetLength(0) + 1, 10);
                     matrix[currentPosition.X, currentPosition.Y] = number;
                     break;
@@ -407,10 +449,31 @@ public static class ConsoleVisuals
                 loadingBar += '█';
         ContinuousPrint(loadingBar, ContentHeigth + 2);
     }
+    /// <summary> This method prints a loading screen in the console. </summary>
+    public static void ProcessLoadingSreen(string text)
+    {
+        if(!IsScreenUpdated())
+            ClearPanel(ContentHeigth, 3);
+        WritePositionnedString(text.BuildString(WindowWidth, Placement.Center), default, default, ContentHeigth, true);
+        while(s_ProcessPercentage <= 1f)
+        {
+            string loadingBar = "";
+            for(int j = 0; j <= (int)(text.Length * s_ProcessPercentage); j++) 
+                loadingBar += '█';
+            WritePositionnedString(loadingBar.BuildString(text.Length, Placement.Left), Placement.Center, default, ContentHeigth + 2, true);
+            if (s_ProcessPercentage == 1f)
+            {
+                Sleep(3000);
+                break;
+            }
+        }
+        s_ProcessPercentage = 0f;
+        ClearContent();
+    }
     /// <summary> This method exits the program. </summary>
     public static void ProgramExit()
     {
-        LoadingScreen(s_Dict[s_Lang]["title"]["loading_end"]);
+        LoadingScreen(s_Dict[s_Lang]["title"]["loading"]);
         ClearAll();
         CursorVisible = true;
         Environment.Exit(0);

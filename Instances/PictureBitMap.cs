@@ -1,8 +1,6 @@
-﻿using System.Globalization;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Text;
 using System.Text.Json;
-using SixLabors.ImageSharp.Formats.Jpeg;
 using static System.Console;
 
 using Utilitary;
@@ -14,15 +12,17 @@ namespace Instances;
 /// <summary> This class represents an image. </summary>
 public class PictureBitMap 
 {
-    #region Picture content
-    ///<summary> Information about the image. </summary>
-    private byte[] info;
-    ///<summary> The data of the pixels from the current image. </summary>                    
+    #region Fields
+    private byte[] info;                   
     private byte[] data;
+    private string? imagePath;
     #endregion
 
-    #region Fields
-    private string? imagePath;
+    #region Properties
+    /// <summary> Gets the Header info. </summary>
+    public byte[] Header => info;
+    /// <summary> Gets the image data. </summary>
+    public byte[] Data => data;
     #endregion
 
     #region Indexers
@@ -157,7 +157,7 @@ public class PictureBitMap
     /// <summary> Rotates the <see cref="PictureBitMap"/> instance at an <paramref name="degreesAngle"/>.</summary>
     /// <param name="degreesAngle">Angle of the rotation (in degrees)</param>
     /// <returns>A copy of this <see cref="PictureBitMap"/> rotated by <paramref name="degreesAngle"/> degrees.</returns>
-    public PictureBitMap Rotation(int degreesAngle)
+    public PictureBitMap Rotation(double degreesAngle)
     {
         PictureBitMap previousImage = Dupplicate();
 
@@ -248,7 +248,7 @@ public class PictureBitMap
                     codeByte(hostPix.Blue, guestPix.Blue));
             }
         }
-        host.Save("Images/OUT/steganography/encrypted/");
+        host.Save(path: "Images/OUT/steganography/encrypted/");
         if (host.imagePath is null)
             throw new NullReferenceException("host.imagePath is null.");
         string jsonPath = $"{host.imagePath.Substring(0, host.imagePath.Length - 3)}json";
@@ -316,7 +316,7 @@ public class PictureBitMap
         }
     }
     /// <summary> This method saves the <see cref="PictureBitMap"/>. </summary>
-    public void Save(string savePath = "Images/OUT/bmp/")
+    public void Save(string path = "Images/OUT/bmp/")
     {
         s_ProcessStopwatch.Stop();
         string imageName = "";
@@ -325,8 +325,8 @@ public class PictureBitMap
             if (imageName != "")
                 WriteParagraph(new string[] { s_Dict[s_Lang]["error"]["taken_name"] }, true);
             imageName = WritePrompt(s_Dict[s_Lang]["prompt"]["save"]);
-        }while(IsFileNameTaken(imageName, savePath));
-        imagePath = savePath + imageName + ".bmp";
+        }while(IsFileNameTaken(imageName, path));
+        imagePath = path + imageName + ".bmp";
 
         s_ProcessStopwatch.Start();
         using (FileStream stream = File.OpenWrite(imagePath))
@@ -412,38 +412,7 @@ public class PictureBitMap
         }
     }
     /// <summary> This method is used to compress the <see cref="PictureBitMap"/>. </summary>
-    public static void WorkingCompression(string path)
-    {
-        if (path is not null)
-            throw new NotImplementedException();
-
-
-        using (var image = Image.Load("Images/Default/lena.bmp"))
-        {
-            using (var outputStream = new MemoryStream())
-            {
-                image.Save(outputStream, new JpegEncoder());
-                File.WriteAllBytes("Images/OUT/jpg/lena2.jpg", outputStream.ToArray());
-            }
-        }
-        string imagePath = "Images/OUT/jpg/lena2.jpg"; //peut être ne pas laisser le même path pour les deux ^^'
-        string compressedImagePath = "Images/OUT/jpg/lena2.jpg";
-        int quality = 50;
-
-        using (Stream inputStream = File.OpenRead(imagePath))
-        using (Stream outputStream = File.OpenWrite(compressedImagePath))
-        {
-            using (var image = Image.Load(inputStream))
-            {
-                image.Mutate(x => x.Resize(image.Width, image.Height));
-                var encoder = new JpegEncoder{Quality = quality};
-                image.Save(outputStream, encoder);
-            }
-        }
-        
-    }
-    /// <summary> This method is used to compress the <see cref="PictureBitMap"/>. </summary>
-    public  byte[] Compress()
+    public HuffmanTree Compress()
     {
         int[] values = Array.ConvertAll(this.data, b => (int)b);
         var frequencies = new int[256];
@@ -497,7 +466,40 @@ public class PictureBitMap
             bytes[i / 8] = b;
         }
 
-        return bytes;
+        data = bytes;
+        return  tree;
+    }
+    /// <summary> This method is used to decompress the <see cref="PictureBitMap"/>. </summary>
+    /// <param name="tree"> The Huffman tree. </param>
+    /// <returns> The decompressed data. </returns>
+    public void Decompress( HuffmanTree tree)
+    {
+        List<bool> bits = new List<bool>();
+
+        foreach (byte b in this.data)
+        {
+            string binary = Convert.ToString(b, 2).PadLeft(8, '0');
+            bits.AddRange(binary.Select(x => x == '1'));
+        }
+
+        int index = 0;
+        List<int> pixels = new List<int>();
+
+        while (index < bits.Count)
+        {
+            HuffmanNode node = tree.root;
+            while (node.Left != null && node.Right != null && index < bits.Count)
+            {
+                if (bits[index])
+                    node = node.Right;
+                else
+                    node = node.Left;
+                index++;
+            }
+            pixels.Add(node.Value);
+        }
+
+        this.data = pixels.Select(x => (byte)x).ToArray();
     }
     #endregion
 }
