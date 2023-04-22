@@ -685,276 +685,270 @@ references:
   commentId: F:Instances.HuffmanTree.root
   fullName: Instances.HuffmanTree.root
   nameWithType: HuffmanTree.root
-- uid: Instances.PictureBitMap
-  name: PictureBitMap
-  href: api/Instances.PictureBitMap.html
-  commentId: T:Instances.PictureBitMap
-  fullName: Instances.PictureBitMap
-  nameWithType: PictureBitMap
-- uid: Instances.PictureBitMap.#ctor(System.Int32,System.Int32)
-  name: PictureBitMap(Int32, Int32)
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap__ctor_System_Int32_System_Int32_
-  commentId: M:Instances.PictureBitMap.#ctor(System.Int32,System.Int32)
-  fullName: Instances.PictureBitMap.PictureBitMap(System.Int32, System.Int32)
-  nameWithType: PictureBitMap.PictureBitMap(Int32, Int32)
-- uid: Instances.PictureBitMap.#ctor(System.String)
-  name: PictureBitMap(String)
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap__ctor_System_String_
-  commentId: M:Instances.PictureBitMap.#ctor(System.String)
-  fullName: Instances.PictureBitMap.PictureBitMap(System.String)
-  nameWithType: PictureBitMap.PictureBitMap(String)
-- uid: Instances.PictureBitMap.#ctor*
-  name: PictureBitMap
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap__ctor_
-  commentId: Overload:Instances.PictureBitMap.#ctor
+- uid: Instances.Picture
+  name: Picture
+  href: api/Instances.Picture.html
+  commentId: T:Instances.Picture
+  fullName: Instances.Picture
+  nameWithType: Picture
+- uid: Instances.Picture.#ctor(System.Int32,System.Int32)
+  name: Picture(Int32, Int32)
+  href: api/Instances.Picture.html#Instances_Picture__ctor_System_Int32_System_Int32_
+  commentId: M:Instances.Picture.#ctor(System.Int32,System.Int32)
+  fullName: Instances.Picture.Picture(System.Int32, System.Int32)
+  nameWithType: Picture.Picture(Int32, Int32)
+- uid: Instances.Picture.#ctor(System.String)
+  name: Picture(String)
+  href: api/Instances.Picture.html#Instances_Picture__ctor_System_String_
+  commentId: M:Instances.Picture.#ctor(System.String)
+  fullName: Instances.Picture.Picture(System.String)
+  nameWithType: Picture.Picture(String)
+- uid: Instances.Picture.#ctor*
+  name: Picture
+  href: api/Instances.Picture.html#Instances_Picture__ctor_
+  commentId: Overload:Instances.Picture.#ctor
   isSpec: "True"
-  fullName: Instances.PictureBitMap.PictureBitMap
-  nameWithType: PictureBitMap.PictureBitMap
-- uid: Instances.PictureBitMap.AlterColors(Instances.PictureBitMap.Transformation)
-  name: AlterColors(PictureBitMap.Transformation)
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_AlterColors_Instances_PictureBitMap_Transformation_
-  commentId: M:Instances.PictureBitMap.AlterColors(Instances.PictureBitMap.Transformation)
-  fullName: Instances.PictureBitMap.AlterColors(Instances.PictureBitMap.Transformation)
-  nameWithType: PictureBitMap.AlterColors(PictureBitMap.Transformation)
-- uid: Instances.PictureBitMap.AlterColors*
+  fullName: Instances.Picture.Picture
+  nameWithType: Picture.Picture
+- uid: Instances.Picture.AlterColors(Instances.Picture.Transformation)
+  name: AlterColors(Picture.Transformation)
+  href: api/Instances.Picture.html#Instances_Picture_AlterColors_Instances_Picture_Transformation_
+  commentId: M:Instances.Picture.AlterColors(Instances.Picture.Transformation)
+  fullName: Instances.Picture.AlterColors(Instances.Picture.Transformation)
+  nameWithType: Picture.AlterColors(Picture.Transformation)
+- uid: Instances.Picture.AlterColors*
   name: AlterColors
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_AlterColors_
-  commentId: Overload:Instances.PictureBitMap.AlterColors
+  href: api/Instances.Picture.html#Instances_Picture_AlterColors_
+  commentId: Overload:Instances.Picture.AlterColors
   isSpec: "True"
-  fullName: Instances.PictureBitMap.AlterColors
-  nameWithType: PictureBitMap.AlterColors
-- uid: Instances.PictureBitMap.Compress
+  fullName: Instances.Picture.AlterColors
+  nameWithType: Picture.AlterColors
+- uid: Instances.Picture.Compress
   name: Compress()
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Compress
-  commentId: M:Instances.PictureBitMap.Compress
-  fullName: Instances.PictureBitMap.Compress()
-  nameWithType: PictureBitMap.Compress()
-- uid: Instances.PictureBitMap.Compress*
+  href: api/Instances.Picture.html#Instances_Picture_Compress
+  commentId: M:Instances.Picture.Compress
+  fullName: Instances.Picture.Compress()
+  nameWithType: Picture.Compress()
+- uid: Instances.Picture.Compress*
   name: Compress
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Compress_
-  commentId: Overload:Instances.PictureBitMap.Compress
+  href: api/Instances.Picture.html#Instances_Picture_Compress_
+  commentId: Overload:Instances.Picture.Compress
   isSpec: "True"
-  fullName: Instances.PictureBitMap.Compress
-  nameWithType: PictureBitMap.Compress
-- uid: Instances.PictureBitMap.Data
+  fullName: Instances.Picture.Compress
+  nameWithType: Picture.Compress
+- uid: Instances.Picture.Data
   name: Data
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Data
-  commentId: P:Instances.PictureBitMap.Data
-  fullName: Instances.PictureBitMap.Data
-  nameWithType: PictureBitMap.Data
-- uid: Instances.PictureBitMap.Data*
+  href: api/Instances.Picture.html#Instances_Picture_Data
+  commentId: P:Instances.Picture.Data
+  fullName: Instances.Picture.Data
+  nameWithType: Picture.Data
+- uid: Instances.Picture.Data*
   name: Data
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Data_
-  commentId: Overload:Instances.PictureBitMap.Data
+  href: api/Instances.Picture.html#Instances_Picture_Data_
+  commentId: Overload:Instances.Picture.Data
   isSpec: "True"
-  fullName: Instances.PictureBitMap.Data
-  nameWithType: PictureBitMap.Data
-- uid: Instances.PictureBitMap.Decompress(Instances.HuffmanTree)
+  fullName: Instances.Picture.Data
+  nameWithType: Picture.Data
+- uid: Instances.Picture.Decompress(Instances.HuffmanTree)
   name: Decompress(HuffmanTree)
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Decompress_Instances_HuffmanTree_
-  commentId: M:Instances.PictureBitMap.Decompress(Instances.HuffmanTree)
-  fullName: Instances.PictureBitMap.Decompress(Instances.HuffmanTree)
-  nameWithType: PictureBitMap.Decompress(HuffmanTree)
-- uid: Instances.PictureBitMap.Decompress*
+  href: api/Instances.Picture.html#Instances_Picture_Decompress_Instances_HuffmanTree_
+  commentId: M:Instances.Picture.Decompress(Instances.HuffmanTree)
+  fullName: Instances.Picture.Decompress(Instances.HuffmanTree)
+  nameWithType: Picture.Decompress(HuffmanTree)
+- uid: Instances.Picture.Decompress*
   name: Decompress
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Decompress_
-  commentId: Overload:Instances.PictureBitMap.Decompress
+  href: api/Instances.Picture.html#Instances_Picture_Decompress_
+  commentId: Overload:Instances.Picture.Decompress
   isSpec: "True"
-  fullName: Instances.PictureBitMap.Decompress
-  nameWithType: PictureBitMap.Decompress
-- uid: Instances.PictureBitMap.Decrypt(System.String)
+  fullName: Instances.Picture.Decompress
+  nameWithType: Picture.Decompress
+- uid: Instances.Picture.Decrypt(System.String)
   name: Decrypt(String)
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Decrypt_System_String_
-  commentId: M:Instances.PictureBitMap.Decrypt(System.String)
-  fullName: Instances.PictureBitMap.Decrypt(System.String)
-  nameWithType: PictureBitMap.Decrypt(String)
-- uid: Instances.PictureBitMap.Decrypt*
+  href: api/Instances.Picture.html#Instances_Picture_Decrypt_System_String_
+  commentId: M:Instances.Picture.Decrypt(System.String)
+  fullName: Instances.Picture.Decrypt(System.String)
+  nameWithType: Picture.Decrypt(String)
+- uid: Instances.Picture.Decrypt*
   name: Decrypt
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Decrypt_
-  commentId: Overload:Instances.PictureBitMap.Decrypt
+  href: api/Instances.Picture.html#Instances_Picture_Decrypt_
+  commentId: Overload:Instances.Picture.Decrypt
   isSpec: "True"
-  fullName: Instances.PictureBitMap.Decrypt
-  nameWithType: PictureBitMap.Decrypt
-- uid: Instances.PictureBitMap.DisplayImage
+  fullName: Instances.Picture.Decrypt
+  nameWithType: Picture.Decrypt
+- uid: Instances.Picture.DisplayImage
   name: DisplayImage()
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_DisplayImage
-  commentId: M:Instances.PictureBitMap.DisplayImage
-  fullName: Instances.PictureBitMap.DisplayImage()
-  nameWithType: PictureBitMap.DisplayImage()
-- uid: Instances.PictureBitMap.DisplayImage*
+  href: api/Instances.Picture.html#Instances_Picture_DisplayImage
+  commentId: M:Instances.Picture.DisplayImage
+  fullName: Instances.Picture.DisplayImage()
+  nameWithType: Picture.DisplayImage()
+- uid: Instances.Picture.DisplayImage*
   name: DisplayImage
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_DisplayImage_
-  commentId: Overload:Instances.PictureBitMap.DisplayImage
+  href: api/Instances.Picture.html#Instances_Picture_DisplayImage_
+  commentId: Overload:Instances.Picture.DisplayImage
   isSpec: "True"
-  fullName: Instances.PictureBitMap.DisplayImage
-  nameWithType: PictureBitMap.DisplayImage
-- uid: Instances.PictureBitMap.Dupplicate
+  fullName: Instances.Picture.DisplayImage
+  nameWithType: Picture.DisplayImage
+- uid: Instances.Picture.Dupplicate
   name: Dupplicate()
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Dupplicate
-  commentId: M:Instances.PictureBitMap.Dupplicate
-  fullName: Instances.PictureBitMap.Dupplicate()
-  nameWithType: PictureBitMap.Dupplicate()
-- uid: Instances.PictureBitMap.Dupplicate*
+  href: api/Instances.Picture.html#Instances_Picture_Dupplicate
+  commentId: M:Instances.Picture.Dupplicate
+  fullName: Instances.Picture.Dupplicate()
+  nameWithType: Picture.Dupplicate()
+- uid: Instances.Picture.Dupplicate*
   name: Dupplicate
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Dupplicate_
-  commentId: Overload:Instances.PictureBitMap.Dupplicate
+  href: api/Instances.Picture.html#Instances_Picture_Dupplicate_
+  commentId: Overload:Instances.Picture.Dupplicate
   isSpec: "True"
-  fullName: Instances.PictureBitMap.Dupplicate
-  nameWithType: PictureBitMap.Dupplicate
-- uid: Instances.PictureBitMap.Encrypt(Instances.PictureBitMap,Instances.PictureBitMap)
-  name: Encrypt(PictureBitMap, PictureBitMap)
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Encrypt_Instances_PictureBitMap_Instances_PictureBitMap_
-  commentId: M:Instances.PictureBitMap.Encrypt(Instances.PictureBitMap,Instances.PictureBitMap)
-  fullName: Instances.PictureBitMap.Encrypt(Instances.PictureBitMap, Instances.PictureBitMap)
-  nameWithType: PictureBitMap.Encrypt(PictureBitMap, PictureBitMap)
-- uid: Instances.PictureBitMap.Encrypt*
+  fullName: Instances.Picture.Dupplicate
+  nameWithType: Picture.Dupplicate
+- uid: Instances.Picture.Encrypt(Instances.Picture,Instances.Picture)
+  name: Encrypt(Picture, Picture)
+  href: api/Instances.Picture.html#Instances_Picture_Encrypt_Instances_Picture_Instances_Picture_
+  commentId: M:Instances.Picture.Encrypt(Instances.Picture,Instances.Picture)
+  fullName: Instances.Picture.Encrypt(Instances.Picture, Instances.Picture)
+  nameWithType: Picture.Encrypt(Picture, Picture)
+- uid: Instances.Picture.Encrypt*
   name: Encrypt
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Encrypt_
-  commentId: Overload:Instances.PictureBitMap.Encrypt
+  href: api/Instances.Picture.html#Instances_Picture_Encrypt_
+  commentId: Overload:Instances.Picture.Encrypt
   isSpec: "True"
-  fullName: Instances.PictureBitMap.Encrypt
-  nameWithType: PictureBitMap.Encrypt
-- uid: Instances.PictureBitMap.GetLength(System.Int32)
+  fullName: Instances.Picture.Encrypt
+  nameWithType: Picture.Encrypt
+- uid: Instances.Picture.GetLength(System.Int32)
   name: GetLength(Int32)
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_GetLength_System_Int32_
-  commentId: M:Instances.PictureBitMap.GetLength(System.Int32)
-  fullName: Instances.PictureBitMap.GetLength(System.Int32)
-  nameWithType: PictureBitMap.GetLength(Int32)
-- uid: Instances.PictureBitMap.GetLength*
+  href: api/Instances.Picture.html#Instances_Picture_GetLength_System_Int32_
+  commentId: M:Instances.Picture.GetLength(System.Int32)
+  fullName: Instances.Picture.GetLength(System.Int32)
+  nameWithType: Picture.GetLength(Int32)
+- uid: Instances.Picture.GetLength*
   name: GetLength
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_GetLength_
-  commentId: Overload:Instances.PictureBitMap.GetLength
+  href: api/Instances.Picture.html#Instances_Picture_GetLength_
+  commentId: Overload:Instances.Picture.GetLength
   isSpec: "True"
-  fullName: Instances.PictureBitMap.GetLength
-  nameWithType: PictureBitMap.GetLength
-- uid: Instances.PictureBitMap.Header
+  fullName: Instances.Picture.GetLength
+  nameWithType: Picture.GetLength
+- uid: Instances.Picture.Header
   name: Header
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Header
-  commentId: P:Instances.PictureBitMap.Header
-  fullName: Instances.PictureBitMap.Header
-  nameWithType: PictureBitMap.Header
-- uid: Instances.PictureBitMap.Header*
+  href: api/Instances.Picture.html#Instances_Picture_Header
+  commentId: P:Instances.Picture.Header
+  fullName: Instances.Picture.Header
+  nameWithType: Picture.Header
+- uid: Instances.Picture.Header*
   name: Header
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Header_
-  commentId: Overload:Instances.PictureBitMap.Header
+  href: api/Instances.Picture.html#Instances_Picture_Header_
+  commentId: Overload:Instances.Picture.Header
   isSpec: "True"
-  fullName: Instances.PictureBitMap.Header
-  nameWithType: PictureBitMap.Header
-- uid: Instances.PictureBitMap.Item(System.Int32,System.Int32)
+  fullName: Instances.Picture.Header
+  nameWithType: Picture.Header
+- uid: Instances.Picture.Item(System.Int32,System.Int32)
   name: Item[Int32, Int32]
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Item_System_Int32_System_Int32_
-  commentId: P:Instances.PictureBitMap.Item(System.Int32,System.Int32)
+  href: api/Instances.Picture.html#Instances_Picture_Item_System_Int32_System_Int32_
+  commentId: P:Instances.Picture.Item(System.Int32,System.Int32)
   name.vb: Item(Int32, Int32)
-  fullName: Instances.PictureBitMap.Item[System.Int32, System.Int32]
-  fullName.vb: Instances.PictureBitMap.Item(System.Int32, System.Int32)
-  nameWithType: PictureBitMap.Item[Int32, Int32]
-  nameWithType.vb: PictureBitMap.Item(Int32, Int32)
-- uid: Instances.PictureBitMap.Item*
+  fullName: Instances.Picture.Item[System.Int32, System.Int32]
+  fullName.vb: Instances.Picture.Item(System.Int32, System.Int32)
+  nameWithType: Picture.Item[Int32, Int32]
+  nameWithType.vb: Picture.Item(Int32, Int32)
+- uid: Instances.Picture.Item*
   name: Item
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Item_
-  commentId: Overload:Instances.PictureBitMap.Item
+  href: api/Instances.Picture.html#Instances_Picture_Item_
+  commentId: Overload:Instances.Picture.Item
   isSpec: "True"
-  fullName: Instances.PictureBitMap.Item
-  nameWithType: PictureBitMap.Item
-- uid: Instances.PictureBitMap.Resize(System.Single)
+  fullName: Instances.Picture.Item
+  nameWithType: Picture.Item
+- uid: Instances.Picture.Resize(System.Single)
   name: Resize(Single)
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Resize_System_Single_
-  commentId: M:Instances.PictureBitMap.Resize(System.Single)
-  fullName: Instances.PictureBitMap.Resize(System.Single)
-  nameWithType: PictureBitMap.Resize(Single)
-- uid: Instances.PictureBitMap.Resize*
+  href: api/Instances.Picture.html#Instances_Picture_Resize_System_Single_
+  commentId: M:Instances.Picture.Resize(System.Single)
+  fullName: Instances.Picture.Resize(System.Single)
+  nameWithType: Picture.Resize(Single)
+- uid: Instances.Picture.Resize*
   name: Resize
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Resize_
-  commentId: Overload:Instances.PictureBitMap.Resize
+  href: api/Instances.Picture.html#Instances_Picture_Resize_
+  commentId: Overload:Instances.Picture.Resize
   isSpec: "True"
-  fullName: Instances.PictureBitMap.Resize
-  nameWithType: PictureBitMap.Resize
-- uid: Instances.PictureBitMap.Rotation(System.Double)
+  fullName: Instances.Picture.Resize
+  nameWithType: Picture.Resize
+- uid: Instances.Picture.Rotation(System.Double)
   name: Rotation(Double)
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Rotation_System_Double_
-  commentId: M:Instances.PictureBitMap.Rotation(System.Double)
-  fullName: Instances.PictureBitMap.Rotation(System.Double)
-  nameWithType: PictureBitMap.Rotation(Double)
-- uid: Instances.PictureBitMap.Rotation*
+  href: api/Instances.Picture.html#Instances_Picture_Rotation_System_Double_
+  commentId: M:Instances.Picture.Rotation(System.Double)
+  fullName: Instances.Picture.Rotation(System.Double)
+  nameWithType: Picture.Rotation(Double)
+- uid: Instances.Picture.Rotation*
   name: Rotation
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Rotation_
-  commentId: Overload:Instances.PictureBitMap.Rotation
+  href: api/Instances.Picture.html#Instances_Picture_Rotation_
+  commentId: Overload:Instances.Picture.Rotation
   isSpec: "True"
-  fullName: Instances.PictureBitMap.Rotation
-  nameWithType: PictureBitMap.Rotation
-- uid: Instances.PictureBitMap.Save(System.String)
+  fullName: Instances.Picture.Rotation
+  nameWithType: Picture.Rotation
+- uid: Instances.Picture.Save(System.String)
   name: Save(String)
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Save_System_String_
-  commentId: M:Instances.PictureBitMap.Save(System.String)
-  fullName: Instances.PictureBitMap.Save(System.String)
-  nameWithType: PictureBitMap.Save(String)
-- uid: Instances.PictureBitMap.Save*
+  href: api/Instances.Picture.html#Instances_Picture_Save_System_String_
+  commentId: M:Instances.Picture.Save(System.String)
+  fullName: Instances.Picture.Save(System.String)
+  nameWithType: Picture.Save(String)
+- uid: Instances.Picture.Save*
   name: Save
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Save_
-  commentId: Overload:Instances.PictureBitMap.Save
+  href: api/Instances.Picture.html#Instances_Picture_Save_
+  commentId: Overload:Instances.Picture.Save
   isSpec: "True"
-  fullName: Instances.PictureBitMap.Save
-  nameWithType: PictureBitMap.Save
-- uid: Instances.PictureBitMap.Transformation
-  name: PictureBitMap.Transformation
-  href: api/Instances.PictureBitMap.Transformation.html
-  commentId: T:Instances.PictureBitMap.Transformation
-  fullName: Instances.PictureBitMap.Transformation
-  nameWithType: PictureBitMap.Transformation
-- uid: Instances.PictureBitMap.Transformation.BnW
+  fullName: Instances.Picture.Save
+  nameWithType: Picture.Save
+- uid: Instances.Picture.Transformation
+  name: Picture.Transformation
+  href: api/Instances.Picture.Transformation.html
+  commentId: T:Instances.Picture.Transformation
+  fullName: Instances.Picture.Transformation
+  nameWithType: Picture.Transformation
+- uid: Instances.Picture.Transformation.BnW
   name: BnW
-  href: api/Instances.PictureBitMap.Transformation.html#Instances_PictureBitMap_Transformation_BnW
-  commentId: F:Instances.PictureBitMap.Transformation.BnW
-  fullName: Instances.PictureBitMap.Transformation.BnW
-  nameWithType: PictureBitMap.Transformation.BnW
-- uid: Instances.PictureBitMap.Transformation.Contrast
+  href: api/Instances.Picture.Transformation.html#Instances_Picture_Transformation_BnW
+  commentId: F:Instances.Picture.Transformation.BnW
+  fullName: Instances.Picture.Transformation.BnW
+  nameWithType: Picture.Transformation.BnW
+- uid: Instances.Picture.Transformation.Contrast
   name: Contrast
-  href: api/Instances.PictureBitMap.Transformation.html#Instances_PictureBitMap_Transformation_Contrast
-  commentId: F:Instances.PictureBitMap.Transformation.Contrast
-  fullName: Instances.PictureBitMap.Transformation.Contrast
-  nameWithType: PictureBitMap.Transformation.Contrast
-- uid: Instances.PictureBitMap.Transformation.EdgeDetection
+  href: api/Instances.Picture.Transformation.html#Instances_Picture_Transformation_Contrast
+  commentId: F:Instances.Picture.Transformation.Contrast
+  fullName: Instances.Picture.Transformation.Contrast
+  nameWithType: Picture.Transformation.Contrast
+- uid: Instances.Picture.Transformation.EdgeDetection
   name: EdgeDetection
-  href: api/Instances.PictureBitMap.Transformation.html#Instances_PictureBitMap_Transformation_EdgeDetection
-  commentId: F:Instances.PictureBitMap.Transformation.EdgeDetection
-  fullName: Instances.PictureBitMap.Transformation.EdgeDetection
-  nameWithType: PictureBitMap.Transformation.EdgeDetection
-- uid: Instances.PictureBitMap.Transformation.EdgePushing
+  href: api/Instances.Picture.Transformation.html#Instances_Picture_Transformation_EdgeDetection
+  commentId: F:Instances.Picture.Transformation.EdgeDetection
+  fullName: Instances.Picture.Transformation.EdgeDetection
+  nameWithType: Picture.Transformation.EdgeDetection
+- uid: Instances.Picture.Transformation.EdgePushing
   name: EdgePushing
-  href: api/Instances.PictureBitMap.Transformation.html#Instances_PictureBitMap_Transformation_EdgePushing
-  commentId: F:Instances.PictureBitMap.Transformation.EdgePushing
-  fullName: Instances.PictureBitMap.Transformation.EdgePushing
-  nameWithType: PictureBitMap.Transformation.EdgePushing
-- uid: Instances.PictureBitMap.Transformation.GaussianBlur
+  href: api/Instances.Picture.Transformation.html#Instances_Picture_Transformation_EdgePushing
+  commentId: F:Instances.Picture.Transformation.EdgePushing
+  fullName: Instances.Picture.Transformation.EdgePushing
+  nameWithType: Picture.Transformation.EdgePushing
+- uid: Instances.Picture.Transformation.GaussianBlur
   name: GaussianBlur
-  href: api/Instances.PictureBitMap.Transformation.html#Instances_PictureBitMap_Transformation_GaussianBlur
-  commentId: F:Instances.PictureBitMap.Transformation.GaussianBlur
-  fullName: Instances.PictureBitMap.Transformation.GaussianBlur
-  nameWithType: PictureBitMap.Transformation.GaussianBlur
-- uid: Instances.PictureBitMap.Transformation.Grey
+  href: api/Instances.Picture.Transformation.html#Instances_Picture_Transformation_GaussianBlur
+  commentId: F:Instances.Picture.Transformation.GaussianBlur
+  fullName: Instances.Picture.Transformation.GaussianBlur
+  nameWithType: Picture.Transformation.GaussianBlur
+- uid: Instances.Picture.Transformation.Grey
   name: Grey
-  href: api/Instances.PictureBitMap.Transformation.html#Instances_PictureBitMap_Transformation_Grey
-  commentId: F:Instances.PictureBitMap.Transformation.Grey
-  fullName: Instances.PictureBitMap.Transformation.Grey
-  nameWithType: PictureBitMap.Transformation.Grey
-- uid: Instances.PictureBitMap.Transformation.Negative
+  href: api/Instances.Picture.Transformation.html#Instances_Picture_Transformation_Grey
+  commentId: F:Instances.Picture.Transformation.Grey
+  fullName: Instances.Picture.Transformation.Grey
+  nameWithType: Picture.Transformation.Grey
+- uid: Instances.Picture.Transformation.Negative
   name: Negative
-  href: api/Instances.PictureBitMap.Transformation.html#Instances_PictureBitMap_Transformation_Negative
-  commentId: F:Instances.PictureBitMap.Transformation.Negative
-  fullName: Instances.PictureBitMap.Transformation.Negative
-  nameWithType: PictureBitMap.Transformation.Negative
-- uid: Instances.PictureBitMap.Transformation.Sharpen
+  href: api/Instances.Picture.Transformation.html#Instances_Picture_Transformation_Negative
+  commentId: F:Instances.Picture.Transformation.Negative
+  fullName: Instances.Picture.Transformation.Negative
+  nameWithType: Picture.Transformation.Negative
+- uid: Instances.Picture.Transformation.Sharpen
   name: Sharpen
-  href: api/Instances.PictureBitMap.Transformation.html#Instances_PictureBitMap_Transformation_Sharpen
-  commentId: F:Instances.PictureBitMap.Transformation.Sharpen
-  fullName: Instances.PictureBitMap.Transformation.Sharpen
-  nameWithType: PictureBitMap.Transformation.Sharpen
-- uid: Instances.PictureJpeg
-  name: PictureJpeg
-  href: api/Instances.PictureJpeg.html
-  commentId: T:Instances.PictureJpeg
-  fullName: Instances.PictureJpeg
-  nameWithType: PictureJpeg
+  href: api/Instances.Picture.Transformation.html#Instances_Picture_Transformation_Sharpen
+  commentId: F:Instances.Picture.Transformation.Sharpen
+  fullName: Instances.Picture.Transformation.Sharpen
+  nameWithType: Picture.Transformation.Sharpen
 - uid: Instances.Pixel
   name: Pixel
   href: api/Instances.Pixel.html
@@ -1351,15 +1345,15 @@ references:
   commentId: T:Utilitary.Convolution
   fullName: Utilitary.Convolution
   nameWithType: Convolution
-- uid: Utilitary.Convolution.ApplyKernel(Instances.PictureBitMap,System.Single[0:,0:])
-  name: ApplyKernel(PictureBitMap, Single[,])
-  href: api/Utilitary.Convolution.html#Utilitary_Convolution_ApplyKernel_Instances_PictureBitMap_System_Single_0__0___
-  commentId: M:Utilitary.Convolution.ApplyKernel(Instances.PictureBitMap,System.Single[0:,0:])
-  name.vb: ApplyKernel(PictureBitMap, Single(,))
-  fullName: Utilitary.Convolution.ApplyKernel(Instances.PictureBitMap, System.Single[,])
-  fullName.vb: Utilitary.Convolution.ApplyKernel(Instances.PictureBitMap, System.Single(,))
-  nameWithType: Convolution.ApplyKernel(PictureBitMap, Single[,])
-  nameWithType.vb: Convolution.ApplyKernel(PictureBitMap, Single(,))
+- uid: Utilitary.Convolution.ApplyKernel(Instances.Picture,System.Single[0:,0:])
+  name: ApplyKernel(Picture, Single[,])
+  href: api/Utilitary.Convolution.html#Utilitary_Convolution_ApplyKernel_Instances_Picture_System_Single_0__0___
+  commentId: M:Utilitary.Convolution.ApplyKernel(Instances.Picture,System.Single[0:,0:])
+  name.vb: ApplyKernel(Picture, Single(,))
+  fullName: Utilitary.Convolution.ApplyKernel(Instances.Picture, System.Single[,])
+  fullName.vb: Utilitary.Convolution.ApplyKernel(Instances.Picture, System.Single(,))
+  nameWithType: Convolution.ApplyKernel(Picture, Single[,])
+  nameWithType.vb: Convolution.ApplyKernel(Picture, Single(,))
 - uid: Utilitary.Convolution.ApplyKernel*
   name: ApplyKernel
   href: api/Utilitary.Convolution.html#Utilitary_Convolution_ApplyKernel_
@@ -1367,12 +1361,12 @@ references:
   isSpec: "True"
   fullName: Utilitary.Convolution.ApplyKernel
   nameWithType: Convolution.ApplyKernel
-- uid: Utilitary.Convolution.ApplyKernelByName(Instances.PictureBitMap,Instances.PictureBitMap.Transformation)
-  name: ApplyKernelByName(PictureBitMap, PictureBitMap.Transformation)
-  href: api/Utilitary.Convolution.html#Utilitary_Convolution_ApplyKernelByName_Instances_PictureBitMap_Instances_PictureBitMap_Transformation_
-  commentId: M:Utilitary.Convolution.ApplyKernelByName(Instances.PictureBitMap,Instances.PictureBitMap.Transformation)
-  fullName: Utilitary.Convolution.ApplyKernelByName(Instances.PictureBitMap, Instances.PictureBitMap.Transformation)
-  nameWithType: Convolution.ApplyKernelByName(PictureBitMap, PictureBitMap.Transformation)
+- uid: Utilitary.Convolution.ApplyKernelByName(Instances.Picture,Instances.Picture.Transformation)
+  name: ApplyKernelByName(Picture, Picture.Transformation)
+  href: api/Utilitary.Convolution.html#Utilitary_Convolution_ApplyKernelByName_Instances_Picture_Instances_Picture_Transformation_
+  commentId: M:Utilitary.Convolution.ApplyKernelByName(Instances.Picture,Instances.Picture.Transformation)
+  fullName: Utilitary.Convolution.ApplyKernelByName(Instances.Picture, Instances.Picture.Transformation)
+  nameWithType: Convolution.ApplyKernelByName(Picture, Picture.Transformation)
 - uid: Utilitary.Convolution.ApplyKernelByName*
   name: ApplyKernelByName
   href: api/Utilitary.Convolution.html#Utilitary_Convolution_ApplyKernelByName_
