@@ -42,6 +42,19 @@ references:
   isSpec: "True"
   fullName: Computer_Science_Problem.GameManager.ApplyCustomKernel
   nameWithType: GameManager.ApplyCustomKernel
+- uid: Computer_Science_Problem.GameManager.ApplyFractalSet(Computer_Science_Problem.GameManager.FractalSet,System.Int32,System.Int32)
+  name: ApplyFractalSet(GameManager.FractalSet, Int32, Int32)
+  href: api/Computer_Science_Problem.GameManager.html#Computer_Science_Problem_GameManager_ApplyFractalSet_Computer_Science_Problem_GameManager_FractalSet_System_Int32_System_Int32_
+  commentId: M:Computer_Science_Problem.GameManager.ApplyFractalSet(Computer_Science_Problem.GameManager.FractalSet,System.Int32,System.Int32)
+  fullName: Computer_Science_Problem.GameManager.ApplyFractalSet(Computer_Science_Problem.GameManager.FractalSet, System.Int32, System.Int32)
+  nameWithType: GameManager.ApplyFractalSet(GameManager.FractalSet, Int32, Int32)
+- uid: Computer_Science_Problem.GameManager.ApplyFractalSet*
+  name: ApplyFractalSet
+  href: api/Computer_Science_Problem.GameManager.html#Computer_Science_Problem_GameManager_ApplyFractalSet_
+  commentId: Overload:Computer_Science_Problem.GameManager.ApplyFractalSet
+  isSpec: "True"
+  fullName: Computer_Science_Problem.GameManager.ApplyFractalSet
+  nameWithType: GameManager.ApplyFractalSet
 - uid: Computer_Science_Problem.GameManager.ApplyManipulation(Computer_Science_Problem.GameManager.Manipulation)
   name: ApplyManipulation(GameManager.Manipulation)
   href: api/Computer_Science_Problem.GameManager.html#Computer_Science_Problem_GameManager_ApplyManipulation_Computer_Science_Problem_GameManager_Manipulation_
@@ -133,6 +146,19 @@ references:
   isSpec: "True"
   fullName: Computer_Science_Problem.GameManager.ChooseFolder
   nameWithType: GameManager.ChooseFolder
+- uid: Computer_Science_Problem.GameManager.ChooseFractalSet
+  name: ChooseFractalSet()
+  href: api/Computer_Science_Problem.GameManager.html#Computer_Science_Problem_GameManager_ChooseFractalSet
+  commentId: M:Computer_Science_Problem.GameManager.ChooseFractalSet
+  fullName: Computer_Science_Problem.GameManager.ChooseFractalSet()
+  nameWithType: GameManager.ChooseFractalSet()
+- uid: Computer_Science_Problem.GameManager.ChooseFractalSet*
+  name: ChooseFractalSet
+  href: api/Computer_Science_Problem.GameManager.html#Computer_Science_Problem_GameManager_ChooseFractalSet_
+  commentId: Overload:Computer_Science_Problem.GameManager.ChooseFractalSet
+  isSpec: "True"
+  fullName: Computer_Science_Problem.GameManager.ChooseFractalSet
+  nameWithType: GameManager.ChooseFractalSet
 - uid: Computer_Science_Problem.GameManager.ChooseManipulation
   name: ChooseManipulation()
   href: api/Computer_Science_Problem.GameManager.html#Computer_Science_Problem_GameManager_ChooseManipulation
@@ -177,6 +203,24 @@ references:
   commentId: F:Computer_Science_Problem.GameManager.Encrypting.Encrypt
   fullName: Computer_Science_Problem.GameManager.Encrypting.Encrypt
   nameWithType: GameManager.Encrypting.Encrypt
+- uid: Computer_Science_Problem.GameManager.FractalSet
+  name: GameManager.FractalSet
+  href: api/Computer_Science_Problem.GameManager.FractalSet.html
+  commentId: T:Computer_Science_Problem.GameManager.FractalSet
+  fullName: Computer_Science_Problem.GameManager.FractalSet
+  nameWithType: GameManager.FractalSet
+- uid: Computer_Science_Problem.GameManager.FractalSet.Julia
+  name: Julia
+  href: api/Computer_Science_Problem.GameManager.FractalSet.html#Computer_Science_Problem_GameManager_FractalSet_Julia
+  commentId: F:Computer_Science_Problem.GameManager.FractalSet.Julia
+  fullName: Computer_Science_Problem.GameManager.FractalSet.Julia
+  nameWithType: GameManager.FractalSet.Julia
+- uid: Computer_Science_Problem.GameManager.FractalSet.Mandelbrot
+  name: Mandelbrot
+  href: api/Computer_Science_Problem.GameManager.FractalSet.html#Computer_Science_Problem_GameManager_FractalSet_Mandelbrot
+  commentId: F:Computer_Science_Problem.GameManager.FractalSet.Mandelbrot
+  fullName: Computer_Science_Problem.GameManager.FractalSet.Mandelbrot
+  nameWithType: GameManager.FractalSet.Mandelbrot
 - uid: Computer_Science_Problem.GameManager.InitializeDictionary
   name: InitializeDictionary()
   href: api/Computer_Science_Problem.GameManager.html#Computer_Science_Problem_GameManager_InitializeDictionary
@@ -257,6 +301,12 @@ references:
   commentId: F:Computer_Science_Problem.GameManager.Jump.FontColor
   fullName: Computer_Science_Problem.GameManager.Jump.FontColor
   nameWithType: GameManager.Jump.FontColor
+- uid: Computer_Science_Problem.GameManager.Jump.Fractals
+  name: Fractals
+  href: api/Computer_Science_Problem.GameManager.Jump.html#Computer_Science_Problem_GameManager_Jump_Fractals
+  commentId: F:Computer_Science_Problem.GameManager.Jump.Fractals
+  fullName: Computer_Science_Problem.GameManager.Jump.Fractals
+  nameWithType: GameManager.Jump.Fractals
 - uid: Computer_Science_Problem.GameManager.Jump.Language
   name: Language
   href: api/Computer_Science_Problem.GameManager.Jump.html#Computer_Science_Problem_GameManager_Jump_Language
@@ -372,30 +422,42 @@ references:
   isSpec: "True"
   fullName: Computer_Science_Problem.GameManager.s_Dict
   nameWithType: GameManager.s_Dict
+- uid: Computer_Science_Problem.GameManager.s_Jump
+  name: s_Jump
+  href: api/Computer_Science_Problem.GameManager.html#Computer_Science_Problem_GameManager_s_Jump
+  commentId: F:Computer_Science_Problem.GameManager.s_Jump
+  fullName: Computer_Science_Problem.GameManager.s_Jump
+  nameWithType: GameManager.s_Jump
 - uid: Computer_Science_Problem.GameManager.s_Lang
   name: s_Lang
   href: api/Computer_Science_Problem.GameManager.html#Computer_Science_Problem_GameManager_s_Lang
   commentId: F:Computer_Science_Problem.GameManager.s_Lang
   fullName: Computer_Science_Problem.GameManager.s_Lang
   nameWithType: GameManager.s_Lang
+- uid: Computer_Science_Problem.GameManager.s_ProcessPercentage
+  name: s_ProcessPercentage
+  href: api/Computer_Science_Problem.GameManager.html#Computer_Science_Problem_GameManager_s_ProcessPercentage
+  commentId: F:Computer_Science_Problem.GameManager.s_ProcessPercentage
+  fullName: Computer_Science_Problem.GameManager.s_ProcessPercentage
+  nameWithType: GameManager.s_ProcessPercentage
 - uid: Computer_Science_Problem.GameManager.s_ProcessStopwatch
   name: s_ProcessStopwatch
   href: api/Computer_Science_Problem.GameManager.html#Computer_Science_Problem_GameManager_s_ProcessStopwatch
   commentId: F:Computer_Science_Problem.GameManager.s_ProcessStopwatch
   fullName: Computer_Science_Problem.GameManager.s_ProcessStopwatch
   nameWithType: GameManager.s_ProcessStopwatch
+- uid: Computer_Science_Problem.GameManager.s_Random
+  name: s_Random
+  href: api/Computer_Science_Problem.GameManager.html#Computer_Science_Problem_GameManager_s_Random
+  commentId: F:Computer_Science_Problem.GameManager.s_Random
+  fullName: Computer_Science_Problem.GameManager.s_Random
+  nameWithType: GameManager.s_Random
 - uid: Computer_Science_Problem.GameManager.s_SourceImagePath
   name: s_SourceImagePath
   href: api/Computer_Science_Problem.GameManager.html#Computer_Science_Problem_GameManager_s_SourceImagePath
   commentId: F:Computer_Science_Problem.GameManager.s_SourceImagePath
   fullName: Computer_Science_Problem.GameManager.s_SourceImagePath
   nameWithType: GameManager.s_SourceImagePath
-- uid: Computer_Science_Problem.GameManager.t_Jump
-  name: t_Jump
-  href: api/Computer_Science_Problem.GameManager.html#Computer_Science_Problem_GameManager_t_Jump
-  commentId: F:Computer_Science_Problem.GameManager.t_Jump
-  fullName: Computer_Science_Problem.GameManager.t_Jump
-  nameWithType: GameManager.t_Jump
 - uid: Instances
   name: Instances
   href: api/Instances.html
@@ -421,12 +483,38 @@ references:
   isSpec: "True"
   fullName: Instances.Complex.Complex
   nameWithType: Complex.Complex
+- uid: Instances.Complex.Equals(Instances.Complex)
+  name: Equals(Complex)
+  href: api/Instances.Complex.html#Instances_Complex_Equals_Instances_Complex_
+  commentId: M:Instances.Complex.Equals(Instances.Complex)
+  fullName: Instances.Complex.Equals(Instances.Complex)
+  nameWithType: Complex.Equals(Complex)
+- uid: Instances.Complex.Equals*
+  name: Equals
+  href: api/Instances.Complex.html#Instances_Complex_Equals_
+  commentId: Overload:Instances.Complex.Equals
+  isSpec: "True"
+  fullName: Instances.Complex.Equals
+  nameWithType: Complex.Equals
 - uid: Instances.Complex.Im
   name: Im
   href: api/Instances.Complex.html#Instances_Complex_Im
   commentId: F:Instances.Complex.Im
   fullName: Instances.Complex.Im
   nameWithType: Complex.Im
+- uid: Instances.Complex.Modulus
+  name: Modulus()
+  href: api/Instances.Complex.html#Instances_Complex_Modulus
+  commentId: M:Instances.Complex.Modulus
+  fullName: Instances.Complex.Modulus()
+  nameWithType: Complex.Modulus()
+- uid: Instances.Complex.Modulus*
+  name: Modulus
+  href: api/Instances.Complex.html#Instances_Complex_Modulus_
+  commentId: Overload:Instances.Complex.Modulus
+  isSpec: "True"
+  fullName: Instances.Complex.Modulus
+  nameWithType: Complex.Modulus
 - uid: Instances.Complex.op_Addition(Instances.Complex,Instances.Complex)
   name: Addition(Complex, Complex)
   href: api/Instances.Complex.html#Instances_Complex_op_Addition_Instances_Complex_Instances_Complex_
@@ -498,19 +586,6 @@ references:
   isSpec: "True"
   fullName: Instances.Complex.ToString
   nameWithType: Complex.ToString
-- uid: Instances.Complex.VectStand
-  name: VectStand()
-  href: api/Instances.Complex.html#Instances_Complex_VectStand
-  commentId: M:Instances.Complex.VectStand
-  fullName: Instances.Complex.VectStand()
-  nameWithType: Complex.VectStand()
-- uid: Instances.Complex.VectStand*
-  name: VectStand
-  href: api/Instances.Complex.html#Instances_Complex_VectStand_
-  commentId: Overload:Instances.Complex.VectStand
-  isSpec: "True"
-  fullName: Instances.Complex.VectStand
-  nameWithType: Complex.VectStand
 - uid: Instances.HuffmanNode
   name: HuffmanNode
   href: api/Instances.HuffmanNode.html
@@ -661,6 +736,32 @@ references:
   isSpec: "True"
   fullName: Instances.PictureBitMap.Compress
   nameWithType: PictureBitMap.Compress
+- uid: Instances.PictureBitMap.Data
+  name: Data
+  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Data
+  commentId: P:Instances.PictureBitMap.Data
+  fullName: Instances.PictureBitMap.Data
+  nameWithType: PictureBitMap.Data
+- uid: Instances.PictureBitMap.Data*
+  name: Data
+  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Data_
+  commentId: Overload:Instances.PictureBitMap.Data
+  isSpec: "True"
+  fullName: Instances.PictureBitMap.Data
+  nameWithType: PictureBitMap.Data
+- uid: Instances.PictureBitMap.Decompress(Instances.HuffmanTree)
+  name: Decompress(HuffmanTree)
+  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Decompress_Instances_HuffmanTree_
+  commentId: M:Instances.PictureBitMap.Decompress(Instances.HuffmanTree)
+  fullName: Instances.PictureBitMap.Decompress(Instances.HuffmanTree)
+  nameWithType: PictureBitMap.Decompress(HuffmanTree)
+- uid: Instances.PictureBitMap.Decompress*
+  name: Decompress
+  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Decompress_
+  commentId: Overload:Instances.PictureBitMap.Decompress
+  isSpec: "True"
+  fullName: Instances.PictureBitMap.Decompress
+  nameWithType: PictureBitMap.Decompress
 - uid: Instances.PictureBitMap.Decrypt(System.String)
   name: Decrypt(String)
   href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Decrypt_System_String_
@@ -726,6 +827,19 @@ references:
   isSpec: "True"
   fullName: Instances.PictureBitMap.GetLength
   nameWithType: PictureBitMap.GetLength
+- uid: Instances.PictureBitMap.Header
+  name: Header
+  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Header
+  commentId: P:Instances.PictureBitMap.Header
+  fullName: Instances.PictureBitMap.Header
+  nameWithType: PictureBitMap.Header
+- uid: Instances.PictureBitMap.Header*
+  name: Header
+  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Header_
+  commentId: Overload:Instances.PictureBitMap.Header
+  isSpec: "True"
+  fullName: Instances.PictureBitMap.Header
+  nameWithType: PictureBitMap.Header
 - uid: Instances.PictureBitMap.Item(System.Int32,System.Int32)
   name: Item[Int32, Int32]
   href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Item_System_Int32_System_Int32_
@@ -755,12 +869,12 @@ references:
   isSpec: "True"
   fullName: Instances.PictureBitMap.Resize
   nameWithType: PictureBitMap.Resize
-- uid: Instances.PictureBitMap.Rotation(System.Int32)
-  name: Rotation(Int32)
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Rotation_System_Int32_
-  commentId: M:Instances.PictureBitMap.Rotation(System.Int32)
-  fullName: Instances.PictureBitMap.Rotation(System.Int32)
-  nameWithType: PictureBitMap.Rotation(Int32)
+- uid: Instances.PictureBitMap.Rotation(System.Double)
+  name: Rotation(Double)
+  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Rotation_System_Double_
+  commentId: M:Instances.PictureBitMap.Rotation(System.Double)
+  fullName: Instances.PictureBitMap.Rotation(System.Double)
+  nameWithType: PictureBitMap.Rotation(Double)
 - uid: Instances.PictureBitMap.Rotation*
   name: Rotation
   href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_Rotation_
@@ -835,19 +949,6 @@ references:
   commentId: F:Instances.PictureBitMap.Transformation.Sharpen
   fullName: Instances.PictureBitMap.Transformation.Sharpen
   nameWithType: PictureBitMap.Transformation.Sharpen
-- uid: Instances.PictureBitMap.WorkingCompression(System.String)
-  name: WorkingCompression(String)
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_WorkingCompression_System_String_
-  commentId: M:Instances.PictureBitMap.WorkingCompression(System.String)
-  fullName: Instances.PictureBitMap.WorkingCompression(System.String)
-  nameWithType: PictureBitMap.WorkingCompression(String)
-- uid: Instances.PictureBitMap.WorkingCompression*
-  name: WorkingCompression
-  href: api/Instances.PictureBitMap.html#Instances_PictureBitMap_WorkingCompression_
-  commentId: Overload:Instances.PictureBitMap.WorkingCompression
-  isSpec: "True"
-  fullName: Instances.PictureBitMap.WorkingCompression
-  nameWithType: PictureBitMap.WorkingCompression
 - uid: Instances.PictureJpeg
   name: PictureJpeg
   href: api/Instances.PictureJpeg.html
@@ -872,6 +973,18 @@ references:
   commentId: M:Instances.Pixel.#ctor(System.Byte,System.Byte,System.Byte)
   fullName: Instances.Pixel.Pixel(System.Byte, System.Byte, System.Byte)
   nameWithType: Pixel.Pixel(Byte, Byte, Byte)
+- uid: Instances.Pixel.#ctor(System.Double,System.Double,System.Double)
+  name: Pixel(Double, Double, Double)
+  href: api/Instances.Pixel.html#Instances_Pixel__ctor_System_Double_System_Double_System_Double_
+  commentId: M:Instances.Pixel.#ctor(System.Double,System.Double,System.Double)
+  fullName: Instances.Pixel.Pixel(System.Double, System.Double, System.Double)
+  nameWithType: Pixel.Pixel(Double, Double, Double)
+- uid: Instances.Pixel.#ctor(System.Int32,System.Int32,System.Int32)
+  name: Pixel(Int32, Int32, Int32)
+  href: api/Instances.Pixel.html#Instances_Pixel__ctor_System_Int32_System_Int32_System_Int32_
+  commentId: M:Instances.Pixel.#ctor(System.Int32,System.Int32,System.Int32)
+  fullName: Instances.Pixel.Pixel(System.Int32, System.Int32, System.Int32)
+  nameWithType: Pixel.Pixel(Int32, Int32, Int32)
 - uid: Instances.Pixel.#ctor*
   name: Pixel
   href: api/Instances.Pixel.html#Instances_Pixel__ctor_
@@ -936,6 +1049,19 @@ references:
   isSpec: "True"
   fullName: Instances.Pixel.GreyAverage
   nameWithType: Pixel.GreyAverage
+- uid: Instances.Pixel.Hue(System.Int32)
+  name: Hue(Int32)
+  href: api/Instances.Pixel.html#Instances_Pixel_Hue_System_Int32_
+  commentId: M:Instances.Pixel.Hue(System.Int32)
+  fullName: Instances.Pixel.Hue(System.Int32)
+  nameWithType: Pixel.Hue(Int32)
+- uid: Instances.Pixel.Hue*
+  name: Hue
+  href: api/Instances.Pixel.html#Instances_Pixel_Hue_
+  commentId: Overload:Instances.Pixel.Hue
+  isSpec: "True"
+  fullName: Instances.Pixel.Hue
+  nameWithType: Pixel.Hue
 - uid: Instances.Pixel.Red
   name: Red
   href: api/Instances.Pixel.html#Instances_Pixel_Red
@@ -1018,6 +1144,122 @@ references:
   commentId: F:Instances.Position.Y
   fullName: Instances.Position.Y
   nameWithType: Position.Y
+- uid: Tests
+  name: Tests
+  href: api/Tests.html
+  commentId: N:Tests
+  fullName: Tests
+  nameWithType: Tests
+- uid: Tests.XUnitTests
+  name: XUnitTests
+  href: api/Tests.XUnitTests.html
+  commentId: T:Tests.XUnitTests
+  fullName: Tests.XUnitTests
+  nameWithType: XUnitTests
+- uid: Tests.XUnitTests.Addition(System.Double,System.Double,System.Double,System.Double)
+  name: Addition(Double, Double, Double, Double)
+  href: api/Tests.XUnitTests.html#Tests_XUnitTests_Addition_System_Double_System_Double_System_Double_System_Double_
+  commentId: M:Tests.XUnitTests.Addition(System.Double,System.Double,System.Double,System.Double)
+  fullName: Tests.XUnitTests.Addition(System.Double, System.Double, System.Double, System.Double)
+  nameWithType: XUnitTests.Addition(Double, Double, Double, Double)
+- uid: Tests.XUnitTests.Addition*
+  name: Addition
+  href: api/Tests.XUnitTests.html#Tests_XUnitTests_Addition_
+  commentId: Overload:Tests.XUnitTests.Addition
+  isSpec: "True"
+  fullName: Tests.XUnitTests.Addition
+  nameWithType: XUnitTests.Addition
+- uid: Tests.XUnitTests.BitmapCreation(System.Int32,System.Int32)
+  name: BitmapCreation(Int32, Int32)
+  href: api/Tests.XUnitTests.html#Tests_XUnitTests_BitmapCreation_System_Int32_System_Int32_
+  commentId: M:Tests.XUnitTests.BitmapCreation(System.Int32,System.Int32)
+  fullName: Tests.XUnitTests.BitmapCreation(System.Int32, System.Int32)
+  nameWithType: XUnitTests.BitmapCreation(Int32, Int32)
+- uid: Tests.XUnitTests.BitmapCreation*
+  name: BitmapCreation
+  href: api/Tests.XUnitTests.html#Tests_XUnitTests_BitmapCreation_
+  commentId: Overload:Tests.XUnitTests.BitmapCreation
+  isSpec: "True"
+  fullName: Tests.XUnitTests.BitmapCreation
+  nameWithType: XUnitTests.BitmapCreation
+- uid: Tests.XUnitTests.BitmapFill
+  name: BitmapFill()
+  href: api/Tests.XUnitTests.html#Tests_XUnitTests_BitmapFill
+  commentId: M:Tests.XUnitTests.BitmapFill
+  fullName: Tests.XUnitTests.BitmapFill()
+  nameWithType: XUnitTests.BitmapFill()
+- uid: Tests.XUnitTests.BitmapFill*
+  name: BitmapFill
+  href: api/Tests.XUnitTests.html#Tests_XUnitTests_BitmapFill_
+  commentId: Overload:Tests.XUnitTests.BitmapFill
+  isSpec: "True"
+  fullName: Tests.XUnitTests.BitmapFill
+  nameWithType: XUnitTests.BitmapFill
+- uid: Tests.XUnitTests.BitmapGrey
+  name: BitmapGrey()
+  href: api/Tests.XUnitTests.html#Tests_XUnitTests_BitmapGrey
+  commentId: M:Tests.XUnitTests.BitmapGrey
+  fullName: Tests.XUnitTests.BitmapGrey()
+  nameWithType: XUnitTests.BitmapGrey()
+- uid: Tests.XUnitTests.BitmapGrey*
+  name: BitmapGrey
+  href: api/Tests.XUnitTests.html#Tests_XUnitTests_BitmapGrey_
+  commentId: Overload:Tests.XUnitTests.BitmapGrey
+  isSpec: "True"
+  fullName: Tests.XUnitTests.BitmapGrey
+  nameWithType: XUnitTests.BitmapGrey
+- uid: Tests.XUnitTests.ComplexToString(System.Double,System.Double)
+  name: ComplexToString(Double, Double)
+  href: api/Tests.XUnitTests.html#Tests_XUnitTests_ComplexToString_System_Double_System_Double_
+  commentId: M:Tests.XUnitTests.ComplexToString(System.Double,System.Double)
+  fullName: Tests.XUnitTests.ComplexToString(System.Double, System.Double)
+  nameWithType: XUnitTests.ComplexToString(Double, Double)
+- uid: Tests.XUnitTests.ComplexToString*
+  name: ComplexToString
+  href: api/Tests.XUnitTests.html#Tests_XUnitTests_ComplexToString_
+  commentId: Overload:Tests.XUnitTests.ComplexToString
+  isSpec: "True"
+  fullName: Tests.XUnitTests.ComplexToString
+  nameWithType: XUnitTests.ComplexToString
+- uid: Tests.XUnitTests.Identity(System.Double,System.Double)
+  name: Identity(Double, Double)
+  href: api/Tests.XUnitTests.html#Tests_XUnitTests_Identity_System_Double_System_Double_
+  commentId: M:Tests.XUnitTests.Identity(System.Double,System.Double)
+  fullName: Tests.XUnitTests.Identity(System.Double, System.Double)
+  nameWithType: XUnitTests.Identity(Double, Double)
+- uid: Tests.XUnitTests.Identity*
+  name: Identity
+  href: api/Tests.XUnitTests.html#Tests_XUnitTests_Identity_
+  commentId: Overload:Tests.XUnitTests.Identity
+  isSpec: "True"
+  fullName: Tests.XUnitTests.Identity
+  nameWithType: XUnitTests.Identity
+- uid: Tests.XUnitTests.Modulus(System.Double,System.Double)
+  name: Modulus(Double, Double)
+  href: api/Tests.XUnitTests.html#Tests_XUnitTests_Modulus_System_Double_System_Double_
+  commentId: M:Tests.XUnitTests.Modulus(System.Double,System.Double)
+  fullName: Tests.XUnitTests.Modulus(System.Double, System.Double)
+  nameWithType: XUnitTests.Modulus(Double, Double)
+- uid: Tests.XUnitTests.Modulus*
+  name: Modulus
+  href: api/Tests.XUnitTests.html#Tests_XUnitTests_Modulus_
+  commentId: Overload:Tests.XUnitTests.Modulus
+  isSpec: "True"
+  fullName: Tests.XUnitTests.Modulus
+  nameWithType: XUnitTests.Modulus
+- uid: Tests.XUnitTests.Multiplication(System.Double,System.Double,System.Double,System.Double)
+  name: Multiplication(Double, Double, Double, Double)
+  href: api/Tests.XUnitTests.html#Tests_XUnitTests_Multiplication_System_Double_System_Double_System_Double_System_Double_
+  commentId: M:Tests.XUnitTests.Multiplication(System.Double,System.Double,System.Double,System.Double)
+  fullName: Tests.XUnitTests.Multiplication(System.Double, System.Double, System.Double, System.Double)
+  nameWithType: XUnitTests.Multiplication(Double, Double, Double, Double)
+- uid: Tests.XUnitTests.Multiplication*
+  name: Multiplication
+  href: api/Tests.XUnitTests.html#Tests_XUnitTests_Multiplication_
+  commentId: Overload:Tests.XUnitTests.Multiplication
+  isSpec: "True"
+  fullName: Tests.XUnitTests.Multiplication
+  nameWithType: XUnitTests.Multiplication
 - uid: Utilitary
   name: Utilitary
   href: api/Utilitary.html
@@ -1231,6 +1473,19 @@ references:
   isSpec: "True"
   fullName: Visuals.ConsoleVisuals.MatrixSelector
   nameWithType: ConsoleVisuals.MatrixSelector
+- uid: Visuals.ConsoleVisuals.NumberSelector(System.String,System.Single,System.Single,System.Single,System.Single,System.Int32)
+  name: NumberSelector(String, Single, Single, Single, Single, Int32)
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_NumberSelector_System_String_System_Single_System_Single_System_Single_System_Single_System_Int32_
+  commentId: M:Visuals.ConsoleVisuals.NumberSelector(System.String,System.Single,System.Single,System.Single,System.Single,System.Int32)
+  fullName: Visuals.ConsoleVisuals.NumberSelector(System.String, System.Single, System.Single, System.Single, System.Single, System.Int32)
+  nameWithType: ConsoleVisuals.NumberSelector(String, Single, Single, Single, Single, Int32)
+- uid: Visuals.ConsoleVisuals.NumberSelector*
+  name: NumberSelector
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_NumberSelector_
+  commentId: Overload:Visuals.ConsoleVisuals.NumberSelector
+  isSpec: "True"
+  fullName: Visuals.ConsoleVisuals.NumberSelector
+  nameWithType: ConsoleVisuals.NumberSelector
 - uid: Visuals.ConsoleVisuals.Placement
   name: ConsoleVisuals.Placement
   href: api/Visuals.ConsoleVisuals.Placement.html
@@ -1255,6 +1510,19 @@ references:
   commentId: F:Visuals.ConsoleVisuals.Placement.Right
   fullName: Visuals.ConsoleVisuals.Placement.Right
   nameWithType: ConsoleVisuals.Placement.Right
+- uid: Visuals.ConsoleVisuals.ProcessLoadingSreen(System.String)
+  name: ProcessLoadingSreen(String)
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_ProcessLoadingSreen_System_String_
+  commentId: M:Visuals.ConsoleVisuals.ProcessLoadingSreen(System.String)
+  fullName: Visuals.ConsoleVisuals.ProcessLoadingSreen(System.String)
+  nameWithType: ConsoleVisuals.ProcessLoadingSreen(String)
+- uid: Visuals.ConsoleVisuals.ProcessLoadingSreen*
+  name: ProcessLoadingSreen
+  href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_ProcessLoadingSreen_
+  commentId: Overload:Visuals.ConsoleVisuals.ProcessLoadingSreen
+  isSpec: "True"
+  fullName: Visuals.ConsoleVisuals.ProcessLoadingSreen
+  nameWithType: ConsoleVisuals.ProcessLoadingSreen
 - uid: Visuals.ConsoleVisuals.ProgramExit
   name: ProgramExit()
   href: api/Visuals.ConsoleVisuals.html#Visuals_ConsoleVisuals_ProgramExit
