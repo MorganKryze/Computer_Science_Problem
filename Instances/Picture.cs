@@ -10,7 +10,7 @@ using static Computer_Science_Problem.GameManager;
 namespace Instances;
 
 /// <summary> This class represents an image. </summary>
-public class PictureBitMap 
+public class Picture 
 {
     #region Fields
     private byte[] info;                   
@@ -52,9 +52,9 @@ public class PictureBitMap
     #endregion 
 
     #region Constructors
-    /// <summary> Creates an <see cref="PictureBitMap"/> instance from a referenced file by <paramref name="filePath"/>. </summary>
+    /// <summary> Creates an <see cref="Picture"/> instance from a referenced file by <paramref name="filePath"/>. </summary>
     /// <param name="filePath"> Image path to open. </param>
-    public PictureBitMap(string? filePath)
+    public Picture(string? filePath)
     {
         if (filePath is null) 
             throw new ArgumentNullException(nameof(filePath));
@@ -76,10 +76,10 @@ public class PictureBitMap
             throw new ArgumentNullException(nameof(data));
         imagePath = filePath;
     }
-    /// <summary> Creates an <see cref="PictureBitMap"/> instance from an height <paramref name="height"/> and a width <paramref name="width"/>. <br/>The image is automatically filled in black (components set to 0).</summary>
+    /// <summary> Creates an <see cref="Picture"/> instance from an height <paramref name="height"/> and a width <paramref name="width"/>. <br/>The image is automatically filled in black (components set to 0).</summary>
     /// <param name="width">Image width.</param>
     /// <param name="height">Image height.</param>
-    public PictureBitMap(int width, int height)
+    public Picture(int width, int height)
     {
         if (width < 0 || height < 0) 
             throw new ArgumentOutOfRangeException("Width and height must be positive");
@@ -130,9 +130,9 @@ public class PictureBitMap
     /// <summary> Applies a transformation to the image. </summary>
     /// <param name="alter"> The transformation to apply. </param>
     /// <returns> The transformed image. </returns>
-    public PictureBitMap AlterColors(Transformation alter)
+    public Picture AlterColors(Transformation alter)
     {
-        PictureBitMap newImage = Dupplicate();
+        Picture newImage = Dupplicate();
         for (int x = 0; x < this.GetLength(0); x++) 
             for (int y = 0; y < this.GetLength(1); y++) 
                 switch (alter)
@@ -154,12 +154,12 @@ public class PictureBitMap
     #endregion
 
     #region Manipulations
-    /// <summary> Rotates the <see cref="PictureBitMap"/> instance at an <paramref name="degreesAngle"/>.</summary>
+    /// <summary> Rotates the <see cref="Picture"/> instance at an <paramref name="degreesAngle"/>.</summary>
     /// <param name="degreesAngle">Angle of the rotation (in degrees)</param>
-    /// <returns>A copy of this <see cref="PictureBitMap"/> rotated by <paramref name="degreesAngle"/> degrees.</returns>
-    public PictureBitMap Rotation(double degreesAngle)
+    /// <returns>A copy of this <see cref="Picture"/> rotated by <paramref name="degreesAngle"/> degrees.</returns>
+    public Picture Rotation(double degreesAngle)
     {
-        PictureBitMap previousImage = Dupplicate();
+        Picture previousImage = Dupplicate();
 
         double radiansAngle = degreesAngle * (double)Math.PI / 180;
         double cos = (double)Math.Cos(radiansAngle);
@@ -168,7 +168,7 @@ public class PictureBitMap
         int newWidth = (int)(GetLength(0) * Math.Abs(cos) + GetLength(1) * Math.Abs(sin));
         int newHeight = (int)(GetLength(0) * Math.Abs(sin) + GetLength(1) * Math.Abs(cos));
 
-        PictureBitMap newImage = new (newWidth, newHeight);
+        Picture newImage = new (newWidth, newHeight);
 
         for (int x = 0; x < newWidth; x++)
             for (int y = 0; y < newHeight; y++)
@@ -181,10 +181,10 @@ public class PictureBitMap
             }
         return newImage;
     }
-    /// <summary> This method scales the <see cref="PictureBitMap"/> instance by a <paramref name="scale"/> factor. </summary>
+    /// <summary> This method scales the <see cref="Picture"/> instance by a <paramref name="scale"/> factor. </summary>
     /// <param name="scale"> Scale factor.</param>
-    /// <returns> A copy of this <see cref="PictureBitMap"/> scaled by <paramref name="scale"/> factor.</returns>
-    public PictureBitMap Resize(float scale)
+    /// <returns> A copy of this <see cref="Picture"/> scaled by <paramref name="scale"/> factor.</returns>
+    public Picture Resize(float scale)
     {
         if(scale == 1)
             return Dupplicate();
@@ -193,14 +193,14 @@ public class PictureBitMap
         if (scale > 20) 
             throw new ArgumentException("Scale factor is too high.");
 
-        PictureBitMap previousImage = Dupplicate();
+        Picture previousImage = Dupplicate();
             
         int newWidth = (int)(GetLength(0) * scale);
         int newHeight = (int)(GetLength(1) * scale);
         if (newWidth < 0 || newHeight < 0) 
             throw new ArgumentException("Scale factor is too low.");
 
-        PictureBitMap newImage = new (newWidth, newHeight);
+        Picture newImage = new (newWidth, newHeight);
 
         for (int x = 0; x < newWidth; x++)
             for (int y = 0; y < newHeight; y++)
@@ -218,9 +218,9 @@ public class PictureBitMap
     /// <param name="source"> The picture in which the <paramref name="guest"/> will be hidden. </param>
     /// <param name="guest"> The picture to hide in the <paramref name="source"/>. </param>
     /// <returns> The <paramref name="source"/> with the <paramref name="guest"/> hidden in it. </returns>
-    public static PictureBitMap Encrypt(PictureBitMap source, PictureBitMap guest)
+    public static Picture Encrypt(Picture source, Picture guest)
     {
-        PictureBitMap host = source.Dupplicate();
+        Picture host = source.Dupplicate();
         host.imagePath = source.imagePath;
         #region Verify dimensions
         if (host.GetLength(0) < guest.GetLength(0) || host.GetLength(1) < guest.GetLength(1))
@@ -257,15 +257,15 @@ public class PictureBitMap
 
         byte codeByte(byte host, byte guest) => (byte)((host & 0b11110000) | ((guest >> 4) & 0b00001111));
     }
-    /// <summary> Reveals a <see cref="PictureBitMap"/>. </summary>
-    /// <returns> The <see cref="PictureBitMap"/> hidden in the <see cref="PictureBitMap"/> instance. </returns>
-    public static PictureBitMap Decrypt(string path)
+    /// <summary> Reveals a <see cref="Picture"/>. </summary>
+    /// <returns> The <see cref="Picture"/> hidden in the <see cref="Picture"/> instance. </returns>
+    public static Picture Decrypt(string path)
     {
-        PictureBitMap composedPicture = new PictureBitMap(path);
+        Picture composedPicture = new Picture(path);
         string json = path.Substring(0, path.Length - 3) + "json";
         Dictionary<string, int> guestPictureSize = JsonSerializer.Deserialize<Dictionary<string, int>>(File.ReadAllText(json)) ?? throw new NullReferenceException("guestPictureSize.json not found.");
 
-        PictureBitMap revealedPicture = new (guestPictureSize["height"], guestPictureSize["width"]);
+        Picture revealedPicture = new (guestPictureSize["height"], guestPictureSize["width"]);
         for (int x = 0; x < revealedPicture.GetLength(0); x++)
         {
             for (int y = 0; y < revealedPicture.GetLength(1); y++)
@@ -285,11 +285,11 @@ public class PictureBitMap
     #endregion
     
     #region Utility methods
-    /// <summary> This method is used to get a copy of this <see cref="PictureBitMap"/>. </summary>
-    /// <returns> A copy of this <see cref="PictureBitMap"/>. </returns>
-    public PictureBitMap Dupplicate() 
+    /// <summary> This method is used to get a copy of this <see cref="Picture"/>. </summary>
+    /// <returns> A copy of this <see cref="Picture"/>. </returns>
+    public Picture Dupplicate() 
     {
-        PictureBitMap newImage = new (GetLength(0), GetLength(1));
+        Picture newImage = new (GetLength(0), GetLength(1));
         newImage.info = info;
         newImage.data = data;
         return newImage;
@@ -315,7 +315,7 @@ public class PictureBitMap
             data[position + 0] = value.Blue;
         }
     }
-    /// <summary> This method saves the <see cref="PictureBitMap"/>. </summary>
+    /// <summary> This method saves the <see cref="Picture"/>. </summary>
     public void Save(string path = "Images/OUT/bmp/")
     {
         s_ProcessStopwatch.Stop();
@@ -343,7 +343,7 @@ public class PictureBitMap
         ClearContent();
         DisplayImage();
     }
-    /// <summary> This method is used to print the <see cref="PictureBitMap"/>. </summary>
+    /// <summary> This method is used to print the <see cref="Picture"/>. </summary>
     public void DisplayImage()
     {
         switch (ScrollingMenu(s_Dict[s_Lang]["title"]["display_action"] , new string[]{
@@ -411,7 +411,7 @@ public class PictureBitMap
             return running;
         }
     }
-    /// <summary> This method is used to compress the <see cref="PictureBitMap"/>. </summary>
+    /// <summary> This method is used to compress the <see cref="Picture"/>. </summary>
     public HuffmanTree Compress()
     {
         int[] values = Array.ConvertAll(this.data, b => (int)b);
@@ -469,7 +469,7 @@ public class PictureBitMap
         data = bytes;
         return  tree;
     }
-    /// <summary> This method is used to decompress the <see cref="PictureBitMap"/>. </summary>
+    /// <summary> This method is used to decompress the <see cref="Picture"/>. </summary>
     /// <param name="tree"> The Huffman tree. </param>
     /// <returns> The decompressed data. </returns>
     public void Decompress( HuffmanTree tree)

@@ -66,14 +66,14 @@ namespace Tests
         [InlineData(450, 140)]
         public void BitmapCreation(int width, int height)
         {
-            var bitmap = new PictureBitMap(width, height);
+            var bitmap = new Picture(width, height);
             Assert.True(bitmap.GetLength(0) == width && bitmap.GetLength(1) == height);
         }
         /// <summary> This test checks if the bitmap is correctly filled with pixels. </summary>
         [Fact]
         public void BitmapFill()
         {
-            var bitmap = new PictureBitMap(200, 200);
+            var bitmap = new Picture(200, 200);
             for (int i = 0; i < 200; i++)
                 for (int j = 0; j < 200; j++)
                     bitmap[i, j] = new Pixel(255, 255, 255);
@@ -83,11 +83,11 @@ namespace Tests
         [Fact]
         public void BitmapGrey()
         {
-            var bitmap = new PictureBitMap(200, 200);
+            var bitmap = new Picture(200, 200);
             for (int i = 0; i < 200; i++)
                 for (int j = 0; j < 200; j++)
                     bitmap[i, j] = new Pixel(255, 255, 255);
-            bitmap.AlterColors(PictureBitMap.Transformation.Grey);
+            bitmap.AlterColors(Picture.Transformation.Grey);
             Assert.True(bitmap[0, 0].Equals(new Pixel(255, 255, 255)));
         }
         #endregion

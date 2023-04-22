@@ -5,7 +5,7 @@ using static System.Console;
 
 using Instances;
 using Utilitary;
-using static Instances.PictureBitMap;
+using static Instances.Picture;
 using static Visuals.ConsoleVisuals;
 
 namespace Computer_Science_Problem;
@@ -114,7 +114,7 @@ public static class GameManager
         ChooseFile(ChooseFolder());
         if (s_Jump is Jump.Back) 
             goto Steganography;
-        var hostImage = new PictureBitMap(s_SourceImagePath);
+        var hostImage = new Picture(s_SourceImagePath);
         
         WriteParagraph(new string[]{
             s_Dict[s_Lang]["title"]["stega_guest1"],
@@ -124,7 +124,7 @@ public static class GameManager
         ChooseFile(ChooseFolder());
         if (s_Jump is Jump.Back) 
             goto Encrypt;
-        var guestImage = new PictureBitMap(s_SourceImagePath);
+        var guestImage = new Picture(s_SourceImagePath);
 
         s_ProcessStopwatch.Start();
         Encrypt(hostImage, guestImage);
@@ -145,7 +145,7 @@ public static class GameManager
         ChooseFile(ChooseFolder());
         if (s_Jump is Jump.Back) 
             goto Actions;
-        var image = new PictureBitMap(s_SourceImagePath);
+        var image = new Picture(s_SourceImagePath);
         s_ProcessStopwatch.Start();
         image.Decompress(image.Compress());
         image.Save();
@@ -434,7 +434,7 @@ public static class GameManager
     /// <summary>This method is used to display the filters menu.</summary>
     private static void ApplyFilter(Transformation t)
     {
-        PictureBitMap image = new (s_SourceImagePath);
+        Picture image = new (s_SourceImagePath);
         s_ProcessStopwatch.Start();
         switch (t)
         {
@@ -488,7 +488,7 @@ public static class GameManager
     /// <summary>This method is used to display the manipulations menu.</summary>
     public static void ApplyManipulation(Manipulation m)
     {
-        PictureBitMap image = new PictureBitMap(s_SourceImagePath);
+        Picture image = new Picture(s_SourceImagePath);
         switch (m)
         {
             case Manipulation.Rotate:
@@ -558,7 +558,7 @@ public static class GameManager
     public static void ApplyCustomKernel(float[,] kernel)
     {
         float[,] newKernel = (float[,])kernel;
-        PictureBitMap image = new PictureBitMap(s_SourceImagePath);
+        Picture image = new Picture(s_SourceImagePath);
         s_ProcessStopwatch.Start();
         image = image.ApplyKernel(newKernel);
         image.Save();
@@ -627,9 +627,9 @@ public static class GameManager
     /// <param name="size"> The size of the image </param>
     /// <param name="depth"> The depth of the fractal </param>
     /// <returns> The image of the fractal </returns>
-    public static PictureBitMap ApplyFractalSet(FractalSet fractal, int size = 800, int depth = 200)
+    public static Picture ApplyFractalSet(FractalSet fractal, int size = 800, int depth = 200)
 	{
-		PictureBitMap image = new PictureBitMap(size, size);
+		Picture image = new Picture(size, size);
         var t_Loading = new Thread(() => ProcessLoadingSreen(s_Dict[s_Lang]["title"]["loading"]));
         switch (fractal)
         {
@@ -755,7 +755,7 @@ public static class GameManager
                 break;
             default:
                 s_SourceImagePath = files[namePosition];
-                new PictureBitMap(files[namePosition]).DisplayImage();
+                new Picture(files[namePosition]).DisplayImage();
                 s_Jump = Jump.Actions;
                 break;
         }
