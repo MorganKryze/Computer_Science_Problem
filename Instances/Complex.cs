@@ -43,6 +43,10 @@ public class Complex
     {
         return (double)Math.Sqrt(Re * Re + Im * Im);
     }
+    /// <summary> Verify if this <see cref="Complex"/> number is equal to another <see cref="Complex"/> number. </summary>
+    /// <param name="other"> The other <see cref="Complex"/> number to compare. </param>
+    /// <returns> A <see cref="bool"/> value, true if the 2 <see cref="Complex"/> numbers are equal, false otherwise. </returns>
+    public bool Equals(Complex other) => Re == other.Re && Im == other.Im;
     /// <summary> Textual representation of the value of this complex number. </summary>
     /// <returns> A <see cref="string"/> representaion of the <see cref="Complex"/> number. </returns>
     public override string ToString()
