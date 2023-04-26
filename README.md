@@ -1,4 +1,14 @@
 # Computer Science Problem
+ 
+ Table of contents 
+ 
+ [Welcome Aboard!](https://github.com/MorganKryze/Computer_Science_Problem#welcome-aboard)
+ [The documentation](https://github.com/MorganKryze/Computer_Science_Problem#the-documentation)
+ [Structure](https://github.com/MorganKryze/Computer_Science_Problem#structure)
+     [Core classe](https://github.com/MorganKryze/Computer_Science_Problem#core-classes)
+     [Visual Class](https://github.com/MorganKryze/Computer_Science_Problem#visual-classe)
+     [Processing classes](https://github.com/MorganKryze/Computer_Science_Problem#processing-classes)
+
 
 ## Welcome Aboard! 
 
@@ -11,10 +21,9 @@ As our code may not be as explicit for us as for you, we used the docfx software
 
 ## Structure
 
-### Core classes
+### Core classe
 
-* A MainProgram class - contains the calls for the processing functions such as main menu, actions, file choice and so on.
-* A GeneralMethods class - contains the processing methods or extension methods for a general use.
+* A GameManager - contains the calls for the processing functions such as main menu, actions, file choice and so on.
 
 ### Visual classe
 
@@ -27,4 +36,6 @@ As our code may not be as explicit for us as for you, we used the docfx software
 * A ConvertTo class - contains the methods to convert Little Endian byte arrays into integers and vice versa.
 * A Complex class - contains the attributes and methods to process complex numbers.
 * A Pixel class - contains the attributes and methods to create and manipulate pixels.
+*An HuffmanNode class - contains 
+*An HuffmanTreee class -contains
 
