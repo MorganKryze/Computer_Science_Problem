@@ -2,12 +2,17 @@
  
  Table of contents 
  
- [Welcome Aboard!](https://github.com/MorganKryze/Computer_Science_Problem#welcome-aboard)
- [The documentation](https://github.com/MorganKryze/Computer_Science_Problem#the-documentation)
- [Structure](https://github.com/MorganKryze/Computer_Science_Problem#structure)
-     [Core classe](https://github.com/MorganKryze/Computer_Science_Problem#core-classes)
-     [Visual Class](https://github.com/MorganKryze/Computer_Science_Problem#visual-classe)
-     [Processing classes](https://github.com/MorganKryze/Computer_Science_Problem#processing-classes)
+ [1-Welcome Aboard!](https://github.com/MorganKryze/Computer_Science_Problem#welcome-aboard)
+ 
+ [2-The documentation](https://github.com/MorganKryze/Computer_Science_Problem#the-documentation)
+ 
+ [3-Structure](https://github.com/MorganKryze/Computer_Science_Problem#structure)
+ 
+  -> [Core classe](https://github.com/MorganKryze/Computer_Science_Problem#core-classes)
+     
+  ->[Visual Class](https://github.com/MorganKryze/Computer_Science_Problem#visual-classe)
+     
+  ->[Processing classes](https://github.com/MorganKryze/Computer_Science_Problem#processing-classes)
 
 
 ## Welcome Aboard! 
