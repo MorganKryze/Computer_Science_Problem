@@ -19,6 +19,12 @@
      <None Update="Images/OUT/jpg/*">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Images/OUT/steganography/decrypted/*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Images/OUT/steganography/encrypted/*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Images/Title/*">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
