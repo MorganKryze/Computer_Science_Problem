@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface utilisateur </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface utilisateur ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="interface-utilisateur">Interface utilisateur</h1>
+
+<h2 id="game-manager"><strong>Game Manager</strong></h2>
+<p>Concernant l’affichage et toute l’interface utilisateur ainsi que son fonctionnement qui constitue le coeur du code en lui-même, il est contenu dans une classe nommée GameManager.</p>
+<p>Le nom de la classe est très fortement inspiré de l’objet éponyme utilisé dans <em>Unity</em> pour concevoir des jeux. Le Game Manager, comme son nom l’indique gère un jeu, avec le fonctionnement d’une partie, l’enregistrement des scores et de joueurs. C’est ainsi que de même ici il contient toute la donnée essentielle au traitement de l’image et de son affichage sur l’interface utilisateur.</p>
+<p>Ainsi dans notre GameManager, on retrouve donc plusieurs régions.</p>
+<p>Dans la première, on retrouve une première région Main contenant la méthode Main classique. Dans ce premier Main se lance la Méthode WriteFullScreen avec le footer et le header. Tout au long de l’expérience de l’utilisateur dans la console, le terminal est composé de 3 parties :</p>
+<ul>
+<li>le header, qui permet d’afficher un texte en haut de la console qui sera constant, avec le titre du projet et les collaborateurs</li>
+<li>le footer, qui permet d’afficher un texte en bas de console qui sera constant (ou non) affichant les différentes options de touches afin de naviguer sur l’interface.</li>
+<li>le reste de la console, qui lui s’écrire au fur et à mesure en fonction des choix de l’utilisateur, c’est ici que s’afficheront le menu déroulant, les saisies de l’utilisateurs pour appliquer les différentes fonctions de traitement de l’image (la plupart des fonctions d’écritures de cette partie se trouvent alors dans la classe <code>ConsoleVisuals</code>)</li>
+</ul>
+<p>Le fonctionnement des différents menus déroulant est le même : chaque menus sont accessibles avec des étiquettes (Main_Menu, Actions,Filter,Manipulation etc).</p>
+<p>Pour prendre en compte le choix de l’utilisateur dans le menu afin de le rediriger vers le bon menu correspondant, <em>in fine</em> qui permettent d’effectuer la transformation désirée, nous utilisons un switch prenant en paramètre une variable nommée s_jump qui est utilisé comme un fil conducteur de la navigation de l’utilisateur au sien de l’interface. Le s_jump prend comme valeur le choix de l’utilisateur dans le menu déroulant et en fonction du choix permet de continuer et de “jump”, sauter une certaine partie du code, vers le code qui nous intéresse, ou bien de stopper l’exécution du programme et de sortir de l’interface.</p>
+<p>Il y a en tout 5 menus déroulants :</p>
+<ul>
+<li>Main_Menu : affichant les options de
+<ul>
+<li>Play (pour continuer vers les transformations d’images)</li>
+<li>Options qui dirigent vers le menu des options</li>
+</ul>
+</li>
+<li>Options
+<ul>
+<li>Language : qui change donc la langue de l’interface et donne le choix entre français et anglais</li>
+<li>FontColor qui permet de changer la couleur de la police en console</li>
+<li>Main_Menu, affiché comme Reload qui redirige ver le Main_Menu présenté plus tôt</li>
+</ul>
+</li>
+<li>Language</li>
+<li>FontColor</li>
+</ul>
+<h2 id="consolevisuals">ConsoleVisuals</h2>
+<p>ConsoleVisuals est une classe contenant les méthodes utilisés pour l’affichage en console par le GameManager.</p>
+<p>Au sein de ce projet nous avons voulu mettre de l’effort sur l’interface utilisateur en console. Pour se faire nous avons créer une nouvelle classe appelée ConsoleVisuals qui a pour but de contenir les méthodes utiles à créer une interface plus agréable et plus intuitive dans le terminal dans le lancement du programme.</p>
+<p>Pour réaliser l’interface utilisateur, nous remplissons le terminal avec 2 composantes, qui ne changent pas à chaque et qui permet de réduire le temps de rafraîchissement de la console</p>
+<ul>
+<li>Le header, qui constitue la partie haute du terminal avec le titre du projet</li>
+<li>Le footer, qui constitue le bas du terminal avec les différentes commandes</li>
+</ul>
+<p>Pour se faire dans la méthode Main de la classe Program, nous faisons appel aux méthodes suivantes :</p>
+<ul>
+<li><code>WritePrompt:</code> cette méthode permet d’écrire un message en console et d’obtenir le texte de type <em>string</em> écrit par l’utilisateur de l’interface. Pour se faire, dans un premier temps on assoie la ligne à la hauteur de la console. On utilise ensuite une méthode appelée <em>ContinousPrint</em> qui permet de centrer le texte écrit au par l’utilisateur ? WTF  On instancie alors un <em>string</em> qu’on nommera prompt qui est initialisé comme vide et qui se remplit à l’écriture</li>
+<li><code>WriteParagraph :</code> cette méthode écrit un paragraphe en console. Dans un premier temps, on utilise une méthode appellée <em>IsScreenUpdtated</em> qui est booléen vérifiant si l’écran (hors header et footer) est bien mis à jour. On associe ensuite la ligne de l’écriture du paragraphe à la hauteur du contenu. Pour plus de lisibilité, au moment de l’écriture le texte s’affiche en négatif (lorsqu’on avait au départ un fond noir, il passe au blanc).  Une fois le paragraphe écrit on repasse au coloris par défaut avec la méthode <em>TryNegative</em> avec en entrée le paramètre default (TryNegative(default))</li>
+<li><code>ScrollingMenu</code> : cette méthode permet de créer un menu déroulant en console et d’obtenir le choix de l’utilisateur en se déplaçant à l’aide de touches types flèches ou touches de déplacement classiques usuels sur un clavier d’ordinateur (Z,S) . Cette méthode peut être appelée à plusieurs reprises, au fur et à mesure des niveaux de choix dans le code. Comme pour les méthodes précédentes, dans un premier temps, on utilise une méthode appelée <em>IsScreenUpdtated</em> qui est booléen vérifiant si l’écran (hors header et footer) est bien mis à jour. On associe ensuite la ligne de l’écriture du paragraphe à la hauteur du contenu. On instancie la position actuelle à 0. Et on attribue à une variable de type entier <em>maxLength</em> le nombre des choix possibles dans le menu déroulant actuel qui correspond donc au max de longueur d’options possibles dans le menu déroulant actuel. Puis de même nous appelons une nouvelle méthode appelée <em>ContinousPrint,</em> puis nous rentrons dans une boucle while qui vérifie la condition true qui permet de rester dans cette boucle tant qu’on ne retourne pas un entier. On a ensuite une boucle if qui permet lors du déplacement de l’utilisateur à l’aide des touches flèches, ou Z et S, d’afficher un signe de flèche devant l’option « actuelle ». Pour permettre, cette adaptation constante le for qui permet cette affichage prend en compte la variable <em>currentPosition</em> qui donne la position actuelle dans le menu déroulant.  Pour permettre cette navigation, dans le menu déroulant on utilise un switch case qui dans le cas :
+<ul>
+<li>Flèche vers le haut ou touche Z : décrémente d’1 la position actuelle</li>
+<li>Flèche vers le bas ou touche S : incrémente d’1 la position actuelle</li>
+<li>Touche Escape : retourne -1 et qui fait un retour arrière du menu déroulant</li>
+<li>Touche Entrée : retourne la position actuelle qui servira à effectuer la méthode correspondante à la valeur de cette position dans l’énumération correspondante.</li>
+</ul>
+</li>
+<li><code>Loading Screen</code> : cette méthode permet d’écrire une barre de chargement dans la console le temps la fonction IsScreenUpdated qui met à jour l’affichage en console. Pour cela, tant que le booléen IsScreenUpdated est false donc non terminé, on nettoie la console et on instancie une string loadingBar au départ vide qui se remplit au fur et à mesure du caractère « █ ».</li>
+</ul>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/MorganKryze/Computer_Science_Problem/blob/main/docfx_project/articles/UI.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

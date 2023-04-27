@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Recr&#233;er une im </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Recr&#233;er une im ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="recréer-une-im">Recréer une im</h1>
+
+<h2 id="les-classes-dinstances"><strong>Les classes d’instances</strong></h2>
+<h2 id="class-pixel"><strong>Class Pixel</strong></h2>
+<p>Pour reconstituer la classe Bitmap il faut pouvoir réinterpréter les pixels d’une image bitmap afin de les manipuler, c’est pour cela qu’il nous a fallu créer la classe Pixel :</p>
+<p>Un pixel étant composé de 3 composantes RGB (Red, Green,Blue)</p>
+<p>On instancie les 3 attributs de type byte : Red,Blue,Green</p>
+<p>Constructeurs :</p>
+<p>Pour prendre en compte toutes les configurations de l’interprétation des Pixels, il y a donc :</p>
+<ul>
+<li>un constructeur naturel qui crée un Pixel à partir des valeurs spécifiques des bytes en rouge,vert,bleu en entrée</li>
+<li>Un constructeur qui crée des pixels à partir des variables red,blue,green de type integer entier</li>
+<li>Un constructeur qui crée des pixels à partir des variables red,blue,green de type integer double</li>
+<li>Un constructeur qui crée une copie d’un pixel spécifique.</li>
+</ul>
+<p>La région Methods qui contient toutes les méthodes de transformations/manipulations sur les pixels</p>
+<ul>
+<li>La méthode GreyAverage qui retourne un pixel en nuances de gris ⇒ pour cela on fait la moyenne des 3 valeurs de chaque byte du pixel (moyenne du rouge, vert,bleu) et on affecte cette moyenne, donc cette nouvelle valeur à chacun des 3 byte. ⇒ permet de passer d’une photo en couleurs à une photo en nuance de gris</li>
+<li>la méthode Hue qui permet de créer un nouveau pixel à partir d’une teinte ou d’une saturation.</li>
+</ul>
+<p>Region Utility :</p>
+<p>Elle contient les méthodes essentielles à la manipulation de Pixel lorsqu’on manipulera notre classe Picture (remplaçant la classe BitMap)</p>
+<ul>
+<li>la méthode ToString (de type override pour forcer le passage de la fonction ToString déjà existante) ⇒ retourne une string donnant une représentation du pixel avec le nombre de byte ‘rouge,vert,bleu”</li>
+<li>Méthode Equals qui retourne un booléen, qui compare un pixel à un autre pixel en vérifiant si la valeur d’un byte de même couleur est bien la même pour les trois byte.</li>
+<li>GetHashCode : récupère un hash code (correspond à un ID du Pixel)</li>
+</ul>
+<p>Side Note : à l’aide de l’héritage : IEquatable <pixel> a permis de recomander à ajouter les méthodes Equals, GetHashCode</pixel></p>
+<h2 id="classe-position"><strong>Classe Position</strong></h2>
+<p>Afin de se déplacer dans notre image et de la manipuler, nous avons créé la classe Pixel mais maintenant il nous manque les positions des pixels pour réellement bien pouvoir manipuler les images :</p>
+<p>Ainsi nous avons instancier la classe Position qui permet de garder en mémoire la position d’un pixel dans une position qui dépend de x et y.</p>
+<p>Pour se faire il a fallu instancier les attributs X et Y qui sont des entiers</p>
+<p>Région constructeurs :</p>
+<ul>
+<li>Initialise une position à partir de 2 entiers pour X et Y</li>
+<li>Initialise une position à partir d’une position</li>
+</ul>
+<p>Région Methods :</p>
+<p>Contient les méthodes nécessaires à la manipulation des position :</p>
+<ul>
+<li>ToString(en override pour forcer le passage de la fonction ToString déjà existante) ⇒ qui permet d’avoir une représentation textuelle da la position plus compréhensible et intuitive.</li>
+<li>Equals qui retourne un booléen et vérifie si deux positions sont les mêmes en vérifiant que l’attribut X ait la même valeur pour les deux positions et que l’attribut est Y ait aussi la même valeur pour les deux positions</li>
+</ul>
+<h2 id="classe-picture"><strong>Classe Picture</strong></h2>
+<p>Un objet Picture est composé de 3 attributs : info, data et chemin de l’image</p>
+<p>On récupère les informations du header et la data de l’image.</p>
+<p>A partir du header de chaque image Bitmap (Les 14 premiers octets décrivent le header de votre fichier (entête))</p>
+<p>Region Constructeur :</p>
+<p>Dans un premier temps pour lire une image du format Bitmap, nous utilisons le header de l’image en question contenant toutes les informations essentielles de l’image.</p>
+<p>Dans notre cas, pour des raisons de simplification nous appelons le hearder ⇒ info.</p>
+<p>Le 2e byte du header donne le nb de byte, 10e le début de l’image, le 28e byte qui donne la profondeur de l’image.</p>
+<p>La stride nous donne le nombre de byte par ligne de pixels qui sont un facteur de 4</p>
+<p>En suite ⇒ Région dimension (largueur ⇒ byte 18 et hauteur ⇒ byte 22)</p>
+<p>Pour la lecture d’une image, on crée une image à partir du chemin, on prend le chemin de l’image on ouvre un Stream on lit le header.</p>
+<p>2e manière de faire : Créer une Picture à partir d’une hauteur et d’une largeur. on crée le header de nous même en instanciant un tableau de byte info de 54 byte. Or le header est sous le format de Little Endian donc on convertit toutes les infos dans ce format. Pour la data on créer donc un tableau de byte de taille height X stride</p>
+<p>Région Alter colors :</p>
+<p>La region colors contient une énumération de Transformation ( avec Grey, BnW, Negative, EdgeDetection, EdgePushing, Sharpen, GausssianBlur,Contrast)</p>
+<p>Contient une méthode AlterColors qui retourne une Picture</p>
+<p>⇒ On ne va pas toucher à l’image originale mais la dupliquer puis avec un switch case qui prend en entrée la transformation donnée on va appliquer la transformation correspondante sur l’image qu’on a dupliqué.</p>
+<p>Side Note : En contexte dans la console, on affiche dans le terminal l’image</p>
+<p>Region Manipulations :</p>
+<p>Pour pouvoir appliquer des manipulations nous avons des méthodes de classe Picture On en compte 2 : Rotations et Resize</p>
+<p>⇒ Comment fonctionne Rotation : → on duplique l’image et on lui applique l’angle de rotation.</p>
+<p>Une fois la nouvelle image dupliquée ayant subi la transformation. Afin de ne perdre aucune information, il faut redéfinir la nouvelle taille de l’image qui sera forcément plus grande que l’image initiale. Une fois la nouvelle taille de l’image déterminée, on replace les pixels de notre image Picture dans notre nouvelle image newimage de type picture et on la rempli en noir s’il y a n’y a pas d’information de pixels de notre image ayant subi la rotation.</p>
+<p>Ce qui donne en sortie, l’image ayant subi la rotation avec les bords noir sur les endroits où il n’y a pas d’informations.</p>
+<p>⇒ Comment fonctionne Resize: On demande en entrée la scale. On duplique l’image. On instancie une nouvelle largueur et longueur de l’image en la multipliant par l’échelle. Ensuite pour replacer les pixels dans cette nouvelle Picture on instancie les nouvelles positions en prenant les anciens X et Y définies comme étant les nouvelles positions x et y divisées par leur scale.</p>
+<p>Region Steganography :</p>
+<p>Une des autres transformations possible et demandé est la stéganographie, donc de cacher/dissimuler une image dite guest dans une image host.</p>
+<p>Pour réaliser cette transformation nous utilisons 2 fonctions de classe Picture :</p>
+<ul>
+<li>Encryptage et Décryptage</li>
+</ul>
+<p>⇒ Description encryptage : La fonction prend en entrée une Picture host et une Picture Source qui va jouer le rôle de host.</p>
+<p>Mais pour des raisons de sécurité,comme dans nos méthodes précédentes, on duplique l’image Source sous le nom d’Host . Ainsi au cours de l’encryptage c’est bien l’image Host que nous allons manipuler qui est pour le moment, une copie de l’image Source.</p>
+<p>Ensuite nous allons vérifier si les dimensions des images host et Guest correspondent si ce n’ets pas le cas on resize l’image guest en fonction des dimensions de l’image host.</p>
+<p>Region Utility Methods :</p>
+<p>Comme son nom l’indique, il s’agit des méthodes les plus utiles et les plus récurrentes nécessaires pour tous types de Manipulations/Transformations sur l’image Picture :</p>
+<ul>
+<li>Dupplicate ⇒ retourne une image contenant le même header (info) et la même data que l’image de type Picture sur laquelle on applique la méthode. On obtient donc un duplication/copie de l’image choisie.</li>
+<li>Méthode pos ⇒ nous donne la position d’en x et y d’un pixel (ses coordonées) retourne un entier</li>
+<li>Méthode this ⇒ retourne un Pixel d’un paramètre spécifique</li>
+<li>Méthode Save : prend en entrée le chemin de l’image à enregistrer. On a préécrit le chemin pour l’enregistrements des images qui se situes dans le Dossier Images&gt;OUT&gt;bmp On initialise une string pour l’image à enregistrer. Si l’image a un nom déjà pris, un affichage en console indique l’utilisateur qu’il est déjà pris. Tant que le nom de l’image est déjà pris (en vérifiant avec le booléen IsFileNameTaken) il reste dans la boucle. Une fois le nom choisi on instancie le chemin de l’image imagePath avec le path déjà préécrit + le nom de l’image choisi par l’utilisateur+le format de l’image, ici le format bitmap (.bmp). Une fois fait, ouvre un flux pour ouvrir l’image dans le terminal /console. On affiche un message pour indiquer le succés de la sauvegarde et le temps d’enregistrement puis on Clean la console et on affiche en console l’image générée dans la console avec la fonction DisplayImage.</li>
+<li>La méthode DisplayImage</li>
+<li>La méthode Display prend en entrée le paramètre du chemin de l’image à ouvrir. La méthode est constituée d’un switchcase afin de l’ouvrir dans 2 environnements différents :
+<ul>
+<li>Windows ou l’on utilise directement le chemin de l’image avec Process.Start(path)</li>
+<li>Unix, qui permet d’ouvrir le terminal sur Mac mais qui nécessite de vérifier si VSCode est en cours de tâche en donnant le chemin d’accès de l’application et le chemin de l’image pour l’ouvrir dans VSCode. Sinon, on l’ouvre en aperçu.</li>
+<li>Dans le cas où on souhaite l’ouvrir dans un autre environnement on initialise une instance par défaut indiquant qu’il s’agit d’une exception où la plateforme ne peut être supportée.</li>
+</ul>
+</li>
+<li>La méthode isVsCodeRunning ⇒ elle permet de savoir si VSCode est en cours de tâche sur la machine. Cette méthode est utile dans la fonction Display dans le cas de l’environnment Unix chez Mac, elle-même utilisée dans DisplayImage.</li>
+</ul>
+<h2 id="classe-complex"><strong>Classe Complex</strong></h2>
+<p>Nous avons créé la classe complexe afin de générer les fractales (cf .Partie Innovation)</p>
+<p>Dans la classe complexe, nous instancions les 2 attributs de notre complexe : sa partie Réelle Re et sa partie Imaginaire Im</p>
+<p>Nous avons ensuite notre constructeur.</p>
+<p>Et les opérateurs basiques essentiels à la manipulation de complexes :</p>
+<ul>
+<li>Somme : qui additionne les parties réelles et les parties imaginaires de deux complexes.</li>
+<li>La différence : qui soustrait les parties réelles et les parties imaginaires de deux complexes.</li>
+<li>Le produit : qui multiplie les parties réelles et les parties imaginaires de deux complexes.</li>
+<li>Le quotient : qui divise les parties réelles et les parties imaginaires de deux complexes.</li>
+</ul>
+<p>Puis dans une region Utilitary nous avons la méthode</p>
+<p>⇒ Modulus : qui donne le module du complexe</p>
+<p>⇒ Equals qui permet de vérifier si un complexe est égal à un autre complexe.</p>
+<p>⇒ ToString(en override pour forcer le passage de la fonction ToString déjà existante) ⇒ qui permet d’avoir une représentation textuelle d’un complexe plus compréhensible et intuitive.</p>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/MorganKryze/Computer_Science_Problem/blob/main/docfx_project/articles/instances.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

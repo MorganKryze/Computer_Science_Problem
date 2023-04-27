@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Introduction </title>
+    <title>Gestions </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Introduction ">
+    <meta name="title" content="Gestions ">
   
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -66,15 +66,26 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="introduction">Introduction</h1>
+<h1 id="gestions">Gestions</h1>
 
-<h2 id="traitement-de-limage"><strong>Traitement de l’image</strong></h2>
-<p>Dans le cadre d’un projet étudiant a sein du module de Problème Scientifique Informatique en 2e année en cycle préparatoire de l’ESILV. Le but de ce projet est d’apprendre à traiter une image. Pour se faire, nous devons remplir les objectifs suivants :</p>
+<h2 id="gestion-des-langues-et-des-messages-en-console"><strong>Gestion des langues et des messages en console</strong></h2>
+<p>Comme on a pu le voir au cours de la revue du GameManager pour tout affichage textuel prévue (donc ne ici on ne considère pas l’entrèe de texte de l’utilisateur) on utilise un dictionnaire de dictionnaire.</p>
+<p>En effet pour plus de propreté et de lisibilité dans le code, nous avons opté pour le choix d’utiliser un fichier json contenant 2 catégories : english et french.</p>
+<p>Chacun de ces dictionnaires contient des dictionnaires de dictionnaires correspondant à des catégories type. Chacunes de ces catégories constituent un dictionnaire qui associe <em>in finie</em> à un dictionnaire de dictionnaire qui associe donc une string correpondant au texte en affichage dans la console.</p>
 <ul>
-<li>Recréer nous-même la classe BitMap</li>
-<li>Manipuler des images sous le format Bitmap</li>
-<li>Appliquer des transformations sur des images Bitmap</li>
-<li>Générer des images Bitmap (type fractales blabal</li>
+<li>“title” ⇒ contient les strings à afficher en guise de titre</li>
+<li>”prompt” ⇒ contient les strings pour une saisie d’information de la part de l’utliisateur</li>
+<li>”options” ⇒ contient les strings des options des proposés par les menus déroulants</li>
+<li>”generic” ⇒ contient les strings de réponses génériques par rapport à une action de l’utilisateur</li>
+<li>”banner” ⇒ contient les strings en affichage contenu dans le header et le footer</li>
+<li>”error” ⇒ contient les strings affichant une erreur de saisie de la part de l’utilisateur</li>
+</ul>
+<h2 id="gestion-des-images"><strong>Gestion des images</strong></h2>
+<p>Pour gérer les différentes images, on retrouve tout dans le dossier Images celui-ci contenant 3 autres dossiers :</p>
+<ul>
+<li><em>Default</em>, contenant les images par défault qui nous ont été fournis et qu’on met à disposition de l’utilisateur afn d’appliquer les différentes transformations</li>
+<li><em>OUT</em>, qui contient ainsi toutes les images en sorties, donc les copies transformées des images contenus dans Default choisies par l’utilisateur.</li>
+<li><em>Title</em>, qui contient une fichier texte nommé title qui est utilisé dans l’affichae en console du titre du projet dans le header.</li>
 </ul>
 </article>
           </div>
@@ -84,7 +95,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MorganKryze/Computer_Science_Problem/blob/main/docfx_project/articles/intro.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MorganKryze/Computer_Science_Problem/blob/main/docfx_project/articles/langues.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

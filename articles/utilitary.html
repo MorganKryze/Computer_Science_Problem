@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Introduction </title>
+    <title>Les classes d’Utilitary </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Introduction ">
+    <meta name="title" content="Les classes d’Utilitary ">
   
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -66,15 +66,39 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="introduction">Introduction</h1>
+<h1 id="les-classes-dutilitary">Les classes d’Utilitary</h1>
 
-<h2 id="traitement-de-limage"><strong>Traitement de l’image</strong></h2>
-<p>Dans le cadre d’un projet étudiant a sein du module de Problème Scientifique Informatique en 2e année en cycle préparatoire de l’ESILV. Le but de ce projet est d’apprendre à traiter une image. Pour se faire, nous devons remplir les objectifs suivants :</p>
+<h2 id="class-convertto"><strong>Class ConvertTo</strong></h2>
+<p>La classe <code>ConvertTo</code> est l’une des classes essentielles pour le traitement de l’image notamment pour la lecture du header des fichiers bitmap :</p>
+<p>Elle contient 2 régions</p>
 <ul>
-<li>Recréer nous-même la classe BitMap</li>
-<li>Manipuler des images sous le format Bitmap</li>
-<li>Appliquer des transformations sur des images Bitmap</li>
-<li>Générer des images Bitmap (type fractales blabal</li>
+<li>FromLittleEndian contenant les méthodes permettant la conversion d’un tableau de byte en format little endian à un type désiré
+<ul>
+<li><code>UInt</code> qui prends en paramètre un tableau debyte et retournes un uint</li>
+<li><code>Int</code> qui prends en paramètre un tableau debyte et retournes un int</li>
+<li><code>UShort</code> qui prends en paramètre un tableau debyte et retournes un ushort</li>
+</ul>
+</li>
+<li><code>ToLittleEndian</code> contenant les méthodes permettant de convertir différents types de valeurs en un tableau de byte dans le format Little Endian</li>
+</ul>
+<h2 id="classe-convolution"><strong>Classe Convolution</strong></h2>
+<p>Cette classe contient toutes les matrices de convolution des différentes transformations.</p>
+<p>Ainsi dans la classe convolution on peut trouver les deux régions suivantes :</p>
+<ul>
+<li>Dictionnary, contenant les différents kernel (ou noyau) de chaque transformation.</li>
+</ul>
+<p>Ainsi dans Dictionnary, on trouve un dictionnaire qui associe une Transformation (de l’énumération des transformations) à une matrice de float. Ainsi nous avons le kernel de :</p>
+<ul>
+<li>Détection de contours</li>
+<li>Renforcement des bords</li>
+<li>Flou</li>
+<li>Repoussage</li>
+<li>Extensions methods for Image, contenant des méthodes annexes pour appliquer les kernel donnés précédemment sur nos images bitmap. Ainsi, on a les méthodes suivantes :
+<ul>
+<li><code>ApplyKernel</code> qui prend en entrée l’image sur laquelle il faut appliquer la transformation et la matrice de float ici appelée kernel.</li>
+<li><code>ApplyKernelByName</code> qui prend en entrée l’image sur laquelle il faut appliquer la transformation et la transformation à appliquer, et retourne ainsi une image de type Picture. Cette méthode appelle ainsi la méthode ApplyKernel avec en paramètre l’image et le kernel associé à la transformation.</li>
+</ul>
+</li>
 </ul>
 </article>
           </div>
@@ -84,7 +108,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MorganKryze/Computer_Science_Problem/blob/main/docfx_project/articles/intro.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MorganKryze/Computer_Science_Problem/blob/main/docfx_project/articles/utilitary.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

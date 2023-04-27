@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Introduction </title>
+    <title>La compression Huffman </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Introduction ">
+    <meta name="title" content="La compression Huffman ">
   
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -66,16 +66,15 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="introduction">Introduction</h1>
+<h1 id="la-compression-huffman">La compression Huffman</h1>
 
-<h2 id="traitement-de-limage"><strong>Traitement de l’image</strong></h2>
-<p>Dans le cadre d’un projet étudiant a sein du module de Problème Scientifique Informatique en 2e année en cycle préparatoire de l’ESILV. Le but de ce projet est d’apprendre à traiter une image. Pour se faire, nous devons remplir les objectifs suivants :</p>
-<ul>
-<li>Recréer nous-même la classe BitMap</li>
-<li>Manipuler des images sous le format Bitmap</li>
-<li>Appliquer des transformations sur des images Bitmap</li>
-<li>Générer des images Bitmap (type fractales blabal</li>
-</ul>
+<p>Comme demandé au cours du projet, pour la compression, on utilise le principe d’Huffman.</p>
+<h2 id="classe-huffmannode">Classe HuffmanNode</h2>
+<p>Cette classe représente un nœud dans l'arbre de Huffman. Chaque nœud a une valeur, une fréquence et deux nœuds enfants (un nœud gauche et un nœud droit).</p>
+<h2 id="classe-huffmantree">Classe HuffmanTree</h2>
+<p>Cette classe représente l'arbre de Huffman lui-même. Dans son constructeur, elle prend en entrée un tableau d'entiers représentant les fréquences d'occurrence de chaque valeur possible. Elle commence par créer des nœuds pour chaque valeur ayant une fréquence supérieure à zéro, puis elle construit l'arbre de Huffman en fusionnant les deux nœuds avec les fréquences les plus faibles à chaque étape jusqu'à ce qu'il ne reste qu'un seul nœud, qui devient la racine de l'arbre. La méthode <code>GenerateCodes()</code> de cette classe parcourt l'arbre de Huffman pour générer un code de Huffman de longueur variable pour chaque valeur possible.
+Classe HuffmanCompression</p>
+<p>Cette classe représente l'algorithme de compression de Huffman lui-même. Sa méthode <code>Compress()</code> prend en entrée un tableau d'entiers représentant une matrice de pixels. Elle commence par calculer les fréquences d'occurrence de chaque valeur dans la matrice de pixels, puis elle construit un arbre de Huffman à partir de ces fréquences et génère des codes de longueurs variables pour chaque valeur en utilisant l'arbre de Huffman. Ensuite, elle parcourt la matrice de pixels et encode chaque valeur en utilisant son code de Huffman. Les bits encodés sont stockés dans une liste de booléens, puis elle ajoute un padding pour s'assurer que le nombre total de bits est un multiple de huit (nécessaire pour convertir les bits en octets). Enfin, elle convertit la liste de booléens en un tableau d'octets et renvoie le résultat.</p>
 </article>
           </div>
 
@@ -84,7 +83,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MorganKryze/Computer_Science_Problem/blob/main/docfx_project/articles/intro.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MorganKryze/Computer_Science_Problem/blob/main/docfx_project/articles/compression.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

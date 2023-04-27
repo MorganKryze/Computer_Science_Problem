@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Introduction </title>
+    <title>Innovation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Introduction ">
+    <meta name="title" content="Innovation ">
   
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -66,16 +66,25 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="introduction">Introduction</h1>
+<h1 id="innovation">Innovation</h1>
 
-<h2 id="traitement-de-limage"><strong>Traitement de l’image</strong></h2>
-<p>Dans le cadre d’un projet étudiant a sein du module de Problème Scientifique Informatique en 2e année en cycle préparatoire de l’ESILV. Le but de ce projet est d’apprendre à traiter une image. Pour se faire, nous devons remplir les objectifs suivants :</p>
+<h2 id="fractales"><strong>Fractales</strong></h2>
+<p>Une fractale est un objet mathématique qui représente des formes découpées, fragmentaires, laissant apparaître des motifs similaires à des échelles d'observation de plus en plus fines.</p>
+<p>L’un des objectifs demandés de ce projet a été de générer une image d’une fractale. Et en tant que partie innovation “optionnelle”, nous proposons plusieurs sets de fractales différentes :</p>
 <ul>
-<li>Recréer nous-même la classe BitMap</li>
-<li>Manipuler des images sous le format Bitmap</li>
-<li>Appliquer des transformations sur des images Bitmap</li>
-<li>Générer des images Bitmap (type fractales blabal</li>
+<li>MandelBrot (une tranche oblique)
+<ul>
+<li>On a un seul ensemble de MandelBrot</li>
 </ul>
+</li>
+<li>Julia (tranches droites avec c fixé
+<ul>
+<li>Il existe plusieurs ensembles de Julia.</li>
+</ul>
+</li>
+</ul>
+<p>Ces deux fractales suivent la même formule de récurrence : Zn+1 = Z² + C</p>
+<p>Pour générer ces fractales, nous utilisons une fonction que nous avons nommée ApplyFractalSet qui prend en entrée, la fractale, la taille et la profondeur choisie par l’utilisateur. Elle génère donc une image de type Picture et ouvre ensuite un nouveau Thread pour remplir l’image en fonction de la fractale choisie. C’est ici que nous utilisons la classe Complexe. Pour le cas de MandelBrot on remplit l’image avec le principe de récurrence comme cité précédemment, qui nous donne un pattern unique. Dans le cas de Julia, comme il existe plusieurs ensembles de Julia, nous utilisons un switchcase aléatoire qui choisit un complexe parmi une liste de 6 complexes à utiliser dans la suite de Julia.</p>
 </article>
           </div>
 
@@ -84,7 +93,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MorganKryze/Computer_Science_Problem/blob/main/docfx_project/articles/intro.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MorganKryze/Computer_Science_Problem/blob/main/docfx_project/articles/innovation.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
